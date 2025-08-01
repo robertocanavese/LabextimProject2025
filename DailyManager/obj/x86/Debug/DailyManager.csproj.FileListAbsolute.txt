@@ -1,0 +1,11 @@
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\DailyManager.exe.config
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\snap7.dll
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\DailyManager.exe
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\DailyManager.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\DLLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\x86\Debug\DLLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\x86\Debug\DailyManager.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\x86\Debug\DailyManager.exe
+E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\x86\Debug\DailyManager.pdb

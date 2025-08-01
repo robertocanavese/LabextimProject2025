@@ -1,0 +1,15 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="~/HomeTablet.aspx" title="Home" description="Home page">
+    <siteMapNode url="~/ProductionOrdersDepSched.aspx" title="Calendario lavorazioni di reparto"
+               description="Calendario lavorazioni di reparto">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersDepSched2.aspx" title="Calendario lavorazioni di reparto NUOVO"
+          description="Calendario lavorazioni di reparto NUOVO">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionGraphicScheduler.aspx" title="Schedulatore grafico lavorazioni"
+              description="Schedulatore grafico lavorazioni">
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

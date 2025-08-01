@@ -1,0 +1,104 @@
+﻿table.searchEngineMaster {
+    /*width: 100%;*/
+    border: none;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+}
+
+table.searchEngine {
+    /*width: 100%;*/
+    /*text-align: center;*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    color: navy;
+    border: none;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+}
+
+    table.searchEngine tr {
+        /*width: 100%;*/
+        /*background-color: #F4F7FC;*/
+        /*background-color: #f2f2f2;*/
+    }
+
+    table.searchEngine td {
+        /*width: 16%;*/
+        padding: 3px;
+    }
+
+    table.searchEngine select {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 10px;
+        color: navy;
+    }
+
+    table.searchEngine input {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 10px;
+        color: navy;
+    }
+
+    table.searchEngineLarger {
+    /*width: 100%;*/
+    /*text-align: center;*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+    color: navy;
+    border: none;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+}
+
+     table.searchEngineExtraLarge {
+    /*width: 100%;*/
+    /*text-align: center;*/
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+    color: navy;
+    border: none;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+}
+
+    table.searchEngineLarger tr {
+        /*width: 100%;*/
+        /*background-color: #F4F7FC;*/
+        /*background-color: #f2f2f2;*/
+    }
+
+    table.searchEngineLarger td {
+        /*width: 16%;*/
+        padding: 3px;
+    }
+    
+    table.searchEngineExtraLarge td {
+        /*width: 16%;*/
+        padding: 3px;
+        font-size:14px!important
+    }
+    
+    table.searchEngineLarger select {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 11px;
+        color: navy;
+    }
+
+    table.searchEngineLarger input {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 11px;
+        color: navy;
+    }
+
+    table.searchEngineExtraLarge select {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 14px;
+        color: navy;
+    }
+
+    table.searchEngineExtraLarge input[type=text] {
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 14px;
+        color: navy;
+        min-width: 60px;
+    }

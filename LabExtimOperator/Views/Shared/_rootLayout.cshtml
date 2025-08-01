@@ -1,0 +1,79 @@
+﻿<!DOCTYPE html>
+
+<html>
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, user-scalable=no, maximum-scale=1.0, minimum-scale=1.0" />
+    <title>@ViewBag.Title</title>
+    <link href="@Url.Content("~/Content/Site.css")" rel="stylesheet" type="text/css" />
+
+    
+    @Html.DevExpress().GetStyleSheets( 
+    new StyleSheet { ExtensionSuite = ExtensionSuite.NavigationAndLayout }, 
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Editors }, 
+    new StyleSheet { ExtensionSuite = ExtensionSuite.HtmlEditor }, 
+    new StyleSheet { ExtensionSuite = ExtensionSuite.GridView }, 
+    new StyleSheet { ExtensionSuite = ExtensionSuite.PivotGrid },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Chart },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Report },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Scheduler },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.TreeList },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.Spreadsheet },
+    new StyleSheet { ExtensionSuite = ExtensionSuite.SpellChecker }
+)
+@Html.DevExpress().GetScripts( 
+    new Script { ExtensionSuite = ExtensionSuite.NavigationAndLayout }, 
+    new Script { ExtensionSuite = ExtensionSuite.HtmlEditor }, 
+    new Script { ExtensionSuite = ExtensionSuite.GridView }, 
+    new Script { ExtensionSuite = ExtensionSuite.PivotGrid },
+    new Script { ExtensionSuite = ExtensionSuite.Editors }, 
+    new Script { ExtensionSuite = ExtensionSuite.Chart },
+    new Script { ExtensionSuite = ExtensionSuite.Report },
+    new Script { ExtensionSuite = ExtensionSuite.Scheduler },
+    new Script { ExtensionSuite = ExtensionSuite.TreeList },
+    new Script { ExtensionSuite = ExtensionSuite.Spreadsheet },
+    new Script { ExtensionSuite = ExtensionSuite.SpellChecker }
+)
+</head>
+<body>
+
+    @*<iframe src="@Url.Action("SessionKeeper", "Account", null, "http")" id="iframe_sessionkeeper"></iframe>*@
+
+    @Html.DevExpress().Panel(settings => {
+        settings.Name = "HeaderPane";
+        settings.FixedPosition = PanelFixedPosition.WindowTop;
+        settings.Collapsible = true;
+        settings.SettingsAdaptivity.CollapseAtWindowInnerWidth = 500;
+        settings.ControlStyle.CssClass = "headerPane";
+        settings.Styles.Panel.CssClass = "panel";
+        settings.Styles.ExpandBar.CssClass = "bar";
+        settings.SetContent(() => {
+            Html.RenderPartial("HeaderPartialView", HeaderViewRenderMode.Full);
+        });
+        settings.SetExpandedPanelTemplateContent((c) => {
+            Html.RenderPartial("HeaderPartialView", HeaderViewRenderMode.Menu);
+        });
+        settings.SetExpandBarTemplateContent((c) => {
+            Html.RenderPartial("HeaderPartialView", HeaderViewRenderMode.Title);
+        });
+    }).GetHtml()
+
+    @Html.DevExpress().Panel(settings => {
+        settings.Name = "MainPane";
+        settings.ControlStyle.CssClass = "mainContentPane";
+        settings.SetContent(RenderBody().ToHtmlString());
+    }).GetHtml()
+
+    @Html.DevExpress().Panel(settings => {
+        settings.Name = "FooterPane";
+        settings.FixedPosition = PanelFixedPosition.WindowBottom;
+        settings.SettingsAdaptivity.HideAtWindowInnerWidth = 100;
+        settings.ControlStyle.CssClass = "footerPane";
+        settings.Styles.Panel.CssClass = "panel";
+        settings.SetContent(() => {
+            Html.RenderPartial("FooterPartialView");
+        });
+   }).GetHtml()
+
+</body>
+</html>

@@ -1,0 +1,5 @@
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Release\CMLabExtim.dll.config
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Release\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Release\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x64\Release\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x64\Release\CMLabExtim.pdb

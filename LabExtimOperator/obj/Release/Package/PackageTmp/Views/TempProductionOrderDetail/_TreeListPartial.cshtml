@@ -1,0 +1,75 @@
+@using System.Drawing
+@{
+    var treeList = Html.DevExpress().TreeList(
+        settings =>
+        {
+            settings.Name = "treeList";
+            settings.CallbackRouteValues = new { Controller = "TempProductionOrderDetail", Action = "DataBindingPartial" };
+            settings.Width = Unit.Percentage(100);
+            settings.Height = Unit.Pixel(150);
+
+            settings.AutoGenerateColumns = false;
+            settings.KeyFieldName = "ID";
+            settings.ParentFieldName = "ParentID";
+            settings.RootValue = 0;
+
+            settings.SettingsSelection.Enabled = true;
+            settings.SettingsSelection.Recursive = true;
+            
+            settings.Columns.Add("Name", "Descrizione");
+            
+
+            settings.SettingsBehavior.ExpandCollapseAction = TreeListExpandCollapseAction.NodeDblClick;
+            settings.SettingsCookies.StoreExpandedNodes = true;
+
+            settings.ClientLayout = (s, e) =>
+            {
+                if (e.LayoutMode == ClientLayoutMode.Loading)
+                {
+                    if (Session["TreeListState"] != null)
+                        e.LayoutData = (string)Session["TreeListState"];
+                }
+                else
+                    Session["TreeListState"] = e.LayoutData;
+            };
+
+            //settings.ClientSideEvents.SelectionChanged = "function(s, e) { s.PerformCallback(); }";
+
+            settings.DataBound = (s, e) =>
+            {
+                MVCxTreeList treeListView = (MVCxTreeList)s;
+                TreeListNodeIterator iterator = treeListView.CreateNodeIterator();
+                TreeListNode node = iterator.Current;
+                string selectMode = "DepthOverTwo";
+                while (node != null)
+                {
+                    if (node != treeListView.RootNode)
+                    {
+                        switch (selectMode)
+                        {
+                            case "Child":
+                                node.AllowSelect = !node.HasChildren;
+                                break;
+                            case "Parent":
+                                node.AllowSelect = node.HasChildren;
+                                break;
+                            case "DepthOverTwo":
+                                node.AllowSelect = node.Level > 2;
+                                break;
+                            default:
+                                node.AllowSelect = true;
+                                break;
+                        }
+                    }
+                    node = iterator.GetNext();
+                }
+            };
+            
+            settings.PreRender = (sender, e) =>
+            {
+                if (Session["TreeListState"] == null)
+                    ((MVCxTreeList)sender).ExpandToLevel(2);
+            };
+        }
+        ).Bind(Model).GetHtml();
+}

@@ -1,0 +1,143 @@
+<?xml version="1.0" encoding="utf-8"?>
+<edmx:Edmx Version="3.0" xmlns:edmx="http://schemas.microsoft.com/ado/2009/11/edmx">
+ <!-- EF Designer content (DO NOT EDIT MANUALLY BELOW HERE) -->
+  <edmx:Designer xmlns="http://schemas.microsoft.com/ado/2009/11/edmx">
+    <!-- Diagram content (shape and connector positions) -->
+    <edmx:Diagrams>
+      <Diagram DiagramId="3244c610ebef49c1b3560a110cf582a8" Name="Diagram1">
+        <EntityTypeShape EntityType="LabExtimModel.Configuration" Width="1.5" PointX="2.75" PointY="6.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.CustomerOrders" Width="1.5" PointX="9" PointY="8.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Customers" Width="1.5" PointX="6.75" PointY="4.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.CustomersMarkUps" Width="1.5" PointX="9" PointY="34.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Dependencies" Width="1.5" PointX="14" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Employees" Width="1.5" PointX="6.75" PointY="34.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Find_Quotations" Width="1.5" PointX="11" PointY="16.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Find_QuotationTemplates" Width="1.5" PointX="0.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.ImportFieldMappingInfo" Width="1.5" PointX="2.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.ItemDisplayModes" Width="1.5" PointX="3.75" PointY="17.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.ItemTypes" Width="1.5" PointX="0.75" PointY="17.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Links" Width="1.5" PointX="11.75" PointY="3.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Locks" Width="1.5" PointX="0.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.LockTypes" Width="1.5" PointX="13.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.MacroItemDetails" Width="1.5" PointX="8.25" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.MacroItems" Width="1.5" PointX="3" PointY="20.625" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.MenuItems" Width="1.5" PointX="13.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.PickingItems" Width="1.5" PointX="6" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Queries" Width="1.5" PointX="0.75" PointY="3.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.QuotationDetails" Width="1.5" PointX="11.25" PointY="20.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Quotations" Width="1.5" PointX="9" PointY="0.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.QuotationTemplateDetails" Width="1.5" PointX="8.25" PointY="14.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.QuotationTemplates" Width="1.5" PointX="6" PointY="11.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Reports" Width="1.5" PointX="13.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.ReportTexts" Width="1.5" PointX="15.75" PointY="5.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Selectors" Width="1.5" PointX="3" PointY="2.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.SelectorTypes" Width="1.5" PointX="0.75" PointY="7.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.StandardPercentages" Width="1.5" PointX="3.75" PointY="14.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Statuses" Width="1.5" PointX="6.75" PointY="40" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.StatusTypes" Width="1.5" PointX="4.5" PointY="40.5" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.StickingErrors" Width="1.5" PointX="15.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Suppliers" Width="1.5" PointX="3.75" PointY="27.25" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.sysdiagrams" Width="1.5" PointX="13.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.TempQuotationDetails" Width="1.5" PointX="8.25" PointY="26.125" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.TempQuotations" Width="1.5" PointX="6" PointY="27.875" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Types" Width="1.5" PointX="0.75" PointY="26.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.UnitConverters" Width="1.5" PointX="3" PointY="35.375" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.Units" Width="1.5" PointX="0.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_AllQuotations" Width="1.5" PointX="15.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_CalculatedDetails" Width="1.5" PointX="15.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_EmployeesWorkingDayHours" Width="1.5" PointX="17.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_FreeTypeDDT" Width="1.5" PointX="17.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_FreeTypePOD" Width="1.5" PointX="17.75" PointY="12.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_FreeTypePrepare" Width="1.5" PointX="17.75" PointY="18.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_FreeTypeProductionOrderDetails" Width="1.5" PointX="19.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_HitsOfMacroItems" Width="1.5" PointX="19.75" PointY="9.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_HitsOfPickingItems" Width="1.5" PointX="19.75" PointY="15.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_MenuItems" Width="1.5" PointX="19.75" PointY="21.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_PickingItems" Width="1.5" PointX="21.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_ProductionOrdersCosts" Width="1.5" PointX="21.75" PointY="8.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_QUOPORCostsPrices" Width="1.5" PointX="21.75" PointY="13.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_QuotationsCostsPrices" Width="1.5" PointX="21.75" PointY="19.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_TempCalculatedDetails" Width="1.5" PointX="23.75" PointY="2.75" IsExpanded="true" />
+        <EntityTypeShape EntityType="LabExtimModel.VW_UngroupablePickingItems" Width="1.5" PointX="23.75" PointY="16.75" IsExpanded="true" />
+        <AssociationConnector Association="LabExtimModel.FK_CustomerOrders_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_CustomerOrders_Quotations" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_CustomerOrders_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_CustomersMarkUps_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Find_Quotations_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Quotations_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotations_Customers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Dependencies_Links" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Employees_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Find_Quotations_Employees" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Quotations_Approver" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Quotations_Owner" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotations_Approver" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotations_Owner" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_PickingItems_ItemDisplayModes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_MacroItems_ItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_PickingItems_ItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_ItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_ItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_ItemTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_MacroItemDetails_MacroItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_MacroItemDetails_PickingItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_MacroItems_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_MacroItems_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_MacroItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_MacroItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_MacroItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_PickingItems_StandardPercentages" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_PickingItems_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_PickingItems_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_PickingItems_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_PickingItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_PickingItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_PickingItems" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Selectors_Queries" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_Quotations" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationDetails_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Quotations_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_QuotationTemplates" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_QuotationTemplateDetails_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Selectors_SelectorTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_Statuses_StatusTypes" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotations_Statuses" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_Suppliers" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_TempQuotations" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_Types" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_TempQuotationDetails_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_UnitConverters_Units" ManuallyRouted="false" />
+        <AssociationConnector Association="LabExtimModel.FK_UnitConverters_Units1" ManuallyRouted="false" />
+        <EntityTypeShape EntityType="LabExtimModel.CloseOfDays" Width="1.5" PointX="9" PointY="37" />
+        <AssociationConnector Association="LabExtimModel.FK_CloseOfDays_Employees" />
+        <EntityTypeShape EntityType="LabExtimModel.ProductionOrderDetails" Width="1.5" PointX="13.5" PointY="18.625" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Employees" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_ItemTypes" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_QuotationDetails" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Suppliers" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Suppliers1" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Types" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Units" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Units1" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_Units2" />
+        <EntityTypeShape EntityType="LabExtimModel.ProductionOrderTechSpecs" Width="1.5" PointX="18.75" PointY="25.125" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderTechSpecs_Employees" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderTechSpecs_PickingItems" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderTechSpecs_ProductionOrderDetails" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderTechSpecs_QuotationDetails" />
+        <EntityTypeShape EntityType="LabExtimModel.ProductionOrders" Width="1.5" PointX="11.25" PointY="9.75" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrders_CustomerOrders" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrders_Customers" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrders_Employees" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderDetails_ProductionOrders" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrders_Quotations" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrders_Statuses" />
+        <AssociationConnector Association="LabExtimModel.FK_ProductionOrderTechSpecs_ProductionOrders" />
+        </Diagram>
+    </edmx:Diagrams>
+  </edmx:Designer>
+</edmx:Edmx>

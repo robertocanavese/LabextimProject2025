@@ -1,0 +1,2776 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<!--
+This file is used by the publish/package process of your Web project. You can customize the behavior of this process
+by editing this MSBuild file. In order to learn more about this please visit http://go.microsoft.com/fwlink/?LinkID=208121. 
+-->
+<Project ToolsVersion="4.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <TimeStampOfAssociatedLegacyPublishXmlFile />
+    <_PublishTargetUrl>C:\Users\RobertoCanavese\Desktop\Labextim Deployment</_PublishTargetUrl>
+  </PropertyGroup>
+  <ItemGroup>
+    <File Include="App_Browsers/ie.browser">
+      <publishTime>05/08/2015 09:04:41</publishTime>
+    </File>
+    <File Include="AutocompleteFilter.asmx">
+      <publishTime>06/05/2017 09:29:48</publishTime>
+    </File>
+    <File Include="AutocompleteStyle.css">
+      <publishTime>06/05/2017 09:29:48</publishTime>
+    </File>
+    <File Include="bin/ADODB.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/AjaxControlToolkit.pdb">
+      <publishTime>05/06/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/ar/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/CMLabExtim.dll">
+      <publishTime>06/06/2025 10:31:22</publishTime>
+    </File>
+    <File Include="bin/CMLabExtim.dll.config">
+      <publishTime>03/06/2017 16:37:49</publishTime>
+    </File>
+    <File Include="bin/CMLabExtim.pdb">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.CrystalReports.Engine.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ClientDoc.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommLayer.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonControls.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CommonObjectModel.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Controllers.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.CubeDefModel.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataDefModel.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.DataSetConversion.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ObjectFactory.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.Prompting.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.ReportDefModel.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportAppServer.XmlSerialize.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.ReportSource.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Shared.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/CrystalDecisions.Web.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/cs/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/CustomControls/SearchEngine.css">
+      <publishTime>03/13/2021 12:54:34</publishTime>
+    </File>
+    <File Include="bin/de/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/DLLabExtim.dll">
+      <publishTime>06/06/2025 10:31:23</publishTime>
+    </File>
+    <File Include="bin/DLLabExtim.dll.config">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/DLLabExtim.pdb">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/es/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/Export/dummy.txt">
+      <publishTime>06/15/2016 09:51:58</publishTime>
+    </File>
+    <File Include="bin/fr/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/he/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/hi/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/it/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/it/Microsoft.Build.Utilities.v3.5.resources.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/ja/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/ko/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/LabExtim.dll">
+      <publishTime>06/06/2025 10:31:24</publishTime>
+    </File>
+    <File Include="bin/LabExtim.pdb">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.Build.Utilities.v3.5.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.Common.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/Microsoft.ReportViewer.WebForms.dll">
+      <publishTime>09/11/2009 10:40:06</publishTime>
+    </File>
+    <File Include="bin/nl/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/NotAClue.ComponentModel.DataAnnotations.dll">
+      <publishTime>06/05/2017 09:29:38</publishTime>
+    </File>
+    <File Include="bin/NotAClue.dll">
+      <publishTime>06/05/2017 09:29:38</publishTime>
+    </File>
+    <File Include="bin/NotAClue.Web.dll">
+      <publishTime>06/05/2017 09:29:38</publishTime>
+    </File>
+    <File Include="bin/NotAClue.Web.DynamicData.dll">
+      <publishTime>06/05/2017 09:29:38</publishTime>
+    </File>
+    <File Include="bin/pt/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/Reports/dummy.txt">
+      <publishTime>06/15/2016 09:57:25</publishTime>
+    </File>
+    <File Include="bin/Reports/PickingItems.cs">
+      <publishTime>04/30/2022 12:21:24</publishTime>
+    </File>
+    <File Include="bin/Reports/PickingItems.rpt">
+      <publishTime>04/30/2022 12:21:20</publishTime>
+    </File>
+    <File Include="bin/Reports/ProductionOrder.cs">
+      <publishTime>12/19/2023 10:23:01</publishTime>
+    </File>
+    <File Include="bin/Reports/ProductionOrder.rpt">
+      <publishTime>12/19/2023 10:23:00</publishTime>
+    </File>
+    <File Include="bin/Reports/ProductionOrderStat.cs">
+      <publishTime>12/19/2023 10:32:59</publishTime>
+    </File>
+    <File Include="bin/Reports/ProductionOrderStat.rpt">
+      <publishTime>12/19/2023 10:32:58</publishTime>
+    </File>
+    <File Include="bin/Reports/Quotation.cs">
+      <publishTime>06/03/2017 16:38:32</publishTime>
+    </File>
+    <File Include="bin/Reports/Quotation.rpt">
+      <publishTime>05/19/2012 18:12:14</publishTime>
+    </File>
+    <File Include="bin/Reports/Quotation2013.cs">
+      <publishTime>04/23/2024 11:07:03</publishTime>
+    </File>
+    <File Include="bin/Reports/Quotation2013.rpt">
+      <publishTime>03/31/2018 10:34:25</publishTime>
+    </File>
+    <File Include="bin/Reports/QuotationCartolabe2024.cs">
+      <publishTime>07/18/2024 17:08:04</publishTime>
+    </File>
+    <File Include="bin/Reports/QuotationCartolabe2024.rpt">
+      <publishTime>07/18/2024 17:08:01</publishTime>
+    </File>
+    <File Include="bin/Reports/QuotationLabe2024.cs">
+      <publishTime>07/18/2024 17:08:05</publishTime>
+    </File>
+    <File Include="bin/Reports/QuotationLabe2024.rpt">
+      <publishTime>07/18/2024 17:08:04</publishTime>
+    </File>
+    <File Include="bin/Reports/QuotationTechnical.cs">
+      <publishTime>06/03/2017 16:38:33</publishTime>
+    </File>
+    <File Include="bin/Reports/QuotationTechnical.rpt">
+      <publishTime>05/19/2012 18:12:38</publishTime>
+    </File>
+    <File Include="bin/ru/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/snap7.dll">
+      <publishTime>05/27/2023 13:26:11</publishTime>
+    </File>
+    <File Include="bin/stdole.dll">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.ComponentModel.DataAnnotations.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Configuration.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.DataSetExtensions.dll">
+      <publishTime>10/02/2017 11:19:52</publishTime>
+    </File>
+    <File Include="bin/System.Data.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Data.Linq.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Drawing.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.EnterpriseServices.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Net.IPNetwork.dll">
+      <publishTime>11/14/2018 11:03:33</publishTime>
+    </File>
+    <File Include="bin/System.Net.IPNetwork.pdb">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/System.Net.IPNetwork.snk">
+      <publishTime>01/26/2019 10:36:47</publishTime>
+    </File>
+    <File Include="bin/System.Web.Abstractions.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.Design.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.DynamicData.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Entity.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Extensions.dll">
+      <publishTime>10/02/2017 11:19:54</publishTime>
+    </File>
+    <File Include="bin/System.Web.Mobile.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Routing.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Web.Services.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Xml.dll">
+      <publishTime>03/18/2010 18:31:26</publishTime>
+    </File>
+    <File Include="bin/System.Xml.Linq.dll">
+      <publishTime>10/02/2017 11:19:54</publishTime>
+    </File>
+    <File Include="bin/tr-TR/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/UILabExtim.dll">
+      <publishTime>06/06/2025 10:31:23</publishTime>
+    </File>
+    <File Include="bin/UILabExtim.pdb">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="bin/zh-CHS/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="bin/zh-CHT/AjaxControlToolkit.resources.dll">
+      <publishTime>06/05/2017 09:29:00</publishTime>
+    </File>
+    <File Include="Configuration.aspx">
+      <publishTime>05/08/2015 09:04:30</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_cs.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_da.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_de.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_en.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_es.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_fi.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_fr.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_hu.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_it.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_ja.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_ko.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_nb.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_nl.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_pl.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_pt.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_ru.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_sk.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_sv.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_th.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_tr.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_zh_CN.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/ActiveXControls/PrintControl_res_zh_TW.cab">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allInOne.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_cs.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_da.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_de.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_en.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_es.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_fi.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_fr.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_hu.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_it.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_ja.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_ko.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_nb.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_nl.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_pl.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_pt.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_ru.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_sk.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_sv.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_th.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_tr.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_zh_CN.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/allStrings_zh_TW.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/css/cedefault.css">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/css/default.css">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/css/exception.css">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/css/prompting.css">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/html/calendar.html">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/html/calendarbottom.html">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/html/calendartop.html">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/buttonl.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/buttonm.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/buttonr.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive100.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive150.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive200.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive250.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive300.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive350.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive400.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortActive50.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover100.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover150.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover200.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover250.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover300.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover350.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover400.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortHover50.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive100.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive150.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive200.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive250.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive300.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive400.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/DownArrowSortInactive50.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive100.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive150.gif">
+      <publishTime>03/31/2018 12:46:23</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive200.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive250.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive300.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive350.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive400.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortActive50.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover100.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover150.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover200.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover250.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover300.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover350.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover400.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortHover50.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive100.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive150.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive200.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive250.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive300.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive400.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/images/isort/UpArrowSortInactive50.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/calendar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/calendar_param.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/api.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ArgumentNormalizer.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/bobjcallback.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ButtonList.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Calendar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Colors.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/common.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/crv.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Dialogs.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/dom.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/encoding.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/event.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/GroupTree.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/GroupTreeListener.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/GroupTreeNode.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/html.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/allInOne.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/allInOneBG.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/arrow_button_depressed.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/arrow_button_hover.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/breadcrumbSep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/calendar.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/catalyst.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/clearValues.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/clear_x.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/closePanel.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/delete.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/drill_cursor.cur">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/export.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/filledCircle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/first.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/grouptree_toggle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/hollowCircle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/last.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/leftTriangle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/line.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/logo.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/magnify.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/min.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/next.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/open_parameter_arrow.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/panelHeaderBG.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/panelNavigatorItemHL.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/panelNavigatorItemSelectedBG.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/panel_toggle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/param_datafetching.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/param_dirty.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/param_info.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/param_run.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/param_warning.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/plus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/prev.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/print.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/refresh.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/rightTriangle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/search.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/separator.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/StackedTab.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/style.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_background.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_buttongroup_background.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_buttongroup_left.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_buttongroup_right.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_button_depressed.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_button_hover.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_menuarrow_depressed.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_menuarrow_hover.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_pagenav_buttons.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/toolbar_separator_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/undo.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/up.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/images/WarningPopupTriangle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ImageSprites.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/initDhtmlLib.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/IOAdapters.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/LeftPanel.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/OptionalParameterUI.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/OptionalParameterValueRow.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/PanelHeader.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/PanelNavigator.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/PanelNavigatorItem.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Parameter.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterController.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterDialog.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterInfoRow.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterPanel.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterPanelToolbar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterUI.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ParameterValueRow.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/PromptPage.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/RangeField.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ReportAlbum.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ReportPage.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ReportView.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Separator.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/SharedWidgetHolder.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/SignalDisposer.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/StackedPanel.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/StackedTab.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/StateManager.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Statusbar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_cs.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_da.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_de.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_en.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_es.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_fi.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_fr.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_hu.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_it.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_ja.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_ko.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_nb.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_nl.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_pl.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_pt.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_ru.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_sk.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_sv.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_th.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_tr.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_zh_CN.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/strings_zh_TW.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/TextCombo.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/TextField.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Toolbar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ToolPanel.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/Viewer.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ViewerFlexParameterAdapter.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/ViewerListener.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewer/WarningPopup.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/crviewerinclude.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/bolist.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/calendar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/dialog.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/dom.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/empty.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/borders.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/help.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/loading.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/lov.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/min.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/plus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/print.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/print_fe.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/prompt.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/resizepattern.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/bolist.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/button.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/buttonIcons.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/critical_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/dialogelements.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/dialogframe.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/dialogframeleftright.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/dialogframetopbottom.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/dialogtitle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/down.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/iconsep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/information_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/left.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/menus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/node.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/progress.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/resize.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/right.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/scroll_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/sep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/sep_solid.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/style.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/style.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/style_fe.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/tabs.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/up.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/wait01.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/wait02.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_coloredline/warning_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/bolist.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/button.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/buttonIcons.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/critical_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/dialogelements.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/dialogframe.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/dialogframeleftright.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/dialogframetopbottom.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/dialogtitle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/down.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/iconsep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/information_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/left.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/menus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/node.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/progress.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/resize.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/right.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/scroll_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/sep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/sep_solid.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/style.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/style.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/style_fe.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/tabs.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/up.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/wait01.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/wait02.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_corporate/warning_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/bolist.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/button.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/buttonIcons.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/critical_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/dialogelements.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/dialogframe.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/dialogframeleftright.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/dialogframetopbottom.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/dialogtitle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/down.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/iconsep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/information_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/left.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/menus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/node.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/progress.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/resize.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/right.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/scroll_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/sep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/sep_solid.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/style.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/style.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/style_fe.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/tabs.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/up.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/wait01.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/wait02.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_default/warning_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/background_field.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/background_menusel.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/bolist.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/button.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/buttonIcons.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/critical_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/critical_icon.png">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/dialogelements.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/dialogframe.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/dialogframeleftright.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/dialogframetopbottom.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/dialogtitle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/down.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/hgrab.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/horiz_tabs.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/iconsep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/information_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/left.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/menuitem_check.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/menus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/node.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/panemenu.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/panetitle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/progress.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/resize.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/right.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/scroll_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/sep.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/sep_solid.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/style.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/style.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/style_fe.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/tabs.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/toolbar_elements.png">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/up.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/vgrab.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/wait01.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/wait02.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/skin_standard/warning_icon.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/swap.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/transp.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/images/tree.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/cs/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/da/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/de/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/en/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/es/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/fi/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/fr/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/hu/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/it/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/ja/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/ko/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/nb/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/nl/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/pl/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/pt/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/ru/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/sk/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/sv/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/th/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/tr/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/zh_CN/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/language/zh_TW/labels.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/lov.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/menu.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/palette.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/prompttree.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/psheet.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/andorwidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/basicDialog.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/blockWhileWait.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/bolist.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/borderswidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/buttons.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/calendar.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/checktree.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/default.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/dim.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/dim_close.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/dim_o.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/dim_open.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/empty.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/eventsDialog.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/fieldswidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/format.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/framezone.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/grabber.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/iconlistpopupwidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/iconscrollmenuwidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/imgtabs.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/inconwidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/infowidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/lov.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/measure.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/measure_o.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/menu.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/navigation.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/palettes.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/pane.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/parent_dialog.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/progressBar.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/prompttree.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/qualif.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/scrolltabs.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/simplelist.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/skinIntl.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/tabs.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/textcombowidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/tooltipwidget.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/treeicons.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/treeview.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/unv_close.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/unv_o.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/unv_open.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/samples/waitDialog.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/treeview.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/validator/default.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/validator/validator_res.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dhtmllib/waitdialog.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/dt_param.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/external/date.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/FlexParameterBridge.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/KeyDownEvent.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/log4javascript/log4javascript.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/log4javascript/log4javascript_stub.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/log4javascript/log4javascript_stub_uncompressed.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/log4javascript/log4javascript_uncompressed.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/log4javascript/main.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/3rdParty.txt">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Async.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Base.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Color.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Controls.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/DateTime.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/DOM.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/DragAndDrop.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Format.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Iter.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/License.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Logging.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/LoggingPane.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/MochiKit.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/MockDOM.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/New.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Signal.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Sortable.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Style.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Test.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/Visual.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/MochiKit/__package__.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/previewerror.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/prompts.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/prompts_param.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/js/swfobject/swfobject.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/parameterUIController-compressed.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/processindicator.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/promptengine-compressed.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/css/promptengine2.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/css/promptengine_default.css">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/html/calendar.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/html/calendarbottom.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/html/calendartop.html">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/addallfield.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/addallfield_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/addfield.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/addfield_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/back.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/background_field.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/back_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/button.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/button_left_normal.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/button_middle_normal.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/button_right_normal.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/calendar.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/cfilter.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/cfilter_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/dialogelements.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/dialogtitle.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/error.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/errormsg.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/filter.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/filter_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/forward.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/forward_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/info.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/infomsg.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/minus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/next.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/next_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/plus.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/prev.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/prev_over.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/resize.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/transp.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/warning.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/images/warningmsg.gif">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/initDhtmlLib.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_calendar.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_calendar2.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_prompts.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_prompts2.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_cs.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_da.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_de.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_en.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_es.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_fi.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_fr.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_hu.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_it.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_ja.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_ko.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_nb.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_nl.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_pl.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_pt.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_ru.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_sk.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_sv.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_th.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_tr.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_zh_CN.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/prompting/js/promptengine_strings_zh_TW.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/urlreporting/activexviewer.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="crystalreportviewers13/urlreporting/appletviewer.js">
+      <publishTime>03/31/2018 12:46:24</publishTime>
+    </File>
+    <File Include="CustomControls/CFBTimePicker.ascx">
+      <publishTime>05/08/2015 09:04:37</publishTime>
+    </File>
+    <File Include="CustomControls/FloatTextBox.ascx">
+      <publishTime>09/03/2018 11:57:27</publishTime>
+    </File>
+    <File Include="CustomControls/IntTextBox.ascx">
+      <publishTime>05/08/2015 09:04:37</publishTime>
+    </File>
+    <File Include="CustomControls/ReportCustomizer.ascx">
+      <publishTime>05/08/2015 09:04:37</publishTime>
+    </File>
+    <File Include="CustomControls/SearchEngine.ascx">
+      <publishTime>09/05/2024 15:57:29</publishTime>
+    </File>
+    <File Include="CustomControls/SearchEngine.css">
+      <publishTime>03/13/2021 12:54:34</publishTime>
+    </File>
+    <File Include="CustomControls/YearCounterTextBox.ascx">
+      <publishTime>10/09/2019 17:10:51</publishTime>
+    </File>
+    <File Include="CustomerMarkUpPopup.aspx">
+      <publishTime>05/19/2022 10:39:01</publishTime>
+    </File>
+    <File Include="CustomerOrderPopup.aspx">
+      <publishTime>06/18/2016 19:32:17</publishTime>
+    </File>
+    <File Include="CustomerOrdersConsole.aspx">
+      <publishTime>06/18/2016 19:32:34</publishTime>
+    </File>
+    <File Include="CustomersConsole.aspx">
+      <publishTime>04/17/2020 13:04:56</publishTime>
+    </File>
+    <File Include="DeliveryTripPopup.aspx">
+      <publishTime>06/01/2020 16:35:01</publishTime>
+    </File>
+    <File Include="DeliveryTripsConsole.aspx">
+      <publishTime>06/07/2020 12:44:34</publishTime>
+    </File>
+    <File Include="DynamicData/Content/FilterUserControl.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/GridViewPager.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/Back.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/Calendar.png">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/header_back.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/PgFirst.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/PgLast.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/PgNext.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/PgPrev.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/Content/Images/plus.gif">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Autocomplete.ascx">
+      <publishTime>06/05/2017 09:29:41</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Autocomplete_Edit.ascx">
+      <publishTime>07/01/2017 12:58:21</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Boolean.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Boolean_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Children.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/DateTime.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/DateTime_Edit.ascx">
+      <publishTime>12/01/2015 13:19:32</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/DateTime_EditRO.ascx">
+      <publishTime>04/11/2019 10:18:50</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/DateTime_Future_Edit.ascx">
+      <publishTime>02/11/2016 13:02:01</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Decimal_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Find_DateTime_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Find_ForeignKey_Edit.ascx">
+      <publishTime>06/17/2017 12:05:09</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Find_Text_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/ForeignKey.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/ForeignKey_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/ForeignKey_RO.ascx">
+      <publishTime>07/03/2016 19:32:16</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Integer_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/MultilineText.ascx">
+      <publishTime>06/24/2017 17:20:40</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/MultilineText_Edit.ascx">
+      <publishTime>06/24/2017 16:59:03</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/SmallInteger_Edit.ascx">
+      <publishTime>01/12/2021 09:49:58</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text250.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text250Multiline.ascx">
+      <publishTime>06/10/2017 19:51:38</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text250Multiline_Edit.ascx">
+      <publishTime>06/10/2017 19:51:02</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text250_Edit.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text350Multiline_Edit.ascx">
+      <publishTime>03/12/2017 12:57:10</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/Text_Edit.ascx">
+      <publishTime>11/12/2016 16:22:12</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/TicksToTime.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/TimeToTicks.ascx">
+      <publishTime>04/09/2015 17:45:37</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/YearCounterText_Edit.ascx">
+      <publishTime>11/11/2022 11:26:02</publishTime>
+    </File>
+    <File Include="DynamicData/FieldTemplates/YesNo_Edit.ascx">
+      <publishTime>04/09/2024 10:55:51</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/Autocomplete.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/Contains.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/DateFrom.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/DateRange.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/DateTo.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/EndsWith.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/GreaterThan.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/GreaterThanOrEqualTo.ascx">
+      <publishTime>06/05/2017 09:29:02</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/LessThan.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/LessThanOrEqualTo.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/MultiForeignKey.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/Range.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/StartsWith.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/Where.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/Filters/WhereDropdownList.ascx">
+      <publishTime>06/05/2017 09:29:01</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/Details.aspx">
+      <publishTime>01/08/2017 12:24:19</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/Edit.aspx">
+      <publishTime>01/08/2017 12:24:18</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/Find.aspx">
+      <publishTime>01/08/2017 12:24:18</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/Insert.aspx">
+      <publishTime>01/08/2017 12:24:18</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/List.aspx">
+      <publishTime>01/08/2017 12:43:28</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/ListDetails.aspx">
+      <publishTime>01/08/2017 12:23:34</publishTime>
+    </File>
+    <File Include="DynamicData/PageTemplates/PageTemplates.master">
+      <publishTime>01/08/2017 12:24:17</publishTime>
+    </File>
+    <File Include="EmployeesWorkingDayHoursStats.aspx">
+      <publishTime>11/23/2022 14:59:44</publishTime>
+    </File>
+    <File Include="Export/dummy.txt">
+      <publishTime>06/15/2016 09:51:58</publishTime>
+    </File>
+    <File Include="FreeTypePODetails2.aspx">
+      <publishTime>12/19/2023 09:29:00</publishTime>
+    </File>
+    <File Include="GenericPrint.aspx">
+      <publishTime>06/18/2016 19:20:14</publishTime>
+    </File>
+    <File Include="Global.asax">
+      <publishTime>05/08/2015 09:04:37</publishTime>
+    </File>
+    <File Include="Home.aspx">
+      <publishTime>01/26/2019 19:43:58</publishTime>
+    </File>
+    <File Include="HomeTablet.aspx">
+      <publishTime>01/26/2019 12:42:24</publishTime>
+    </File>
+    <File Include="Images/2468816.png">
+      <publishTime>04/14/2022 11:34:00</publishTime>
+    </File>
+    <File Include="Images/ajax-loader_red.gif">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/arrow_down.png">
+      <publishTime>03/08/2018 12:54:29</publishTime>
+    </File>
+    <File Include="Images/arrow_refresh.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/arrow_up.png">
+      <publishTime>03/08/2018 12:54:29</publishTime>
+    </File>
+    <File Include="Images/BigReset.png">
+      <publishTime>03/08/2018 09:43:34</publishTime>
+    </File>
+    <File Include="Images/BigSearch.png">
+      <publishTime>03/08/2018 09:43:33</publishTime>
+    </File>
+    <File Include="Images/bin.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/BlueCircle.gif">
+      <publishTime>03/05/2018 16:27:07</publishTime>
+    </File>
+    <File Include="Images/bullet_black.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_blue.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_green.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_orange.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_purple.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_red.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_white.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/bullet_yellow.png">
+      <publishTime>03/05/2018 16:10:38</publishTime>
+    </File>
+    <File Include="Images/c40271fd53a764efd9977469270398af.png">
+      <publishTime>04/14/2022 11:34:00</publishTime>
+    </File>
+    <File Include="Images/Calculator.gif">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/Close.png">
+      <publishTime>01/10/2019 09:13:50</publishTime>
+    </File>
+    <File Include="Images/control_pause.png">
+      <publishTime>04/23/2022 17:11:24</publishTime>
+    </File>
+    <File Include="Images/control_play.png">
+      <publishTime>04/23/2022 17:11:24</publishTime>
+    </File>
+    <File Include="Images/Delete.gif">
+      <publishTime>04/10/2019 14:49:38</publishTime>
+    </File>
+    <File Include="Images/disk.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/download.png">
+      <publishTime>04/14/2022 11:34:00</publishTime>
+    </File>
+    <File Include="Images/exclamation.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/find.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/footer.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/foto_sede.jpg">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/foto_sede3.jpg">
+      <publishTime>03/07/2018 13:52:41</publishTime>
+    </File>
+    <File Include="Images/foto_sede4.jpg">
+      <publishTime>03/07/2018 14:30:31</publishTime>
+    </File>
+    <File Include="Images/foto_sede_trasp.jpg">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/GreenCircle.gif">
+      <publishTime>03/05/2018 16:27:07</publishTime>
+    </File>
+    <File Include="Images/GreyCircle.gif">
+      <publishTime>03/05/2018 16:27:07</publishTime>
+    </File>
+    <File Include="Images/labe.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/loadingAnim.gif">
+      <publishTime>04/14/2022 17:43:30</publishTime>
+    </File>
+    <File Include="Images/money_euro.png">
+      <publishTime>03/10/2018 09:35:18</publishTime>
+    </File>
+    <File Include="Images/OK.gif">
+      <publishTime>04/09/2019 16:39:47</publishTime>
+    </File>
+    <File Include="Images/pencil.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/printer.png">
+      <publishTime>05/08/2015 09:04:31</publishTime>
+    </File>
+    <File Include="Images/project-launch-1487652-1260917.png">
+      <publishTime>04/14/2022 11:34:00</publishTime>
+    </File>
+    <File Include="Images/RedCircle.gif">
+      <publishTime>03/05/2018 16:27:07</publishTime>
+    </File>
+    <File Include="Images/Reports/carta intestata cartolabe.jpg">
+      <publishTime>07/04/2024 17:29:29</publishTime>
+    </File>
+    <File Include="Images/Reports/carta intestata cartolabe.png">
+      <publishTime>07/04/2024 16:56:00</publishTime>
+    </File>
+    <File Include="Images/Reports/Carta Intestata labe.jpg">
+      <publishTime>07/04/2024 17:35:05</publishTime>
+    </File>
+    <File Include="Images/Reports/Carta Intestata labe.png">
+      <publishTime>07/04/2024 16:56:00</publishTime>
+    </File>
+    <File Include="Images/Reports/loghi labe.png">
+      <publishTime>07/04/2024 16:56:00</publishTime>
+    </File>
+    <File Include="Images/Reports/logo con uccello 5x35mm.png">
+      <publishTime>07/04/2024 16:56:00</publishTime>
+    </File>
+    <File Include="Images/RotCCRight.gif">
+      <publishTime>01/11/2019 09:58:14</publishTime>
+    </File>
+    <File Include="Images/StopSign.gif">
+      <publishTime>01/11/2019 09:58:14</publishTime>
+    </File>
+    <File Include="Images/time_go.png">
+      <publishTime>01/09/2019 18:29:19</publishTime>
+    </File>
+    <File Include="Images/under-construction-2.gif">
+      <publishTime>01/10/2019 18:45:45</publishTime>
+    </File>
+    <File Include="Images/YellowCircle.gif">
+      <publishTime>03/05/2018 16:27:07</publishTime>
+    </File>
+    <File Include="LocationPopup.aspx">
+      <publishTime>05/21/2020 17:32:11</publishTime>
+    </File>
+    <File Include="LocationsConsole.aspx">
+      <publishTime>05/21/2020 17:26:10</publishTime>
+    </File>
+    <File Include="Login.aspx">
+      <publishTime>01/26/2019 11:55:17</publishTime>
+    </File>
+    <File Include="MacroItemsConsole.aspx">
+      <publishTime>03/06/2021 18:03:29</publishTime>
+    </File>
+    <File Include="Options.aspx">
+      <publishTime>06/21/2023 16:03:53</publishTime>
+    </File>
+    <File Include="packages.config">
+      <publishTime>06/05/2017 09:29:48</publishTime>
+    </File>
+    <File Include="PickingItemPopup.aspx">
+      <publishTime>01/19/2020 16:24:41</publishTime>
+    </File>
+    <File Include="PickingItemsConsole.aspx">
+      <publishTime>03/06/2021 17:02:12</publishTime>
+    </File>
+    <File Include="PickingItemsPopup.aspx">
+      <publishTime>10/31/2019 15:32:38</publishTime>
+    </File>
+    <File Include="PickingItemsValidation.aspx">
+      <publishTime>06/18/2016 19:22:33</publishTime>
+    </File>
+    <File Include="PODetailsNotes.aspx">
+      <publishTime>06/18/2016 19:23:03</publishTime>
+    </File>
+    <File Include="ProductionGraphicScheduler.aspx">
+      <publishTime>09/20/2023 10:40:29</publishTime>
+    </File>
+    <File Include="ProductionOrderDetailsConsumption.aspx">
+      <publishTime>12/03/2022 17:28:52</publishTime>
+    </File>
+    <File Include="ProductionOrderDetailsInsertByD.aspx">
+      <publishTime>04/10/2020 18:55:39</publishTime>
+    </File>
+    <File Include="ProductionOrderDetailsInsertByO3.aspx">
+      <publishTime>10/07/2023 17:19:20</publishTime>
+    </File>
+    <File Include="ProductionOrderDetailsInsertByOdP.aspx">
+      <publishTime>10/07/2023 18:26:32</publishTime>
+    </File>
+    <File Include="ProductionOrderPopup.aspx">
+      <publishTime>04/10/2024 15:59:23</publishTime>
+    </File>
+    <File Include="ProductionOrderQuotationStats.aspx">
+      <publishTime>04/09/2024 16:00:29</publishTime>
+    </File>
+    <File Include="ProductionOrdersConsole.aspx">
+      <publishTime>11/05/2022 11:33:50</publishTime>
+    </File>
+    <File Include="ProductionOrdersDepSched.aspx">
+      <publishTime>01/01/0001 00:00:00</publishTime>
+    </File>
+    <File Include="ProductionOrdersDepSched2.aspx">
+      <publishTime>04/06/2023 12:54:36</publishTime>
+    </File>
+    <File Include="ProductionOrdersList.aspx">
+      <publishTime>04/02/2020 17:25:49</publishTime>
+    </File>
+    <File Include="ProductionOrdersMPS.aspx">
+      <publishTime>05/06/2017 19:21:38</publishTime>
+    </File>
+    <File Include="ProductionOrdersOnDelivery.aspx">
+      <publishTime>07/01/2017 17:22:36</publishTime>
+    </File>
+    <File Include="ProductionOrdersSchedule.aspx">
+      <publishTime>04/02/2020 17:03:41</publishTime>
+    </File>
+    <File Include="ProductionOrdersStats.aspx">
+      <publishTime>10/02/2024 11:35:55</publishTime>
+    </File>
+    <File Include="ProductsUseAnomalies.aspx">
+      <publishTime>07/15/2024 16:57:20</publishTime>
+    </File>
+    <File Include="QuotationConsole.aspx">
+      <publishTime>11/02/2019 18:39:41</publishTime>
+    </File>
+    <File Include="QuotationConsole2.aspx">
+      <publishTime>03/11/2024 15:22:36</publishTime>
+    </File>
+    <File Include="QuotationFind.aspx">
+      <publishTime>12/14/2023 17:51:33</publishTime>
+    </File>
+    <File Include="QuotationFreeItems.aspx">
+      <publishTime>09/06/2024 11:21:10</publishTime>
+    </File>
+    <File Include="QuotationInsert.aspx">
+      <publishTime>05/08/2015 09:04:36</publishTime>
+    </File>
+    <File Include="QuotationInsert2.aspx">
+      <publishTime>05/08/2015 09:04:41</publishTime>
+    </File>
+    <File Include="QuotationPrint.aspx">
+      <publishTime>04/13/2022 12:57:48</publishTime>
+    </File>
+    <File Include="QuotationTemplateConsole.aspx">
+      <publishTime>01/20/2020 15:29:08</publishTime>
+    </File>
+    <File Include="QuotationTemplateFind.aspx">
+      <publishTime>06/17/2017 16:51:07</publishTime>
+    </File>
+    <File Include="QuotationTemplateInsert.aspx">
+      <publishTime>05/16/2017 11:22:44</publishTime>
+    </File>
+    <File Include="QuotationTemplatePopup.aspx">
+      <publishTime>07/30/2016 19:42:29</publishTime>
+    </File>
+    <File Include="RealTimeWorkShopMonitor.aspx">
+      <publishTime>06/28/2023 14:37:40</publishTime>
+    </File>
+    <File Include="Reports/dummy.txt">
+      <publishTime>06/15/2016 09:57:25</publishTime>
+    </File>
+    <File Include="ReportTextsPopup.aspx">
+      <publishTime>06/18/2016 19:31:10</publishTime>
+    </File>
+    <File Include="Restricted/ChangePassword.aspx">
+      <publishTime>05/08/2015 09:04:36</publishTime>
+    </File>
+    <File Include="Restricted/ManageUser.aspx">
+      <publishTime>12/18/2023 15:44:38</publishTime>
+    </File>
+    <File Include="Restricted/Web.config">
+      <publishTime>05/08/2015 09:04:36</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/demo.css">
+      <publishTime>06/26/2017 15:23:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/img/angular-2-scheduler-component.png">
+      <publishTime>12/04/2016 15:12:26</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/img/angular-event-calendar-component.png">
+      <publishTime>06/26/2017 15:13:40</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/img/angular-gantt-chart-component.png">
+      <publishTime>06/26/2017 15:13:40</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/img/angular-monthly-event-calendar.png">
+      <publishTime>06/26/2017 15:13:40</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/jquery-1.12.2.min.js">
+      <publishTime>06/26/2017 18:36:08</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/elements.css">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/elements/calendar_silver_allday30.gif">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout.css">
+      <publishTime>03/19/2014 10:13:10</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/btn/all.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/header-in.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/header.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/home/calendar-270x150.png">
+      <publishTime>03/19/2014 10:00:14</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/home/gantt-270x150.png">
+      <publishTime>09/18/2014 17:05:26</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/home/kanban-270x150.png">
+      <publishTime>02/07/2016 17:48:40</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/home/month-270x150.png">
+      <publishTime>03/19/2014 10:00:14</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/home/scheduler-270x150.png">
+      <publishTime>03/19/2014 10:00:14</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/li.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/main.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/shadow.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/tab-left.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/tab-right.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/layout/toolbar2.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/linked/gradient_dps.jpg">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/linked/gradient_hard_left.png">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/helpers/media/linked/tentative5x8.gif">
+      <publishTime>05/21/2013 12:08:34</publishTime>
+    </File>
+    <File Include="Script/daypilot/js/daypilot-all.min.js">
+      <publishTime>06/26/2017 18:36:08</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/areas.css">
+      <publishTime>05/21/2013 13:10:36</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/areas/icons.png">
+      <publishTime>05/21/2013 13:10:36</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_blue.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_default_2014.css">
+      <publishTime>05/26/2016 11:28:54</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_g.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_green.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_traditional.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_transparent.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/calendar_white.css">
+      <publishTime>08/26/2017 18:18:26</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/gantt_default_2014.css">
+      <publishTime>05/26/2016 11:28:54</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/kanban_default_2014.css">
+      <publishTime>05/26/2016 11:28:54</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_blue.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_default_2014.css">
+      <publishTime>07/21/2016 17:55:12</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_g.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_green.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_traditional.css">
+      <publishTime>07/21/2016 17:55:12</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_transparent.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/month_white.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_8.css">
+      <publishTime>11/05/2015 13:43:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_blue.css">
+      <publishTime>11/05/2015 13:43:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_default_2014.css">
+      <publishTime>05/26/2016 11:28:54</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_g.css">
+      <publishTime>11/05/2015 13:43:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_green.css">
+      <publishTime>11/05/2015 13:43:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_transparent.css">
+      <publishTime>11/05/2015 13:43:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/navigator_white.css">
+      <publishTime>11/05/2015 13:43:50</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_8.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_blue.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_default_2014.css">
+      <publishTime>05/26/2016 11:28:54</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_green.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_traditional.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_transparent.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/scheduler_white.css">
+      <publishTime>08/26/2015 11:54:52</publishTime>
+    </File>
+    <File Include="Script/daypilot/themes/timetable_big.css">
+      <publishTime>02/08/2014 13:38:36</publishTime>
+    </File>
+    <File Include="Script/jquery-1.8.3.min.js">
+      <publishTime>05/31/2016 10:16:34</publishTime>
+    </File>
+    <File Include="Script/jquery-ui.min.css">
+      <publishTime>11/26/2016 12:31:09</publishTime>
+    </File>
+    <File Include="Script/jquery-ui.min.js">
+      <publishTime>11/26/2016 12:31:09</publishTime>
+    </File>
+    <File Include="Script/jquery-ui.structure.min.css">
+      <publishTime>11/26/2016 12:31:09</publishTime>
+    </File>
+    <File Include="Script/jquery-ui.theme.min.css">
+      <publishTime>11/26/2016 12:31:09</publishTime>
+    </File>
+    <File Include="Script/jquery.tablescroll.js">
+      <publishTime>04/08/2024 15:34:06</publishTime>
+    </File>
+    <File Include="SessionKeeper.aspx">
+      <publishTime>11/03/2015 07:13:33</publishTime>
+    </File>
+    <File Include="Site.css">
+      <publishTime>04/08/2024 15:08:21</publishTime>
+    </File>
+    <File Include="Site.js">
+      <publishTime>05/08/2020 18:08:54</publishTime>
+    </File>
+    <File Include="Site.master">
+      <publishTime>04/05/2024 12:45:38</publishTime>
+    </File>
+    <File Include="SuppliersConsole.aspx">
+      <publishTime>05/25/2023 12:12:28</publishTime>
+    </File>
+    <File Include="TablesImport.aspx">
+      <publishTime>05/08/2015 09:04:36</publishTime>
+    </File>
+    <File Include="TablesMan.aspx">
+      <publishTime>01/28/2019 11:17:14</publishTime>
+    </File>
+    <File Include="tablet.sitemap">
+      <publishTime>05/02/2022 09:41:58</publishTime>
+    </File>
+    <File Include="web.config">
+      <publishTime>06/06/2025 10:31:25</publishTime>
+    </File>
+    <File Include="Web.sitemap">
+      <publishTime>09/05/2024 12:09:02</publishTime>
+    </File>
+    <File Include="workstation.sitemap">
+      <publishTime>09/05/2024 12:11:21</publishTime>
+    </File>
+  </ItemGroup>
+</Project>

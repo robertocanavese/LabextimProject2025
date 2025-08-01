@@ -1,0 +1,99 @@
+2016/06/11 09:37:34 - : MANUTENZIONE INDICI database 'LABEXTIM' su istanza '.' - PROCEDURA AVVIATA (11/06/2016 09:37:09) - 
+MANUTENZIONE INDICI database 'LABEXTIM' su istanza '.' - PROCEDURA COMPLETATA CON SUCCESSO (LABEXTIM)
+
+2016/06/11 09:37:36 - : MANUTENZIONE INDICI database 'ASPNETDB' su istanza '.' - PROCEDURA AVVIATA (11/06/2016 09:37:36) - 
+MANUTENZIONE INDICI database 'ASPNETDB' su istanza '.' - PROCEDURA COMPLETATA CON SUCCESSO (ASPNETDB)
+
+2016/06/11 09:39:04 - : MANUTENZIONE INDICI database 'LABEXTIM' su istanza '.' - PROCEDURA AVVIATA (11/06/2016 09:39:03) - 
+MANUTENZIONE INDICI database 'LABEXTIM' su istanza '.' - PROCEDURA COMPLETATA CON SUCCESSO (LABEXTIM)
+
+2016/06/11 09:39:04 - : MANUTENZIONE INDICI database 'ASPNETDB' su istanza '.' - PROCEDURA AVVIATA (11/06/2016 09:39:04) - 
+MANUTENZIONE INDICI database 'ASPNETDB' su istanza '.' - PROCEDURA COMPLETATA CON SUCCESSO (ASPNETDB)
+
+2016/06/11 09:40:19 - : MANUTENZIONE INDICI database 'LABEXTIM' su istanza '.' - PROCEDURA AVVIATA (11/06/2016 09:39:58) - 
+MANUTENZIONE INDICI database 'LABEXTIM' su istanza '.' - PROCEDURA COMPLETATA CON SUCCESSO (LABEXTIM)
+
+2016/06/11 09:40:59 - : MANUTENZIONE INDICI database 'ASPNETDB' su istanza '.' - PROCEDURA AVVIATA (11/06/2016 09:40:58) - 
+MANUTENZIONE INDICI database 'ASPNETDB' su istanza '.' - PROCEDURA COMPLETATA CON SUCCESSO (ASPNETDB)
+
+03/12/2023 17:39:48 - : MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA AVVIATA (03/12/2023 05:36:37) - 
+ indice 'PK_ProductionOrders' tabella 'ProductionOrders' perchè frammentato per il 0% o per 271 record (tempo esecuzione 00:00:00.6281627) - 
+RICHIESTO REBUILD indice 'Order' tabella 'MacroItems' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0945801) - 
+RICHIESTO REBUILD indice 'Order' tabella 'PickingItems' perchè frammentato per il 20% o per 2 record (tempo esecuzione 00:00:00.0746047) - 
+RICHIESTO REBUILD indice 'TypeCode' tabella 'PickingItems' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0312601) - 
+RICHIESTO REBUILD indice 'ItemTypeCode' tabella 'PickingItems' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0156616) - 
+RICHIESTO REBUILD indice 'ItemDescription' tabella 'PickingItems' perchè frammentato per il 20% o per 2 record (tempo esecuzione 00:00:00.0312841) - 
+ indice 'PK_ProductionOrderDetails' tabella 'ProductionOrderDetails' perchè frammentato per il 0% o per 650 record (tempo esecuzione 00:00:02.8272852) - 
+RICHIESTO REBUILD indice 'PK_PlasticCoatingMachineParameters' tabella 'PlasticCoatingMachineParameters' perchè frammentato per il 8% o per 3 record (tempo esecuzione 00:00:00.0316192) - 
+MANUTENZIONE FALLITA INDICE '' sul database 'LABEXTIM'- Errore: Il nome di un oggetto o una colonna manca o è vuoto. Per le istruzioni SELECT INTO verificare che ogni colonna abbia un nome. Per le altre istruzioni, cercare eventuali nomi alias vuoti. Gli alias definiti come "" o [] non sono consentiti. Modificare l'alias in un nome valido.
+Il nome di un oggetto o una colonna manca o è vuoto. Per le istruzioni SELECT INTO verificare che ogni colonna abbia un nome. Per le altre istruzioni, cercare eventuali nomi alias vuoti. Gli alias definiti come "" o [] non sono consentiti. Modificare l'alias in un nome valido.
+RICHIESTO REBUILD indice 'DataBolla' tabella 'QUOPORCostsPrices' perchè frammentato per il 84% o per 157 record (tempo esecuzione 00:00:00.2358789) - 
+RICHIESTO REBUILD indice 'PORID_Customer' tabella 'QUOPORCostsPrices' perchè frammentato per il 98% o per 142 record (tempo esecuzione 00:00:00.2040856) - 
+RICHIESTO REBUILD indice 'PK_QuotationDetails' tabella 'QuotationDetails' perchè frammentato per il 6% o per 985 record (tempo esecuzione 00:00:01.1854692) - 
+RICHIESTO REBUILD indice 'ID_Quotation' tabella 'QuotationDetails' perchè frammentato per il 22% o per 248 record (tempo esecuzione 00:00:00.7075253) - 
+RICHIESTO REBUILD indice '<Name of Missing Index, sysname,>' tabella 'QuotationDetails' perchè frammentato per il 38% o per 435 record (tempo esecuzione 00:00:00.6916607) - 
+RICHIESTO REBUILD indice 'PK_ProductionMPSExceptions' tabella 'ProductionMPSExceptions' perchè frammentato per il 26% o per 24 record (tempo esecuzione 00:00:00.1087687) - 
+RICHIESTO REBUILD indice 'PK_Locks' tabella 'Locks' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0786447) - 
+RICHIESTO REBUILD indice 'PK_QuotationTemplateDetails' tabella 'QuotationTemplateDetails' perchè frammentato per il 95% o per 20 record (tempo esecuzione 00:00:00.0788677) - 
+RICHIESTO REBUILD indice 'ID_QuotationTemplate' tabella 'QuotationTemplateDetails' perchè frammentato per il 67% o per 3 record (tempo esecuzione 00:00:00.0476410) - 
+RICHIESTO REBUILD indice 'PK_Quotations' tabella 'Quotations' perchè frammentato per il 13% o per 585 record (tempo esecuzione 00:00:00.7532807) - 
+RICHIESTO REBUILD indice 'CustomerCode' tabella 'Quotations' perchè frammentato per il 28% o per 51 record (tempo esecuzione 00:00:00.1884942) - 
+RICHIESTO REBUILD indice 'ID_Owner' tabella 'Quotations' perchè frammentato per il 11% o per 23 record (tempo esecuzione 00:00:00.2042924) - 
+RICHIESTO REBUILD indice 'Subject' tabella 'Quotations' perchè frammentato per il 9% o per 92 record (tempo esecuzione 00:00:00.5969605) - 
+RICHIESTO REBUILD indice 'PK_TempQuotationDetails_1' tabella 'TempQuotationDetails' perchè frammentato per il 18% o per 2.904 record (tempo esecuzione 00:00:01.2636645) - 
+RICHIESTO REBUILD indice 'PK_TempQuotations' tabella 'TempQuotations' perchè frammentato per il 35% o per 2.079 record (tempo esecuzione 00:00:15.4697464) - 
+RICHIESTO REBUILD indice 'PK_CustomersMarkUps' tabella 'CustomersMarkUps' perchè frammentato per il 67% o per 3 record (tempo esecuzione 00:00:00.0887553) - 
+RICHIESTO REBUILD indice 'PK_ImportFieldMappingInfo' tabella 'ImportFieldMappingInfo' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0468438) - 
+RICHIESTO REBUILD indice 'PK_EuroProgetti_DB_Ordini' tabella 'EuroProgetti_DB_Ordini' perchè frammentato per il 25% o per 2 record (tempo esecuzione 00:00:00.0312073) - 
+RICHIESTO REBUILD indice 'PK_Phase' tabella 'Types' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0622973) - 
+RICHIESTO REBUILD indice 'PK_ProductionOrderTechNotes' tabella 'ProductionOrderTechSpecs' perchè frammentato per il 22% o per 34 record (tempo esecuzione 00:00:00.0623076) - 
+RICHIESTO REBUILD indice 'PK_ProductType' tabella 'ItemTypes' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0320548) - 
+RICHIESTO REBUILD indice 'PK_Customers' tabella 'Customers' perchè frammentato per il 64% o per 71 record (tempo esecuzione 00:00:00.0308746) - 
+RICHIESTO REBUILD indice 'Name' tabella 'Customers' perchè frammentato per il 76% o per 14 record (tempo esecuzione 00:00:00.0468747) - 
+RICHIESTO REBUILD indice 'City' tabella 'Customers' perchè frammentato per il 79% o per 16 record (tempo esecuzione 00:00:00.0471227) - 
+RICHIESTO REBUILD indice 'Province' tabella 'Customers' perchè frammentato per il 67% o per 5 record (tempo esecuzione 00:00:00.0467839) - 
+RICHIESTO REBUILD indice 'PK_ProductionTimeStamps' tabella 'ProductionTimeStamps' perchè frammentato per il 28% o per 9 record (tempo esecuzione 00:00:00.0648578) - 
+RICHIESTO REBUILD indice 'IdPoIdQd' tabella 'ProductionTimeStamps' perchè frammentato per il 42% o per 10 record (tempo esecuzione 00:00:00.0487781) - 
+RICHIESTO REBUILD indice 'PK_Employees' tabella 'Employees' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0784819) - 
+RICHIESTO REBUILD indice 'PK_MacroItemDetails' tabella 'MacroItemDetails' perchè frammentato per il 88% o per 8 record (tempo esecuzione 00:00:00.0469705) - 
+RICHIESTO REBUILD indice 'ID_MacroItem' tabella 'MacroItemDetails' perchè frammentato per il 67% o per 3 record (tempo esecuzione 00:00:00.0337181) - 
+RICHIESTO REBUILD indice 'Position' tabella 'MacroItemDetails' perchè frammentato per il 80% o per 5 record (tempo esecuzione 00:00:00.0761490) - 
+RICHIESTO REBUILD indice 'PK_Suppliers' tabella 'Suppliers' perchè frammentato per il 7% o per 8 record (tempo esecuzione 00:00:00.0939930) - 
+RICHIESTO REBUILD indice 'Name' tabella 'Suppliers' perchè frammentato per il 41% o per 9 record (tempo esecuzione 00:00:00.0353655) - 
+RICHIESTO REBUILD indice 'PK_CloseOfDays' tabella 'CloseOfDays' perchè frammentato per il 88% o per 8 record (tempo esecuzione 00:00:00.0469674) - 
+MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA COMPLETATA CON ERRORI (vedi errori precedenti) (LABEXTIM)
+
+03/12/2023 17:40:14 - : MANUTENZIONE INDICI database 'ASPNETDB' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA AVVIATA (03/12/2023 05:39:57) - 
+RICHIESTO REBUILD indice 'aspnet_Membership_index' tabella 'aspnet_Membership' perchè frammentato per il 60% o per 4 record (tempo esecuzione 00:00:00.3453396) - 
+MANUTENZIONE INDICI database 'ASPNETDB' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA COMPLETATA CON SUCCESSO (ASPNETDB)
+
+03/12/2023 17:51:15 - : MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA AVVIATA (03/12/2023 05:48:45) - 
+RICHIESTO REBUILD indice 'Order' tabella 'MacroItems' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.8923223) - 
+RICHIESTO REBUILD indice 'Order' tabella 'PickingItems' perchè frammentato per il 20% o per 2 record (tempo esecuzione 00:00:00.8204301) - 
+RICHIESTO REBUILD indice 'TypeCode' tabella 'PickingItems' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:14.9842531) - 
+RICHIESTO REBUILD indice 'ItemTypeCode' tabella 'PickingItems' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0283058) - 
+RICHIESTO REBUILD indice 'ItemDescription' tabella 'PickingItems' perchè frammentato per il 20% o per 2 record (tempo esecuzione 00:00:00.0219729) - 
+ indice 'PK_ProductionOrderDetails' tabella 'ProductionOrderDetails' perchè frammentato per il 0% o per 849 record (tempo esecuzione 00:00:03.3414670) - 
+RICHIESTO REBUILD indice 'PK_PlasticCoatingMachineParameters' tabella 'PlasticCoatingMachineParameters' perchè frammentato per il 8% o per 2 record (tempo esecuzione 00:00:00.0219219) - 
+MANUTENZIONE FALLITA INDICE '' sul database 'LABEXTIM'- Errore: Il nome di un oggetto o una colonna manca o è vuoto. Per le istruzioni SELECT INTO verificare che ogni colonna abbia un nome. Per le altre istruzioni, cercare eventuali nomi alias vuoti. Gli alias definiti come "" o [] non sono consentiti. Modificare l'alias in un nome valido.
+Il nome di un oggetto o una colonna manca o è vuoto. Per le istruzioni SELECT INTO verificare che ogni colonna abbia un nome. Per le altre istruzioni, cercare eventuali nomi alias vuoti. Gli alias definiti come "" o [] non sono consentiti. Modificare l'alias in un nome valido.
+ indice 'PK_QuotationDetails' tabella 'QuotationDetails' perchè frammentato per il 0% o per 500 record (tempo esecuzione 00:00:01.0248655) - 
+RICHIESTO REBUILD indice 'PK_QuotationTemplateDetails' tabella 'QuotationTemplateDetails' perchè frammentato per il 5% o per 3 record (tempo esecuzione 00:00:00.0231195) - 
+RICHIESTO REBUILD indice 'ID_QuotationTemplate' tabella 'QuotationTemplateDetails' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0239014) - 
+ indice 'PK_Quotations' tabella 'Quotations' perchè frammentato per il 0% o per 323 record (tempo esecuzione 00:00:00.5905810) - 
+ indice 'PK_TempQuotationDetails_1' tabella 'TempQuotationDetails' perchè frammentato per il 0% o per 268 record (tempo esecuzione 00:00:01.3095536) - 
+ indice 'PK_TempQuotations' tabella 'TempQuotations' perchè frammentato per il 0% o per 283 record (tempo esecuzione 00:00:00.5433171) - 
+RICHIESTO REBUILD indice 'PK_CustomersMarkUps' tabella 'CustomersMarkUps' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0214358) - 
+RICHIESTO REBUILD indice 'PK_ImportFieldMappingInfo' tabella 'ImportFieldMappingInfo' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0224626) - 
+RICHIESTO REBUILD indice 'PK_EuroProgetti_DB_Ordini' tabella 'EuroProgetti_DB_Ordini' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0236985) - 
+RICHIESTO REBUILD indice 'PK_Phase' tabella 'Types' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0229871) - 
+RICHIESTO REBUILD indice 'PK_ProductType' tabella 'ItemTypes' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0220317) - 
+RICHIESTO REBUILD indice 'City' tabella 'Customers' perchè frammentato per il 5% o per 3 record (tempo esecuzione 00:00:00.0244760) - 
+RICHIESTO REBUILD indice 'Province' tabella 'Customers' perchè frammentato per il 14% o per 2 record (tempo esecuzione 00:00:00.0304834) - 
+RICHIESTO REBUILD indice 'IdPoIdQd' tabella 'ProductionTimeStamps' perchè frammentato per il 9% o per 3 record (tempo esecuzione 00:00:00.0248659) - 
+RICHIESTO REBUILD indice 'PK_Employees' tabella 'Employees' perchè frammentato per il 50% o per 2 record (tempo esecuzione 00:00:00.0264489) - 
+RICHIESTO REBUILD indice 'PK_MacroItemDetails' tabella 'MacroItemDetails' perchè frammentato per il 14% o per 2 record (tempo esecuzione 00:00:00.0227361) - 
+RICHIESTO REBUILD indice 'ID_MacroItem' tabella 'MacroItemDetails' perchè frammentato per il 33% o per 2 record (tempo esecuzione 00:00:00.0230026) - 
+RICHIESTO REBUILD indice 'Position' tabella 'MacroItemDetails' perchè frammentato per il 20% o per 2 record (tempo esecuzione 00:00:00.0230228) - 
+MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA COMPLETATA CON ERRORI (vedi errori precedenti) (LABEXTIM)
+

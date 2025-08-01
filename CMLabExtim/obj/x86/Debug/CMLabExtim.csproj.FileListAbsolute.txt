@@ -1,0 +1,6 @@
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x86\Debug\CMLabExtim.dll.config
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x86\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x86\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x86\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x86\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x86\Debug\snap7.dll

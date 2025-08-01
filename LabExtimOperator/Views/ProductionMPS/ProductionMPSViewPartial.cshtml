@@ -1,0 +1,159 @@
+@using System.Drawing
+@using CMLabExtim.CustomClasses
+@using DevExpress.Office.Utils
+@using LabExtimOperator.Models
+@using LabExtimOperator.Controllers
+@{
+
+    var context = new LabExtimEntities();
+    TempProductionOrderDetailControllerSessionVariables vars = new TempProductionOrderDetailControllerSessionVariables();
+}
+
+@{
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "ProductionMPSView";
+        settings.CommandColumn.SetHeaderTemplateContent(c =>
+        {
+            Html.DevExpress().Button(hyperLinkSettings =>
+            {
+                hyperLinkSettings.Name = "link_" + settings.Name;
+                hyperLinkSettings.Text = "Nuovo";
+                hyperLinkSettings.Width = Unit.Pixel(150);
+                //hyperLinkSettings.NavigateUrl = "javascript:void(0);";
+                hyperLinkSettings.ClientSideEvents.Click = string.Format(@"
+        function(s, e)
+        {{
+            {0}.AddNewRow();
+        }}
+        ", settings.Name);
+            }).Render();
+        });
+  
+
+        settings.CallbackRouteValues = new { Controller = "ProductionMPS", Action = "ProductionMPSViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartialDelete" };
+
+        /*
+        GridViewCommandColumnCustomButton btn = new GridViewCommandColumnCustomButton();
+        btn.Image.Url = "~/Content/Images/check_icon.png";
+        btn.Image.IsResourcePng = true;
+        btn.Image.IconID = "Check";
+        btn.Image.AlternateText = "Evadi ODP";
+        btn.Styles.Style.Paddings.PaddingLeft = Unit.Pixel(30);
+
+        settings.CommandColumn.CustomButtons.Add(btn);
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e) { document.location='" + DevExpressHelper.GetUrl(new { Controller = "TempProductionOrderDetail", Action = "Index" }) + "?EvadiODP=' + s.GetRowKey(e.visibleIndex); }";
+        */
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsCommandButton.EditButton.ButtonType = GridViewCommandButtonType.Button;
+        settings.SettingsCommandButton.DeleteButton.ButtonType = GridViewCommandButtonType.Image;
+
+        settings.SettingsText.ConfirmDelete = "Si vuole procedere alla cancellazione del record?";
+
+        settings.SettingsCommandButton.EditButton.Text = "Modifica";
+        settings.SettingsCommandButton.DeleteButton.Text = "";
+        settings.SettingsCommandButton.DeleteButton.Image.DescriptionUrl = "~/Content/Images/icon-trash-32.png";
+        settings.SettingsCommandButton.DeleteButton.Image.IconID = "trash";
+        settings.SettingsCommandButton.DeleteButton.Image.IsResourcePng = true;
+        settings.SettingsCommandButton.DeleteButton.Image.Url = "~/Content/Images/icon-trash-32.png";
+
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Top;
+
+
+        settings.InitNewRow = (s, e) =>
+        {
+            e.NewValues["ProductionDate"] = vars._currentDate;
+            e.NewValues["ProductionDateTime"] = TimeSpan.Zero;
+            e.NewValues["ProductionDateDefault"] = ViewBag.currentDate;
+            e.NewValues["ID_Owner"] = vars._idUser;
+            ViewBag.IsNew = true;
+
+            HttpContext.Current.Session["listaIdArticoli"] = null;
+            HttpContext.Current.Session["listaIdArticoli2"] = null;
+        };
+
+        settings.KeyFieldName = "ID";
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSize = 100;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = false;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "IDProductionOrder";
+            column.Caption = "ID Odp";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "poDescription";
+            column.Caption = "Descrizione";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "cuName";
+            column.Caption = "Cliente";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "curMachineDescription";
+            column.Caption = "Attualmente in";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "MacroItemDescription";
+            column.Caption = "Da eseguire";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Quantity";
+            column.Caption = "Quantità";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeliveryDate";
+            column.Caption = "Data consegna";
+            column.Visible = true;
+            column.ColumnType = MVCxGridViewColumnType.
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var dateEditProperties = column.PropertiesEdit as DateEditProperties;
+            dateEditProperties.EditFormatString = "dd/MM/yyyy";
+
+        });
+
+    })
+            .Bind(ViewData["EditableProduct"] ?? c.DataItem)
+            .Render();
+
+}
+@grid.Bind(Model).GetHtml()

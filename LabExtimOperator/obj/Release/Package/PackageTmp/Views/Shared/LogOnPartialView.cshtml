@@ -1,0 +1,17 @@
+@if (!Request.IsAuthenticated)
+{
+    @*@Html.ActionLink("Register", "Register", "Account")
+        @: |*@
+    @Html.ActionLink("Login", "Login", "Account")
+}
+else
+{
+    //@: Welcome <b>@User.Identity.Name</b>!
+<b>@string.Format("Azienda: {0} - Utente: {1} {2}",
+    Session["LabextimUser"]  != null ? ((DLLabExtim.LabextimUser)Session["LabextimUser"]).Employee.Company.Description : "",
+    Session["LabextimUser"]  != null ? ((DLLabExtim.LabextimUser)Session["LabextimUser"]).Employee.Name : "",
+    Session["LabextimUser"]  != null ?   ((DLLabExtim.LabextimUser)Session["LabextimUser"]).Employee.Surname : "")</b>
+
+    @: |
+    @Html.ActionLink("Logout", "LogOff", "Account")
+}

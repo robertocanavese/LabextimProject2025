@@ -1,0 +1,411 @@
+@using System.Drawing
+@using CMLabExtim.CustomClasses
+@using DevExpress.Office.Utils
+@using LabExtimOperator.Models
+@using LabExtimOperator.Controllers
+@{
+
+    var context = new DLLabExtim.QuotationDataContext();
+    DeliveryTripDetailControllerSessionVariables vars = new DeliveryTripDetailControllerSessionVariables();
+}
+
+@{
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "DeliveryTripDetailView";
+        settings.CommandColumn.SetHeaderTemplateContent(c =>
+        {
+            Html.DevExpress().Button(hyperLinkSettings =>
+            {
+                hyperLinkSettings.Name = "link_" + settings.Name;
+                hyperLinkSettings.Text = "Inserisci OdP in viaggio";
+                hyperLinkSettings.Width = Unit.Pixel(150);
+                //hyperLinkSettings.NavigateUrl = "javascript:void(0);";
+                hyperLinkSettings.ClientSideEvents.Click = string.Format(@"
+        function(s, e)
+        {{
+            {0}.AddNewRow();
+        }}
+        ", settings.Name);
+            }).Render();
+        });
+
+
+        settings.Settings.ShowFooter = true;
+        settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Custom, "Quota");
+
+        Decimal totalWork = 0;
+
+        settings.CustomSummaryCalculate = (sender, e) =>
+        {
+            ASPxSummaryItem summary = e.Item as ASPxSummaryItem;
+            if (summary.FieldName != "Quota") return;
+
+            if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Start)
+            {
+                totalWork = 0;
+            }
+            if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
+            {
+                totalWork += Convert.ToDecimal(e.GetValue("Quota"));
+            }
+            if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
+            {
+                e.TotalValue = "viaggi piazzati:<br>" + totalWork.ToString("N2");
+            }
+        };
+
+        settings.CallbackRouteValues = new { Controller = "DeliveryTripDetail", Action = "DeliveryTripDetailViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "DeliveryTripDetail", Action = "DeliveryTripDetailViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "DeliveryTripDetail", Action = "DeliveryTripDetailViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "DeliveryTripDetail", Action = "DeliveryTripDetailViewPartialDelete" };
+
+        /*
+        GridViewCommandColumnCustomButton btn = new GridViewCommandColumnCustomButton();
+        btn.Image.Url = "~/Content/Images/check_icon.png";
+        btn.Image.IsResourcePng = true;
+        btn.Image.IconID = "Check";
+        btn.Image.AlternateText = "Evadi ODP";
+        btn.Styles.Style.Paddings.PaddingLeft = Unit.Pixel(30);
+
+        settings.CommandColumn.CustomButtons.Add(btn);
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e) { document.location='" + DevExpressHelper.GetUrl(new { Controller = "DeliveryTripDetail", Action = "Index" }) + "?EvadiODP=' + s.GetRowKey(e.visibleIndex); }";
+        */
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsCommandButton.EditButton.ButtonType = GridViewCommandButtonType.Button;
+        settings.SettingsCommandButton.DeleteButton.ButtonType = GridViewCommandButtonType.Image;
+
+        settings.SettingsText.ConfirmDelete = "Si vuole procedere alla cancellazione del record?";
+
+        settings.SettingsCommandButton.EditButton.Text = "Cambia viaggio OdP";
+        settings.SettingsCommandButton.DeleteButton.Text = "";
+        settings.SettingsCommandButton.DeleteButton.Image.DescriptionUrl = "~/Content/Images/icon-trash-32.png";
+        settings.SettingsCommandButton.DeleteButton.Image.IconID = "trash";
+        settings.SettingsCommandButton.DeleteButton.Image.IsResourcePng = true;
+        settings.SettingsCommandButton.DeleteButton.Image.Url = "~/Content/Images/icon-trash-32.png";
+
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Top;
+
+
+        settings.InitNewRow = (s, e) =>
+        {
+            e.NewValues["InsertDate"] = vars._currentDate;
+            e.NewValues["InsertDateDefault"] = ViewBag.currentDate;
+            e.NewValues["ID_Owner"] = vars._idUser;
+            e.NewValues["Direction"] = vars._currentDirection;
+            ViewBag.IsNew = true;
+
+        };
+
+        settings.KeyFieldName = "ID";
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSize = 100;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = false;
+        settings.SettingsText.PopupEditFormCaption = "Inserisci in viaggio";
+        //settings.SettingsPopup.EditForm.Modal = true;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_ProductionOrder";
+            column.Caption = "ID Odp";
+            column.EditFormSettings.Visible = DefaultBoolean.True;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_Owner";
+            column.Caption = "Operatore";
+            column.Visible = false;
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = vars._idUser == null ? context.Employees.Where(x => x.ID_Company == vars._currentCompanyId).ToList() : context.Employees.Where(x => x.ID == vars._idUser).ToList();
+            comboBoxProperties.TextField = "UniqueName";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "InsertDate";
+            column.Caption = "Data";
+            column.Visible = false;
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var dateEditProperties = column.PropertiesEdit as DateEditProperties;
+            dateEditProperties.EditFormatString = "dd/MM/yyyy";
+
+        });
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "ID_DeliveryTrip";
+        //    column.Caption = "Viaggio";
+        //    column.ColumnType = MVCxGridViewColumnType.ComboBox;
+        //    var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+        //    comboBoxProperties.DataSource = context.DeliveryTrips.Where(x => x.Status == 0 && x.ID_Company == vars._currentCompanyId).OrderBy(x => x.StartDate).Select(o => new { ID = o.ID, Description = o.Description }).ToList();
+        //    comboBoxProperties.TextField = "Description";
+        //    comboBoxProperties.ValueField = "ID";
+        //    comboBoxProperties.ValueType = typeof(int);
+        //});
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_DeliveryTrip";
+            column.Caption = "ID Viaggio";
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeliveryTrip.StartDate";
+            column.Caption = "Partenza";
+            column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeliveryTrip.Customer.Name";
+            column.Caption = "Cliente";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeliveryTrip.Location.Name";
+            column.Caption = "Altra destinazione";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DeliveryTrip.Employee.UniqueName";
+            column.Caption = "Autista";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Quota";
+            column.Caption = "Quota viaggio";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = new List<KeyValuePair<string, decimal>> {
+                new KeyValuePair<string, decimal>("1/5",0.20m),
+                new KeyValuePair<string, decimal>("1/4",0.25m),
+                new KeyValuePair<string, decimal>("1/3",0.3333m),
+                new KeyValuePair<string, decimal>("1/2",0.5m),
+                new KeyValuePair<string, decimal>("2/3",0.6666m),
+                new KeyValuePair<string, decimal>("3/4",0.75m),
+                new KeyValuePair<string, decimal>("4/5",0.8m),
+                new KeyValuePair<string, decimal>("1",1m)
+            }.Select(o => new { ID = o.Value, Description = o.Key }).ToList();
+            comboBoxProperties.TextField = "Description";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(decimal);
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Direction";
+            column.Caption = "Consegna/Ritiro";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = new List<KeyValuePair<string, char>> {
+                new KeyValuePair<string, char>("Consegna",'C'),
+                new KeyValuePair<string, char>("Ritiro",'R')
+            }.Select(o => new { ID = o.Value, Description = o.Key }).ToList();
+            comboBoxProperties.TextField = "Description";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(char);
+        });
+
+        //***********************************
+        // EDIT CUSTOM FORM
+        //***********************************
+
+        settings.SetEditFormTemplateContent(c =>
+        {
+            Html.DevExpress().FormLayout(formLayoutSettings =>
+            {
+                formLayoutSettings.Name = "FormLayoutDeliveryTripDetail";
+                formLayoutSettings.Width = Unit.Pixel(Request.Browser.ScreenPixelsWidth);
+                formLayoutSettings.Height = Unit.Pixel(Convert.ToInt32(Request.Browser.ScreenPixelsHeight / 2));
+                formLayoutSettings.Width = Unit.Percentage(100);
+
+                formLayoutSettings.ColCount = 2;
+
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ID_ProductionOrder";
+                    itemSettings.Caption = "ODP";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 2;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var odps = from odp in context.ProductionOrders
+                               join cust in context.Customers
+                                   on odp.ID_Customer equals cust.Code
+                               where odp.Status != 3 && odp.ID_Company == vars._currentCompanyId
+                               && (vars._IDmodel == 0 || odp.ID == vars._IDmodel)
+                               orderby odp.ID descending
+                               select new { ID = odp.ID, Name = odp.ID + " - " + odp.Description + " (" + cust.Name + ")" };
+                    comboBoxSetings.Properties.DataSource = odps.ToList();
+                    comboBoxSetings.Properties.TextField = "Name";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.PreRender = (sender, e) =>
+                        {
+                            if (vars._IDmodel != 0)
+                            {
+                                MVCxComboBox cmb = sender as MVCxComboBox;
+                                cmb.Value = vars._IDmodel;
+                                cmb.ReadOnly = true;
+                            }
+                        };
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "";
+                    itemSettings.Name = "lblOperatore";
+                    itemSettings.Caption = "Operatore";
+                    itemSettings.ColSpan = 1;
+                    itemSettings.Visible = false;
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
+                    var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Text = context.Employees.Single(x => x.ID == vars._idUser).UniqueName;
+                    comboBoxSetings.Enabled = true;
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "InsertDate";
+                    itemSettings.Caption = "Data";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.DateEdit;
+                    var dateEditProperties = (DateEditSettings)itemSettings.NestedExtensionSettings;
+                    dateEditProperties.Properties.EditFormatString = "dd/MM/yyyy";
+                    dateEditProperties.Date = vars._currentDate;
+                    dateEditProperties.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ID_DeliveryTrip";
+                    itemSettings.Caption = "Viaggio";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 2;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Properties.DataSource = context.DeliveryTrips.Where(x => x.Status == 0 && x.ID_Company == vars._currentCompanyId).OrderBy(x => x.StartDate).ToList()
+                        .Select(o => new { ID = o.ID, Description = string.Format("Viaggio {0} {1}{2}", o.ID, o.Customer != null ? " per " + o.Customer.Name : "", o.Location != null ? " verso " + o.Location.Name : "", o.StartDate.Value.ToString("dd/MM")) }).ToList();
+                    comboBoxSetings.Properties.TextField = "Description";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "Quota";
+                    itemSettings.Caption = "Quota viaggio";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Properties.DataSource = new List<KeyValuePair<string, decimal>> {
+                        new KeyValuePair<string, decimal>("1/5",0.20m),
+                        new KeyValuePair<string, decimal>("1/4",0.25m),
+                        new KeyValuePair<string, decimal>("1/3",0.3333m),
+                        new KeyValuePair<string, decimal>("1/2",0.5m),
+                        new KeyValuePair<string, decimal>("2/3",0.6666m),
+                        new KeyValuePair<string, decimal>("3/4",0.75m),
+                        new KeyValuePair<string, decimal>("4/5",0.8m),
+                        new KeyValuePair<string, decimal>("1",1m)
+                    }.Select(o => new { ID = o.Value, Description = o.Key }).ToList();
+                    comboBoxSetings.Properties.TextField = "Description";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(decimal);
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "Direction";
+                    itemSettings.Caption = "Consegna/Ritiro";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Properties.DataSource = new List<KeyValuePair<string, char>> {
+                        new KeyValuePair<string, char>("Consegna",'C'),
+                        new KeyValuePair<string, char>("Ritiro",'R')
+                    }.Select(o => new { ID = o.Value, Description = o.Key }).ToList();
+                    comboBoxSetings.Properties.TextField = "Description";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(char);
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                });
+
+
+                formLayoutSettings.Items.AddEmptyItem();
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ShowCaption = DefaultBoolean.False;
+                    itemSettings.ColSpan = 2;
+                }).SetNestedContent(() =>
+                {
+                    ViewContext.Writer.Write("<div style='float:right'>");
+                    Html.DevExpress().Button(
+                        btnSettings =>
+                        {
+                            btnSettings.Name = "btnUpdateDTD";
+                            btnSettings.Text = "Salva";
+                            btnSettings.ClientSideEvents.Click = "function(s, e){ DeliveryTripDetailView.UpdateEdit(); }";
+                        }).Render();
+                    Html.DevExpress().Button(
+                        btnSettings =>
+                        {
+                            btnSettings.Name = "btnCancelDTD";
+                            btnSettings.Text = "Annulla";
+                            btnSettings.Style[HtmlTextWriterStyle.MarginLeft] = "5px";
+                            btnSettings.ClientSideEvents.Click = "function(s, e){ DeliveryTripDetailView.CancelEdit(); }";
+                        }).Render();
+                    ViewContext.Writer.Write("</div>");
+                });
+            })
+            .Bind(ViewData["EditableTripDetail"] ?? c.DataItem)
+            .Render();
+        });
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+
+
+
+
+
+
+}
+@grid.Bind(Model).GetHtml()

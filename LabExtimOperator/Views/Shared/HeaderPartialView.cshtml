@@ -1,0 +1,26 @@
+@model HeaderViewRenderMode
+
+@if(Model == HeaderViewRenderMode.Title) {
+    <div class="templateTitle">
+        @Html.ActionLink("LabExtim Operator", "Index", "TempProductionOrderDetail")
+    </div>
+} else { 
+    if(Model == HeaderViewRenderMode.Full) { 
+        <div class="headerTop">
+            <div class="templateTitle">
+                @Html.ActionLink("LabExtim Operator", "Index", "TempProductionOrderDetail")
+            </div>
+            <div class="loginControl">
+                @Html.Partial("LogOnPartialView")
+            </div>
+        </div>
+    }
+
+    <div class="headerMenu">
+        @if(Model == HeaderViewRenderMode.Menu) {
+            
+        } else {
+            
+        }
+    </div>
+}

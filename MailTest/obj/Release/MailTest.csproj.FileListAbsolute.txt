@@ -1,0 +1,5 @@
+E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Release\MailTest.exe.config
+E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Release\MailTest.exe
+E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Release\MailTest.pdb
+E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Release\MailTest.exe
+E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Release\MailTest.pdb

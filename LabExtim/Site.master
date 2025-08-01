@@ -1,0 +1,189 @@
+<%@ Master Language="C#" CodeBehind="Site.master.cs" Inherits="LabExtim.Site" %>
+
+<%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="asp" %>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head runat="server">
+    <title>Extimator</title>
+    <%--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />--%>
+
+
+    <link href="Site.css" rel="stylesheet" type="text/css" />
+    <link href="CustomControls/SearchEngine.css" rel="stylesheet" type="text/css" />
+    <script src="Script/jquery-1.8.3.min.js" type="text/javascript"></script>
+    <script src="Script/jquery-ui.min.js" type="text/javascript"></script>
+    <script src="Script/jquery.tablescroll.js" type="text/javascript" ></script>
+    <link href="Script/jquery-ui.min.css" rel="stylesheet" type="text/css" />
+    <link href="Script/jquery-ui.structure.min.css" rel="stylesheet" type="text/css" />
+
+
+    <script type="text/javascript">
+
+        function disableBack() { window.history.forward(); } setTimeout("disableBack()", 0);
+
+        if (typeof window.event != 'undefined')
+            document.onkeydown = function () {
+                if (event.keyCode == 8) {
+                    theEvent = event.srcElement.tagName.toUpperCase();
+                    if (document.activeElement.ID != event.srcElement.ID) {
+                        return false;
+                    }
+                    if (theEvent == 'HTML') {
+                        return false;
+                    }
+                    else if (theEvent == 'INPUT') {
+                        theType = event.srcElement.getAttribute('type').toUpperCase();
+                        switch (theType) {
+                            case 'TEXT':
+                                return true;
+                                break;
+                            default:
+                                return false;
+                        }
+                        return false;
+                    }
+                    else {
+                        switch (theEvent) {
+                            case 'TEXTAREA':
+                                return true;
+                                break;
+                            default:
+                                return false;
+                        }
+                        return false;
+                    }
+                }
+            }
+        else
+            document.onkeypress = function (e) {
+                if (e.keyCode == 8) {
+                    theEvent = e.target.nodeName.toUpperCase();
+                    if (document.activeElement.ID != event.srcElement.ID) {
+                        return false;
+                    }
+                    if (theEvent == 'HTML') {
+                        return false;
+                    }
+                    else if (theEvent == 'INPUT') {
+                        theType = e.target.getAttribute('type').toUpperCase();
+                        switch (theType) {
+                            case 'TEXT':
+                                return true;
+                                break;
+
+                            default:
+                                return false;
+                        }
+                        return false;
+                    }
+                    else {
+                        switch (theEvent) {
+                            case 'TEXTAREA':
+                                return true;
+                                break;
+                            default:
+                                return false;
+                        }
+                        return false;
+                    }
+                }
+            }
+
+        function _dom_trackActiveElement(evt) {
+            if (evt && evt.target) {
+                document.activeElement = evt.target == document ? null : evt.target;
+            }
+        }
+
+        function _dom_trackActiveElementLost(evt) {
+            document.activeElement = null;
+        }
+
+        if (!document.activeElement) {
+            try {
+                document.addEventListener("focus", _dom_trackActiveElement, true);
+                document.addEventListener("blur", _dom_trackActiveElementLost, true);
+            }
+            catch (e)
+            { }
+        }
+
+    </script>
+
+
+    <link href="AutocompleteStyle.css" rel="stylesheet" type="text/css" />
+    <link href="AutocompleteStyle.css" rel="stylesheet" type="text/css" />
+    <asp:ContentPlaceHolder ID="Header1" runat="server"></asp:ContentPlaceHolder>
+</head>
+<body class="template" onload="disableBack()">
+    <%--onload="disableBack()"--%>
+    <form id="form1" runat="server">
+
+        <iframe src="SessionKeeper.aspx" id="iframe_sessionkeeper"></iframe>
+
+        <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnablePartialRendering="true"
+            EnableScriptGlobalization="true" EnablePageMethods="true" AsyncPostBackTimeout="180">
+        </asp:ToolkitScriptManager>
+        <div>
+            <table id="tblHeader" runat="server" width="100%" class="companyHeader" cellspacing="0" cellpadding="5" border="0">
+                <tr style="background-color: black">
+                    <td style="width: 1%">
+                        <div class="logoint">
+
+                            <img src="images/labe.png" alt="logo" />
+                        </div>
+                    </td>
+                    <td>
+                        <div class="logoint">
+                            <a style="color: White">S.r.l. - Via Perù,
+                                9/3 - 35127 Padova - tel. 049.7800500 - fax 049 7803891 - P.IVA 01698090287</a>
+                        </div>
+                    </td>
+
+                    <td>
+                        <div class="extimator">
+                            <asp:Label ID="lblApplication" runat="server" Text="Extimator 3.0" ForeColor="LightGray"></asp:Label>&nbsp;
+                                <asp:Label ID="lblUserName" runat="server" Font-Size="Smaller" ForeColor="Orange"></asp:Label>
+                        </div>
+
+
+                    </td>
+                </tr>
+                <tr>
+                    <td colspan="2" align="left">
+                        <asp:SiteMapPath ID="smpSite" runat="server" Font-Size="Small" RenderCurrentNodeAsLink="true"
+                            PathSeparator=" > " NodeStyle-CssClass="closers" SiteMapProvider="Workstation">
+                        </asp:SiteMapPath>
+                    </td>
+
+                    <td align="right">
+                        <asp:LinkButton ID="lbtLogOut" runat="server" Text="Log out" Font-Size="Small" OnClick="lbtLogOut_Click"
+                            CssClass="closers">
+                        </asp:LinkButton>
+                    </td>
+
+                </tr>
+            </table>
+            <div id="divMain" runat="server">
+                <asp:UpdateProgress ID="UpdateProgress1" runat="server" DisplayAfter="1000">
+                    <ProgressTemplate>
+                        <div id="progressMessage" style="top: 55px; right: 0px; background-color: #CF4342; position: absolute; color: #FFFFFF;">
+                            <asp:Image ID="imgPopUp" runat="server" ImageUrl="~/images/ajax-loader_red.gif" />&nbsp;Caricamento
+                    dati in corso...
+                        </div>
+                        <div id="bgDiv">
+                        </div>
+                    </ProgressTemplate>
+                </asp:UpdateProgress>
+                <asp:UpdatePanel ID="upnMaster" runat="server" UpdateMode="Conditional">
+                    <ContentTemplate>
+                        <asp:ContentPlaceHolder ID="ContentPlaceHolder1" runat="server">
+                        </asp:ContentPlaceHolder>
+                    </ContentTemplate>
+                </asp:UpdatePanel>
+            </div>
+        </div>
+    </form>
+</body>
+</html>

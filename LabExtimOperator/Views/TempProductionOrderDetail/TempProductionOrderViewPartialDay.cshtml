@@ -1,0 +1,44 @@
+﻿@model LabExtimOperator.Models.ProductionOrderDetails
+
+@{
+    ViewBag.Title = "TempProductionOrderViewPartialDay";
+}
+
+<div align="center" style="display: table-cell; vertical-align: middle;">
+    @using (Html.BeginForm())
+    {
+        <table>
+            <tr>
+                <td colspan="3">
+                    Ricerca per data giornaliera
+                </td>
+            </tr>
+            <tr>
+                <td>
+                    @Html.DevExpress().DateEdit(settings =>
+                    {
+                        settings.Name = "UserNameLabel";
+                    }).GetHtml()
+                </td>
+                <td style="width: 15px"></td>
+                <td>
+                    @Html.DevExpress().Button(settings =>
+                    {
+                        settings.Name = "Button";
+                        settings.Text = "Ricerca";
+                        settings.UseSubmitBehavior = true;
+                    }).GetHtml()
+                </td>
+            </tr>
+
+
+
+        </table>
+    }
+</div>
+
+<hr />
+
+@Html.Action("GridViewPartial");
+
+

@@ -1,0 +1,52 @@
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\DailyManager.exe.config
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\DailyManager.exe
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\DailyManager.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\CMLabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\DLLabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\CMLabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Debug\DLLabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\obj\Debug\DailyManager.csprojResolveAssemblyReference.cache
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\obj\Debug\DailyManager.exe
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\obj\Debug\DailyManager.pdb
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\DailyManager.exe.config
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\DailyManager.exe
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\DailyManager.pdb
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\CMLabExtim.dll
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\DLLabExtim.dll
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\CMLabExtim.pdb
+D:\frameworks\LabExtim\web\DailyManager\bin\Debug\DLLabExtim.pdb
+D:\frameworks\LabExtim\web\DailyManager\obj\Debug\DailyManager.csprojResolveAssemblyReference.cache
+D:\frameworks\LabExtim\web\DailyManager\obj\Debug\DailyManager.exe
+D:\frameworks\LabExtim\web\DailyManager\obj\Debug\DailyManager.pdb
+E:\VS9\LabextimProject\DailyManager\bin\Debug\DailyManager.exe.config
+E:\VS9\LabextimProject\DailyManager\bin\Debug\DailyManager.exe
+E:\VS9\LabextimProject\DailyManager\bin\Debug\DailyManager.pdb
+E:\VS9\LabextimProject\DailyManager\bin\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\DailyManager\bin\Debug\DLLabExtim.dll
+E:\VS9\LabextimProject\DailyManager\bin\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\DailyManager\bin\Debug\DLLabExtim.pdb
+E:\VS9\LabextimProject\DailyManager\obj\Debug\DailyManager.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\DailyManager\obj\Debug\DailyManager.exe
+E:\VS9\LabextimProject\DailyManager\obj\Debug\DailyManager.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.exe.config
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.exe
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\DLLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\DLLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.exe
+E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.pdb
+E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\snap7.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\snap7.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.exe.config
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.exe
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\CMLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DLLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\CMLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DLLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.csprojResolveAssemblyReference.cache
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.exe
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.pdb

@@ -1,0 +1,240 @@
+@using CMLabExtim.CustomClasses
+@using DevExpress.Data
+@using LabExtimOperator.Models
+@{
+    var context = new LabExtimEntities();
+    var ctxOperator = new LabExtimOperatorEntities();
+    var idUser = ctxOperator.UserProfile.Single(x => x.UserName == WebSecurity.CurrentUserName).UserLabeId;
+}
+@{
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "GridView";
+        settings.CallbackRouteValues = new { Controller = "TempProductionOrderDetail", Action = "GridViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "GridViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "GridViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "GridViewPartialDelete" };
+        settings.SettingsEditing.Mode = GridViewEditingMode.EditFormAndDisplayRow;
+        settings.SettingsBehavior.ConfirmDelete = false;
+
+        settings.CommandColumn.Visible = false;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = false;
+        settings.CommandColumn.ShowEditButton = false;
+
+        settings.KeyFieldName = "ID";
+
+        settings.SettingsPager.Visible = true;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = false;
+        settings.SettingsBehavior.HeaderFilterMaxRowCount = 100;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "State";
+            column.Caption = "Stato";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_ProductionOrder";
+            column.Caption = "ID Odp";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_Owner";
+            column.Caption = "Operatore";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = idUser == null ? context.Employees.ToList() : context.Employees.Where(x => x.ID == idUser).ToList();
+            comboBoxProperties.TextField = "UniqueName";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ProductionDate";
+            column.Caption = "Data";
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var dateEditProperties = column.PropertiesEdit as DateEditProperties;
+            dateEditProperties.EditFormatString = "dd/MM/yyyy";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_Phase";
+            column.Caption = "Fase";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = context.PickingItems.Where(x => x.TypeCode == 31).OrderBy(x=>x.ItemDescription).ToList();
+            comboBoxProperties.TextField = "ItemDescription";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ProductionDateTime";
+            column.Caption = "Tempo Prod (hh:mm)";
+            column.ColumnType = MVCxGridViewColumnType.TimeEdit;
+            var dateEditProperties = column.PropertiesEdit as TimeEditProperties;
+            dateEditProperties.EditFormat = EditFormat.Time;
+            dateEditProperties.EditFormatString = "0:HH:mm";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.Name = "PickingItemDesc";
+            column.FieldName = "PickingItemDescId";
+            column.Caption = "Voce di base";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = context.PickingItems.
+                Where(x => x.TypeCode != 31).
+                OrderBy(x => x.Order).
+                Select(x => new ComboListItem
+                {
+                    PrefixSource = ComboListItemSource.PikingItem,
+                    CommonKey = x.ID,
+                    Text = x.ItemDescription,
+                    Order = x.Order
+                }).Union(context.MacroItems.
+                    OrderBy(x => x.Order).
+                    Select(x => new ComboListItem
+                    {
+                        PrefixSource = ComboListItemSource.MacroItem,
+                        CommonKey = x.ID,
+                        Text = x.MacroItemDescription,
+                        Order = x.Order
+                    })).ToList();
+            comboBoxProperties.TextField = "ComboText";
+            comboBoxProperties.ValueField = "ComboValue";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UMRawMaterial";
+            column.Caption = "UM Voce Base";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = context.Units.OrderBy(x => x.Description).ToList();
+            comboBoxProperties.TextField = "Description";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialQuantity";
+            column.Caption = "Qtà Voce Base";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PickingItemSupId";
+            column.Caption = "Voce supplementare";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = context.PickingItems.
+                Where(x => x.TypeCode != 31).
+                OrderBy(x => x.Order).
+                Select(x => new ComboListItem
+                {
+                    PrefixSource = ComboListItemSource.PikingItem,
+                    CommonKey = x.ID,
+                    Text = x.ItemDescription,
+                    Order = x.Order
+                }).Union(context.MacroItems.
+                    OrderBy(x => x.Order).
+                    Select(x => new ComboListItem
+                    {
+                        PrefixSource = ComboListItemSource.MacroItem,
+                        CommonKey = x.ID,
+                        Text = x.MacroItemDescription,
+                        Order = x.Order
+                    })).ToList();
+            comboBoxProperties.TextField = "ComboText";
+            comboBoxProperties.ValueField = "ComboValue";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "UMUser";
+            column.Caption = "UM Voce Sup";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = context.Units.OrderBy(x => x.Description).ToList();
+            comboBoxProperties.TextField = "Description";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialX";
+            column.Caption = "Qtà Voce Sup";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialY";
+            column.Caption = "b (UMMS) (m)";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialZ";
+            column.Caption = "h (UMMS) (m)";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "QuantityOver";
+            column.Caption = "Evaso";
+            column.ColumnType = MVCxGridViewColumnType.CheckBox;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Note";
+            column.Caption = "Note";
+            column.ColumnType = MVCxGridViewColumnType.Memo;
+        });
+        
+        settings.Settings.ShowFooter = true;
+        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialQuantity");
+        ////settings.GroupSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialQuantity");
+
+        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialX");
+        ////settings.GroupSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialX");
+
+        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialY");
+        ////settings.GroupSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialY");
+
+        //settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialZ");
+        ////settings.GroupSummary.Add(DevExpress.Data.SummaryItemType.Sum, "RawMaterialZ");
+
+        settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Custom, "ProductionDateTime");
+
+        Int64 totalWork = 0;
+        
+        settings.CustomSummaryCalculate = (sender, e) =>
+        {
+            ASPxSummaryItem summary = e.Item as ASPxSummaryItem;
+            if (summary.FieldName != "ProductionDateTime") return;
+
+            if (e.SummaryProcess == CustomSummaryProcess.Start)
+            {
+                totalWork = 0;
+            }
+            if (e.SummaryProcess == CustomSummaryProcess.Calculate)
+            {
+                totalWork += Convert.ToDateTime(e.GetValue("ProductionDateTime")).Minute + Convert.ToDateTime(e.GetValue("ProductionDateTime")).Hour * 60;
+            }
+            if (e.SummaryProcess == CustomSummaryProcess.Finalize)
+            {
+                e.TotalValue = DateTime.MinValue.AddMinutes(totalWork);
+            }
+        };    
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+}
+
+@grid.Bind(Model).GetHtml()

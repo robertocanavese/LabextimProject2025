@@ -1,0 +1,39 @@
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\bin\Release\UILabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\bin\Release\UILabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\bin\Release\CMLabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\bin\Release\DLLabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\bin\Release\CMLabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\bin\Release\DLLabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\obj\Release\UILabExtim.csprojResolveAssemblyReference.cache
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\obj\Release\UILabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\UILabExtim\obj\Release\UILabExtim.pdb
+D:\frameworks\LabExtim\web\UILabExtim\bin\Release\UILabExtim.dll
+D:\frameworks\LabExtim\web\UILabExtim\bin\Release\UILabExtim.pdb
+D:\frameworks\LabExtim\web\UILabExtim\bin\Release\CMLabExtim.dll
+D:\frameworks\LabExtim\web\UILabExtim\bin\Release\DLLabExtim.dll
+D:\frameworks\LabExtim\web\UILabExtim\bin\Release\CMLabExtim.pdb
+D:\frameworks\LabExtim\web\UILabExtim\bin\Release\DLLabExtim.pdb
+D:\frameworks\LabExtim\web\UILabExtim\obj\Release\UILabExtim.csprojResolveAssemblyReference.cache
+D:\frameworks\LabExtim\web\UILabExtim\obj\Release\UILabExtim.dll
+D:\frameworks\LabExtim\web\UILabExtim\obj\Release\UILabExtim.pdb
+E:\VS9\LabextimProject\UILabExtim\bin\Release\UILabExtim.dll
+E:\VS9\LabextimProject\UILabExtim\bin\Release\UILabExtim.pdb
+E:\VS9\LabextimProject\UILabExtim\bin\Release\CMLabExtim.dll
+E:\VS9\LabextimProject\UILabExtim\bin\Release\DLLabExtim.dll
+E:\VS9\LabextimProject\UILabExtim\bin\Release\CMLabExtim.pdb
+E:\VS9\LabextimProject\UILabExtim\bin\Release\DLLabExtim.pdb
+E:\VS9\LabextimProject\UILabExtim\obj\Release\UILabExtim.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\UILabExtim\obj\Release\UILabExtim.dll
+E:\VS9\LabextimProject\UILabExtim\obj\Release\UILabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\snap7.dll
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\UILabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\UILabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\DLLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\System.Net.IPNetwork.dll
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\DLLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\System.Net.IPNetwork.pdb
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.pdb

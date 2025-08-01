@@ -1,0 +1,101 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+
+<siteMap xmlns="http://schemas.microsoft.com/AspNet/SiteMap-File-1.0">
+  <siteMapNode url="~/Home.aspx" title="Home" description="Home page">
+    <siteMapNode url="~/QuotationInsert2.aspx" title="Nuovo preventivo" description="Nuovo preventivo">
+    </siteMapNode>
+    <siteMapNode url="~/QuotationFind.aspx" title="Trova preventivo" description="Trova preventivo">
+      <siteMapNode url="~/QuotationConsole2.aspx" title="Console preventivo" description="Console preventivo" />
+      <siteMapNode url="~/QuotationPrint.aspx" title="Stampa preventivo" description="Stampa preventivo" />
+    </siteMapNode>
+    <siteMapNode url="~/QuotationTemplateInsert.aspx" title="Nuovo modello di preventivo"
+                 description="Nuovo modello di preventivo">
+    </siteMapNode>
+    <siteMapNode url="~/QuotationTemplateFind.aspx" title="Trova modello di preventivo"
+                 description="Trova modello di preventivo">
+      <siteMapNode url="~/QuotationTemplateConsole.aspx" title="Console modello di preventivo"
+                   description="Console preventivo" />
+      <siteMapNode url="~/QuotationTemplatePrint.aspx" title="Stampa modello di preventivo"
+                   description="Stampa modello di preventivo" />
+    </siteMapNode>
+    <siteMapNode url="~/MacroItemsConsole.aspx" title="Gestione macrovoci" description="Gestione macrovoci">
+    </siteMapNode>
+    <siteMapNode url="~/SuppliersConsole.aspx" title="Gestione Fornitori" description="Gestione Fornitori">
+    </siteMapNode>
+    <siteMapNode url="~/PickingItemsConsole.aspx" title="Gestione tabella base" description="Gestione tabella base">
+    </siteMapNode>
+    <siteMapNode url="~/QuotationFreeItems.aspx" title="Voci libere preventivi"
+               description="Voci libere preventivi">
+    </siteMapNode>
+    <siteMapNode url="~/CustomersConsole.aspx" title="Gestione Clienti" description="Gestione Clienti">
+    </siteMapNode>
+    <siteMapNode url="~/CustomerOrdersConsole.aspx" title="Ordini Clienti" description="Ordini Clienti">
+    </siteMapNode>
+    <siteMapNode url="~/LocationsConsole.aspx" title="Destinazioni viaggi" description="Destinazioni viaggi">
+    </siteMapNode>
+    <siteMapNode url="~/DeliveryTripsConsole.aspx" title="Viaggi" description="Viaggi">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersConsole.aspx" title="Gestione ordini di produzione"
+                 description="Gestione Ordini di Produzione">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrderDetailsInsertByD.aspx"
+                 title="Denuncia operazioni per DATA (voci libere e impreviste)"
+                 description="Denuncia operazioni per DATA (voci libere e impreviste)">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrderDetailsInsertByO3.aspx" title="Denuncia operazioni per OPERATORE"
+                 description="Denuncia operazioni per OPERATORE (Nuova)">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrderDetailsInsertByOdP.aspx" title="Denuncia operazioni per OdP"
+                 description="Denuncia operazioni per OdP">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersSchedule.aspx" title="Visualizzazione avanzamento ordini di produzione"
+                 description="Visualizzazione avanzamento ordini di produzione">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersMPS.aspx" title="Pianificazione produzione"
+                 description="Pianificazione produzione">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersDepSched.aspx" title="Calendario lavorazioni di reparto"
+               description="Calendario lavorazioni di reparto">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersDepSched2.aspx" title="Calendario lavorazioni di reparto NUOVO"
+          description="Calendario lavorazioni di reparto NUOVO">
+    </siteMapNode>
+    <siteMapNode url="~/RealTimeWorkShopMonitor.aspx" title="Monitor macchine (tempo reale)"
+              description="Monitor macchine (tempo reale)">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionGraphicScheduler.aspx" title="Schedulatore grafico lavorazioni"
+              description="Schedulatore grafico lavorazioni">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersOnDelivery.aspx" title="OdP in consegna"
+                   description="OdP in consegna">
+    </siteMapNode>
+
+    <siteMapNode url="~/ProductionOrdersStats.aspx" title="Redditività ordini di produzione"
+                 description="Redditività ordini di produzione">
+    </siteMapNode>
+    <siteMapNode url="~/EmployeesWorkingDayHoursStats.aspx" title="Ore lavoro operatori"
+                 description="Ore lavoro operatori">
+    </siteMapNode>
+    <siteMapNode url="~/ProductionOrderDetailsConsumption.aspx" title="Consumo prodotti"
+                     description="Consumo prodotti">
+    </siteMapNode>
+    <siteMapNode url="~/ProductsUseAnomalies.aspx" title="Mancata denuncia prodotti preventivo"
+                         description="Mancata denuncia prodotti preventivo">
+    </siteMapNode>
+    
+
+    <siteMapNode url="~/FreeTypePODetails2.aspx" title="Voci libere (denuncia produzione)"
+                 description="Voci libere (denuncia produzione)">
+    </siteMapNode>
+    <siteMapNode url="~/TablesMan.aspx" title="Gestione tabelle di supporto" description="Gestione tabelle di supporto">
+    </siteMapNode>
+    <siteMapNode url="~/TablesImport.aspx" title="Importazione tabelle" description="Importazione tabelle">
+    </siteMapNode>
+    <siteMapNode url="~/Options.aspx" title="Altre opzioni" description="Altre opzioni">
+    </siteMapNode>
+    <siteMapNode url="~/Configuration.aspx" title="Configurazione" description="Configurazione">
+    </siteMapNode>
+    <siteMapNode url="~/Restricted/ManageUser.aspx" title="Gestione credenziali accesso" description="Gestione credenziali accesso">
+    </siteMapNode>
+  </siteMapNode>
+</siteMap>

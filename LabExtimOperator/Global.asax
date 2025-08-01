@@ -1,0 +1,1 @@
+<%@ Application Codebehind="Global.asax.cs" Inherits="LabExtimOperator.MvcApplication" Language="C#" %>

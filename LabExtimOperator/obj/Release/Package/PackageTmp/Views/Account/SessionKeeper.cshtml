@@ -1,0 +1,27 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <title>SessionKeeper</title>
+</head>
+<body>
+
+    <h2>SessionKeep</h2>
+    <div>
+        File non utilizzato: serve solo per tenere la sessione attiva.
+        Viene richiamato dall'iframe presente nella testata dell'applicativo.
+        <!-- Vedere Site.Master per maggiori dettagli -->
+        Caricato il @DateTime.Now
+    </div>
+
+    <script language="JavaScript" type="text/javascript">
+	//esegue aggiornamento pagina ogni 5 minuti
+	 setTimeout(function(){document.location.reload(true);}, (1*60*1000));
+    </script>
+</body>
+</html>

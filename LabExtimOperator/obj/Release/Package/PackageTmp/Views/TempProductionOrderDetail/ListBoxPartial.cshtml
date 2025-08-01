@@ -1,0 +1,32 @@
+﻿@Html.DevExpress().ListBox(
+    settings =>
+    {
+        settings.Name = "lbModels";                
+        settings.CallbackRouteValues = new { Controller = "TempProductionOrderDetail", Action = "ListBoxPartial" };
+        settings.Height = 150;
+        settings.Width = 500; 
+        //settings.Properties.Caption = "Voce di base:";        
+        settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+        settings.Properties.EnableClientSideAPI = true;
+        settings.Properties.SelectionMode = ListEditSelectionMode.Single;
+        settings.Properties.TextField = "Description";
+        settings.Properties.ValueField = "Id";
+        settings.Properties.ValueType = typeof(string);
+        settings.Properties.ClientSideEvents.EndCallback = @"function(s, e)
+{
+    if (s.GetItemCount()==1){
+        var item = s.GetItem(0);
+        if (item.text.indexOf('|')>0){
+            var text = item.text.substr(0,item.text.indexOf('|'));
+            var um = item.text.substr(item.text.indexOf('|')+1);
+            
+            $(""label[for='RawMaterialQuantity_I']"").text(""Qta in "" + um);
+        }
+    }
+}";
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = @"function (s, e) {
+        var selectedFeatures = s.GetSelectedValues();
+            lbModels.PerformCallback({ 'selectedFeatures': selectedFeatures ? selectedFeatures.join() : null });
+        }";        
+    }
+).BindList(Model).GetHtml()

@@ -1,0 +1,47 @@
+﻿@Html.DevExpress().ListBox(
+    settings =>
+    {
+        settings.Name = "lbModels2";
+        settings.CallbackRouteValues = new { Controller = "TempProductionOrderDetail", Action = "ListBoxPartial2" };
+        settings.Height = 150;
+        settings.Width = 500;
+        //settings.Properties.Caption = "Voce Supplementare:";
+        settings.Properties.CaptionSettings.Position = EditorCaptionPosition.Top;
+        settings.Properties.EnableClientSideAPI = true;
+        settings.Properties.SelectionMode = ListEditSelectionMode.Single;
+        settings.Properties.TextField = "Description";
+        settings.Properties.ValueField = "Id";
+        settings.Properties.ValueType = typeof(string);
+        settings.Properties.ClientSideEvents.Init = @"function (s,e) { FormLayoutProducts.GetItemByName('grpFilmCaldo').SetVisible(false); FormLayoutProducts.AdjustControl();}";
+        settings.Properties.ClientSideEvents.EndCallback = @"function(s, e)
+    {
+    if (s.GetItemCount()==1){
+        var item = s.GetItem(0);
+        if (item.text.indexOf('|')>0){
+            var text = item.text.substr(0,item.text.indexOf('|'));
+            var um = item.text.substr(item.text.indexOf('|')+1);
+
+            $(""label[for='RawMaterialX_I']"").text(""Qta in "" + um);
+
+        }
+    }
+}";
+        settings.Properties.ClientSideEvents.SelectedIndexChanged = @"function (s, e) {
+        var selectedFeatures = s.GetSelectedValues();
+        lbModels2.PerformCallback({ 'selectedFeatures': selectedFeatures ? selectedFeatures.join() : null });
+        }";
+        settings.Properties.ClientSideEvents.ValueChanged = @"function (s, e) {
+        values = s.GetSelectedValues();
+        if (s.itemsValue.indexOf('7') > -1 && values[0] == '7')
+        {
+            FormLayoutProducts.GetItemByName('grpFilmCaldo').SetVisible(true);
+            FormLayoutProducts.AdjustControl();
+        }
+        else if (s.itemsValue.indexOf('7') > -1 && values[0] != '7')
+        {
+            FormLayoutProducts.GetItemByName('grpFilmCaldo').SetVisible(false);
+            FormLayoutProducts.AdjustControl();
+        }
+        }";
+    }
+).BindList(Model).GetHtml()

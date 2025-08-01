@@ -1,0 +1,701 @@
+﻿/* Cascading Stylesheet for Common Elements */
+
+/* Begin: General */
+
+h4 {
+    margin-top: 6px !important;
+    margin-bottom: 3px !important;
+}
+
+
+
+body.template {
+    padding-left: 2px;
+    padding-right: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    color: navy;
+}
+
+    body.template h1 {
+        padding-bottom: 12px;
+        border-bottom: 1px dotted #bbbbbb;
+        font-size: 2.2em;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        color: #888888;
+    }
+
+span.allcaps {
+    font-variant: small-caps;
+}
+
+body.template h2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.45em;
+    color: #888888;
+}
+
+.h2 {
+    margin-top: 2px;
+    margin-bottom: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.45em;
+    color: #888888;
+}
+
+.companyHeader {
+    margin: 0px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 1.45em;
+    color: #888888;
+    height: 40px;
+}
+
+div.back {
+    margin-bottom: -20px;
+    position: relative;
+    top: 4px;
+    padding-left: 5px;
+    padding-bottom: 5px;
+    left: 3px;
+}
+
+    div.back img {
+        position: relative;
+        margin-top: 0em;
+        padding-left: 8px;
+        padding-right: 8px;
+        border: none;
+        background-color: #ffffff;
+    }
+
+    div.back a:link, div.back a:visited {
+        color: #839ce7;
+        text-decoration: none;
+        background-color: #ffffff;
+        padding-right: 8px;
+        top: -.2em;
+        left: .25em;
+    }
+
+    div.back a:hover {
+        color: #000099;
+        /* text-decoration: underline !important; */
+    }
+
+#iframe_sessionkeeper {
+    width: 100%;
+    height: 1px;
+    overflow: hidden;
+    border: 0px;
+    margin: 0px;
+    padding: 0px;
+}
+
+/* End: General */
+
+/* Begin: Tables */
+
+body.template table.listview, table.gridview, table.detailstable {
+    border: 1px solid #dbddff;
+    border-bottom: 3px solid #dbddff;
+    border-collapse: collapse;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: navy;
+    font-size: 100%;
+}
+
+    body.template body.template table.listview td, table.gridview td, table.detailstable td {
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        line-height: 1.1em;
+        white-space: normal;
+    }
+
+    body.template table.listview th, table.gridview th, table.detailstable th {
+        /*background-position: 1px 1px;
+    background-repeat: repeat-x;
+    background-color: #ffffff;*/
+        text-align: center;
+        padding-top: 4px;
+        padding-bottom: 4px;
+        padding-left: 4px;
+        padding-right: 4px;
+        line-height: 1.1em;
+        /*line-height: 1.3em;*/
+        /*color: #666666;*/
+        border-left: 1px solid #dbddff;
+        border-right: 1px solid #dbddff;
+        border-bottom: 1px solid #dbddff;
+        background-color: navy;
+        color: white;
+        white-space: normal;
+    }
+
+    body.template table.listview td, table.gridview td, table.detailstable td {
+        border: 1px dotted #dadada;
+    }
+
+body.template td.bold {
+    font-weight: bold;
+}
+
+body.template th a:link, body.template th a:visited, body.template th a:hover {
+    color: #666666;
+    text-decoration: none;
+}
+
+body.template td a:link, body.template td a:visited {
+    color: #718ABE;
+    text-decoration: none;
+    padding-right: 6px;
+}
+
+body.template td a:hover {
+    color: #000099;
+    /* text-decoration: underline !important; */
+}
+
+table.gridview {
+    /*width: 100%;*/
+}
+
+/*table.gridview table td {
+        padding-left: .1em;
+        padding-right: .1em;
+        border: solid 1px #dbddff;
+    }*/
+
+.row {
+    background-color: white;
+}
+
+.altRow {
+    background-color: #fcfcfc;
+}
+
+
+.altRowDarker {
+    background-color: #c3c3c3;
+}
+
+
+/*table.gridview th { background-image: url(DynamicData/Content/Images/header_back.gif); }*/
+/*table.gridview th { 
+    background-color:navy;
+    color:white;
+}*/
+
+table.listview {
+    width: 100%;
+}
+
+    table.listview td a:link, table.listview td a:visited {
+        font-size: 100%;
+    }
+
+    table.listview table td {
+        padding-left: .5em;
+        padding-right: .5em;
+    }
+
+    table.listview th {
+        background-image: url(DynamicData/Content/Images/header_back.gif);
+    }
+
+table.detailstable td {
+    border-left: 1px solid #dbddff;
+    border-right: 1px solid #dbddff;
+    vertical-align: top;
+    background-color: #f2f2f2;
+}
+
+table.detailstable th {
+    background: #f2f2f2;
+    vertical-align: top;
+}
+
+td.nowrap {
+    white-space: nowrap;
+}
+
+/* The following modifies the details table */
+
+/*body.template tr { background: #FCFDFE; }*/
+
+/* The following modifies the controls in the list table footer */
+
+tr.footer td {
+    /*background: #dbddff;*/
+    background-color: #f2f2f2;
+    font-weight: bold;
+    height: 1.5em;
+    color: #888888;
+}
+
+/* The following modifies the selected row in the list table */
+
+tr.selected td {
+    background: #f2f2f2;
+    border: none;
+    border-bottom: 1px solid lightgray;
+}
+
+/* End: Tables */
+
+/* The following modifies the page number control which exists under the main table */
+
+div.pager {
+    padding: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    background-color: #f2f2f2;
+}
+
+span.results1 {
+    float: left;
+}
+
+span.results2 {
+    float: left;
+    padding-left: 10px;
+}
+
+/* The following modifies the results per page control which exists under the main table */
+
+div.results {
+    display: inline;
+    position: relative;
+    padding: 0px;
+    padding-left: 6px;
+    padding-right: 6px;
+    margin-top: -1.75em;
+    float: right;
+}
+
+/* Set's the appearance of the drop down control*/
+
+.droplist {
+    padding: 1px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    color: navy;
+    /*height: 20px;*/
+}
+
+
+/* Bottom hyperlink design*/
+
+div.bottomhyperlink {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 100%;
+    margin-top: -3px;
+}
+
+    div.bottomhyperlink a:link, div.bottomhyperlink a:visited {
+        color: #839ce7;
+        text-decoration: none;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+        margin-top: -3px;
+    }
+
+    div.bottomhyperlink a:hover {
+        color: #000099;
+        text-decoration: underline !important;
+        font-family: Verdana, Geneva, Tahoma, sans-serif;
+        font-size: 100%;
+    }
+
+    div.bottomhyperlink img {
+        position: relative;
+        top: 0em;
+        padding-right: .4em;
+        border: none;
+    }
+
+div.ajax__calendar_days table tr td {
+    padding: 0px;
+}
+
+.MyCalendar .ajax__calendar_container {
+    border: 1px solid #646464;
+    background-color: #ffffff;
+}
+
+.MyCalendar .ajax__calendar_day {
+}
+
+.MyCalendar .ajax__calendar_dayname {
+    color: Blue;
+}
+
+.MyCalendar .ajax__calendar_body {
+}
+
+.MyCalendar .ajax__calendar_other .ajax__calendar_day, .MyCalendar .ajax__calendar_other .ajax__calendar_year {
+    color: Red;
+}
+
+.MyCalendar .ajax__calendar_hover .ajax__calendar_day, .MyCalendar .ajax__calendar_hover .ajax__calendar_month, .MyCalendar .ajax__calendar_hover .ajax__calendar_year {
+    color: black;
+}
+
+.MyCalendar .ajax__calendar_active .ajax__calendar_day, .MyCalendar .ajax__calendar_active .ajax__calendar_month, .MyCalendar .ajax__calendar_active .ajax__calendar_year {
+    color: black;
+    font-weight: bold;
+}
+
+.selectors {
+    color: #839ce7;
+    text-decoration: underline !important;
+}
+
+div.menu td a:link, div.menu td a:visited {
+    color: #888888;
+    padding: 2px;
+    text-decoration: none;
+    display: block;
+    background-color: #F0F0F0;
+    border: solid 1px white;
+}
+
+div.menu td a:hover {
+    color: red;
+    /*
+    text-decoration: underline !important;
+    height: 30px;
+    padding-top: 15px;
+    */
+}
+
+table.menu td a:link, .menu td a:visited {
+    color: #888888;
+    padding: 1px;
+    text-decoration: none;
+    display: block;
+    background-color: #F0F0F0;
+    border: solid 1px white;
+}
+
+table.menu td a:hover {
+    color: red;
+    /*
+    text-decoration: underline !important;
+    */
+}
+
+div.menu {
+    border: solid 1px #F0F0F0;
+}
+
+table.menu {
+    border: solid 1px #F0F0F0;
+}
+
+.ReportCustomizer {
+    padding-left: 8px;
+    padding-right: 8px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    color: #666666;
+}
+
+textarea {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+}
+
+
+table.contextmenu td {
+    padding: 2px 1px 2px 2px;
+    background-color: #F0F0F0;
+    text-align: left;
+}
+
+    table.contextmenu td a:link, .contextmenu td a:visited {
+        padding: 2px 1px 2px 2px;
+        text-decoration: none;
+        display: block;
+        background-color: #F0F0F0;
+        text-align: left;
+    }
+
+    table.contextmenu td a:hover {
+        color: red;
+        /*
+    text-decoration: underline !important;
+    height: 10px;
+    padding: 5px 1px 2px 2px;
+    */
+        background-color: #F0F0F0;
+        text-align: left;
+    }
+
+
+table.contextmenuroot td a:hover {
+    color: red;
+}
+
+.red {
+    color: red;
+}
+
+.green {
+    color: darkgreen;
+}
+
+.bold {
+    font-weight: bold;
+}
+
+
+table.cellmenu td {
+    background-color: #ffffdd;
+    padding: 0px;
+    border: none 0px;
+}
+
+#bgDiv {
+    position: fixed;
+    left: 0;
+    top: 0;
+    z-index: 10;
+    width: 100%;
+    height: 100%;
+    background-color: gray;
+    filter: alpha(opacity=40);
+    opacity: 0.4;
+}
+
+.labelsForEditTable {
+    text-align: right;
+    width: 300px;
+    padding: 5px;
+}
+
+.textBoxesForEditTable {
+    text-align: left;
+    padding: 5px;
+}
+
+.loginStyle {
+    margin: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    color: navy;
+    font-size: 11px;
+}
+
+.grayPanel {
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 10px;
+    color: navy;
+    border: none;
+    border-collapse: collapse;
+    background-color: #f2f2f2;
+}
+
+.int1 {
+    width: 100%;
+    margin: 0 auto;
+}
+
+.logo {
+    width: 100%;
+    height: 35px;
+    background: url(images/footer.png) repeat-x;
+    position: relative;
+    z-index: 1;
+    top: 2px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 12px;
+    color: white;
+}
+
+.logoint {
+    float: left;
+    font-size: 12px;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.extimator {
+    float: right;
+    font-size: 14px;
+    vertical-align: middle;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.logoint a:link {
+    display: inline-block;
+    padding: 5px;
+    margin: -15px 0 0 10px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+.logoint a:visited {
+    display: inline-block;
+    padding: 5px;
+    margin: -15px 0 0 10px;
+    vertical-align: middle;
+    text-decoration: none;
+}
+
+/*
+.logoint a:hover {
+    display: inline-block;
+    padding: 5px;
+    margin: -15px 0 0 10px;
+    vertical-align: middle;
+    text-decoration: underline;
+}
+*/
+.cursor {
+    cursor: pointer;
+}
+
+div.menuYellow td a:link, div.menu td a:visited {
+    color: #888888;
+    padding: 2px;
+    text-decoration: none;
+    display: block;
+    background-color: #f7f868;
+    border: solid 1px white;
+}
+
+div.menuYellow td a:hover {
+    color: red;
+    /*
+    text-decoration: underline !important;
+    height: 30px;
+    padding-top: 15px;
+    */
+}
+
+table.menuYellow td a:link, .menu td a:visited {
+    color: #888888;
+    padding: 1px;
+    text-decoration: none;
+    display: block;
+    background-color: #f7f868;
+    border: solid 1px white;
+}
+
+table.menuYellow td a:hover {
+    color: red;
+    /*
+    text-decoration: underline !important;
+    */
+}
+
+div.menuYellow {
+    border: solid 1px #F0F0F0;
+}
+
+table.menuYellow {
+    border: solid 1px #F0F0F0;
+}
+
+div.menuBlue td a:link, div.menu td a:visited {
+    color: #888888;
+    padding: 2px;
+    text-decoration: none;
+    display: block;
+    background-color: #d6f7fb;
+    border: solid 1px white;
+}
+
+div.menuBlue td a:hover {
+    color: red;
+    /*
+    text-decoration: underline !important;
+    height: 30px;
+    padding-top: 15px;
+    */
+}
+
+table.menuBlue td a:link, .menu td a:visited {
+    color: #888888;
+    padding: 1px;
+    text-decoration: none;
+    display: block;
+    background-color: #d6f7fb;
+    border: solid 1px white;
+}
+
+table.menuBlue td a:hover {
+    color: red;
+    /*
+    text-decoration: underline !important;
+    */
+}
+
+div.menuBlue {
+    border: solid 1px #F0F0F0;
+}
+
+table.menuBlue {
+    border: solid 1px #F0F0F0;
+}
+
+table.center td {
+    text-align: center;
+}
+
+th > a {
+    color: white !important;
+}
+
+.autocomplete_completionListElement {
+    background-color: window !important; /*inherit*/
+}
+
+input[type=submit].myButton {
+    margin-top: 5px;
+    margin-bottom: 5px;
+    padding: 2px;
+    padding-left: 4px;
+    padding-right: 4px;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+    font-size: 11px;
+    color: navy;
+    min-width: 80px;
+}
+
+.MyIcon {
+    height: 45px;
+    width: 45px;
+}
+
+.MyIconSmall {
+    height: 37px;
+    width: 37px;
+}
+
+.MyPopup {
+    border: 3px solid darkgray;
+    font-weight: bold;
+}
+
+    .MyPopup td {
+        text-align: center;
+        color: navy;
+        font-size: 12px;
+    }
+
+.ui-dialog .ui-dialog-title {
+    font-size: 12px;
+}
+
+.ui-dialog .ui-dialog-titlebar {
+}
+
+.ui-dialog ui-dialog-content {
+}

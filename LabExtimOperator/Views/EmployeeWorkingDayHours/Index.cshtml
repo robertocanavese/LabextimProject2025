@@ -1,0 +1,44 @@
+﻿@model List<object[]>
+
+<p class="center">
+    Ore dichiarate dall'operatore nell'ultima settimana
+</p>
+<table class="employee">
+    <tr>
+        @for (int i = 0; i < Model[0].Count(); i++)
+        {
+            <th>
+                @if (Model[0][i].ToString().Contains("sab ") || Model[0][i].ToString().Contains("dom "))
+                {
+                    <span class="blue">@Html.DisplayFor(model => Model[0][i])</span>
+                }
+                else
+                {
+                    @Html.DisplayFor(model => Model[0][i])
+                }
+            </th>
+        }
+    </tr>
+    <tr>
+        @for (int i = 0; i < Model[1].Count(); i++)
+        {
+            <td>
+                @if (i > 0 )
+                {
+                    if (i > 0 && Convert.ToDecimal(Model[1][i]) != 8m && !(Model[0][i].ToString().Contains("sab ") || Model[0][i].ToString().Contains("dom ")))
+                    {
+                        <span class="red">@Html.DisplayFor(model => Model[1][i])</span>
+                    }
+                    else
+                    {
+                        @Html.DisplayFor(model => Model[1][i])
+                    }
+                }
+                else
+                {
+                    @Html.DisplayFor(model => Model[1][i])
+                }
+            </td>
+        }
+    </tr>
+</table>

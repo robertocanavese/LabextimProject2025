@@ -1,0 +1,8 @@
+24/09/2020 12:10:32 - Labextim (Comando fallito: prc_LAB_MGet_LAB_EmployeesWorkingDayHoursPivot - Valori parametri: @IDCompany, @DataDa, @DataA, ): La colonna 'Employees.UniqueName' non è valida nell'elenco di selezione perché non è inclusa né in una funzione di aggregazione né nella clausola GROUP BY.
+La colonna 'Employees.UniqueName' non è valida nell'elenco di selezione perché non è inclusa né in una funzione di aggregazione né nella clausola GROUP BY.
+30/11/2020 09:31:17 - Bulk Copy: Impossibile convertire il valore specificato di tipo String dell'origine dati nel tipo nvarchar della colonna di destinazione specificata.
+17/06/2023 11:21:06 - ZechiniGateway - RetrieveCurrentDataset: Indice oltre i limiti della matrice.
+17/06/2023 11:30:31 - ZechiniGateway - RetrieveCurrentDataset: Indice oltre i limiti della matrice.
+17/06/2023 11:34:19 - ZechiniGateway - RetrieveCurrentDataset: Formato della stringa di input non corretto.
+17/06/2023 12:21:37 - ZechiniGateway - RetrieveCurrentDataset: Formato della stringa di input non corretto.
+23/09/2023 13:07:28 - Importazione dati: Login failed for user 'Cartolabe'.

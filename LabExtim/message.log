@@ -1,0 +1,502 @@
+27/05/2023 10:02:39 - : TCP : Connection Error (0 ms)
+27/05/2023 10:32:25 - : TCP : Connection Error (0 ms)
+27/05/2023 10:49:58 - : TCP : Connection Error (0 ms)
+27/05/2023 11:04:24 - : TCP : Connection Error (0 ms)
+27/05/2023 11:05:33 - : TCP : Connection Error (0 ms)
+27/05/2023 11:07:40 - : TCP : Connection Error (0 ms)
+27/05/2023 11:11:45 - : TCP : Connection Error (0 ms)
+27/05/2023 13:11:11 - : TCP : Connection Error (0 ms)
+27/05/2023 17:34:17 - :  TCP : Unreachable peer (309 ms)
+29/05/2023 17:10:36 - : OK (167 ms)
+29/05/2023 17:17:39 - : OK (155 ms)
+29/05/2023 17:22:46 - : OK (179 ms)
+29/05/2023 17:58:06 - : OK (236 ms)
+29/05/2023 18:00:12 - :  ISO : An error occurred during send TCP : Connection timed out
+29/05/2023 18:10:40 - : OK (170 ms)
+29/05/2023 18:12:41 - :  TCP : Unreachable peer (32 ms)
+29/05/2023 18:16:20 - : OK (269 ms)
+29/05/2023 18:17:05 - : OK (258 ms)
+30/05/2023 17:20:45 - :  TCP : Unreachable peer (54 ms)
+30/05/2023 17:21:58 - :  TCP : Unreachable peer (92 ms)
+30/05/2023 17:23:20 - :  TCP : Unreachable peer (314 ms)
+30/05/2023 17:25:17 - :  TCP : Unreachable peer (405 ms)
+30/05/2023 17:51:33 - :  TCP : Unreachable peer (303 ms)
+30/05/2023 18:09:48 - : OK (80 ms)
+30/05/2023 18:09:50 - : OK (102 ms)
+30/05/2023 18:13:47 - : OK (109 ms)
+30/05/2023 18:24:25 - : OK (120 ms)
+30/05/2023 18:26:26 - : OK (99 ms)
+30/05/2023 18:29:26 - : OK (162 ms)
+30/05/2023 18:29:26 - : OK (102 ms)
+30/05/2023 18:30:03 - : OK (126 ms)
+30/05/2023 18:30:59 - : OK (159 ms)
+30/05/2023 18:31:00 - : OK (102 ms)
+30/05/2023 18:31:14 - : OK (117 ms)
+30/05/2023 18:32:49 - : OK (122 ms)
+30/05/2023 18:35:12 - : OK (95 ms)
+30/05/2023 18:35:13 - : OK (108 ms)
+30/05/2023 18:36:08 - : OK (203 ms)
+30/05/2023 18:36:29 - : OK (118 ms)
+30/05/2023 18:36:29 - : OK (100 ms)
+30/05/2023 18:37:16 - : OK (104 ms)
+31/05/2023 11:02:02 - :  TCP : Unreachable peer (351 ms)
+31/05/2023 11:02:46 - : OK (266 ms)
+31/05/2023 11:17:09 - : OK (143 ms)
+31/05/2023 11:19:34 - : OK (150 ms)
+31/05/2023 11:23:17 - : OK (135 ms)
+06/06/2023 15:54:00 - : OK (97 ms)
+06/06/2023 15:56:40 - : OK (108 ms)
+08/06/2023 11:29:59 - :  TCP : Unreachable peer (295 ms)
+08/06/2023 11:30:41 - : OK (143 ms)
+08/06/2023 11:33:58 - : OK (314 ms)
+09/06/2023 10:03:23 - :  TCP : Unreachable peer (125 ms)
+09/06/2023 10:03:52 - :  TCP : Unreachable peer (102 ms)
+09/06/2023 10:56:46 - :  TCP : Unreachable peer (125 ms)
+09/06/2023 12:32:25 - :  TCP : Unreachable peer (186 ms)
+09/06/2023 14:27:14 - :  TCP : Unreachable peer (140 ms)
+09/06/2023 14:32:46 - :  TCP : Unreachable peer (319 ms)
+09/06/2023 14:34:47 - :  TCP : Connection refused (2108 ms)
+09/06/2023 14:35:49 - : OK (155 ms)
+09/06/2023 14:47:48 - : OK (106 ms)
+09/06/2023 14:52:20 - : OK (102 ms)
+10/06/2023 10:48:05 - : OK (296 ms)
+10/06/2023 10:56:49 - : OK (189 ms)
+10/06/2023 11:22:55 - : OK (212 ms)
+10/06/2023 11:23:32 - : OK (183 ms)
+10/06/2023 11:25:30 - : OK (200 ms)
+10/06/2023 11:27:26 - : OK (187 ms)
+10/06/2023 11:29:45 - : OK (209 ms)
+10/06/2023 11:30:44 - : OK (184 ms)
+10/06/2023 11:32:33 - : OK (172 ms)
+10/06/2023 12:14:11 - : OK (186 ms)
+10/06/2023 12:20:16 - : OK (199 ms)
+10/06/2023 12:21:45 - : OK (212 ms)
+14/06/2023 17:34:41 - : OK (170 ms)
+14/06/2023 17:36:43 - : OK (213 ms)
+14/06/2023 17:40:30 - : OK (106 ms)
+14/06/2023 17:49:01 - : OK (125 ms)
+14/06/2023 17:51:03 - : OK (113 ms)
+17/06/2023 16:46:56 - : ZechiniGateway - Il metodo ReceiveDataFromFtp dell'attività ZechiniGateway ha generato il seguente errore: Riferimento a un oggetto non impostato su un'istanza di oggetto.
+21/06/2023 14:50:16 - : OK (135 ms)
+21/06/2023 14:50:29 - : OK (146 ms)
+21/06/2023 14:51:52 - : OK (137 ms)
+21/06/2023 14:53:32 - : OK (334 ms)
+21/06/2023 14:53:54 - :  ISO : An error occurred during send TCP : Connection timed out
+21/06/2023 14:54:06 - : OK (135 ms)
+21/06/2023 15:12:48 - : OK (148 ms)
+21/06/2023 15:13:05 - :  ISO : An error occurred during send TCP : Connection timed out
+21/06/2023 15:13:12 - : OK (138 ms)
+21/06/2023 15:56:44 - : OK (116 ms)
+21/06/2023 15:59:10 - : OK (149 ms)
+21/06/2023 16:01:10 - : OK (133 ms)
+21/06/2023 16:01:20 - : OK (96 ms)
+21/06/2023 16:02:24 - : OK (112 ms)
+21/06/2023 16:02:32 - : OK (99 ms)
+21/06/2023 16:02:43 - : OK (96 ms)
+29/06/2023 12:29:19 - : OK (112 ms)
+29/06/2023 12:30:45 - : OK (107 ms)
+29/06/2023 12:30:46 - : OK (155 ms)
+29/06/2023 17:40:33 - : OK (195 ms)
+29/06/2023 17:41:14 - : OK (149 ms)
+29/06/2023 17:47:41 - : OK (144 ms)
+29/06/2023 17:48:24 - : OK (157 ms)
+30/06/2023 10:29:16 - : OK (141 ms)
+30/06/2023 10:32:08 - : OK (137 ms)
+30/06/2023 10:32:24 - : OK (187 ms)
+30/06/2023 10:34:41 - : OK (395 ms)
+30/06/2023 10:34:56 - : OK (156 ms)
+30/06/2023 10:39:50 - : OK (140 ms)
+07/07/2023 10:02:11 - :  TCP : Unreachable peer (111 ms)
+07/07/2023 10:02:11 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:02:11 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:02:28 - :  TCP : Unreachable peer (77 ms)
+07/07/2023 10:02:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:02:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:10 - : OK (109 ms)
+07/07/2023 10:35:10 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:10 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:10 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:24 - : OK (99 ms)
+07/07/2023 10:35:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:37 - : OK (110 ms)
+07/07/2023 10:35:37 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:37 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:35:37 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:28 - : OK (104 ms)
+07/07/2023 10:39:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:29 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:35 - : OK (99 ms)
+07/07/2023 10:39:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:49 - : OK (98 ms)
+07/07/2023 10:39:49 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:49 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:39:49 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:41:58 - : OK (98 ms)
+07/07/2023 10:41:58 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:41:58 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:41:58 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:58:35 - : OK (112 ms)
+07/07/2023 10:58:35 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:58:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 10:58:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:05 - : OK (99 ms)
+07/07/2023 11:00:05 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:05 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:06 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:13 - : OK (102 ms)
+07/07/2023 11:00:13 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:13 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:14 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:23 - : OK (102 ms)
+07/07/2023 11:00:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:34 - : OK (106 ms)
+07/07/2023 11:00:34 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:34 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:00:35 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:04:00 - : OK (97 ms)
+07/07/2023 11:04:00 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:04:00 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:04:01 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:04:53 - : OK (100 ms)
+07/07/2023 11:04:53 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:04:53 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:04:53 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:05:45 - : OK (108 ms)
+07/07/2023 11:05:45 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:05:46 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:05:46 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:07:21 - : OK (134 ms)
+07/07/2023 11:07:21 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:07:22 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:07:22 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:08:01 - : OK (165 ms)
+07/07/2023 11:08:01 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:08:01 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:08:01 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:09:31 - : OK (100 ms)
+07/07/2023 11:09:31 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:09:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:09:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:09:50 - : OK (114 ms)
+07/07/2023 11:09:50 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:09:51 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:09:51 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:06 - : OK (97 ms)
+07/07/2023 11:10:06 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:06 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:06 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:16 - : OK (105 ms)
+07/07/2023 11:10:16 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:16 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:16 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:23 - : OK (95 ms)
+07/07/2023 11:10:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:37 - : OK (110 ms)
+07/07/2023 11:10:37 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:38 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:38 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:47 - : OK (111 ms)
+07/07/2023 11:10:47 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:47 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:10:48 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:13:43 - : OK (107 ms)
+07/07/2023 11:13:43 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:13:43 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:13:43 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:16:27 - : OK (136 ms)
+07/07/2023 11:16:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:16:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:16:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:16:35 - :  TCP : Unreachable peer (10 ms)
+07/07/2023 11:16:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:16:36 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:44:25 - : OK (104 ms)
+07/07/2023 11:44:25 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:44:25 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:44:25 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:44:41 - : OK (115 ms)
+07/07/2023 11:44:41 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:44:41 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:44:41 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:47:07 - : OK (98 ms)
+07/07/2023 11:47:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:47:08 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:47:08 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:51:32 - : OK (105 ms)
+07/07/2023 11:51:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:51:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:51:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:07 - : OK (112 ms)
+07/07/2023 11:52:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:15 - : OK (97 ms)
+07/07/2023 11:52:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:38 - : OK (107 ms)
+07/07/2023 11:52:38 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:38 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:38 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:43 - :  TCP : Unreachable peer (9 ms)
+07/07/2023 11:52:44 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:52:44 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:05 - : OK (106 ms)
+07/07/2023 11:53:05 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:05 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:05 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:15 - : OK (103 ms)
+07/07/2023 11:53:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:23 - : OK (101 ms)
+07/07/2023 11:53:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:29 - : OK (103 ms)
+07/07/2023 11:53:29 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:30 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:30 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:32 - : OK (100 ms)
+07/07/2023 11:53:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:53:32 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:57:56 - : OK (150 ms)
+07/07/2023 11:57:56 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:57:56 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:57:56 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:04 - : OK (121 ms)
+07/07/2023 11:58:04 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:04 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:04 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:15 - : OK (114 ms)
+07/07/2023 11:58:15 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:16 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:16 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:23 - : OK (111 ms)
+07/07/2023 11:58:23 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:24 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:34 - : OK (151 ms)
+07/07/2023 11:58:34 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:34 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:34 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:42 - : OK (102 ms)
+07/07/2023 11:58:42 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:43 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:43 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:54 - : OK (110 ms)
+07/07/2023 11:58:54 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:54 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:58:54 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:59:07 - : OK (100 ms)
+07/07/2023 11:59:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:59:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 11:59:07 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:11:30 - : OK (113 ms)
+07/07/2023 12:11:30 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:11:30 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:11:31 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:12:29 - : OK (102 ms)
+07/07/2023 12:12:29 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:12:29 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:12:29 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:20:59 - : OK (114 ms)
+07/07/2023 12:21:00 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:21:00 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:21:00 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:23:20 - : OK (98 ms)
+07/07/2023 12:23:20 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:23:20 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:23:20 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:23:27 - : OK (101 ms)
+07/07/2023 12:23:27 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:23:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 12:23:28 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+07/07/2023 15:08:01 - : OK (109 ms)
+03/08/2023 15:57:50 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+14/09/2023 16:56:47 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+16/09/2023 18:35:35 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+16/09/2023 18:36:05 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+16/09/2023 18:36:13 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+16/09/2023 18:36:34 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+16/09/2023 18:36:40 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+16/09/2023 18:36:44 - : GetRealTimeDataFromBOBST1 - Timeout dell'operazione.
+04/01/2024 16:24:38 - :  TCP : Unreachable peer (458 ms)
+04/01/2024 16:24:48 - : GetRealTimeDataFromSilkFoil -  TCP : Unreachable peer (458 ms)
+04/01/2024 16:24:52 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+04/01/2024 16:24:54 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+04/01/2024 16:24:57 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index

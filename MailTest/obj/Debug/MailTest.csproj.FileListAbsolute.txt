@@ -1,0 +1,6 @@
+E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.exe.config
+E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.exe
+E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.pdb
+E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.exe
+E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.pdb

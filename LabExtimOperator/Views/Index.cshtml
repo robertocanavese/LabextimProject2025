@@ -1,0 +1,70 @@
+
+<div align="center">
+    <table>
+        @using (Html.BeginForm("Index", "TempProductionOrderDetail"))
+        {
+            <tr align="center">
+                <td colspan="3">
+                    <h2>Inserisci L'Ordine di Produzione</h2>
+                </td>
+            </tr>
+            <tr align="center">
+                <td>
+                    @Html.DevExpress().TextBox(settings =>
+                {
+                    settings.Name = "txtOdp";
+                }).GetHtml()
+                </td>
+                <td style="width: 15px"></td>
+                <td>
+                    @Html.DevExpress().Button(settings =>
+                {
+                    settings.Name = "btnSubmit";
+                    settings.UseSubmitBehavior = true;
+                    settings.Text = "Ricerca";
+                    settings.UseSubmitBehavior = true;
+                }).GetHtml()
+                </td>
+            </tr>
+            
+            <tr>
+                <td>
+
+                    @Html.DevExpress().Label(settings => { string error = Session["ODP_input_error"] == null ? string.Empty : Session["ODP_input_error"].ToString();
+                                                           settings.Text = error;
+                                                           settings.Name = "Errore";
+                                                           settings.ClientVisible = !string.IsNullOrWhiteSpace(error);
+                                                         }).GetHtml()
+                </td>
+            </tr>
+        }
+
+        <tr>
+            <td colspan="3">
+                <hr />
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="3">
+                <h2>Riepilogo giornaliero</h2>
+            </td>
+        </tr>
+        <tr align="center">
+            <td colspan="3">
+                @*
+                    @{Html.RenderAction("TempProductionOrderViewPartialDay", "TempProductionOrderDetail");}
+                *@
+                @using (Html.BeginForm("TempProductionOrderViewPartialDay", "TempProductionOrderDetail"))
+                {
+                    @Html.DevExpress().Button(settings =>
+                {
+                    settings.Name = "btnRiepilogo";
+                    settings.UseSubmitBehavior = true;
+                    settings.Text = "Riepilogo Giornaliro";
+                    settings.UseSubmitBehavior = true;
+                }).GetHtml()
+                }
+            </td>
+        </tr>
+    </table>
+</div>

@@ -1,0 +1,30 @@
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\DailyManager.exe.config
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\DailyManager.exe
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\DailyManager.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\CMLabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\DLLabExtim.dll
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\CMLabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\bin\Release\DLLabExtim.pdb
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\obj\Release\DailyManager.csprojResolveAssemblyReference.cache
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\obj\Release\DailyManager.exe
+D:\Visual Studio\Visual Studio 2013\Projects\LabExtim\DailyManager\obj\Release\DailyManager.pdb
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\DailyManager.exe.config
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\DailyManager.exe
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\DailyManager.pdb
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\CMLabExtim.dll
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\DLLabExtim.dll
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\CMLabExtim.pdb
+D:\frameworks\LabExtim\web\DailyManager\bin\Release\DLLabExtim.pdb
+D:\frameworks\LabExtim\web\DailyManager\obj\Release\DailyManager.csprojResolveAssemblyReference.cache
+D:\frameworks\LabExtim\web\DailyManager\obj\Release\DailyManager.exe
+D:\frameworks\LabExtim\web\DailyManager\obj\Release\DailyManager.pdb
+E:\VS9\LabextimProject\DailyManager\bin\Release\DailyManager.exe.config
+E:\VS9\LabextimProject\DailyManager\bin\Release\DailyManager.exe
+E:\VS9\LabextimProject\DailyManager\bin\Release\DailyManager.pdb
+E:\VS9\LabextimProject\DailyManager\bin\Release\CMLabExtim.dll
+E:\VS9\LabextimProject\DailyManager\bin\Release\DLLabExtim.dll
+E:\VS9\LabextimProject\DailyManager\bin\Release\CMLabExtim.pdb
+E:\VS9\LabextimProject\DailyManager\bin\Release\DLLabExtim.pdb
+E:\VS9\LabextimProject\DailyManager\obj\Release\DailyManager.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\DailyManager\obj\Release\DailyManager.exe
+E:\VS9\LabextimProject\DailyManager\obj\Release\DailyManager.pdb

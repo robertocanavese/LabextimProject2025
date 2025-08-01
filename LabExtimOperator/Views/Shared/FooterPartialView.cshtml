@@ -1,0 +1,7 @@
+@*<div class="copyright">*@
+<div>
+    @Html.DevExpress().Label(settings => {
+        settings.EncodeHtml = false;
+        settings.Text = DateTime.Now.Year + " Labe S.r.l. - Via Perù, 9/3 - 35127 Padova - tel. 049.7800500 - fax 049 7803891 - P.IVA 01698090287";
+    }).GetHtml()
+</div>

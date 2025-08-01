@@ -1,0 +1,59 @@
+﻿<?xml version="1.0" encoding="utf-8"?><Database Name="Sql_Ep" Class="Sql_EpDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
+  <Connection Mode="AppSettings" ConnectionString="Data Source=192.168.2.193;Initial Catalog=Sql_Ep;User ID=Cartolabe" SettingsObjectName="DLLabExtim.Properties.Settings" SettingsPropertyName="Sql_EpConnectionString" Provider="System.Data.SqlClient" />
+  <Table Name="dbo.DB_Ordini" Member="DB_Ordinis">
+    <Type Name="DB_Ordini">
+      <Column Name="i_ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="i_Cliente" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="i_Codice" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="i_o_Ricetta" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_Pezzi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_FogliIncollati" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_Cartoni" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_Ribordati" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_Scarti" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_TimeEmergenza" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_ProdPezzi" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeArresto" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeAvviamento" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeProduzione" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeRegistrazione" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_BitEmergenza" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_BitArresto" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="i_Quantita" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_BitAvviamento" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_BitProduzione" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Articolo" Type="System.String" DbType="NChar(50)" CanBeNull="true" />
+      <Column Name="o_DataInizio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_OraInizio" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_DataFine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_OraFine" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Giorno" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="Record" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="i_o_Sospensione" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="i_Passaggi" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="i_Larghezza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="i_Lunghezza" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_pezzi_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_FogliIncollati_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_Cartoni_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_Ribordati_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_Scarti_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="o_TimeEmergenza_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_ProdPezzi_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeArresto_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeAvviamento_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeProduzione_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_TimeRegistrazione_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_BitEmergenza_2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_BitArresto_2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_BitAvviamento_2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_BitProduzione_2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="o_DataInizio_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_OraInizio_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_DataFine_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="o_OraFine_2" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="i_Larghezza_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="i_Lunghezza_2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+    </Type>
+  </Table>
+</Database>

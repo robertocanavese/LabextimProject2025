@@ -1,0 +1,322 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="4.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProductVersion>9.0.30729</ProductVersion>
+    <SchemaVersion>2.0</SchemaVersion>
+    <ProjectGuid>{66F516FA-7ABC-4562-97DC-D56EC8E5E3B7}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DLLabExtim</RootNamespace>
+    <AssemblyName>DLLabExtim</AssemblyName>
+    <TargetFrameworkVersion>v4.0</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <FileUpgradeFlags>
+    </FileUpgradeFlags>
+    <UpgradeBackupLocation>
+    </UpgradeBackupLocation>
+    <OldToolsVersion>3.5</OldToolsVersion>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <PlatformTarget>AnyCPU</PlatformTarget>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x64'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x64\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x64'">
+    <OutputPath>bin\x64\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x64</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|x86'">
+    <DebugSymbols>true</DebugSymbols>
+    <OutputPath>bin\x86\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <DebugType>full</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|x86'">
+    <OutputPath>bin\x86\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <Optimize>true</Optimize>
+    <DebugType>pdbonly</DebugType>
+    <PlatformTarget>x86</PlatformTarget>
+    <ErrorReport>prompt</ErrorReport>
+    <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.configuration" />
+    <Reference Include="System.Core">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Entity">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Runtime.Serialization">
+      <RequiredTargetFramework>3.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Web" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml.Linq">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data.DataSetExtensions">
+      <RequiredTargetFramework>3.5</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="BIWMISFtpWebResponse.cs" />
+    <Compile Include="EcoSystemGateway.cs" />
+    <Compile Include="FileBag.cs" />
+    <Compile Include="FtpService.cs" />
+    <Compile Include="LocalService.cs" />
+    <Compile Include="SharedParameters.cs" />
+    <Compile Include="ZechiniGateway.cs" />
+    <Compile Include="EuroProgettiGateway.cs" />
+    <Compile Include="General.cs">
+      <DependentUpon>General.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="General.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>General.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ImportGateway.cs" />
+    <Compile Include="MemberShip.cs">
+      <DependentUpon>MemberShip.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberShip.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>MemberShip.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="MemberShipService.cs" />
+    <Compile Include="PartialOrInheritedClasses\ProductionMP.cs" />
+    <Compile Include="PartialOrInheritedClasses\ProductionOrderTechSpecs.cs" />
+    <Compile Include="PartialOrInheritedClasses\TempQuotation.cs" />
+    <Compile Include="PartialOrInheritedClasses\Quotation.cs" />
+    <Compile Include="PartialOrInheritedClasses\TempQuotationDetail.cs" />
+    <Compile Include="PartialOrInheritedClasses\VW_ProductionOrderDetailsConsumptionMCount.cs" />
+    <Compile Include="PartialOrInheritedClasses\VW_ProductionExtMPS_GroupedByPhase.cs" />
+    <Compile Include="PartialOrInheritedClasses\VW_ProductionExtMP.cs" />
+    <Compile Include="PartialOrInheritedClasses\VW_EmployeesWorkingDayHour.cs" />
+    <Compile Include="PartialOrInheritedClasses\CustomerOrder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\Employee.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\MacroItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\PickingItem.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\ProductionOrder.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\ProductionOrderDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\QuotationDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\QuotationDetailForProduction.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\TempProductionOrderDetail.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PartialOrInheritedClasses\VW_QUOPORCostsPrice_select.cs" />
+    <Compile Include="PartialOrInheritedClasses\VW_QUOPORCostsPrice.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="PivotDataAdapters.cs" />
+    <Compile Include="ProductionOrderServiceFFC.cs" />
+    <Compile Include="ProductionOrderService.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+      <DependentUpon>Settings.settings</DependentUpon>
+    </Compile>
+    <Compile Include="Quotation.cs">
+      <DependentUpon>Quotation.dbml</DependentUpon>
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Quotation.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Quotation.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="QuotationService.cs" />
+    <Compile Include="Report.cs">
+      <DependentUpon>Report.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Report.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Report.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="ScaffoldingEnabler.cs" />
+    <Compile Include="Sql_Ep.cs">
+      <DependentUpon>Sql_Ep.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Sql_Ep.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Sql_Ep.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Temporaneo.designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Temporaneo.dbml</DependentUpon>
+    </Compile>
+    <Compile Include="Snap7Gateway.cs" />
+    <Compile Include="WODGateway.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="app.config">
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <None Include="Quotation.dbml.layout">
+      <DependentUpon>Quotation.dbml</DependentUpon>
+    </None>
+    <None Include="Sql_Ep.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Sql_Ep.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Sql_Ep.dbml.views">
+      <DependentUpon>Sql_Ep.dbml</DependentUpon>
+    </None>
+    <None Include="Temporaneo.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Temporaneo.designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="Temporaneo.dbml.views">
+      <DependentUpon>Temporaneo.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{3259AA49-8AA1-44D3-9025-A0B520596A8C}" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="General.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>General.designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="General.dbml.layout">
+      <DependentUpon>General.dbml</DependentUpon>
+    </None>
+    <None Include="MemberShip.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>MemberShip.designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CMLabExtim\CMLabExtim.csproj">
+      <Project>{841E6F47-FBD3-4E31-BCA3-EED59AEA071C}</Project>
+      <Name>CMLabExtim</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="MemberShip.dbml.layout">
+      <DependentUpon>MemberShip.dbml</DependentUpon>
+    </None>
+    <None Include="Quotation.dbml">
+      <SubType>Designer</SubType>
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <LastGenOutput>Quotation.designer.cs</LastGenOutput>
+    </None>
+    <None Include="Quotation.dbml.views">
+      <DependentUpon>Quotation.dbml</DependentUpon>
+    </None>
+    <None Include="Report.dbml">
+      <Generator>MSLinqToSQLGenerator</Generator>
+      <SubType>Designer</SubType>
+      <LastGenOutput>Report.designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Report.dbml.layout">
+      <DependentUpon>Report.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="General.dbml.views_def.layout">
+      <DependentUpon>General.dbml</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MemberShip.dbml.views_def.layout">
+      <DependentUpon>MemberShip.dbml</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Quotation.dbml.views_def.layout">
+      <DependentUpon>Quotation.dbml</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Report.dbml.views_def.layout">
+      <DependentUpon>Report.dbml</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Sql_Ep.dbml.layout">
+      <DependentUpon>Sql_Ep.dbml</DependentUpon>
+    </None>
+    <None Include="Temporaneo.dbml.layout">
+      <DependentUpon>Temporaneo.dbml</DependentUpon>
+    </None>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

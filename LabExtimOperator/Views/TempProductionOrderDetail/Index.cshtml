@@ -1,0 +1,110 @@
+﻿@model DLLabExtim.TempProductionOrderDetail
+
+@{
+    ViewBag.Title = "Production Order Details";
+}
+
+@{
+
+    <table class="testata_lista">
+        <tr>
+            <td>
+                Operatore : @ViewBag.UserName &nbsp; Odp corrente: @ViewBag.IdODP
+            </td>
+            <td>
+                @using (Html.BeginForm("Index", "TempProductionOrderDetail"))
+                {
+                    <table align="right">
+                        <tr>
+                            @*<td>
+                                    @Html.DevExpress().Button(settings =>
+                                    {
+                                        settings.Name = "ButtonTrip";
+                                        settings.Text = "Crea nuovo viaggio";
+                                        settings.ClientSideEvents.Click = "function(s, e){ popupDeliveryTrip.Show(); }";
+                                    }).GetHtml()
+                                </td>*@
+                            <td>
+                                @Html.DevExpress().Button(settings =>
+                                {
+                                    settings.Name = "btnGoToTrips";
+                                    settings.Text = "Vai ai viaggi";
+                                    settings.UseSubmitBehavior = false;
+                                    settings.RouteValues = new { Controller = "DeliveryTrip", Action = "index" };
+                                }).GetHtml()
+                            </td>
+                            <td style="width: 15px"></td>
+                            <td style="padding-right:15px;">
+                                Data:
+                            </td>
+                            <td>
+                                @Html.DevExpress().DateEdit(settings =>
+                                                {
+                                                    settings.Name = "curDate";
+                                                    settings.Date = @ViewBag.CurrentDate;
+                                                }).GetHtml()
+                            </td>
+                            <td style="width: 15px"></td>
+                            <td>
+                                @Html.DevExpress().Button(settings =>
+                                {
+                                    settings.Name = "Button";
+                                    settings.Text = "Cambia data";
+                                    settings.UseSubmitBehavior = true;
+                                }).GetHtml()
+                            </td>
+                        </tr>
+
+                    </table>
+                }
+            </td>
+        </tr>
+    </table>
+}
+
+@Html.Action("TempProductionOrderViewPartial")
+<hr />
+@Html.Action("Index", "EmployeeWorkingDayHours")
+<hr />
+@*@Html.Action("DeliveryTripDetailViewPartial", "DeliveryTripDetail")*@
+<table class="testata_lista">
+    <tr>
+        <td class="center">
+            <span>
+                Inserire commenti e segnalazioni per la direzione e fare click su 'Fine giornata' per salvarli ed inviarli via mail.
+            </span>
+            @using (Html.BeginForm("CloseDay", "TempProductionOrderDetail"))
+            {
+                <table style="width:100%">
+                    <tr>
+                        <td>
+                            <input type="hidden" name="curDate" value="@ViewBag.CurrentDate" />
+                            @Html.DevExpress().Memo(settings =>
+           {
+               settings.Name = "txtCloseOfDayNote";
+               settings.Text = @ViewBag.CurrentCloseOfDaysNote;
+               settings.Width = Unit.Percentage(100);
+               settings.Height = Unit.Pixel(120);
+           }).GetHtml()
+                        </td>
+                    </tr>
+                    <tr>
+                        <td>
+                            @Html.DevExpress().Button(settings =>
+                                {
+                                    settings.Name = "btnCloseOfDay";
+                                    settings.Text = "Invia segnalazione";
+                                    settings.UseSubmitBehavior = true;
+                                }).GetHtml()
+                        </td>
+                    </tr>
+                </table>
+            }
+        </td>
+    </tr>
+    <tr>
+        <td class="center">
+            <span class="red">@ViewBag.ErrorMessage</span><span class="blue">@ViewBag.SuccessMessage</span>
+        </td>
+    </tr>
+</table>

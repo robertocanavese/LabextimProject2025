@@ -1,0 +1,1010 @@
+@using System.Drawing
+@using CMLabExtim.CustomClasses
+@using DevExpress.Office.Utils
+@using LabExtimOperator.Models
+@using LabExtimOperator.Controllers
+@{
+
+    var context = new DLLabExtim.QuotationDataContext();
+    TempProductionOrderDetailControllerSessionVariables vars = new TempProductionOrderDetailControllerSessionVariables();
+}
+
+@{
+
+    var grid = Html.DevExpress().GridView(settings =>
+    {
+        settings.Name = "TempProductionOrderView";
+        settings.CommandColumn.SetHeaderTemplateContent(c =>
+        {
+            Html.DevExpress().Button(hyperLinkSettings =>
+            {
+                hyperLinkSettings.Name = "link_" + settings.Name;
+                hyperLinkSettings.Text = "Denuncia operazione";
+                hyperLinkSettings.Width = Unit.Pixel(150);
+                //hyperLinkSettings.NavigateUrl = "javascript:void(0);";
+                hyperLinkSettings.ClientSideEvents.Click = string.Format(@"
+        function(s, e)
+        {{
+            {0}.AddNewRow();
+        }}
+        ", settings.Name);
+            }).Render();
+        });
+
+
+        settings.Settings.ShowFooter = true;
+        settings.TotalSummary.Add(DevExpress.Data.SummaryItemType.Custom, "ProductionDateTime");
+
+        Int64 totalWork = 0;
+
+        settings.CustomSummaryCalculate = (sender, e) =>
+        {
+            ASPxSummaryItem summary = e.Item as ASPxSummaryItem;
+            if (summary.FieldName != "ProductionDateTime") return;
+
+            if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Start)
+            {
+                totalWork = 0;
+            }
+            if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Calculate)
+            {
+                totalWork += Convert.ToDateTime(e.GetValue("ProductionDateTime")).Minute + Convert.ToDateTime(e.GetValue("ProductionDateTime")).Hour * 60;
+            }
+            if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
+            {
+                e.TotalValue = "ore lavorate:<br>" + DateTime.MinValue.AddMinutes(totalWork).ToString("HH:mm");
+            }
+        };
+
+        settings.CallbackRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartial" };
+
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "TempProductionOrderDetail", Action = "TempProductionOrderViewPartialDelete" };
+
+        /*
+        GridViewCommandColumnCustomButton btn = new GridViewCommandColumnCustomButton();
+        btn.Image.Url = "~/Content/Images/check_icon.png";
+        btn.Image.IsResourcePng = true;
+        btn.Image.IconID = "Check";
+        btn.Image.AlternateText = "Evadi ODP";
+        btn.Styles.Style.Paddings.PaddingLeft = Unit.Pixel(30);
+
+        settings.CommandColumn.CustomButtons.Add(btn);
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e) { document.location='" + DevExpressHelper.GetUrl(new { Controller = "TempProductionOrderDetail", Action = "Index" }) + "?EvadiODP=' + s.GetRowKey(e.visibleIndex); }";
+        */
+
+        settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
+        settings.SettingsBehavior.ConfirmDelete = true;
+
+        settings.CommandColumn.Visible = true;
+        settings.CommandColumn.ShowNewButton = false;
+        settings.CommandColumn.ShowDeleteButton = true;
+        settings.CommandColumn.ShowEditButton = true;
+        settings.SettingsCommandButton.EditButton.ButtonType = GridViewCommandButtonType.Button;
+        settings.SettingsCommandButton.DeleteButton.ButtonType = GridViewCommandButtonType.Image;
+
+        settings.SettingsText.ConfirmDelete = "Si vuole procedere alla cancellazione del record?";
+
+        settings.SettingsCommandButton.EditButton.Text = "Modifica";
+        settings.SettingsCommandButton.DeleteButton.Text = "";
+        settings.SettingsCommandButton.DeleteButton.Image.DescriptionUrl = "~/Content/Images/icon-trash-32.png";
+        settings.SettingsCommandButton.DeleteButton.Image.IconID = "trash";
+        settings.SettingsCommandButton.DeleteButton.Image.IsResourcePng = true;
+        settings.SettingsCommandButton.DeleteButton.Image.Url = "~/Content/Images/icon-trash-32.png";
+
+        settings.SettingsEditing.NewItemRowPosition = GridViewNewItemRowPosition.Top;
+
+        settings.InitNewRow = (s, e) =>
+        {
+            e.NewValues["ProductionDate"] = vars._currentDate;
+            e.NewValues["ProductionDateTime"] = TimeSpan.Zero;
+            e.NewValues["ProductionDateDefault"] = ViewBag.currentDate;
+            e.NewValues["ID_Owner"] = vars._idUser;
+            ViewBag.IsNew = true;
+
+            HttpContext.Current.Session["listaIdArticoli"] = null;
+            HttpContext.Current.Session["listaIdArticoli2"] = null;
+        };
+
+        settings.KeyFieldName = "ID";
+        settings.SettingsPager.Visible = true;
+        settings.SettingsPager.PageSize = 100;
+        settings.Settings.ShowGroupPanel = false;
+        settings.Settings.ShowFilterRow = false;
+        settings.SettingsBehavior.AllowSelectByRowClick = false;
+        settings.SettingsText.PopupEditFormCaption = "Denuncia operazione";
+        //settings.SettingsPopup.EditForm.Modal = true;
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_ProductionOrder";
+            column.Caption = "ID Odp";
+            column.EditFormSettings.Visible = DefaultBoolean.True;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ProductionOrderNumber";
+            column.Caption = "Numero Odp";
+            column.EditFormSettings.Visible = DefaultBoolean.True;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "CustomerDesc";
+            column.Caption = "Cliente";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_Owner";
+            column.Caption = "Operatore";
+            column.Visible = false;
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            comboBoxProperties.DataSource = vars._idUser == null ? context.Employees.Where(x => x.ID_Company == vars._currentCompanyId).ToList() : context.Employees.Where(x => x.ID == vars._idUser).ToList();
+            comboBoxProperties.TextField = "UniqueName";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ProductionDate";
+            column.Caption = "Data";
+            column.Visible = false;
+            column.ColumnType = MVCxGridViewColumnType.DateEdit;
+            var dateEditProperties = column.PropertiesEdit as DateEditProperties;
+            dateEditProperties.EditFormatString = "dd/MM/yyyy";
+
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ID_Phase";
+            column.Caption = "Fase";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            //comboBoxProperties.DataSource = context.PickingItems.Where(x => x.TypeCode == 31 && x.ID_Company == vars._currentCompanyId).OrderBy(x => x.ItemDescription).Select(o => new { ID = o.ID, ItemDescription = o.ItemDescription.Substring(0, 2).ToString() }).ToList();
+            // merge aziendale
+            comboBoxProperties.DataSource = context.PickingItems.Where(x => x.TypeCode == 31).OrderBy(x => x.ItemDescription).Select(o => new { ID = o.ID, ItemDescription = o.ItemDescription.Substring(0, 2).ToString() }).ToList();
+            comboBoxProperties.TextField = "ItemDescription";
+            comboBoxProperties.ValueField = "ID";
+            comboBoxProperties.ValueType = typeof(int);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "ProductionDateTime";
+            column.Caption = "Tempo";
+            column.ColumnType = MVCxGridViewColumnType.TimeEdit;
+            var dateEditProperties = column.PropertiesEdit as TimeEditProperties;
+            dateEditProperties.EditFormat = EditFormat.Time;
+            dateEditProperties.EditFormatString = "hh:mm";
+            dateEditProperties.NullDisplayText = "00:00";
+            dateEditProperties.NullText = "00:00";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.Name = "PickingItemDesc";
+            column.FieldName = "PickingItemDescId";
+            column.Caption = "Voce di base";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            var source = context.PickingItems.
+                //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                // merge aziendale
+                Where(x => x.TypeCode != 31).
+                OrderBy(x => x.Order).
+                Select(x => new ComboListItem
+                {
+                    PrefixSource = ComboListItemSource.PikingItem,
+                    CommonKey = x.ID,
+                    Text = x.ItemDescription,
+                    Order = x.Order
+                //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                // merge aziendale
+                }).Union(context.MacroItems.
+                    OrderBy(x => x.Order).
+                    Select(x => new ComboListItem
+                    {
+                        PrefixSource = ComboListItemSource.MacroItem,
+                        CommonKey = x.ID,
+                        Text = x.MacroItemDescription,
+                        Order = x.Order
+                    })).ToList();
+            source.Add(new ComboListItem
+            {
+                PrefixSource = ComboListItemSource.PikingItem,
+                CommonKey = 0,
+                Text = "",
+                Order = "0"
+            });
+            source.Add(new ComboListItem
+            {
+                PrefixSource = ComboListItemSource.MacroItem,
+                CommonKey = 0,
+                Text = "",
+                Order = "0"
+            });
+            comboBoxProperties.DataSource = source;
+            comboBoxProperties.TextField = "ComboText";
+            comboBoxProperties.ValueField = "ComboValue";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialQuantityWithUm";
+            column.Caption = "Qtà";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "PickingItemSupId";
+            column.Caption = "Voce supplementare";
+            column.ColumnType = MVCxGridViewColumnType.ComboBox;
+            var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
+            var source = context.PickingItems.
+                 //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                 // merge aziendale
+                 Where(x => x.TypeCode != 31).
+                 OrderBy(x => x.Order).
+                 Select(x => new ComboListItem
+                 {
+                     PrefixSource = ComboListItemSource.PikingItem,
+                     CommonKey = x.ID,
+                     Text = x.ItemDescription,
+                     Order = x.Order
+                 //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                 // merge aziendale
+                 }).Union(context.MacroItems.
+                     OrderBy(x => x.Order).
+                     Select(x => new ComboListItem
+                     {
+                         PrefixSource = ComboListItemSource.MacroItem,
+                         CommonKey = x.ID,
+                         Text = x.MacroItemDescription,
+                         Order = x.Order
+                     })).ToList();
+            source.Add(new ComboListItem
+            {
+                PrefixSource = ComboListItemSource.PikingItem,
+                CommonKey = 0,
+                Text = "",
+                Order = "0"
+            });
+            source.Add(new ComboListItem
+            {
+                PrefixSource = ComboListItemSource.MacroItem,
+                CommonKey = 0,
+                Text = "",
+                Order = "0"
+            });
+            comboBoxProperties.DataSource = source;
+            comboBoxProperties.TextField = "ComboText";
+            comboBoxProperties.ValueField = "ComboValue";
+            comboBoxProperties.ValueType = typeof(string);
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialXWithUm";
+            column.Caption = "Qtà";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialY";
+            column.Caption = "b (m)";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "RawMaterialZ";
+            column.Caption = "h (m)";
+        });
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Note";
+            column.Caption = "Segnalazioni ad amministrazione";
+            column.ColumnType = MVCxGridViewColumnType.Memo;
+        });
+        //***********************************
+        // EDIT CUSTOM FORM
+        //***********************************
+
+
+
+
+        settings.SetEditFormTemplateContent(c =>
+        {
+            Html.DevExpress().FormLayout(formLayoutSettings =>
+            {
+                formLayoutSettings.Name = "FormLayoutProducts";
+                formLayoutSettings.Width = Unit.Pixel(Request.Browser.ScreenPixelsWidth);
+                formLayoutSettings.Height = Unit.Pixel(Request.Browser.ScreenPixelsHeight);
+                formLayoutSettings.Width = Unit.Percentage(100);
+
+                formLayoutSettings.ColCount = 2;
+
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ID_ProductionOrder";
+                    itemSettings.Caption = "ODP";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 2;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var odps = from odp in context.ProductionOrders
+                               join cust in context.Customers
+                                   on odp.ID_Customer equals cust.Code
+                               //where (odp.Status != 3 && odp.Status != 19) && odp.ID_Company == vars._currentCompanyId
+                               // merge aziendale
+                               where (odp.Status != 3 && odp.Status != 19)
+                               && (vars._IDmodel == 0 || odp.ID == vars._IDmodel)
+                               orderby odp.ID descending
+                               select new { ID = odp.ID, Name = "(" + odp.ID + ") " + odp.Number + " - " + odp.Description + " (" + cust.Name + ")" };
+                    comboBoxSetings.Properties.DataSource = odps.ToList();
+                    comboBoxSetings.Properties.TextField = "Name";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.PreRender = (sender, e) =>
+                        {
+                            if (vars._IDmodel != 0)
+                            {
+                                MVCxComboBox cmb = sender as MVCxComboBox;
+                                cmb.Value = vars._IDmodel;
+                                cmb.ReadOnly = true;
+                            }
+                        };
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "";
+                    itemSettings.Name = "lblOperatore";
+                    itemSettings.Caption = "Operatore";
+                    itemSettings.ColSpan = 1;
+                    itemSettings.Visible = false;
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
+                    var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Text = context.Employees.Single(x => x.ID == vars._idUser).UniqueName;
+                    comboBoxSetings.Enabled = true;
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ID_Phase";
+                    itemSettings.Caption = "Fase";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    //comboBoxSetings.Properties.DataSource = context.PickingItems.Where(x => x.TypeCode == 31 && x.ID_Company == vars._currentCompanyId).OrderBy(x => x.ItemDescription).ToList();
+                    // merge aziendale
+                    comboBoxSetings.Properties.DataSource = context.PickingItems.Where(x => x.Inserted == true && x.TypeCode == 31).OrderBy(x => x.Order).ToList();
+                    comboBoxSetings.Properties.TextField = "ItemDescription";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                    comboBoxSetings.Properties.ClientSideEvents.Init = @"function (s,e) { FormLayoutProducts.GetItemByName('grpFustellatura').SetVisible(false); FormLayoutProducts.GetItemByName('grpSerigrafia').SetVisible(false); FormLayoutProducts.AdjustControl();}";
+                    comboBoxSetings.Properties.ClientSideEvents.ValueChanged = @"function (s, e) {
+                        value = s.lastSuccessValue;
+                        if ('156,453,546,946,1035,1038,1039,1046'.indexOf(value) > -1)
+                        {
+                            FormLayoutProducts.GetItemByName('grpFustellatura').SetVisible(true);
+                            FormLayoutProducts.AdjustControl();
+                        }
+                        else
+                        {
+                            FormLayoutProducts.GetItemByName('grpFustellatura').SetVisible(false);
+                            FormLayoutProducts.AdjustControl();
+                        }
+                        if ('151,210,232,583,782'.indexOf(value) > -1)
+                        {
+                            FormLayoutProducts.GetItemByName('grpSerigrafia').SetVisible(true);
+                            FormLayoutProducts.AdjustControl();
+                        }
+                        else
+                        {
+                            FormLayoutProducts.GetItemByName('grpSerigrafia').SetVisible(false);
+                            FormLayoutProducts.AdjustControl();
+                        }
+                        }";
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ProductionDate";
+                    itemSettings.Caption = "Data";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.DateEdit;
+                    var dateEditProperties = (DateEditSettings)itemSettings.NestedExtensionSettings;
+                    dateEditProperties.Properties.EditFormatString = "dd/MM/yyyy";
+                    dateEditProperties.Date = vars._currentDate;
+                    dateEditProperties.Width = Unit.Pixel(250);
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ProductionDateTime";
+                    itemSettings.Caption = "Tempo";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TimeEdit;
+                    var timeEditSetings = (TimeEditSettings)itemSettings.NestedExtensionSettings;
+                    timeEditSetings.Width = Unit.Pixel(250);
+                    timeEditSetings.DateTime = DateTime.Now;
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "OkCopiesCount";
+                    itemSettings.Caption = "Copie buone contate";
+                    itemSettings.CssClass = "InputQtaPrincipale";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "KoCopiesCount";
+                    itemSettings.Caption = "Copie di scarto";
+                    itemSettings.CssClass = "InputQtaPrincipale";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+
+                formLayoutSettings.Items.AddGroupItem(g =>
+                {
+                    g.Name = "grpSerigrafia";
+                    g.Width = Unit.Percentage(100);
+                    //g.ClientVisible = Model.Special;
+                    g.GroupBoxDecoration = GroupBoxDecoration.Box;
+                    g.Caption = "Serigrafia";
+                    g.ColCount = 2;
+                    g.ColSpan = 2;
+                    g.GroupBoxStyle.Border.BorderColor = Color.Red;
+                    g.GroupBoxStyle.Caption.ForeColor = Color.Red;
+
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 2;
+                        itemSettings.FieldName = "Special";
+                        itemSettings.Caption = "Serigrafia";
+                        itemSettings.CssClass = "Speciale";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.RadioButtonList;
+
+                        RadioButtonListSettings prop = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        prop.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                        prop.Properties.Items.Add("STANDARD", false);
+                        prop.Properties.Items.Add("SPECIALE", true);
+                        prop.Width = Unit.Percentage(100);
+                        prop.Properties.EnableClientSideAPI = true;
+                        prop.Properties.ClientSideEvents.Init = @"function (s,e) {   var isSpeciale = s.GetValue() == true; FormLayoutProducts.GetItemByName('grpSpeciale').SetVisible(isSpeciale); FormLayoutProducts.AdjustControl();}";
+                        prop.Properties.ClientSideEvents.ValueChanged = @"function (s,e) {   var isSpeciale = s.GetValue() == true; FormLayoutProducts.GetItemByName('grpSpeciale').SetVisible(isSpeciale); FormLayoutProducts.AdjustControl();}";
+                    });
+                });
+
+                //Html.DevExpress().Button(btnShow =>
+                //{
+                //    btnShow.Name = "btnShow";
+                //    btnShow.ClientSideEvents.Click = "function(s, e){popupControl.ShowAtElement(document.getElementById(s.name));}";
+                //}).Render();
+
+
+
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "PickingItemDescId";
+                    itemSettings.Caption = "Prodotto di base corrente";
+                    itemSettings.Visible = (@ViewBag.IsNew != null ? !@ViewBag.IsNew: false);
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var source = context.PickingItems.
+                    //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                    // merge aziendale
+                    Where(x => x.TypeCode != 31).
+                    OrderBy(x => x.Order).
+                    Select(x => new ComboListItem
+                    {
+                        PrefixSource = ComboListItemSource.PikingItem,
+                        CommonKey = x.ID,
+                        Text = x.ItemDescription,
+                        Order = x.Order,
+                        IdUnit = context.Units.FirstOrDefault(u => u.ID == x.UM).Description,
+                    //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                    // merge aziendale
+                    }).Union(context.MacroItems.
+                    OrderBy(x => x.Order).
+                    Select(x => new ComboListItem
+                    {
+                        PrefixSource = ComboListItemSource.MacroItem,
+                        CommonKey = x.ID,
+                        Text = x.MacroItemDescription,
+                        Order = x.Order,
+                        IdUnit = context.Units.FirstOrDefault(u => u.ID == x.UM).Description,
+                    })).ToList();
+
+                    var testP = from item in source
+                                join pick in context.PickingItems on item.CommonKey equals pick.ID
+                                where item.Prefix == "P"
+                                select item;
+
+                    var testM = from item in source
+                                join pick in context.MacroItems on item.CommonKey equals pick.ID
+                                where item.Prefix == "M"
+                                select item;
+
+                    if (testP.Count() + testM.Count() != source.Count)
+                    {
+                        var resultp = source.Where(p => !testP.Any(p2 => p2.CommonKey == p.CommonKey) && !testM.Any(p2 => p2.CommonKey == p.CommonKey)).ToList();
+                    }
+
+                    comboBoxSetings.Properties.DataSource = source;
+                    comboBoxSetings.Properties.TextField = "IdUnit";
+                    comboBoxSetings.Properties.ValueField = "ComboValue";
+                    comboBoxSetings.Properties.ValueType = typeof(string);
+                    comboBoxSetings.Properties.NullDisplayText = "Seleziona il prodotto";
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 2;
+                    itemSettings.FieldName = "";
+                    itemSettings.Name = "btnIndietro";
+                    itemSettings.Caption = "Seleziona prodotto di base";
+                    //itemSettings.Visible = @ViewBag.IsNew;
+                    itemSettings.Visible = true;
+                    //itemSettings.ShowCaption = DefaultBoolean.False;
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Button;
+                    var itemSet = (ButtonSettings)itemSettings.NestedExtensionSettings;
+                    itemSet.Text = "Ricarica lista";
+                    itemSet.ClientSideEvents.Click = @"function (s, e) {
+        lbModels.PerformCallback({ 'selectedFeatures': '' });
+    }";
+                    itemSet.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(i =>
+                {
+                    i.ColSpan = 1;
+                    i.FieldName = "PickingItemDescId";
+                    i.Caption = "Prodotto di base";
+                    i.ShowCaption = DefaultBoolean.False;
+                    //i.Visible = @ViewBag.IsNew;
+                    i.Visible = true;
+                    i.SetNestedContent(() =>
+                    {
+                        Html.RenderAction("ListBoxPartial");
+                    });
+                    i.Width = Unit.Percentage(100);
+                });
+                //formLayoutSettings.Items.Add(itemSettings =>
+                //{
+                //    itemSettings.FieldName = "UMRawMaterial";
+                //    itemSettings.Caption = "UM Voce Base";
+                //    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                //    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                //    comboBoxSetings.Properties.DataSource = context.Units.OrderBy(x => x.Description).ToList();
+                //    comboBoxSetings.Properties.TextField = "Description";
+                //    comboBoxSetings.Properties.ValueField = "ID";
+                //    comboBoxSetings.Properties.ValueType = typeof(int);
+                //    comboBoxSetings.Width = Unit.Percentage(100);
+                //});
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "RawMaterialQuantity";
+                    itemSettings.Caption = "Qtà";
+                    itemSettings.CssClass = "InputQtaPrincipale";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+
+                List<ComboListItem> list = context.PickingItems.
+                        //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                        // merge aziendale
+                        Where(x => x.TypeCode != 31).
+                        OrderBy(x => x.Order).
+                        Select(x => new ComboListItem
+                        {
+                            PrefixSource = ComboListItemSource.PikingItem,
+                            CommonKey = x.ID,
+                            Text = x.ItemDescription,
+                            Order = x.Order,
+                            IdUnit = context.Units.FirstOrDefault(u => u.ID == x.UM).Description,
+                        //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                        // merge aziendale
+                        }).Union(context.MacroItems.
+                            OrderBy(x => x.Order).
+                            Select(x => new ComboListItem
+                            {
+                                PrefixSource = ComboListItemSource.MacroItem,
+                                CommonKey = x.ID,
+                                Text = x.MacroItemDescription,
+                                Order = x.Order,
+                                IdUnit = context.Units.FirstOrDefault(u => u.ID == x.UM).Description,
+                            })).ToList();
+                list.Insert(0, new ComboListItem() { ComboValue = "00", CommonKey = 0, Hits = 0, IdUnit = "", Text = "", Order = "", PrefixSource = ComboListItemSource.MacroItem, Prefix = "S" });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "PickingItemSupId";
+                    itemSettings.Caption = "Prodotto supplementare corrente";
+                    itemSettings.Visible = (@ViewBag.IsNew != null ? !@ViewBag.IsNew : false);
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Properties.DataSource = list;
+                    comboBoxSetings.Properties.TextField = "IdUnit";
+                    comboBoxSetings.Properties.ValueField = "ComboValue";
+                    comboBoxSetings.Properties.ValueType = typeof(string);
+                    comboBoxSetings.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 2;
+                    itemSettings.FieldName = "";
+                    itemSettings.Name = "btnIndietro2";
+                    //itemSettings.Caption = "Prodotto usato";
+                    itemSettings.Caption = "Seleziona prodotto supplementare";
+                    itemSettings.RowSpan = 3;
+                    //itemSettings.ShowCaption = DefaultBoolean.False;
+                    //i.Visible = @ViewBag.IsNew;
+                    itemSettings.Visible = true;
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Button;
+                    var itemSet = (ButtonSettings)itemSettings.NestedExtensionSettings;
+                    itemSet.Text = "Ricarica lista";
+                    itemSet.ClientSideEvents.Click = @"function (s, e) {
+                            lbModels2.PerformCallback({ 'selectedFeatures': null });
+                        }";
+                    itemSet.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(i =>
+                {
+                    i.ColSpan = 1;
+                    i.RowSpan = 3;
+                    i.Caption = "Prodotto supplementare";
+                    i.ShowCaption = DefaultBoolean.False;
+                    //i.Visible = @ViewBag.IsNew;
+                    i.Visible = true;
+                    i.SetNestedContent(() =>
+                    {
+                        Html.RenderAction("ListBoxPartial2");
+                    });
+                    i.Width = Unit.Percentage(100);
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "RawMaterialX";
+                    itemSettings.Caption = "Qtà";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "RawMaterialZcm";
+                    itemSettings.Caption = "h (cm)";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "RawMaterialYcm";
+                    itemSettings.Caption = "b (cm)";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+
+                // Inizio layout Serigrafia speciale
+                formLayoutSettings.Items.AddGroupItem(g =>
+                {
+                    g.Name = "grpSpeciale";
+                    g.Width = Unit.Percentage(100);
+                    //g.ClientVisible = Model.Special;
+                    g.GroupBoxDecoration = GroupBoxDecoration.Box;
+                    g.Caption = "Serigrafia SPECIALE";
+                    g.ColCount = 4;
+                    g.ColSpan = 2;
+                    g.GroupBoxStyle.Border.BorderColor = Color.Red;
+                    g.GroupBoxStyle.Caption.ForeColor = Color.Red;
+
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 3;
+                        itemSettings.FieldName = "CodiceMarcaInchiostro";
+                        itemSettings.Caption = "Codice e marca inchiostro, note";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "Ricetta";
+                        itemSettings.Caption = "Ricetta";
+                        itemSettings.CssClass = "Speciale";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.RadioButtonList;
+                        RadioButtonListSettings prop = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        prop.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                        prop.Properties.Items.Add("NO", false);
+                        prop.Properties.Items.Add("SI", true);
+                        var comboBoxSetings = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "TelaioNumeroFili";
+                        itemSettings.Caption = "Numero fili telaio";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "GelatinaSpessore";
+                        itemSettings.Caption = "Spessore gelatina";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "RaclaInclinazione";
+                        itemSettings.Caption = "Inclinazione racla";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "RaclaDurezzaSpigolo";
+                        itemSettings.Caption = "Durezza spigolo racla";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+
+                });
+                // fine layout Serigrafia speciale
+
+                // Inizio layout Speciale Film caldo
+                formLayoutSettings.Items.AddGroupItem(g =>
+                {
+                    g.Name = "grpFilmCaldo";
+                    g.Width = Unit.Percentage(100);
+                    g.ClientVisible = true;
+                    g.GroupBoxDecoration = GroupBoxDecoration.Box;
+                    g.Caption = "FILM CALDO";
+                    g.ColCount = 4;
+                    g.ColSpan = 2;
+                    g.GroupBoxStyle.Border.BorderColor = Color.Red;
+                    g.GroupBoxStyle.Caption.ForeColor = Color.Red;
+
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 3;
+                        itemSettings.FieldName = "CodiceMarcaFilm";
+                        itemSettings.Caption = "Codice e marca del film usato";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "StampaTemperatura";
+                        itemSettings.Caption = "Temperatura stampa";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 2;
+                        itemSettings.FieldName = "ClicheReso";
+                        itemSettings.Caption = "Clichè reso";
+                        itemSettings.CssClass = "Speciale";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.RadioButtonList;
+                        RadioButtonListSettings prop = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        prop.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                        prop.Properties.Items.Add("AL CLIENTE", "C");
+                        prop.Properties.Items.Add("NS ARCHIVIO", "A");
+                        var comboBoxSetings = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 2;
+                        itemSettings.FieldName = "ClicheCondizioni";
+                        itemSettings.Caption = "Condizioni clichè";
+                        itemSettings.CssClass = "Speciale";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.RadioButtonList;
+                        RadioButtonListSettings prop = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        prop.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                        prop.Properties.Items.Add("BUONE", "B");
+                        prop.Properties.Items.Add("SCADENTI", "S");
+                        var comboBoxSetings = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 4;
+                        itemSettings.FieldName = "AltreInfo";
+                        itemSettings.Caption = "Altre info";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                });
+                // fine layout speciale Film caldo
+
+                // Inizio layout Speciale Fustellatura
+                formLayoutSettings.Items.AddGroupItem(g =>
+                {
+                    g.Name = "grpFustellatura";
+                    g.Width = Unit.Percentage(100);
+                    g.ClientVisible = true;
+                    g.GroupBoxDecoration = GroupBoxDecoration.Box;
+                    g.Caption = "FUSTELLATURA";
+                    g.ColCount = 2;
+                    g.ColSpan = 2;
+                    g.GroupBoxStyle.Border.BorderColor = Color.Red;
+                    g.GroupBoxStyle.Caption.ForeColor = Color.Red;
+
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "FustellaResa";
+                        itemSettings.Caption = "Fustella resa";
+                        itemSettings.CssClass = "Speciale";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.RadioButtonList;
+                        RadioButtonListSettings prop = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        prop.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                        prop.Properties.Items.Add("AL CLIENTE", "C");
+                        prop.Properties.Items.Add("NS ARCHIVIO", "A");
+                        var comboBoxSetings = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 1;
+                        itemSettings.FieldName = "FustellaCondizioni";
+                        itemSettings.Caption = "Condizioni fustella";
+                        itemSettings.CssClass = "Speciale";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.RadioButtonList;
+                        RadioButtonListSettings prop = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        prop.Properties.RepeatDirection = RepeatDirection.Horizontal;
+                        prop.Properties.Items.Add("BUONE", "B");
+                        prop.Properties.Items.Add("SCADENTI", "S");
+                        var comboBoxSetings = (RadioButtonListSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                    g.Items.Add(itemSettings =>
+                    {
+                        itemSettings.ColSpan = 2;
+                        itemSettings.FieldName = "ControCordonatori";
+                        itemSettings.Caption = "Contro-cordonatori utilizzati";
+                        itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                        itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                        var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                        comboBoxSetings.Width = Unit.Percentage(100);
+                    });
+                });
+                // fine layout speciale Fustellatura
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 2;
+                    itemSettings.FieldName = "Note";
+                    itemSettings.Caption = "Segnalazioni ad Amministrazione";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Memo;
+                    var comboBoxSetings = (MemoSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.Height = Unit.Pixel(50);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 2;
+                    itemSettings.FieldName = "AltreNoteDaProduzione";
+                    itemSettings.Caption = "Altre note tecniche";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Memo;
+                    var comboBoxSetings = (MemoSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.Height = Unit.Pixel(50);
+                });
+
+                formLayoutSettings.Items.AddEmptyItem();
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ShowCaption = DefaultBoolean.False;
+                    itemSettings.ColSpan = 2;
+                }).SetNestedContent(() =>
+                {
+                    ViewContext.Writer.Write("<div style='float:right'>");
+                    Html.DevExpress().Button(
+                        btnSettings =>
+                        {
+                            btnSettings.Name = "btnUpdatePO";
+                            btnSettings.Text = "Salva";
+                            btnSettings.ClientSideEvents.Click = "function(s, e){ TempProductionOrderView.UpdateEdit(); }";
+                        }).Render();
+                    Html.DevExpress().Button(
+                        btnSettings =>
+                        {
+                            btnSettings.Name = "btnCancelPO";
+                            btnSettings.Text = "Annulla";
+                            btnSettings.Style[HtmlTextWriterStyle.MarginLeft] = "5px";
+                            btnSettings.ClientSideEvents.Click = "function(s, e){ TempProductionOrderView.CancelEdit(); }";
+                        }).Render();
+                    ViewContext.Writer.Write("</div>");
+                });
+            })
+            .Bind(ViewData["EditableProduct"] ?? c.DataItem)
+            .Render();
+        });
+
+    });
+    if (ViewData["EditError"] != null)
+    {
+        grid.SetEditErrorText((string)ViewData["EditError"]);
+    }
+
+
+
+
+
+
+}
+@grid.Bind(Model).GetHtml()

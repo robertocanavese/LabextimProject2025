@@ -1,0 +1,7 @@
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Debug\CMLabExtim.dll.config
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x64\Debug\CMLabExtim.dll
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x64\Debug\CMLabExtim.pdb
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\x64\Debug\CMLabExtim.csprojResolveAssemblyReference.cache
+E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\x64\Debug\snap7.dll
