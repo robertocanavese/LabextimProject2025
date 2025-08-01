@@ -39,7 +39,7 @@ namespace LabExtim
                 }
                 catch
                 {
-                    return "(utente anonimo)";
+                    return "(utente anonimo)"; 
                 }
             }
         }
