@@ -75,11 +75,11 @@ namespace LabExtim
                 ldsProductionOrders.WhereParameters.Add("Description", DbType.String, senMain.TextField1Text);
                 _filter += " AND Description.Contains(@Description)";
             }
-            //if (senMain.TextField2Text != string.Empty)
-            //{
-            //    ldsProductionOrders.WhereParameters.Add("QuotationSubject", DbType.String, senMain.TextField2Text);
-            //    _filter += " AND Quotation.Subject.Contains(@QuotationSubject)";
-            //}
+            if (senMain.TextField3Text != string.Empty)
+            {
+                ldsProductionOrders.WhereParameters.Add("Note", DbType.String, senMain.TextField3Text);
+                _filter += " AND Note.Contains(@Note)";
+            }
             if (senMain.TextDateFromText != string.Empty)
             {
                 ldsProductionOrders.WhereParameters.Add("StartDateFrom", DbType.DateTime,
@@ -146,8 +146,8 @@ namespace LabExtim
         {
             senMain.LblYearCounterText = "Anno/Numero";
             senMain.LblTextField1Text = "Titolo OdP contiene...";
-            //senMain.LblTextField2Text = "Descrizione preventivo contiene...";
             senMain.LblTextField2Text = "Cliente";
+            senMain.LblTextField3Text = "Descrizione Odp contiene...";
             senMain.LblDateFromText = "Data lancio da";
             senMain.LblDateToText = "Data lancio a";
 
