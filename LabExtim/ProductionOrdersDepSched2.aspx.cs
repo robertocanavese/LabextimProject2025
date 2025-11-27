@@ -905,7 +905,7 @@ namespace LabExtim
                 return JSONString;
 
             }
-            catch (Exception ex)
+            catch
             {
                 return string.Format("Errore in prioritizzazione ed avvio della fase Odp: {0}- Qd: {1}, ritentare", poId, qdId);
             }
@@ -1041,7 +1041,7 @@ namespace LabExtim
                 }
                 return string.Format("La fase è stata chiusa correttamente");
             }
-            catch (Exception ex)
+            catch
             {
                 return string.Format("Errore in chiusura della fase Odp: {0}- Qd: {1}, ritentare", poId, qdId);
             }
@@ -1126,7 +1126,7 @@ namespace LabExtim
                 }
                 return string.Format("La fase è stata chiusa correttamente");
             }
-            catch (Exception ex)
+            catch
             {
                 return string.Format("Errore in chiusura della fase Odp: {0}- Qd: {1}, ritentare", poId, qdId);
             }
@@ -1234,7 +1234,7 @@ namespace LabExtim
                 return JSONString;
 
             }
-            catch (Exception ex)
+            catch
             {
                 return string.Format("Errore in avvio, pausa o chiusura della fase Odp: {0}- Qd: {1}, ritentare", poId, qdId);
             }

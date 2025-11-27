@@ -81,9 +81,8 @@ namespace LabExtim
 
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                //return String.Format("Errore: {0}", ex.Message);
                 return null;
             }
 
@@ -105,7 +104,7 @@ namespace LabExtim
                      return ctx.Departments.OrderBy(c => c.Order).Select(c => new { name = c.Description, id = c.ID.ToString() }).ToArray();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 return null;
             }
@@ -127,9 +126,8 @@ namespace LabExtim
                     return ctx.ProductionMachines.Where(c => c.Inserted == true).OrderBy(c => c.Description).Select(c => new { name = c.Description, id = c.ID.ToString() }).ToArray();
                 }
             }
-            catch (Exception ex)
+            catch
             {
-                //return String.Format("Errore: {0}", ex.Message);
                 return null;
             }
 

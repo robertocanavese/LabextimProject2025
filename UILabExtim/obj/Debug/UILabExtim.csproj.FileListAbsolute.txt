@@ -44,7 +44,6 @@ C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimPro
 C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Debug\DLLabExtim.dll
 C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Debug\CMLabExtim.pdb
 C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Debug\DLLabExtim.pdb
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Debug\System.Net.IPNetwork.pdb
 C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\obj\Debug\UILabExtim.csprojResolveAssemblyReference.cache
 C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\obj\Debug\UILabExtim.dll
 C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\obj\Debug\UILabExtim.pdb

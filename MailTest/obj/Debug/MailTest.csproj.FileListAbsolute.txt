@@ -4,3 +4,9 @@ E:\VS9\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.pdb
 E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.csprojResolveAssemblyReference.cache
 E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.exe
 E:\VS9\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.exe.config
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.exe
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\MailTest\bin\Debug\MailTest.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.csprojResolveAssemblyReference.cache
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.exe
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\MailTest\obj\Debug\MailTest.pdb

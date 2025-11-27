@@ -41,7 +41,7 @@ namespace DLLabExtim
                 {
                     returnVal = (DHL)serializer.Deserialize(responseStream);
                 }
-                catch (Exception ex)
+                catch
                 {
                     throw;
                 }
@@ -77,7 +77,7 @@ namespace DLLabExtim
                 {
                     returnVal = (Query_OperationCount)serializer.Deserialize(responseStream);
                 }
-                catch (Exception ex)
+                catch
                 {
                     throw;
                 }
@@ -112,7 +112,7 @@ namespace DLLabExtim
                 {
                     returnVal = (DHL)serializer.Deserialize(responseStream);
                 }
-                catch (Exception ex)
+                catch
                 {
                     throw;
                 }
@@ -150,7 +150,7 @@ namespace DLLabExtim
                 {
                     returnVal = (Query_OperationCount)serializer.Deserialize(responseStream);
                 }
-                catch (Exception ex)
+                catch
                 {
                     throw;
                 }

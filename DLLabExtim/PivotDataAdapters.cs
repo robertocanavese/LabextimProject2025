@@ -114,8 +114,6 @@ namespace DLLabExtim
                     conn.Open();
                 SqlCommand _cmd = new SqlCommand(sqlQuery, conn, trans);
                 _cmd.CommandTimeout = commandTimeOut;
-                if (sqlComType == null)
-                    _cmd.CommandType = CommandType.Text;
                 _cmd.CommandType = sqlComType;
                 if (parameterValues != null)
                 {

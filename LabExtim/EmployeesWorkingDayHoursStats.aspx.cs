@@ -1064,7 +1064,7 @@ namespace LabExtim
                     curGrid.DataBind();
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 lblSuccess.Text = "Selezionare un mese completo per generare la tabella Pivot";
             }

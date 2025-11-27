@@ -31,3 +31,12 @@ E:\VS9\LabextimProject\LabextimProject\DLLabExtim\bin\Release\CMLabExtim.pdb
 E:\VS9\LabextimProject\LabextimProject\DLLabExtim\obj\Release\DLLabExtim.csprojResolveAssemblyReference.cache
 E:\VS9\LabextimProject\LabextimProject\DLLabExtim\obj\Release\DLLabExtim.dll
 E:\VS9\LabextimProject\LabextimProject\DLLabExtim\obj\Release\DLLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\bin\Release\snap7.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\bin\Release\DLLabExtim.dll.config
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\bin\Release\DLLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\bin\Release\DLLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\bin\Release\CMLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\bin\Release\CMLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\obj\Release\DLLabExtim.csprojResolveAssemblyReference.cache
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\obj\Release\DLLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DLLabExtim\obj\Release\DLLabExtim.pdb

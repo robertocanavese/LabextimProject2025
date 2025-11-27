@@ -37,3 +37,14 @@ E:\VS9\LabextimProject\LabextimProject\UILabExtim\bin\Release\System.Net.IPNetwo
 E:\VS9\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.csprojResolveAssemblyReference.cache
 E:\VS9\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.dll
 E:\VS9\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\snap7.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\UILabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\UILabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\CMLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\DLLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\CMLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\DLLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\bin\Release\System.Net.IPNetwork.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.csprojResolveAssemblyReference.cache
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\UILabExtim\obj\Release\UILabExtim.pdb

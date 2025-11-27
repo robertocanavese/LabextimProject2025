@@ -44,7 +44,7 @@ namespace LabExtim
                     }
                 }
             }
-            catch (Exception ex)
+            catch
             {
                 // ignored
             }

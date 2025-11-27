@@ -784,8 +784,10 @@ namespace DLLabExtim
                 {
                     ProductionMP slot = curPhaseProductionMPs[i];
                     if (slot.IDQuotationDetail == curProductionMP.IDQuotationDetail)
+                    {
                         pos = i;
-                    break;
+                        break; // 20251126 break messo dentro il ramo condizionale, fuori non faceva ciclare!
+                    }
                 }
 
                 for (int i = pos - 1; i >= 0 && i < pos; i--)

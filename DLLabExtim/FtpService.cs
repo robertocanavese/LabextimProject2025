@@ -104,10 +104,6 @@ namespace DLLabExtim
                     }
                 }
             }
-            catch (Exception genericException)
-            {
-                //throw genericException;
-            }
             finally
             {
                 request.Abort();
@@ -196,10 +192,6 @@ namespace DLLabExtim
                         }
                     }
                 }
-            }
-            catch (Exception genericException)
-            {
-                //throw genericException;
             }
             finally
             {

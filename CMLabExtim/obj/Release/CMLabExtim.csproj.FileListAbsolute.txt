@@ -22,3 +22,10 @@ E:\VS9\LabextimProject\LabextimProject\CMLabExtim\bin\Release\CMLabExtim.pdb
 E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\Release\CMLabExtim.csprojResolveAssemblyReference.cache
 E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\Release\CMLabExtim.dll
 E:\VS9\LabextimProject\LabextimProject\CMLabExtim\obj\Release\CMLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\bin\Release\snap7.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\bin\Release\CMLabExtim.dll.config
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\bin\Release\CMLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\bin\Release\CMLabExtim.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\obj\Release\CMLabExtim.csprojResolveAssemblyReference.cache
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\obj\Release\CMLabExtim.dll
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\CMLabExtim\obj\Release\CMLabExtim.pdb
