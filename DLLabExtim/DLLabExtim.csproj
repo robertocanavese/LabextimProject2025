@@ -110,6 +110,7 @@
     <Compile Include="FtpService.cs" />
     <Compile Include="LocalService.cs" />
     <Compile Include="SharedParameters.cs" />
+    <Compile Include="SarogliaGateway.cs" />
     <Compile Include="ZechiniGateway.cs" />
     <Compile Include="EuroProgettiGateway.cs" />
     <Compile Include="General.cs">
