@@ -19,7 +19,7 @@ namespace DLLabExtim
 
         public ZechiniGateway()
         {
-            sharedConfiguration = new SharedConfiguration();
+            sharedConfiguration = new SharedConfiguration(1);
         }
 
 

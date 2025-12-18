@@ -19,7 +19,7 @@ namespace DLLabExtim
 
         public SarogliaGateway()
         {
-            sharedConfiguration = new SharedConfiguration();
+            sharedConfiguration = new SharedConfiguration(2);
         }
 
 
@@ -125,7 +125,6 @@ namespace DLLabExtim
             public DateTime? Inizio { get; set; }
             public DateTime? Fine { get; set; }
             public TimeSpan? TMacchina { get; set; }
-            public int? PzMephisto { get; set; }
 
             public static RowValues FromCsv(string csvLine)
             {
@@ -137,7 +136,6 @@ namespace DLLabExtim
                 rowValues.Inizio = (string.IsNullOrEmpty(values[3]) ? null : (DateTime?)DateTime.ParseExact(values[3], "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture));
                 rowValues.Fine = (string.IsNullOrEmpty(values[4]) ? null : (DateTime?)DateTime.ParseExact(values[4], "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture));
                 rowValues.TMacchina = (string.IsNullOrEmpty(values[5]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[5], "hh\\:mm", CultureInfo.InvariantCulture));
-                rowValues.PzMephisto = (string.IsNullOrEmpty(values[6]) ? null : (int?)Convert.ToInt32(values[6]));
                 return rowValues;
             }
         }
