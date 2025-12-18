@@ -51,7 +51,7 @@ namespace DLLabExtim
             }
             catch (Exception _exception)
             {
-                Log.Write("ZechiniGateway - SendNewDataset", _exception);
+                Log.Write("SarogliaGateway - SendNewDataset", _exception);
             }
 
         }
@@ -111,7 +111,7 @@ namespace DLLabExtim
             }
             catch (Exception _exception)
             {
-                Log.Write("ZechiniGateway - RetrieveCurrentDataset", _exception);
+                Log.Write("SarogliaGateway - RetrieveCurrentDataset", _exception);
             }
 
         }
@@ -162,7 +162,7 @@ namespace DLLabExtim
                 try
                 {
 
-                    string outFile = "ESB_input.csv";
+                    string outFile = "ToMachine.csv";
                     File.WriteAllText(Path.Combine(loc.OutputDir, outFile), sb.ToString());
 
                     string lastSentFile = loc.ArchivedOutputDirGetLastFile("csv");
@@ -180,13 +180,13 @@ namespace DLLabExtim
                 }
                 catch (Exception _ex)
                 {
-                    Log.WriteMessage(string.Format("ZechiniGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
+                    Log.WriteMessage(string.Format("SarogliaGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
                 }
 
             }
             catch (Exception _ex)
             {
-                Log.WriteMessage(string.Format("ZechiniGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
+                Log.WriteMessage(string.Format("SarogliaGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
             }
         }
 
@@ -228,13 +228,13 @@ namespace DLLabExtim
                     }
                     catch (Exception _ex)
                     {
-                        Log.WriteMessage(string.Format("ZechiniGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
+                        Log.WriteMessage(string.Format("SarogliaGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
                     }
                 }
             }
             catch (Exception _ex)
             {
-                Log.WriteMessage(string.Format("ZechiniGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
+                Log.WriteMessage(string.Format("SarogliaGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
             }
         }
 
