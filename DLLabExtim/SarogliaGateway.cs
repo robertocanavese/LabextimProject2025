@@ -76,7 +76,7 @@ namespace DLLabExtim
                         SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
                         if (sd == null)
                         {
-                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa.Substring(0, row.Commessa.IndexOf(" "))) && d.IDProductionMachine == 107);
+                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && d.IDProductionMachine == 107);
 
                             sd = new SarogliaData();
                             sd.Commessa = row.Commessa;
