@@ -89,7 +89,11 @@ namespace DailyManager
                 {
                     Sync_Zechini_Ordini();
                 }
-                
+                if (args[0] == ("Sync_Saroglia_Ordini"))
+                {
+                    Sync_Saroglia_Ordini();
+                }
+
                 if (args[0] == ("All"))
                 {
                     BackUpMaster();
@@ -405,6 +409,22 @@ namespace DailyManager
             catch (Exception ex)
             {
                 Log.WriteMessage(string.Format("Impossibile comunicare con la macchina ACCOPPIATRICE MANUALE ZECHINI - {0}", ex.Message));
+            }
+
+        }
+
+        private static void Sync_Saroglia_Ordini()
+        {
+            try
+            {
+                using (QuotationDataContext dbLoc = new QuotationDataContext())
+                {
+                    ImportGateway.Sync_Saroglia_Ordini(dbLoc);
+                }
+            }
+            catch (Exception ex)
+            {
+                Log.WriteMessage(string.Format("Impossibile comunicare con la macchina FUSTELLATRICE SAROGLIA - {0}", ex.Message));
             }
 
         }

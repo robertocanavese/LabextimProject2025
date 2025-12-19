@@ -452,6 +452,24 @@ namespace DLLabExtim
             return _success;
         }
 
+        public static bool Sync_Saroglia_Ordini(QuotationDataContext dbLoc)
+        {
+            var _success = false;
+            try
+            {
+
+                SarogliaGateway gw = new SarogliaGateway();
+                gw.ReceiveDataFromFtp();
+                gw.SendNewDataset();
+                _success = true;
+            }
+            catch (Exception _exception)
+            {
+                Log.Write("Importazione dati - Sync_Saroglia_Ordini", _exception);
+            }
+            return _success;
+        }
+
         public static bool ComposeLongCompanyName()
         {
             var _success = false;

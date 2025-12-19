@@ -91,7 +91,7 @@ namespace DLLabExtim
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
                             sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
-                            db.SarogliaDatas.InsertOnSubmit(zd);
+                            db.SarogliaDatas.InsertOnSubmit(sd);
                         }
                         else
                         {
