@@ -40,7 +40,8 @@ namespace DLLabExtim
                             .OrderBy(d => d.DeliveryDate).ToList().Select(d =>
                                 new RowValues
                                 {
-                                    Commessa = d.IDProductionOrder.ToString() + " " + d.cuName.SubstringWithMaxLen(8),
+                                    Commessa = d.IDProductionOrder.ToString(),
+                                    Descrizione = d.cuName.SubstringWithMaxLen(50),
                                     PzRichiesti = Convert.ToInt32(d.Quantity)
                                 }).Take(5).ToList();
                 }
