@@ -72,36 +72,39 @@ namespace DLLabExtim
 
                     foreach (RowValues row in values)
                     {
-                        SarogliaData zd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
-                        if (zd == null)
+                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
+                        if (sd == null)
                         {
                             VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa.Substring(0, row.Commessa.IndexOf(" "))) && d.IDProductionMachine == 107);
 
-                            zd = new SarogliaData();
-                            zd.Commessa = row.Commessa;
-                            zd.DataFile = file.CreationTime;
-                            zd.DatVar = DateTime.Now;
-                            zd.Fine = row.Fine;
-                            zd.Inizio = row.Inizio;
-                            zd.NomeFile = fileName;
-                            zd.PzFatti = row.PzFatti;
-                            zd.PzRichiesti = (labextimFound != null ? Convert.ToInt32(labextimFound.Quantity) : -1); // row.PzRichiesti;
-                            zd.Stato = 1;
-                            zd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
+                            sd = new SarogliaData();
+                            sd.Commessa = row.Commessa;
+                            sd.DataFile = file.CreationTime;
+                            sd.DatVar = DateTime.Now;
+                            sd.Fine = row.Fine;
+                            sd.Inizio = row.Inizio;
+                            sd.NomeFile = fileName;
+                            sd.PzFatti = row.PzFatti;
+                            sd.PzRichiesti = (labextimFound != null ? Convert.ToInt32(labextimFound.Quantity) : -1); // row.PzRichiesti;
+                            sd.PzScarto = row.PzScarto;
+                            sd.Completato = row.Completato;
+                            sd.Stato = 1;
+                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
                             db.SarogliaDatas.InsertOnSubmit(zd);
                         }
                         else
                         {
-                            zd.DataFile = file.CreationTime;
-                            zd.DatVar = DateTime.Now;
-                            zd.Fine = row.Fine;
-                            zd.Inizio = row.Inizio;
-                            zd.NomeFile = fileName;
-                            zd.PzFatti = row.PzFatti;
-                            zd.PzRichiesti = row.PzRichiesti;
-                            zd.Stato = 1;
-                            zd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault());  // row.TMacchina
-                            zd.pzMephisto = row.PzMephisto;
+                            sd.DataFile = file.CreationTime;
+                            sd.DatVar = DateTime.Now;
+                            sd.Fine = row.Fine;
+                            sd.Inizio = row.Inizio;
+                            sd.NomeFile = fileName;
+                            sd.PzFatti = row.PzFatti;
+                            sd.PzRichiesti = row.PzRichiesti;
+                            sd.PzScarto = row.PzScarto;
+                            sd.Completato = row.Completato;
+                            sd.Stato = 1;
+                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault());  // row.TMacchina
                         }
                     }
 
