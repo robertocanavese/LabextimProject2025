@@ -33,10 +33,10 @@ namespace DLLabExtim
                 List<RowValues> firstFives;
                 using (QuotationDataContext db = new QuotationDataContext())
                 {
-                    int[] processed = db.ZechiniDatas.Where(d => d.Stato == 1).Select(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim())).ToArray();
+                    int[] processed = db.SarogliaDatas.Where(d => d.Stato == 1).Select(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim())).ToArray();
 
                     firstFives = db.VW_ProductionExtMPS_GroupedByPhases
-                        .Where(d => d.IDProductionMachine == d.curMachineId && d.IDProductionMachine == 107 && d.poStatus == 1 && (d.Status == 11 || d.Status == 15) && !processed.Contains(d.IDProductionOrder.Value))
+                        .Where(d => d.IDProductionMachine == d.curMachineId && (d.IDProductionMachine == 15 || d.IDProductionMachine == 101) && d.poStatus == 1 && (d.Status == 11 || d.Status == 15) && !processed.Contains(d.IDProductionOrder.Value))
                             .OrderBy(d => d.DeliveryDate).ToList().Select(d =>
                                 new RowValues
                                 {
@@ -76,7 +76,7 @@ namespace DLLabExtim
                         SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
                         if (sd == null)
                         {
-                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && d.IDProductionMachine == 107);
+                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && (d.IDProductionMachine == 15 || d.IDProductionMachine == 101));
 
                             sd = new SarogliaData();
                             sd.Commessa = row.Commessa;
@@ -143,7 +143,7 @@ namespace DLLabExtim
                 rowValues.PzScarto = (string.IsNullOrEmpty(values[3]) ? null : (int?)Convert.ToInt32(values[3]));
                 rowValues.Inizio = (string.IsNullOrEmpty(values[3]) ? null : (DateTime?)DateTime.ParseExact(values[3], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
                 rowValues.Fine = (string.IsNullOrEmpty(values[4]) ? null : (DateTime?)DateTime.ParseExact(values[4], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
-                rowValues.Completato = (string.IsNullOrEmpty(values[5]) ? false : values[5] == "1" ? true: false);
+                rowValues.Completato = (string.IsNullOrEmpty(values[5]) ? false : values[5] == "1" ? true : false);
                 rowValues.TMacchina = (string.IsNullOrEmpty(values[6]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[6], "hh\\:mm", CultureInfo.InvariantCulture));
                 return rowValues;
             }
@@ -266,20 +266,20 @@ namespace DLLabExtim
 
         public static OdPBag GetCurOdP(QuotationDataContext db)
         {
-            
-                //return new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
-                OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
-                try
-                {
-                    List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false).ToList();
-                    result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
-                    result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
-                }
-                catch (Exception ex)
-                {
-                    Log.WriteMessage(ex.Message);
-                }
-                return result;
+
+            //return new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
+            OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
+            try
+            {
+                List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false).ToList();
+                result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
+                result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
+            }
+            catch (Exception ex)
+            {
+                Log.WriteMessage(ex.Message);
+            }
+            return result;
         }
 
         public static OdPBag GetOdPHistoricalData(int poId, QuotationDataContext db)

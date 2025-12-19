@@ -891,6 +891,22 @@ namespace LabExtim
 
                     }
 
+                    // FUSTELLATRICE/ORO CALDO SAROGLIA
+                    if (wmp.IDProductionMachine.GetValueOrDefault() == 15 || wmp.IDProductionMachine.GetValueOrDefault() == 101)
+                    {
+                        try
+                        {
+                            SarogliaGateway gw = new SarogliaGateway();
+                            gw.SendNewDataset();
+                        }
+                        catch (Exception ex)
+                        {
+                            return string.Format("Impossibile comunicare con la macchina FUSTELLATRICE/ORO CALDO SAROGLIA - {0}", ex.Message);
+                        }
+
+
+                    }
+
                     //#endif
 
 
