@@ -72,12 +72,12 @@ namespace DLLabExtim
 
                     foreach (RowValues row in values)
                     {
-                        ZechiniData zd = db.ZechiniDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
+                        SarogliaData zd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
                         if (zd == null)
                         {
                             VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa.Substring(0, row.Commessa.IndexOf(" "))) && d.IDProductionMachine == 107);
 
-                            zd = new ZechiniData();
+                            zd = new SarogliaData();
                             zd.Commessa = row.Commessa;
                             zd.DataFile = file.CreationTime;
                             zd.DatVar = DateTime.Now;
@@ -88,7 +88,7 @@ namespace DLLabExtim
                             zd.PzRichiesti = (labextimFound != null ? Convert.ToInt32(labextimFound.Quantity) : -1); // row.PzRichiesti;
                             zd.Stato = 1;
                             zd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
-                            db.ZechiniDatas.InsertOnSubmit(zd);
+                            db.SarogliaDatas.InsertOnSubmit(zd);
                         }
                         else
                         {
@@ -120,10 +120,13 @@ namespace DLLabExtim
         public class RowValues
         {
             public string Commessa { get; set; }
+            public string Descrizione { get; set; }
             public int? PzRichiesti { get; set; }
             public int? PzFatti { get; set; }
+            public int? PzScarto { get; set; }
             public DateTime? Inizio { get; set; }
             public DateTime? Fine { get; set; }
+            public Boolean Completato { get; set; }
             public TimeSpan? TMacchina { get; set; }
 
             public static RowValues FromCsv(string csvLine)
@@ -133,9 +136,11 @@ namespace DLLabExtim
                 rowValues.Commessa = (string.IsNullOrEmpty(values[0]) ? null : values[0]);
                 rowValues.PzRichiesti = (string.IsNullOrEmpty(values[1]) ? null : (int?)Convert.ToInt32(values[1]));
                 rowValues.PzFatti = (string.IsNullOrEmpty(values[2]) ? null : (int?)Convert.ToInt32(values[2]));
-                rowValues.Inizio = (string.IsNullOrEmpty(values[3]) ? null : (DateTime?)DateTime.ParseExact(values[3], "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture));
-                rowValues.Fine = (string.IsNullOrEmpty(values[4]) ? null : (DateTime?)DateTime.ParseExact(values[4], "dd/MM/yyyy HH:mm", CultureInfo.InvariantCulture));
-                rowValues.TMacchina = (string.IsNullOrEmpty(values[5]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[5], "hh\\:mm", CultureInfo.InvariantCulture));
+                rowValues.PzScarto = (string.IsNullOrEmpty(values[3]) ? null : (int?)Convert.ToInt32(values[3]));
+                rowValues.Inizio = (string.IsNullOrEmpty(values[3]) ? null : (DateTime?)DateTime.ParseExact(values[3], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
+                rowValues.Fine = (string.IsNullOrEmpty(values[4]) ? null : (DateTime?)DateTime.ParseExact(values[4], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
+                rowValues.Completato = (string.IsNullOrEmpty(values[5]) ? false : values[5] == "1" ? true: false);
+                rowValues.TMacchina = (string.IsNullOrEmpty(values[6]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[6], "hh\\:mm", CultureInfo.InvariantCulture));
                 return rowValues;
             }
         }
@@ -154,7 +159,7 @@ namespace DLLabExtim
 
                 foreach (RowValues row in rows)
                 {
-                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6}", row.Commessa, row.PzRichiesti, 0, 0, 0, 0, ""));
+                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7}", row.Commessa, row.Descrizione, row.PzRichiesti, 0, 0, 0, 0, ""));
                 }
 
                 try
@@ -236,10 +241,10 @@ namespace DLLabExtim
             }
         }
 
-        private static List<ZechiniData> GetDataFromFtp()
+        private static List<SarogliaData> GetDataFromFtp()
         {
 
-            List<ZechiniData> result = new List<ZechiniData>();
+            List<SarogliaData> result = new List<SarogliaData>();
 
 
 
@@ -257,8 +262,20 @@ namespace DLLabExtim
 
         public static OdPBag GetCurOdP(QuotationDataContext db)
         {
-            // La Zechini non è al momento in grado di indicare quale odP sta lavorando
-                return new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
+            
+                //return new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
+                OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
+                try
+                {
+                    List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false).ToList();
+                    result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
+                    result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
+                }
+                catch (Exception ex)
+                {
+                    Log.WriteMessage(ex.Message);
+                }
+                return result;
         }
 
         public static OdPBag GetOdPHistoricalData(int poId, QuotationDataContext db)
@@ -267,7 +284,7 @@ namespace DLLabExtim
             OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
             try
             {
-                List<ZechiniData> found = db.ZechiniDatas.Where(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim()) == poId).ToList();
+                List<SarogliaData> found = db.SarogliaDatas.Where(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim()) == poId).ToList();
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
             }

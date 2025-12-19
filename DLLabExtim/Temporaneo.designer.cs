@@ -201,6 +201,9 @@ namespace TempDLLabExtim
     partial void InsertProductionOrder(ProductionOrder instance);
     partial void UpdateProductionOrder(ProductionOrder instance);
     partial void DeleteProductionOrder(ProductionOrder instance);
+    partial void InsertSarogliaData(SarogliaData instance);
+    partial void UpdateSarogliaData(SarogliaData instance);
+    partial void DeleteSarogliaData(SarogliaData instance);
     #endregion
 		
 		public TemporaneoDataContext() : 
@@ -934,6 +937,14 @@ namespace TempDLLabExtim
 			get
 			{
 				return this.GetTable<VW_QuotationFreeItem>();
+			}
+		}
+		
+		public System.Data.Linq.Table<SarogliaData> SarogliaDatas
+		{
+			get
+			{
+				return this.GetTable<SarogliaData>();
 			}
 		}
 		
@@ -38253,6 +38264,380 @@ namespace TempDLLabExtim
 				{
 					this._Save = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.SarogliaData")]
+	public partial class SarogliaData : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _NomeFile;
+		
+		private System.Nullable<System.DateTime> _DataFile;
+		
+		private string _Commessa;
+		
+		private string _Descrizione;
+		
+		private System.Nullable<int> _PzRichiesti;
+		
+		private System.Nullable<int> _PzFatti;
+		
+		private System.Nullable<int> _PzScarto;
+		
+		private System.Nullable<System.DateTime> _Inizio;
+		
+		private System.Nullable<System.DateTime> _Fine;
+		
+		private System.Nullable<bool> _Completato;
+		
+		private System.Nullable<System.TimeSpan> _tMacchina;
+		
+		private System.Nullable<int> _Stato;
+		
+		private System.Nullable<System.DateTime> _DatVar;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnNomeFileChanging(string value);
+    partial void OnNomeFileChanged();
+    partial void OnDataFileChanging(System.Nullable<System.DateTime> value);
+    partial void OnDataFileChanged();
+    partial void OnCommessaChanging(string value);
+    partial void OnCommessaChanged();
+    partial void OnDescrizioneChanging(string value);
+    partial void OnDescrizioneChanged();
+    partial void OnPzRichiestiChanging(System.Nullable<int> value);
+    partial void OnPzRichiestiChanged();
+    partial void OnPzFattiChanging(System.Nullable<int> value);
+    partial void OnPzFattiChanged();
+    partial void OnPzScartoChanging(System.Nullable<int> value);
+    partial void OnPzScartoChanged();
+    partial void OnInizioChanging(System.Nullable<System.DateTime> value);
+    partial void OnInizioChanged();
+    partial void OnFineChanging(System.Nullable<System.DateTime> value);
+    partial void OnFineChanged();
+    partial void OnCompletatoChanging(System.Nullable<bool> value);
+    partial void OnCompletatoChanged();
+    partial void OntMacchinaChanging(System.Nullable<System.TimeSpan> value);
+    partial void OntMacchinaChanged();
+    partial void OnStatoChanging(System.Nullable<int> value);
+    partial void OnStatoChanged();
+    partial void OnDatVarChanging(System.Nullable<System.DateTime> value);
+    partial void OnDatVarChanged();
+    #endregion
+		
+		public SarogliaData()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NomeFile", DbType="VarChar(50)")]
+		public string NomeFile
+		{
+			get
+			{
+				return this._NomeFile;
+			}
+			set
+			{
+				if ((this._NomeFile != value))
+				{
+					this.OnNomeFileChanging(value);
+					this.SendPropertyChanging();
+					this._NomeFile = value;
+					this.SendPropertyChanged("NomeFile");
+					this.OnNomeFileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataFile", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DataFile
+		{
+			get
+			{
+				return this._DataFile;
+			}
+			set
+			{
+				if ((this._DataFile != value))
+				{
+					this.OnDataFileChanging(value);
+					this.SendPropertyChanging();
+					this._DataFile = value;
+					this.SendPropertyChanged("DataFile");
+					this.OnDataFileChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Commessa", DbType="VarChar(15)")]
+		public string Commessa
+		{
+			get
+			{
+				return this._Commessa;
+			}
+			set
+			{
+				if ((this._Commessa != value))
+				{
+					this.OnCommessaChanging(value);
+					this.SendPropertyChanging();
+					this._Commessa = value;
+					this.SendPropertyChanged("Commessa");
+					this.OnCommessaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Descrizione", DbType="VarChar(50)")]
+		public string Descrizione
+		{
+			get
+			{
+				return this._Descrizione;
+			}
+			set
+			{
+				if ((this._Descrizione != value))
+				{
+					this.OnDescrizioneChanging(value);
+					this.SendPropertyChanging();
+					this._Descrizione = value;
+					this.SendPropertyChanged("Descrizione");
+					this.OnDescrizioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PzRichiesti", DbType="Int")]
+		public System.Nullable<int> PzRichiesti
+		{
+			get
+			{
+				return this._PzRichiesti;
+			}
+			set
+			{
+				if ((this._PzRichiesti != value))
+				{
+					this.OnPzRichiestiChanging(value);
+					this.SendPropertyChanging();
+					this._PzRichiesti = value;
+					this.SendPropertyChanged("PzRichiesti");
+					this.OnPzRichiestiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PzFatti", DbType="Int")]
+		public System.Nullable<int> PzFatti
+		{
+			get
+			{
+				return this._PzFatti;
+			}
+			set
+			{
+				if ((this._PzFatti != value))
+				{
+					this.OnPzFattiChanging(value);
+					this.SendPropertyChanging();
+					this._PzFatti = value;
+					this.SendPropertyChanged("PzFatti");
+					this.OnPzFattiChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PzScarto", DbType="Int")]
+		public System.Nullable<int> PzScarto
+		{
+			get
+			{
+				return this._PzScarto;
+			}
+			set
+			{
+				if ((this._PzScarto != value))
+				{
+					this.OnPzScartoChanging(value);
+					this.SendPropertyChanging();
+					this._PzScarto = value;
+					this.SendPropertyChanged("PzScarto");
+					this.OnPzScartoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Inizio", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Inizio
+		{
+			get
+			{
+				return this._Inizio;
+			}
+			set
+			{
+				if ((this._Inizio != value))
+				{
+					this.OnInizioChanging(value);
+					this.SendPropertyChanging();
+					this._Inizio = value;
+					this.SendPropertyChanged("Inizio");
+					this.OnInizioChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fine", DbType="DateTime")]
+		public System.Nullable<System.DateTime> Fine
+		{
+			get
+			{
+				return this._Fine;
+			}
+			set
+			{
+				if ((this._Fine != value))
+				{
+					this.OnFineChanging(value);
+					this.SendPropertyChanging();
+					this._Fine = value;
+					this.SendPropertyChanged("Fine");
+					this.OnFineChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Completato", DbType="Bit")]
+		public System.Nullable<bool> Completato
+		{
+			get
+			{
+				return this._Completato;
+			}
+			set
+			{
+				if ((this._Completato != value))
+				{
+					this.OnCompletatoChanging(value);
+					this.SendPropertyChanging();
+					this._Completato = value;
+					this.SendPropertyChanged("Completato");
+					this.OnCompletatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_tMacchina", DbType="Time")]
+		public System.Nullable<System.TimeSpan> tMacchina
+		{
+			get
+			{
+				return this._tMacchina;
+			}
+			set
+			{
+				if ((this._tMacchina != value))
+				{
+					this.OntMacchinaChanging(value);
+					this.SendPropertyChanging();
+					this._tMacchina = value;
+					this.SendPropertyChanged("tMacchina");
+					this.OntMacchinaChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Stato", DbType="Int")]
+		public System.Nullable<int> Stato
+		{
+			get
+			{
+				return this._Stato;
+			}
+			set
+			{
+				if ((this._Stato != value))
+				{
+					this.OnStatoChanging(value);
+					this.SendPropertyChanging();
+					this._Stato = value;
+					this.SendPropertyChanged("Stato");
+					this.OnStatoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DatVar", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DatVar
+		{
+			get
+			{
+				return this._DatVar;
+			}
+			set
+			{
+				if ((this._DatVar != value))
+				{
+					this.OnDatVarChanging(value);
+					this.SendPropertyChanging();
+					this._DatVar = value;
+					this.SendPropertyChanged("DatVar");
+					this.OnDatVarChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
