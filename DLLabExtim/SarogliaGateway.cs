@@ -185,16 +185,16 @@ namespace DLLabExtim
                 string[] values = csvLine.Split(';');
                 RowValues rowValues = new RowValues();
                 rowValues.Commessa = (string.IsNullOrEmpty(values[0]) ? null : values[0]);
-                rowValues.Descrizione = (string.IsNullOrEmpty(values[1]) ? null : values[0]);
-                rowValues.StampaACaldo = (string.IsNullOrEmpty(values[2]) ? false : values[1] == "1" ? true : false);
-                rowValues.Fustellatura = (string.IsNullOrEmpty(values[3]) ? false : values[2] == "1" ? true : false);
-                rowValues.PzRichiesti = (string.IsNullOrEmpty(values[4]) ? null : (int?)Convert.ToInt32(values[3]));
-                rowValues.PzFatti = (string.IsNullOrEmpty(values[5]) ? null : (int?)Convert.ToInt32(values[4]));
-                rowValues.PzScarto = (string.IsNullOrEmpty(values[6]) ? null : (int?)Convert.ToInt32(values[5]));
-                rowValues.Inizio = (string.IsNullOrEmpty(values[7]) ? null : (DateTime?)DateTime.ParseExact(values[6], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
-                rowValues.Fine = (string.IsNullOrEmpty(values[8]) ? null : (DateTime?)DateTime.ParseExact(values[7], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
+                rowValues.Descrizione = (string.IsNullOrEmpty(values[1]) ? null : values[1]);
+                rowValues.StampaACaldo = (string.IsNullOrEmpty(values[2]) ? false : values[2] == "1" ? true : false);
+                rowValues.Fustellatura = (string.IsNullOrEmpty(values[3]) ? false : values[3] == "1" ? true : false);
+                rowValues.PzRichiesti = (string.IsNullOrEmpty(values[4]) ? null : (int?)Convert.ToInt32(values[4]));
+                rowValues.PzFatti = (string.IsNullOrEmpty(values[5]) ? null : (int?)Convert.ToInt32(values[5]));
+                rowValues.PzScarto = (string.IsNullOrEmpty(values[6]) ? null : (int?)Convert.ToInt32(values[6]));
+                rowValues.Inizio = (string.IsNullOrEmpty(values[7]) ? null : (DateTime?)DateTime.ParseExact(values[7], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
+                rowValues.Fine = (string.IsNullOrEmpty(values[8]) ? null : (DateTime?)DateTime.ParseExact(values[8], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
                 rowValues.Completato = (string.IsNullOrEmpty(values[9]) ? false : values[5] == "1" ? true : false);
-                rowValues.TMacchina = (string.IsNullOrEmpty(values[10]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[6], "hh\\:mm", CultureInfo.InvariantCulture));
+                rowValues.TMacchina = (string.IsNullOrEmpty(values[10]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[10], "hh\\:mm", CultureInfo.InvariantCulture));
                 return rowValues;
             }
         }
