@@ -332,7 +332,7 @@ namespace DLLabExtim
             return result;
         }
 
-        public static OdPBag GetOdPHistoricalData(int poId, QuotationDataContext db, Boolean stampaACaldo, Boolean Fustallatura)
+        public static OdPBag GetOdPHistoricalData(int poId, QuotationDataContext db, Boolean stampaACaldo, Boolean fustellatura)
         {
 
             OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
