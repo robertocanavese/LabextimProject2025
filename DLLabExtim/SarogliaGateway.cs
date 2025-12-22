@@ -314,14 +314,14 @@ namespace DLLabExtim
         }
 
 
-        public static OdPBag GetCurOdP(QuotationDataContext db)
+        public static OdPBag GetCurOdP(QuotationDataContext db, Boolean stampaACaldo, Boolean fustellatura )
         {
 
             //return new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
             OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
             try
             {
-                List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false).ToList();
+                List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false && d.StampaACaldo == stampaACaldo && d.Fustellatura == fustellatura).ToList();
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
             }
@@ -332,13 +332,13 @@ namespace DLLabExtim
             return result;
         }
 
-        public static OdPBag GetOdPHistoricalData(int poId, QuotationDataContext db)
+        public static OdPBag GetOdPHistoricalData(int poId, QuotationDataContext db, Boolean stampaACaldo, Boolean Fustallatura)
         {
 
             OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
             try
             {
-                List<SarogliaData> found = db.SarogliaDatas.Where(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim()) == poId).ToList();
+                List<SarogliaData> found = db.SarogliaDatas.Where(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim()) == poId && d.StampaACaldo == stampaACaldo && d.Fustellatura == fustellatura).ToList();
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
             }
