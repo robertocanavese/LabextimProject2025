@@ -388,7 +388,7 @@ namespace DLLabExtim
 
                 BIWMISFtpWebRequest.GetResponse(_FtpRequest).Close();
             }
-            catch
+            catch (Exception ex)
             {
                 return false;
             }
