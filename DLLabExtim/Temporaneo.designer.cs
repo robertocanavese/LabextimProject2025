@@ -38284,6 +38284,10 @@ namespace TempDLLabExtim
 		
 		private string _Descrizione;
 		
+		private System.Nullable<bool> _StampaACaldo;
+		
+		private System.Nullable<bool> _Fustellatura;
+		
 		private System.Nullable<int> _PzRichiesti;
 		
 		private System.Nullable<int> _PzFatti;
@@ -38316,6 +38320,10 @@ namespace TempDLLabExtim
     partial void OnCommessaChanged();
     partial void OnDescrizioneChanging(string value);
     partial void OnDescrizioneChanged();
+    partial void OnStampaACaldoChanging(System.Nullable<bool> value);
+    partial void OnStampaACaldoChanged();
+    partial void OnFustellaturaChanging(System.Nullable<bool> value);
+    partial void OnFustellaturaChanged();
     partial void OnPzRichiestiChanging(System.Nullable<int> value);
     partial void OnPzRichiestiChanged();
     partial void OnPzFattiChanging(System.Nullable<int> value);
@@ -38437,6 +38445,46 @@ namespace TempDLLabExtim
 					this._Descrizione = value;
 					this.SendPropertyChanged("Descrizione");
 					this.OnDescrizioneChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StampaACaldo", DbType="Bit")]
+		public System.Nullable<bool> StampaACaldo
+		{
+			get
+			{
+				return this._StampaACaldo;
+			}
+			set
+			{
+				if ((this._StampaACaldo != value))
+				{
+					this.OnStampaACaldoChanging(value);
+					this.SendPropertyChanging();
+					this._StampaACaldo = value;
+					this.SendPropertyChanged("StampaACaldo");
+					this.OnStampaACaldoChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Fustellatura", DbType="Bit")]
+		public System.Nullable<bool> Fustellatura
+		{
+			get
+			{
+				return this._Fustellatura;
+			}
+			set
+			{
+				if ((this._Fustellatura != value))
+				{
+					this.OnFustellaturaChanging(value);
+					this.SendPropertyChanging();
+					this._Fustellatura = value;
+					this.SendPropertyChanged("Fustellatura");
+					this.OnFustellaturaChanged();
 				}
 			}
 		}

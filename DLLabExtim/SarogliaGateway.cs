@@ -30,24 +30,26 @@ namespace DLLabExtim
             try
             {
 
-                List<RowValues> firstFives;
+                List<RowValues> toSend;
                 using (QuotationDataContext db = new QuotationDataContext())
                 {
                     int[] processed = db.SarogliaDatas.Where(d => d.Stato == 1).Select(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim())).ToArray();
 
-                    firstFives = db.VW_ProductionExtMPS_GroupedByPhases
+                    toSend = db.VW_ProductionExtMPS_GroupedByPhases
                         .Where(d => d.IDProductionMachine == d.curMachineId && (d.IDProductionMachine == 15 || d.IDProductionMachine == 101) && d.poStatus == 1 && (d.Status == 11 || d.Status == 15) && !processed.Contains(d.IDProductionOrder.Value))
                             .OrderBy(d => d.DeliveryDate).ToList().Select(d =>
                                 new RowValues
                                 {
                                     Commessa = d.IDProductionOrder.ToString(),
                                     Descrizione = d.cuName.SubstringWithMaxLen(50),
-                                    PzRichiesti = Convert.ToInt32(d.Quantity)
-                                }).Take(5).ToList();
+                                    PzRichiesti = Convert.ToInt32(d.Quantity),
+                                    StampaACaldo = (d.IDProductionMachine == 101),
+                                    Fustellatura = (d.IDProductionMachine == 15)
+                                }).Take(100).ToList();
                 }
-                if (firstFives != null)
-                    if (firstFives.Count > 0)
-                        SendDataFileToFtp(firstFives);
+                if (toSend != null)
+                    if (toSend.Count > 0)
+                        SendDataFileToFtp(toSend);
 
             }
             catch (Exception _exception)
@@ -73,15 +75,17 @@ namespace DLLabExtim
 
                     foreach (RowValues row in values)
                     {
-                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
+                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa && d.Fustellatura == row.Fustellatura);
                         if (sd == null)
                         {
-                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && (d.IDProductionMachine == 15 || d.IDProductionMachine == 101));
+                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && (d.IDProductionMachine == 15));
 
                             sd = new SarogliaData();
                             sd.Commessa = row.Commessa;
                             sd.DataFile = file.CreationTime;
                             sd.DatVar = DateTime.Now;
+                            sd.StampaACaldo = false;
+                            sd.Fustellatura = true;
                             sd.Fine = row.Fine;
                             sd.Inizio = row.Inizio;
                             sd.NomeFile = fileName;
@@ -109,6 +113,47 @@ namespace DLLabExtim
                         }
                     }
 
+                    foreach (RowValues row in values)
+                    {
+                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa && d.StampaACaldo == row.StampaACaldo);
+                        if (sd == null)
+                        {
+                            VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && (d.IDProductionMachine == 101));
+
+                            sd = new SarogliaData();
+                            sd.Commessa = row.Commessa;
+                            sd.DataFile = file.CreationTime;
+                            sd.DatVar = DateTime.Now;
+                            sd.StampaACaldo = true;
+                            sd.Fustellatura = false;
+                            sd.Fine = row.Fine;
+                            sd.Inizio = row.Inizio;
+                            sd.NomeFile = fileName;
+                            sd.PzFatti = row.PzFatti;
+                            sd.PzRichiesti = (labextimFound != null ? Convert.ToInt32(labextimFound.Quantity) : -1); // row.PzRichiesti;
+                            sd.PzScarto = row.PzScarto;
+                            sd.Completato = row.Completato;
+                            sd.Stato = 1;
+                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
+                            db.SarogliaDatas.InsertOnSubmit(sd);
+                        }
+                        else
+                        {
+                            sd.DataFile = file.CreationTime;
+                            sd.DatVar = DateTime.Now;
+                            sd.Fine = row.Fine;
+                            sd.Inizio = row.Inizio;
+                            sd.NomeFile = fileName;
+                            sd.PzFatti = row.PzFatti;
+                            sd.PzRichiesti = row.PzRichiesti;
+                            sd.PzScarto = row.PzScarto;
+                            sd.Completato = row.Completato;
+                            sd.Stato = 1;
+                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault());  // row.TMacchina
+                        }
+                    }
+
+
                     db.SubmitChanges();
                 }
 
@@ -125,6 +170,8 @@ namespace DLLabExtim
         {
             public string Commessa { get; set; }
             public string Descrizione { get; set; }
+            public Boolean StampaACaldo { get; set; }
+            public Boolean Fustellatura { get; set; }
             public int? PzRichiesti { get; set; }
             public int? PzFatti { get; set; }
             public int? PzScarto { get; set; }
@@ -138,13 +185,15 @@ namespace DLLabExtim
                 string[] values = csvLine.Split(';');
                 RowValues rowValues = new RowValues();
                 rowValues.Commessa = (string.IsNullOrEmpty(values[0]) ? null : values[0]);
-                rowValues.PzRichiesti = (string.IsNullOrEmpty(values[1]) ? null : (int?)Convert.ToInt32(values[1]));
-                rowValues.PzFatti = (string.IsNullOrEmpty(values[2]) ? null : (int?)Convert.ToInt32(values[2]));
-                rowValues.PzScarto = (string.IsNullOrEmpty(values[3]) ? null : (int?)Convert.ToInt32(values[3]));
-                rowValues.Inizio = (string.IsNullOrEmpty(values[3]) ? null : (DateTime?)DateTime.ParseExact(values[3], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
-                rowValues.Fine = (string.IsNullOrEmpty(values[4]) ? null : (DateTime?)DateTime.ParseExact(values[4], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
-                rowValues.Completato = (string.IsNullOrEmpty(values[5]) ? false : values[5] == "1" ? true : false);
-                rowValues.TMacchina = (string.IsNullOrEmpty(values[6]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[6], "hh\\:mm", CultureInfo.InvariantCulture));
+                rowValues.StampaACaldo = (string.IsNullOrEmpty(values[5]) ? false : values[1] == "1" ? true : false);
+                rowValues.Fustellatura = (string.IsNullOrEmpty(values[5]) ? false : values[2] == "1" ? true : false);
+                rowValues.PzRichiesti = (string.IsNullOrEmpty(values[1]) ? null : (int?)Convert.ToInt32(values[3]));
+                rowValues.PzFatti = (string.IsNullOrEmpty(values[2]) ? null : (int?)Convert.ToInt32(values[4]));
+                rowValues.PzScarto = (string.IsNullOrEmpty(values[3]) ? null : (int?)Convert.ToInt32(values[5]));
+                rowValues.Inizio = (string.IsNullOrEmpty(values[3]) ? null : (DateTime?)DateTime.ParseExact(values[6], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
+                rowValues.Fine = (string.IsNullOrEmpty(values[4]) ? null : (DateTime?)DateTime.ParseExact(values[7], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
+                rowValues.Completato = (string.IsNullOrEmpty(values[8]) ? false : values[5] == "1" ? true : false);
+                rowValues.TMacchina = (string.IsNullOrEmpty(values[9]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[6], "hh\\:mm", CultureInfo.InvariantCulture));
                 return rowValues;
             }
         }
