@@ -459,7 +459,9 @@ namespace DLLabExtim
             {
 
                 SarogliaGateway gw = new SarogliaGateway();
+#if !DEBUG
                 gw.ReceiveDataFromFtp();
+#endif
                 gw.SendNewDataset();
                 _success = true;
             }

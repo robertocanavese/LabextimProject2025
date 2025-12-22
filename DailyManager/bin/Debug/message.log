@@ -97,3 +97,4 @@ RICHIESTO REBUILD indice 'ID_MacroItem' tabella 'MacroItemDetails' perchè framm
 RICHIESTO REBUILD indice 'Position' tabella 'MacroItemDetails' perchè frammentato per il 20% o per 2 record (tempo esecuzione 00:00:00.0230228) - 
 MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCEDURA COMPLETATA CON ERRORI (vedi errori precedenti) (LABEXTIM)
 
+22/12/2025 11:52:24 - : BIWMIntegrationService - ERRORE FTP (VERIFICARE CHE I SERVER FTP RISPONDANO E CHE NON SI RIPETA AD OLTRANZA!) (Dati richiesta: Uri: ftp://192.168.2.32//, Operazione: NLST, Errore: Errore del server remoto: (530) Accesso non eseguito..)
