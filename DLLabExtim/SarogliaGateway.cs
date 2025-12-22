@@ -193,7 +193,7 @@ namespace DLLabExtim
                 rowValues.PzScarto = (string.IsNullOrEmpty(values[6]) ? null : (int?)Convert.ToInt32(values[6]));
                 rowValues.Inizio = (string.IsNullOrEmpty(values[7]) ? null : (DateTime?)DateTime.ParseExact(values[7], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
                 rowValues.Fine = (string.IsNullOrEmpty(values[8]) ? null : (DateTime?)DateTime.ParseExact(values[8], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
-                rowValues.Completato = (string.IsNullOrEmpty(values[9]) ? false : values[5] == "1" ? true : false);
+                rowValues.Completato = (string.IsNullOrEmpty(values[9]) ? false : values[9] == "1" ? true : false);
                 rowValues.TMacchina = (string.IsNullOrEmpty(values[10]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[10], "hh\\:mm", CultureInfo.InvariantCulture));
                 return rowValues;
             }
@@ -213,7 +213,7 @@ namespace DLLabExtim
                 sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", "Commessa", "Descrizione", "StampaACaldo", "Fustellatura", "PzRichiesti", "PzFatti", "PzScarto", "Inizio", "Fine", "Completato"));
                 foreach (RowValues row in rows)
                 {
-                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", row.Commessa, row.Descrizione, row.StampaACaldo, row.Fustellatura, row.PzRichiesti, 0, 0, "", "", 0));
+                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", row.Commessa, row.Descrizione, row.StampaACaldo ? "1","0", row.Fustellatura ? "1","0", row.PzRichiesti, 0, 0, "", "", 0));
                 }
 
                 try
