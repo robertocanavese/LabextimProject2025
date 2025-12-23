@@ -182,7 +182,7 @@ namespace DLLabExtim
 
             public static RowValues FromCsv(string csvLine)
             {
-                string[] values = csvLine.Split(';');
+                string[] values = csvLine.Replace("\"","").Split(';');
                 RowValues rowValues = new RowValues();
                 rowValues.Commessa = (string.IsNullOrEmpty(values[0]) ? null : values[0]);
                 rowValues.Descrizione = (string.IsNullOrEmpty(values[1]) ? null : values[1]);
