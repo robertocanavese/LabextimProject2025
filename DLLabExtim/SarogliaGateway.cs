@@ -94,7 +94,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); 
                             db.SarogliaDatas.InsertOnSubmit(sd);
                         }
                         else
@@ -109,7 +109,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault());  // row.TMacchina
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); 
                         }
                     }
 
@@ -134,7 +134,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); // row.TMacchina
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); 
                             db.SarogliaDatas.InsertOnSubmit(sd);
                         }
                         else
@@ -149,7 +149,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault());  // row.TMacchina
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()); 
                         }
                     }
 
