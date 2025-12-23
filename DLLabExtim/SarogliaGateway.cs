@@ -194,7 +194,7 @@ namespace DLLabExtim
                 rowValues.Inizio = (string.IsNullOrEmpty(values[7]) ? null : (DateTime?)DateTime.ParseExact(values[7], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
                 rowValues.Fine = (string.IsNullOrEmpty(values[8]) ? null : (DateTime?)DateTime.ParseExact(values[8], "yyyyMMdd HHmmss", CultureInfo.InvariantCulture));
                 rowValues.Completato = (string.IsNullOrEmpty(values[9]) ? false : values[9] == "1" ? true : false);
-                rowValues.TMacchina = (string.IsNullOrEmpty(values[10]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[10], "hh\\:mm", CultureInfo.InvariantCulture));
+                //rowValues.TMacchina = (string.IsNullOrEmpty(values[10]) ? null : (TimeSpan?)TimeSpan.ParseExact(values[10], "hh\\:mm", CultureInfo.InvariantCulture));
                 return rowValues;
             }
         }
