@@ -73,9 +73,9 @@ namespace DLLabExtim
                 using (QuotationDataContext db = new QuotationDataContext())
                 {
 
-                    foreach (RowValues row in values)
+                    foreach (RowValues row in values.Where(d => d.Fustellatura == true))
                     {
-                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa && d.Fustellatura == row.Fustellatura && d.Fustellatura == true);
+                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
                         if (sd == null)
                         {
                             VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && (d.IDProductionMachine == 15));
@@ -113,9 +113,9 @@ namespace DLLabExtim
                         }
                     }
 
-                    foreach (RowValues row in values)
+                    foreach (RowValues row in values.Where(d => d.StampaACaldo == true))
                     {
-                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa && d.StampaACaldo == row.StampaACaldo && d.StampaACaldo == true);
+                        SarogliaData sd = db.SarogliaDatas.FirstOrDefault(d => d.Commessa == row.Commessa);
                         if (sd == null)
                         {
                             VW_ProductionExtMPS_GroupedByPhase labextimFound = db.VW_ProductionExtMPS_GroupedByPhases.FirstOrDefault(d => d.IDProductionOrder == Convert.ToInt32(row.Commessa) && (d.IDProductionMachine == 101));
