@@ -210,10 +210,10 @@ namespace DLLabExtim
 
                 StringBuilder sb = new StringBuilder();
 
-                sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", "Commessa", "Descrizione", "StampaACaldo", "Fustellatura", "PzRichiesti", "PzFatti", "PzScarto", "Inizio", "Fine", "Completato"));
+                sb.AppendLine(string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}", "Commessa", "Descrizione", "StampaACaldo", "Fustellatura", "PzRichiesti", "PzFatti", "PzScarto", "Inizio", "Fine", "Completato"));
                 foreach (RowValues row in rows)
                 {
-                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", row.Commessa, row.Descrizione, row.StampaACaldo ? "1":"0", row.Fustellatura ? "1":"0", row.PzRichiesti, 0, 0, "", "", 0));
+                    sb.AppendLine(string.Format("{0},{1},{2},{3},{4},{5},{6},{7},{8},{9}", row.Commessa, row.Descrizione, row.StampaACaldo ? "1":"0", row.Fustellatura ? "1":"0", row.PzRichiesti, 0, 0, "", "", 0));
                 }
 
                 try
