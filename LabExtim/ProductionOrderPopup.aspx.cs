@@ -30,6 +30,11 @@ namespace LabExtim
         public OdPBag CurOrderOnZechini { get { return ViewState["CurOrderOnZechini"] as OdPBag; } set { ViewState["CurOrderOnZechini"] = value; } }
         public OdPBag HistoricalDataFromZechini { get { return ViewState["HistoricalDataFromZechini"] as OdPBag; } set { ViewState["HistoricalDataFromZechini"] = value; } }
 
+        public OdPBag CurOrderOnFustellaSaroglia { get { return ViewState["CurOrderOnFustellaSaroglia"] as OdPBag; } set { ViewState["CurOrderOnFustellaSaroglia"] = value; } }
+        public OdPBag HistoricalDataFromFustellaSaroglia { get { return ViewState["HistoricalDataFromFustellaSaroglia"] as OdPBag; } set { ViewState["HistoricalDataFromFustellaSaroglia"] = value; } }
+        public OdPBag CurOrderOnOroCaldoSaroglia { get { return ViewState["CurOrderOnOroCaldoSaroglia"] as OdPBag; } set { ViewState["CurOrderOnOroCaldoSaroglia"] = value; } }
+        public OdPBag HistoricalDataFromOroCaldoSaroglia { get { return ViewState["HistoricalDataFromOroCaldoSaroglia"] as OdPBag; } set { ViewState["HistoricalDataFromOroCaldoSaroglia"] = value; } }
+
         public int SelectedRowId { get { return Convert.ToInt32(ViewState["SelectedRowId"]); } set { ViewState["SelectedRowId"] = value; } }
 
         public bool EditMode
@@ -97,6 +102,10 @@ namespace LabExtim
                         HistoricalDataFromEuroProgetti = GetHistoricalDataFromEuroProgetti(POIdParameter, db);
                         CurOrderOnZechini = GetRealTimeDataFromZechini(db);
                         HistoricalDataFromZechini = GetHistoricalDataFromZechini(POIdParameter, db);
+                        CurOrderOnFustellaSaroglia = GetRealTimeDataFromFustellaSaroglia(db);
+                        HistoricalDataFromFustellaSaroglia = GetHistoricalDataFromFustellaSaroglia(POIdParameter, db);
+                        CurOrderOnOroCaldoSaroglia = GetRealTimeDataFromOroCaldoSaroglia(db);
+                        HistoricalDataFromOroCaldoSaroglia = GetHistoricalDataFromOroCaldoSaroglia(POIdParameter, db);
 
                         BindGrids();
                     }
@@ -171,6 +180,25 @@ namespace LabExtim
                                 curItem.DatiMacchinaCopieLavorate = HistoricalDataFromZechini.CopieLavorate;
                             }
                         }
+                        //fustella
+                        if (curItem.IDProductionMachine == 15)
+                        {
+                            if (HistoricalDataFromFustellaSaroglia != null)
+                            {
+                                curItem.DatiMacchinaCopieRichieste = HistoricalDataFromFustellaSaroglia.CopieRichieste;
+                                curItem.DatiMacchinaCopieLavorate = HistoricalDataFromFustellaSaroglia.CopieLavorate;
+                            }
+                        }
+                        // oro caldo
+                        if (curItem.IDProductionMachine == 101)
+                        {
+                            if (HistoricalDataFromOroCaldoSaroglia != null)
+                            {
+                                curItem.DatiMacchinaCopieRichieste = HistoricalDataFromOroCaldoSaroglia.CopieRichieste;
+                                curItem.DatiMacchinaCopieLavorate = HistoricalDataFromOroCaldoSaroglia.CopieLavorate;
+                            }
+                        }
+
                     }
             }
 
@@ -1431,6 +1459,37 @@ namespace LabExtim
                             _lblSemaphore.Text = string.Format("{0:P0} completato", CurOrderOnZechini.PercLavorata);
                         }
                 }
+
+
+                else if (curItem.IDProductionMachine == 15)
+                {
+                    if (CurOrderOnFustellaSaroglia != null)
+                        if (CurOrderOnFustellaSaroglia.Id == curItem.IDProductionOrder)
+                        {
+                            var _imgSemaphore = (Image)e.Row.Cells[2].FindControl("imgSemaphore");
+                            _imgSemaphore.ImageUrl = "~/Images/under-construction-2.gif";
+                            _imgSemaphore.ToolTip = "Attualmente in lavorazione su FUSTELLA SAROGLIA";
+                            _imgSemaphore.Width = 40;
+                            var _lblSemaphore = (Label)e.Row.Cells[2].FindControl("lblSemaphore");
+                            _lblSemaphore.Text = string.Format("{0:P0} completato", CurOrderOnFustellaSaroglia.PercLavorata);
+                        }
+                }
+
+                else if (curItem.IDProductionMachine == 101)
+                {
+                    if (CurOrderOnOroCaldoSaroglia != null)
+                        if (CurOrderOnOroCaldoSaroglia.Id == curItem.IDProductionOrder)
+                        {
+                            var _imgSemaphore = (Image)e.Row.Cells[2].FindControl("imgSemaphore");
+                            _imgSemaphore.ImageUrl = "~/Images/under-construction-2.gif";
+                            _imgSemaphore.ToolTip = "Attualmente in lavorazione su ORO CALDO SAROGLIA";
+                            _imgSemaphore.Width = 40;
+                            var _lblSemaphore = (Label)e.Row.Cells[2].FindControl("lblSemaphore");
+                            _lblSemaphore.Text = string.Format("{0:P0} completato", CurOrderOnOroCaldoSaroglia.PercLavorata);
+                        }
+                }
+
+
                 else
                 {
                     if (curItem.isInLav == 1 && curItem.Status == 11)

@@ -497,5 +497,74 @@ namespace UILabExtim
 #endif
         }
 
+
+        public OdPBag GetRealTimeDataFromFustellaSaroglia(QuotationDataContext db)
+        {
+#if !DEBUG
+            try
+            {
+                return SarogliaGateway.GetCurOdP(db, false,true);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteMessage(string.Format("GetRealTimeDataFromFustellaSaroglia - {0}", ex.Message));
+                return null;
+            }
+#else
+            return null;
+#endif
+
+        }
+        public OdPBag GetHistoricalDataFromFustellaSaroglia(int idPo, QuotationDataContext db)
+        {
+#if !DEBUG
+            try
+            {
+                return SarogliaGateway.GetOdPHistoricalData(idPo, db, false, true);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteMessage(string.Format("GetHistoricalDataFromFustellaSaroglia - {0}", ex.Message));
+                return null;
+            }
+#else
+            return null;
+#endif
+        }
+
+        public OdPBag GetRealTimeDataFromOroCaldoSaroglia(QuotationDataContext db)
+        {
+#if !DEBUG
+            try
+            {
+                return SarogliaGateway.GetCurOdP(db, true, false);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteMessage(string.Format("GetRealTimeDataFromOroCaldoSaroglia - {0}", ex.Message));
+                return null;
+            }
+#else
+            return null;
+#endif
+
+        }
+        public OdPBag GetHistoricalDataFromOroCaldoSaroglia(int idPo, QuotationDataContext db)
+        {
+#if !DEBUG
+            try
+            {
+                return SarogliaGateway.GetOdPHistoricalData(idPo, db, true, false);
+            }
+            catch (Exception ex)
+            {
+                Log.WriteMessage(string.Format("GetHistoricalDataFromOroCaldoSaroglia - {0}", ex.Message));
+                return null;
+            }
+#else
+            return null;
+#endif
+        }
+
     }
 }
