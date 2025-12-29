@@ -271,16 +271,18 @@ namespace DLLabExtim
                             RetrieveCurrentDataset(loc, file);
 
                             string lastReceivedFile = loc.ArchivedInputDirGetLastFile("csv");
+
                             // archivio il file solo se è diverso dall'ultimo ricevuto
-                            if ((lastReceivedFile == null) || (!loc.FileCompare(lastReceivedFile, Path.Combine(loc.InputDir, file))))
-                            {
+                            // archivio sempre il file !!!!
+                            //if ((lastReceivedFile == null) || (!loc.FileCompare(lastReceivedFile, Path.Combine(loc.InputDir, file))))
+                            //{
                                 string uniquefile = string.Format("{0}_{1}.csv", file.Substring(0, file.IndexOf('.')), DateTime.Now.ToString("yyyyMMdd_HHmmss"));
                                 loc.RenameAndMoveFileToDir(file, uniquefile, loc.InputDir, loc.ArchInDir);
-                            }
-                            else
-                            {
-                                loc.InputDirDeleteFile(file);
-                            }
+                            //}
+                            //else
+                            //{
+                            //    loc.InputDirDeleteFile(file);
+                            //}
                         }
                     }
                     catch (Exception _ex)
