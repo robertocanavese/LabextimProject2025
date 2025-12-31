@@ -37,7 +37,7 @@ namespace DLLabExtim
                     new SqlCommand("exec sp_MSforeachtable 'ALTER TABLE ? NOCHECK CONSTRAINT ALL'",
                         _destinationConnection);
                 _destUncheckAllConstraint.Transaction = _transaction;
-                var _unchecked = _destUncheckAllConstraint.ExecuteNonQuery(); 
+                var _unchecked = _destUncheckAllConstraint.ExecuteNonQuery();
 
                 var _destDeleteAllCommand = new SqlCommand("delete from " + destinationTable + " where 1=1 and " + deleteFilterExpression, _destinationConnection);
                 _destDeleteAllCommand.Transaction = _transaction;
@@ -561,5 +561,36 @@ namespace DLLabExtim
                 throw;
             }
         }
+
+
+        public static bool ShrinkLogFile(string connectionString, string databaseName)
+        {
+            SqlConnection conn = new SqlConnection();
+            conn.ChangeDatabase(databaseName);
+
+            try
+            {
+
+                conn.Open();
+                SqlCommand command = new SqlCommand("prc_LAB_Exe_LAB_ShrinkLog_" + databaseName, conn);
+                command.CommandType = CommandType.StoredProcedure;
+                command.CommandTimeout = 180;
+                command.ExecuteNonQuery();
+                conn.Close();
+
+                return true;
+            }
+            catch (Exception _exception)
+            {
+                Log.Write("ShrinkLogFile " + databaseName, _exception);
+                throw;
+            }
+            finally
+            {
+                if (conn.State == ConnectionState.Open)
+                    conn.Close();
+            }
+        }
+
     }
 }

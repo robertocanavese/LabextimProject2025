@@ -93,6 +93,10 @@ namespace DailyManager
                 {
                     Sync_Saroglia_Ordini();
                 }
+                if (args[0] == ("ShrinkDatabasesLogs"))
+                {
+                    ShrinkDatabasesLogs();
+                }
 
                 if (args[0] == ("All"))
                 {
@@ -259,6 +263,25 @@ namespace DailyManager
                 //    "AspNetDB",
                 //    ConfigurationManager.AppSettings["BackupNetworkPath"]);
                 Log.Write("Backup AspNetDB terminato con successo", null);
+            }
+            catch (Exception ex)
+            {
+                Console.Write("ERRORE: " + ex.Message);
+                Log.Write("LabExtim Daily Manager: " + ex.Message, ex);
+            }
+        }
+
+        private static void  ShrinkDatabasesLogs()
+        {s
+            try
+            {
+                ImportGateway.ShrinkLogFile(ConfigurationManager.ConnectionStrings["LabExtimConnectionString"].ConnectionString, "LabExtim");
+                Log.Write("Shrink log LabExtim terminato con successo", null);
+                ImportGateway.ShrinkLogFile(ConfigurationManager.ConnectionStrings["LabExtimConnectionString"].ConnectionString, "ECOSYSTEM");
+                Log.Write("Shrink log ECOSYSTEM terminato con successo", null);
+                ImportGateway.ShrinkLogFile(ConfigurationManager.ConnectionStrings["MemberShipConnString"].ConnectionString, "aspnetdb");
+                Log.Write("Shrink log aspnetdb terminato con successo", null);
+
             }
             catch (Exception ex)
             {
