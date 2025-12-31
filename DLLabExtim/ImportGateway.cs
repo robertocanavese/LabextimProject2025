@@ -565,7 +565,7 @@ namespace DLLabExtim
 
         public static bool ShrinkLogFile(string connectionString, string databaseName)
         {
-            SqlConnection conn = new SqlConnection();
+            SqlConnection conn = new SqlConnection(connectionString);
 
             try
             {
