@@ -272,7 +272,7 @@ namespace DailyManager
         }
 
         private static void  ShrinkDatabasesLogs()
-        {s
+        {
             try
             {
                 ImportGateway.ShrinkLogFile(ConfigurationManager.ConnectionStrings["LabExtimConnectionString"].ConnectionString, "LabExtim");
