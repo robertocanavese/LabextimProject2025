@@ -566,12 +566,12 @@ namespace DLLabExtim
         public static bool ShrinkLogFile(string connectionString, string databaseName)
         {
             SqlConnection conn = new SqlConnection();
-            conn.ChangeDatabase(databaseName);
 
             try
             {
 
                 conn.Open();
+                conn.ChangeDatabase(databaseName);
                 SqlCommand command = new SqlCommand("prc_LAB_Exe_LAB_ShrinkLog_" + databaseName, conn);
                 command.CommandType = CommandType.StoredProcedure;
                 command.CommandTimeout = 180;
