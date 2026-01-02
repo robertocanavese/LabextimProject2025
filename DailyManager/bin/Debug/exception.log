@@ -33,3 +33,17 @@ Il nome di un oggetto o una colonna manca o è vuoto. Per le istruzioni SELECT I
 02/01/2026 10:26:43 - Shrink log LabExtim terminato con successo
 02/01/2026 10:26:45 - Shrink log ECOSYSTEM terminato con successo
 02/01/2026 10:26:46 - Shrink log aspnetdb terminato con successo
+02/01/2026 14:38:24 - BackUp LabExtim: BACKUP LOG cannot be performed because there is no current database backup.
+BACKUP LOG is terminating abnormally.
+02/01/2026 14:38:24 - LabExtim Daily Manager: BACKUP LOG cannot be performed because there is no current database backup.
+BACKUP LOG is terminating abnormally.: BACKUP LOG cannot be performed because there is no current database backup.
+BACKUP LOG is terminating abnormally.
+02/01/2026 14:41:54 - Backup log LabExtim terminato con successo
+02/01/2026 14:42:06 - Backup log ECOSYSTEM terminato con successo
+02/01/2026 14:42:16 - Backup log aspnetdb terminato con successo
+02/01/2026 14:46:01 - Backup log LabExtim terminato con successo
+02/01/2026 14:46:01 - Backup log ECOSYSTEM terminato con successo
+02/01/2026 14:46:02 - Backup log aspnetdb terminato con successo
+02/01/2026 14:51:13 - Backup log LabExtim terminato con successo
+02/01/2026 14:51:14 - Backup log ECOSYSTEM terminato con successo
+02/01/2026 14:51:14 - Backup log aspnetdb terminato con successo

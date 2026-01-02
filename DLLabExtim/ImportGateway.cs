@@ -582,10 +582,7 @@ namespace DLLabExtim
                 Process _compressAction;
                 var _timeStamp = DateTime.Now;
                 _compressAction = Process.Start(
-                    @"C:\CFBDeployment\Utilities\7za.exe", "a -tzip " +
-                                                           '"' + destinationPath + @"\" + databaseName +
-                                                           _timeStamp.ToString("yyyyMMdd-HHmmss") + ".zip" + '"' + " " +
-                                                           '"' + destinationPath + @"\" + databaseName + ".trn" + '"');
+                    @"C:\CFBDeployment\Utilities\7za.exe", "a -tzip " + '"' + destinationPath + @"\" + databaseName + "_" + _timeStamp.ToString("yyyyMMdd-HHmmss") + ".zip" + '"' + " " + '"' + destinationPath + @"\" + databaseName + ".trn" + '"');
                 while (!_compressAction.HasExited)
                 {
                 }
