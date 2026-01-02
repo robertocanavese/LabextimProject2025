@@ -31,7 +31,7 @@ namespace DailyManager
                 }
                 if (args[0] == ("LabExtimBackup"))
                 {
-                    BackUpLabExtim(); 
+                    BackUpLabExtim();
                 }
                 if (args[0] == ("AspNetDB"))
                 {
@@ -98,6 +98,16 @@ namespace DailyManager
                     ShrinkDatabasesLogs();
                 }
 
+                if (args[0] == ("ShrinkDatabasesLogs"))
+                {
+                    ShrinkDatabasesLogs();
+                }
+
+                if (args[0] == ("BackupDatabasesLogs"))
+                {
+                    BackupDatabasesLogs();
+                }
+
                 if (args[0] == ("All"))
                 {
                     BackUpMaster();
@@ -129,7 +139,7 @@ namespace DailyManager
                     }
                 }
 
-                
+
 
             }
             catch (Exception ex)
@@ -271,7 +281,7 @@ namespace DailyManager
             }
         }
 
-        private static void  ShrinkDatabasesLogs()
+        private static void ShrinkDatabasesLogs()
         {
             try
             {
@@ -281,6 +291,25 @@ namespace DailyManager
                 Log.Write("Shrink log ECOSYSTEM terminato con successo", null);
                 ImportGateway.ShrinkLogFile(ConfigurationManager.ConnectionStrings["MemberShipConnString"].ConnectionString, "aspnetdb");
                 Log.Write("Shrink log aspnetdb terminato con successo", null);
+
+            }
+            catch (Exception ex)
+            {
+                Console.Write("ERRORE: " + ex.Message);
+                Log.Write("LabExtim Daily Manager: " + ex.Message, ex);
+            }
+        }
+
+        private static void BackupDatabasesLogs()
+        {
+            try
+            {
+                ImportGateway.BackUpLog(ConfigurationManager.ConnectionStrings["LabExtimConnectionString"].ConnectionString, "LabExtim", ConfigurationManager.AppSettings["BackupLocalPath"], null);
+                Log.Write("Backup log LabExtim terminato con successo", null);
+                ImportGateway.BackUpLog(ConfigurationManager.ConnectionStrings["LabExtimConnectionString"].ConnectionString, "ECOSYSTEM", ConfigurationManager.AppSettings["BackupLocalPath"], null);
+                Log.Write("Backup log ECOSYSTEM terminato con successo", null);
+                ImportGateway.BackUpLog(ConfigurationManager.ConnectionStrings["MemberShipConnString"].ConnectionString, "aspnetdb", ConfigurationManager.AppSettings["BackupLocalPath"], null);
+                Log.Write("Backup log aspnetdb terminato con successo", null);
 
             }
             catch (Exception ex)
@@ -356,7 +385,7 @@ namespace DailyManager
             DBReindex.DbReindex("MemberShipConnString");
             DBReindex.DBReindex_mm_lotto("GestConnectionString");
             DBReindex.DBReindex_mm_lotto("GestCARTOLABEConnectionString");
-         
+
         }
 
         private static void ReindexLabe()

@@ -27,3 +27,9 @@ Il nome di un oggetto o una colonna manca o è vuoto. Per le istruzioni SELECT I
 23/12/2025 16:34:33 - SarogliaGateway - RetrieveCurrentDataset: Overflow di SqlDbType.Time. Valore '-739607.13:37:39' non incluso nell'intervallo: deve essere compreso fra 00.00.00.0000000 e 23.59.59.9999999.
 23/12/2025 17:19:48 - SarogliaGateway - RetrieveCurrentDataset: Overflow di SqlDbType.Time. Valore '-739607.13:37:39' non incluso nell'intervallo: deve essere compreso fra 00.00.00.0000000 e 23.59.59.9999999.
 23/12/2025 17:28:54 - SarogliaGateway - RetrieveCurrentDataset: Indice oltre i limiti della matrice.
+31/12/2025 13:57:59 - Shrink log LabExtim terminato con successo
+31/12/2025 13:58:02 - Shrink log ECOSYSTEM terminato con successo
+31/12/2025 13:58:03 - Shrink log aspnetdb terminato con successo
+02/01/2026 10:26:43 - Shrink log LabExtim terminato con successo
+02/01/2026 10:26:45 - Shrink log ECOSYSTEM terminato con successo
+02/01/2026 10:26:46 - Shrink log aspnetdb terminato con successo

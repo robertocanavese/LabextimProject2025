@@ -562,6 +562,51 @@ namespace DLLabExtim
             }
         }
 
+        //BACKUP LOG AdventureWorks TO DISK = 'C:\AdventureWorks.TRN'
+        public static bool BackUpLog(string connectionString, string databaseName, string destinationPath,
+            string networkDestinationPath)
+        {
+            var _connection = new SqlConnection(connectionString);
+            try
+            {
+                _connection.Open();
+                var _backupCommand =
+                    new SqlCommand(
+                        "BACKUP LOG " + databaseName + " TO DISK='" + destinationPath + @"\" + databaseName +
+                        ".trn'", _connection);
+                _backupCommand.CommandTimeout = 1200;
+                var _done = _backupCommand.ExecuteNonQuery();
+                _connection.Close();
+
+                Process _compressAction;
+                var _timeStamp = DateTime.Now;
+                _compressAction = Process.Start(
+                    @"C:\CFBDeployment\Utilities\7za.exe", "a -tzip " +
+                                                           '"' + destinationPath + @"\" + databaseName +
+                                                           _timeStamp.ToString("yyyyMMdd-HHmmss") + ".zip" + '"' + " " +
+                                                           '"' + destinationPath + @"\" + databaseName + ".trn" + '"');
+                while (!_compressAction.HasExited)
+                {
+                }
+                if (networkDestinationPath != null)
+                {
+                    CopyToNetworkDrive(databaseName, destinationPath, networkDestinationPath, null);
+                    CopyToNetworkDrive(databaseName, destinationPath, networkDestinationPath, _timeStamp);
+                }
+                return true;
+            }
+            catch (Exception _exception)
+            {
+                Log.Write("BackUp " + databaseName, _exception);
+                throw;
+                //return false;
+            }
+            finally
+            {
+                if (_connection.State == ConnectionState.Open)
+                    _connection.Close();
+            }
+        }
 
         public static bool ShrinkLogFile(string connectionString, string databaseName)
         {
