@@ -570,6 +570,7 @@ namespace DLLabExtim
             try
             {
                 _connection.Open();
+                _connection.ChangeDatabase(databaseName);
                 var _backupCommand =
                     new SqlCommand(
                         "BACKUP LOG " + databaseName + " TO DISK='" + destinationPath + @"\" + databaseName +
