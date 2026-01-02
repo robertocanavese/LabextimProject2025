@@ -308,8 +308,8 @@ namespace DailyManager
                 Log.Write("Backup log LabExtim terminato con successo", null);
                 ImportGateway.BackUpLog(ConfigurationManager.ConnectionStrings["LabExtimConnectionString"].ConnectionString, "ECOSYSTEM", ConfigurationManager.AppSettings["BackupLocalPath"], null);
                 Log.Write("Backup log ECOSYSTEM terminato con successo", null);
-                ImportGateway.BackUpLog(ConfigurationManager.ConnectionStrings["MemberShipConnString"].ConnectionString, "aspnetdb", ConfigurationManager.AppSettings["BackupLocalPath"], null);
-                Log.Write("Backup log aspnetdb terminato con successo", null);
+                //ImportGateway.BackUpLog(ConfigurationManager.ConnectionStrings["MemberShipConnString"].ConnectionString, "aspnetdb", ConfigurationManager.AppSettings["BackupLocalPath"], null);
+                //Log.Write("Backup log aspnetdb terminato con successo", null);
 
             }
             catch (Exception ex)
