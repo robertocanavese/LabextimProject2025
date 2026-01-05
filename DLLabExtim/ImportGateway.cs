@@ -566,9 +566,24 @@ namespace DLLabExtim
         public static bool BackUpLog(string connectionString, string databaseName, string destinationPath,
             string networkDestinationPath)
         {
+
+            try
+            {
+                foreach (FileInfo f in new DirectoryInfo(destinationPath).GetFiles("*.zip").Where(f => f.Name.StartsWith(databaseName) && f.CreationTime.Date < DateTime.Now.Date.AddDays(-3)))
+                {
+                    f.Delete();
+                }
+            }
+            catch (Exception _exception)
+            {
+                Log.Write("BackUpLog " + databaseName, _exception);
+            }
+
+
             var _connection = new SqlConnection(connectionString);
             try
             {
+
                 _connection.Open();
                 _connection.ChangeDatabase(databaseName);
                 var _backupCommand =
@@ -595,7 +610,7 @@ namespace DLLabExtim
             }
             catch (Exception _exception)
             {
-                Log.Write("BackUp " + databaseName, _exception);
+                Log.Write("BackUpLog " + databaseName, _exception);
                 throw;
                 //return false;
             }
