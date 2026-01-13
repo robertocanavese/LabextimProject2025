@@ -324,7 +324,7 @@ namespace DLLabExtim
             try
             {
                 List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false && d.StampaACaldo == stampaACaldo && d.Fustellatura == fustellatura).ToList();
-                result.Id = found[0].ID;
+                result.Id = Convert.ToInt32(found[0].Commessa);
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
             }
@@ -342,7 +342,7 @@ namespace DLLabExtim
             try
             {
                 List<SarogliaData> found = db.SarogliaDatas.Where(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim()) == poId && d.StampaACaldo == stampaACaldo && d.Fustellatura == fustellatura).ToList();
-                result.Id = found[0].ID;
+                result.Id = Convert.ToInt32(found[0].Commessa);
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
             }

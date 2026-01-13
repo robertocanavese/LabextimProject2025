@@ -124,3 +124,5 @@ MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCED
 Nome parametro: index
 13/01/2026 17:03:42 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
 Nome parametro: index
+13/01/2026 17:17:14 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index

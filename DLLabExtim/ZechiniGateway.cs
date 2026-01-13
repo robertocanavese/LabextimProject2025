@@ -270,6 +270,7 @@ namespace DLLabExtim
             try
             {
                 List<ZechiniData> found = db.ZechiniDatas.Where(d => Convert.ToInt32(d.Commessa.Substring(0, 6).Trim()) == poId).ToList();
+                result.Id = Convert.ToInt32(found[0].Commessa.Substring(0, 6).Trim());
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
             }
