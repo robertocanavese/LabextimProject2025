@@ -472,6 +472,7 @@ namespace DailyManager
                 using (QuotationDataContext dbLoc = new QuotationDataContext())
                 {
                     ImportGateway.Sync_Saroglia_Ordini(dbLoc);
+                    ImportGateway.AutoOpen_Saroglia_ORDINE(dbLoc);
                 }
             }
             catch (Exception ex)

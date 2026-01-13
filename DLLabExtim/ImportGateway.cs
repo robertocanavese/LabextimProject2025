@@ -470,6 +470,83 @@ namespace DLLabExtim
             return _success;
         }
 
+
+        public static bool AutoOpen_Saroglia_ORDINE(QuotationDataContext db)
+        {
+            var _success = false;
+            try
+            {
+
+                OdPBag current = SarogliaGateway.GetCurOdP(db,false,true);
+                if (current.Id != -1)
+                {
+                    VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 15);
+                    var toManageTimeStamp = db.ProductionTimeStamps.OrderByDescending(po => po.ID).FirstOrDefault(po => po.IDProductionOrder == current.Id && po.MinIDQuotationDetail == wmp.IDQuotationDetail);
+
+                    if (toManageTimeStamp == null)
+                    {
+                        toManageTimeStamp = new ProductionTimeStamp();
+                        toManageTimeStamp.IDProductionOrder = current.Id;
+                        toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
+                        toManageTimeStamp.ProdStart = DateTime.Now;
+                        toManageTimeStamp.IdUser = -1;
+                        db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
+                    }
+                    else if (toManageTimeStamp != null && toManageTimeStamp.ProdEnd != null)
+                    {
+                        toManageTimeStamp = new ProductionTimeStamp();
+                        toManageTimeStamp.IDProductionOrder = current.Id;
+                        toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
+                        toManageTimeStamp.ProdStart = DateTime.Now;
+                        toManageTimeStamp.IdUser = -1;
+                        db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
+                    }
+                    else
+                    {
+
+                    }
+                    db.SubmitChanges();
+                }
+
+                current = SarogliaGateway.GetCurOdP(db,true, false);
+                if (current.Id != -1)
+                {
+                    VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 101);
+                    var toManageTimeStamp = db.ProductionTimeStamps.OrderByDescending(po => po.ID).FirstOrDefault(po => po.IDProductionOrder == current.Id && po.MinIDQuotationDetail == wmp.IDQuotationDetail);
+
+                    if (toManageTimeStamp == null)
+                    {
+                        toManageTimeStamp = new ProductionTimeStamp();
+                        toManageTimeStamp.IDProductionOrder = current.Id;
+                        toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
+                        toManageTimeStamp.ProdStart = DateTime.Now;
+                        toManageTimeStamp.IdUser = -1;
+                        db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
+                    }
+                    else if (toManageTimeStamp != null && toManageTimeStamp.ProdEnd != null)
+                    {
+                        toManageTimeStamp = new ProductionTimeStamp();
+                        toManageTimeStamp.IDProductionOrder = current.Id;
+                        toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
+                        toManageTimeStamp.ProdStart = DateTime.Now;
+                        toManageTimeStamp.IdUser = -1;
+                        db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
+                    }
+                    else
+                    {
+
+                    }
+                    db.SubmitChanges();
+                }
+                _success = true;
+            }
+            catch (Exception _exception)
+            {
+                Log.Write("Importazione dati - AutoOpen_EcoSystem_ORDINE ", _exception);
+            }
+            return _success;
+        }
+
         public static bool ComposeLongCompanyName()
         {
             var _success = false;
