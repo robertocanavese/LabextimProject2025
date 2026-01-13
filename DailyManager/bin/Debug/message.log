@@ -120,3 +120,7 @@ MANUTENZIONE INDICI database 'LABEXTIM' su istanza 'DATANEW.LABE.LOCAL' - PROCED
 22/12/2025 18:17:33 - : BIWMIntegrationService - ERRORE FTP (VERIFICARE CHE I SERVER FTP RISPONDANO E CHE NON SI RIPETA AD OLTRANZA!) (Dati richiesta: Uri: ftp://192.168.2.32//usbdisk/ToMachine.csv, Operazione: STOR, Errore: Errore del server remoto: (553) Nome di file non consentito..)
 23/12/2025 09:23:04 - : BIWMIntegrationService - ERRORE FTP (VERIFICARE CHE I SERVER FTP RISPONDANO E CHE NON SI RIPETA AD OLTRANZA!) (Dati richiesta: Uri: ftp://192.168.2.32//ToMachine.csv, Operazione: STOR, Errore: Errore del server remoto: (553) Nome di file non consentito..)
 23/12/2025 12:44:59 - : BIWMIntegrationService - ERRORE FTP (VERIFICARE CHE I SERVER FTP RISPONDANO E CHE NON SI RIPETA AD OLTRANZA!) (Dati richiesta: Uri: ftp://192.168.2.32//ToMachine.csv, Operazione: STOR, Errore: Errore del server remoto: (553) Nome di file non consentito..)
+13/01/2026 17:02:10 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
+13/01/2026 17:03:42 - : Index non compreso nell'intervallo. Richiesto valore non negativo e minore della dimensione della raccolta.
+Nome parametro: index
