@@ -542,7 +542,7 @@ namespace DLLabExtim
             }
             catch (Exception _exception)
             {
-                Log.Write("Importazione dati - AutoOpen_EcoSystem_ORDINE ", _exception);
+                Log.Write("Importazione dati - AutoOpen_Saroglia_ORDINE ", _exception);
             }
             return _success;
         }
