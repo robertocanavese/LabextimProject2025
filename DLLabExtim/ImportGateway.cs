@@ -477,7 +477,7 @@ namespace DLLabExtim
             try
             {
 
-                OdPBag current = SarogliaGateway.GetCurOdP(db,false,true);
+                OdPBag current = SarogliaGateway.GetCurOdP(db, false, true);
                 if (current.Id != -1)
                 {
                     VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 15);
@@ -508,7 +508,7 @@ namespace DLLabExtim
                     db.SubmitChanges();
                 }
 
-                current = SarogliaGateway.GetCurOdP(db,true, false);
+                current = SarogliaGateway.GetCurOdP(db, true, false);
                 if (current.Id != -1)
                 {
                     VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 101);
