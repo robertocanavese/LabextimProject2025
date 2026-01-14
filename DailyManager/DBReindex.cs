@@ -16,6 +16,7 @@ namespace DailyManager
         {
 
             SqlConnection _conn = new SqlConnection(ConfigurationManager.ConnectionStrings[dbLabel].ToString());
+#if !DEBUG
             SqlConnectionStringBuilder builder = new SqlConnectionStringBuilder();
             builder["User ID"] = "sa";
             builder["Password"] = "7800500+";
@@ -24,6 +25,13 @@ namespace DailyManager
             SqlConnection _conn0 = new SqlConnection(builder.ConnectionString);
             SqlConnection _conn1 = new SqlConnection(builder.ConnectionString);
             SqlConnection _conn2 = new SqlConnection(builder.ConnectionString);
+#else
+            SqlConnection _conn0 = _conn;
+            SqlConnection _conn1 = _conn;
+            SqlConnection _conn2 = _conn;
+#endif
+
+
             StringBuilder _sb = new StringBuilder();
             bool _error = false;
             _sb.AppendLine(string.Format("MANUTENZIONE INDICI database '{0}' su istanza '{1}' - PROCEDURA AVVIATA ({2:dd/MM/yyyy hh:mm:ss}) - ", _conn.Database.ToUpperInvariant(), _conn.DataSource.ToUpperInvariant(), DateTime.Now));

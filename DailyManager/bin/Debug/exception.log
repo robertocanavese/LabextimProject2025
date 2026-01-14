@@ -52,3 +52,14 @@ BACKUP LOG is terminating abnormally.
 02/01/2026 15:13:58 - Backup log aspnetdb terminato con successo
 05/01/2026 15:02:21 - Backup log LabExtim terminato con successo
 05/01/2026 15:02:37 - Backup log ECOSYSTEM terminato con successo
+14/01/2026 09:31:27 - LabExtim (Comando fallito: Select * From sys.tables - Valori parametri: ) - : Login failed for user 'sa'.
+14/01/2026 09:31:27 - : Login failed for user 'sa'.
+14/01/2026 09:31:27 - LabExtim (Comando fallito: Select * From sys.tables - Valori parametri: ) - : Login failed for user 'sa'.
+14/01/2026 09:31:27 - : Login failed for user 'sa'.
+14/01/2026 09:31:59 - LabExtim (Comando fallito: Select * From sys.tables - Valori parametri: ) - : Login failed for user 'sa'.
+14/01/2026 09:35:38 - LabExtim (Comando fallito: Select * From sys.tables - Valori parametri: ) - : Cannot open database "LabExtim" requested by the login. The login failed.
+Login failed for user 'usrw'.
+14/01/2026 09:39:35 - LabExtim (Comando fallito: SELECT a.index_id, name, isnull(avg_fragmentation_in_percent,0.0) avg_fragmentation_in_percent, isnull(fragment_count,0) fragment_count, STATS_DATE(b.OBJECT_ID, b.index_id) AS StatsUpdated FROM sys.dm_db_index_physical_stats (DB_ID(N'LabExtim'), OBJECT_ID(N'Departments'), NULL, NULL, NULL) AS a JOIN sys.indexes AS b ON a.object_id = b.object_id AND a.index_id = b.index_id where b.is_disabled = 0; - Valori parametri: ) - : A Command è già associato un DataReader aperto, che deve essere chiuso.
+14/01/2026 09:53:02 - LabExtim (Comando fallito: SELECT a.index_id, name, isnull(avg_fragmentation_in_percent,0.0) avg_fragmentation_in_percent, isnull(fragment_count,0) fragment_count, STATS_DATE(b.OBJECT_ID, b.index_id) AS StatsUpdated FROM sys.dm_db_index_physical_stats (DB_ID(N'LabExtim'), OBJECT_ID(N'ProductionOrders'), NULL, NULL, NULL) AS a JOIN sys.indexes AS b ON a.object_id = b.object_id AND a.index_id = b.index_id where b.is_disabled = 0; - Valori parametri: ) - : A Command è già associato un DataReader aperto, che deve essere chiuso.
+14/01/2026 09:55:43 - : Tentativo non valido di chiamare Read con reader chiuso.
+14/01/2026 09:56:06 - : Tentativo non valido di chiamare Read con reader chiuso.
