@@ -30,6 +30,8 @@ namespace DLLabExtim
             try
             {
 
+                SendExistingDataFileToFtp();
+
                 List<RowValues> toSend;
                 using (QuotationDataContext db = new QuotationDataContext())
                 {
@@ -198,6 +200,45 @@ namespace DLLabExtim
                 return rowValues;
             }
         }
+
+
+        private void SendExistingDataFileToFtp()
+        {
+
+            try
+            {
+
+                FtpService ftp = new FtpService(sharedConfiguration);
+                LocalService loc = new LocalService(sharedConfiguration);
+
+                try
+                {
+
+                    string outFile = "ToMachine.csv";
+                    if (File.Exists(Path.Combine(loc.OutputDir, outFile)))
+                    {
+                        ftp.Upload(loc.OutputDir, outFile);
+                        if (ftp.OutputDirFileExists(outFile))
+                        {
+                            string uniquefile = string.Format("{0}_{1}.csv", outFile.Substring(0, outFile.IndexOf('.')), DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+                            loc.RenameAndMoveFileToDir(outFile, uniquefile, loc.OutputDir, loc.ArchOutDir);
+                        }
+                    }
+
+                }
+                catch (Exception _ex)
+                {
+                    Log.WriteMessage(string.Format("SarogliaGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
+                }
+
+            }
+            catch (Exception _ex)
+            {
+                Log.WriteMessage(string.Format("SarogliaGateway - Il metodo {0} dell'attività {1} ha generato il seguente errore: {2}", MethodBase.GetCurrentMethod().Name, this.GetType().Name, _ex.Message));
+            }
+        }
+
+
 
         private void SendDataFileToFtp(List<RowValues> rows)
         {
