@@ -859,9 +859,16 @@ namespace LabExtim
         {
             isExporting = true;
             grdProductionOrdersStats.PagerSettings.Visible = false;
+
+            int oldPageSize = grdProductionOrdersStats.PageSize;
+            grdProductionOrdersStats.PageSize = Int16.MaxValue;
+            grdProductionOrdersStats.SetPageIndex(0);
             grdProductionOrdersStats.DataBind();
             ExportToExcel(GridRender);
             isExporting = false;
+
+            grdProductionOrdersStats.PageSize = oldPageSize;
+            grdProductionOrdersStats.SetPageIndex(0);
             grdProductionOrdersStats.PagerSettings.Visible = true;
 
         }
