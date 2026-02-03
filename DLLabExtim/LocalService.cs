@@ -74,7 +74,7 @@ namespace DLLabExtim
             DirectoryInfo _di = new DirectoryInfo(OutputDir);
             foreach (FileInfo f in _di.GetFiles(string.Format("*.{0}", oldExtension)))
             {
-               if (_di.GetFiles(f.Name).Count() > 0)
+                if (_di.GetFiles(f.Name).Count() > 0)
                     if (_di.GetFiles(string.Format("{0}.{1}", f.Name.Substring(0, f.Name.LastIndexOf('.')), newExtension)).Count() == 0)
                     {
                         f.MoveTo(Path.Combine(OutputDir, string.Format("{0}.{1}", f.Name.Substring(0, f.Name.LastIndexOf('.')), newExtension)));
@@ -230,6 +230,35 @@ namespace DLLabExtim
 
             return ((file1byte - file2byte) == 0);
         }
+
+
+        public bool FileContentCompare(string path1, string path2)
+        {
+
+            using (FileStream fs1 = new FileStream(path1, FileMode.Open),
+                  fs2 = new FileStream(path2, FileMode.Open))
+            {
+                int c1 = 0;
+                int c2 = 0;
+                do
+                {
+                    c1 = fs1.ReadByte();
+                    c2 = fs2.ReadByte();
+                }
+                while (c1 == c2 && c1 != -1 && c2 != -1);
+
+                if (c1 == c2)
+                {
+                    return true;
+                }
+                else
+                {
+                    return false;
+                }
+            }
+
+        }
+
 
     }
 }
