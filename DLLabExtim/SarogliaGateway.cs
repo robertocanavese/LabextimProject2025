@@ -96,7 +96,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault())); 
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()));
                             db.SarogliaDatas.InsertOnSubmit(sd);
                         }
                         else
@@ -111,7 +111,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault())); 
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()));
                         }
                     }
 
@@ -136,7 +136,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault())); 
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()));
                             db.SarogliaDatas.InsertOnSubmit(sd);
                         }
                         else
@@ -151,7 +151,7 @@ namespace DLLabExtim
                             sd.PzScarto = row.PzScarto;
                             sd.Completato = row.Completato;
                             sd.Stato = 1;
-                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault())); 
+                            sd.tMacchina = (row.Fine == null ? new TimeSpan() : row.Fine.GetValueOrDefault().Subtract(row.Inizio.GetValueOrDefault()));
                         }
                     }
 
@@ -184,7 +184,7 @@ namespace DLLabExtim
 
             public static RowValues FromCsv(string csvLine)
             {
-                string[] values = csvLine.Replace("\"","").Split(';');
+                string[] values = csvLine.Replace("\"", "").Split(';');
                 RowValues rowValues = new RowValues();
                 rowValues.Commessa = (string.IsNullOrEmpty(values[0]) ? null : values[0]);
                 rowValues.Descrizione = (string.IsNullOrEmpty(values[1]) ? null : values[1]);
@@ -254,7 +254,7 @@ namespace DLLabExtim
                 sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", "Commessa", "Descrizione", "StampaACaldo", "Fustellatura", "PzRichiesti", "PzFatti", "PzScarto", "Inizio", "Fine", "Completato"));
                 foreach (RowValues row in rows)
                 {
-                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", row.Commessa, row.Descrizione, row.StampaACaldo ? "1":"0", row.Fustellatura ? "1":"0", row.PzRichiesti, 0, 0, "", "", 0));
+                    sb.AppendLine(string.Format("{0};{1};{2};{3};{4};{5};{6};{7};{8};{9}", row.Commessa, row.Descrizione, row.StampaACaldo ? "1" : "0", row.Fustellatura ? "1" : "0", row.PzRichiesti, 0, 0, "", "", 0));
                 }
 
                 try
@@ -266,6 +266,7 @@ namespace DLLabExtim
                     string lastSentFile = loc.ArchivedOutputDirGetLastFile("csv");
                     // invio il file solo se è diverso dall'ultimo inviato
                     if ((lastSentFile == null) || (!loc.FileCompare(lastSentFile, Path.Combine(loc.OutputDir, outFile))))
+                    //if ((lastSentFile == null) || (!loc.FileContentCompare(lastSentFile, Path.Combine(loc.OutputDir, outFile))))
                     {
                         ftp.Upload(loc.OutputDir, outFile);
                         if (ftp.OutputDirFileExists(outFile))
@@ -317,8 +318,8 @@ namespace DLLabExtim
                             // archivio sempre il file !!!!
                             //if ((lastReceivedFile == null) || (!loc.FileCompare(lastReceivedFile, Path.Combine(loc.InputDir, file))))
                             //{
-                                string uniquefile = string.Format("{0}_{1}.csv", file.Substring(0, file.IndexOf('.')), DateTime.Now.ToString("yyyyMMdd_HHmmss"));
-                                loc.RenameAndMoveFileToDir(file, uniquefile, loc.InputDir, loc.ArchInDir);
+                            string uniquefile = string.Format("{0}_{1}.csv", file.Substring(0, file.IndexOf('.')), DateTime.Now.ToString("yyyyMMdd_HHmmss"));
+                            loc.RenameAndMoveFileToDir(file, uniquefile, loc.InputDir, loc.ArchInDir);
                             //}
                             //else
                             //{
@@ -357,7 +358,7 @@ namespace DLLabExtim
         }
 
 
-        public static OdPBag GetCurOdP(QuotationDataContext db, Boolean stampaACaldo, Boolean fustellatura )
+        public static OdPBag GetCurOdP(QuotationDataContext db, Boolean stampaACaldo, Boolean fustellatura)
         {
 
             //return new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
