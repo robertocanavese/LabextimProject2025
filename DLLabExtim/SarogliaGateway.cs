@@ -365,10 +365,13 @@ namespace DLLabExtim
             OdPBag result = new OdPBag { Id = -1, CopieRichieste = 0, CopieLavorate = 0 };
             try
             {
-                List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false && d.StampaACaldo == stampaACaldo && d.Fustellatura == fustellatura).ToList();
+                List<SarogliaData> found = db.SarogliaDatas.Where(d => d.Completato == false && d.StampaACaldo == stampaACaldo && d.Fustellatura == fustellatura).OrderByDescending(d => d.ID).ToList();
                 result.Id = Convert.ToInt32(found[0].Commessa);
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
+
+                result.ProdStart = found[0].Inizio;
+                result.ProdEnd = found[0].Fine;
             }
             catch (Exception ex)
             {
@@ -387,7 +390,10 @@ namespace DLLabExtim
                 result.Id = Convert.ToInt32(found[0].Commessa);
                 result.CopieRichieste = found[0].PzRichiesti.GetValueOrDefault();
                 result.CopieLavorate = found.Max(d => d.PzFatti).GetValueOrDefault();
-            }
+
+                result.ProdStart = found[0].Inizio;
+                result.ProdEnd = found[0].Fine;
+           }
             catch (Exception ex)
             {
                 Log.WriteMessage(ex.Message);

@@ -22,5 +22,8 @@ namespace CMLabExtim
             }
         }
 
+        public DateTime? ProdStart { get; set; }
+        public DateTime? ProdEnd { get; set; }
+
     }
 }

@@ -492,7 +492,7 @@ namespace DLLabExtim
                             toManageTimeStamp = new ProductionTimeStamp();
                             toManageTimeStamp.IDProductionOrder = current.Id;
                             toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
-                            toManageTimeStamp.ProdStart = DateTime.Now;
+                            toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart: DateTime.Now);
                             toManageTimeStamp.IdUser = -1;
                             db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
                         }
@@ -501,7 +501,7 @@ namespace DLLabExtim
                             toManageTimeStamp = new ProductionTimeStamp();
                             toManageTimeStamp.IDProductionOrder = current.Id;
                             toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
-                            toManageTimeStamp.ProdStart = DateTime.Now;
+                            toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart : DateTime.Now);
                             toManageTimeStamp.IdUser = -1;
                             db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
                         }
@@ -526,7 +526,7 @@ namespace DLLabExtim
                             toManageTimeStamp = new ProductionTimeStamp();
                             toManageTimeStamp.IDProductionOrder = current.Id;
                             toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
-                            toManageTimeStamp.ProdStart = DateTime.Now;
+                            toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart : DateTime.Now);
                             toManageTimeStamp.IdUser = -1;
                             db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
                         }
@@ -535,7 +535,7 @@ namespace DLLabExtim
                             toManageTimeStamp = new ProductionTimeStamp();
                             toManageTimeStamp.IDProductionOrder = current.Id;
                             toManageTimeStamp.MinIDQuotationDetail = wmp.IDQuotationDetail;
-                            toManageTimeStamp.ProdStart = DateTime.Now;
+                            toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart : DateTime.Now);
                             toManageTimeStamp.IdUser = -1;
                             db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
                         }
