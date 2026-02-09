@@ -32,3 +32,12 @@ E:\VS9\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.P
 E:\VS9\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.csproj.GenerateResource.Cache
 E:\VS9\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.exe
 E:\VS9\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\bin\Release\WinMembership.exe.config
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\bin\Release\WinMembership.exe
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\bin\Release\WinMembership.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.Form1.resources
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.Properties.Resources.resources
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.csproj.GenerateResource.Cache
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.exe
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.pdb
+C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\WinMembership\obj\Release\WinMembership.csprojResolveAssemblyReference.cache

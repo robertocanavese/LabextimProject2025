@@ -483,7 +483,7 @@ namespace DLLabExtim
                 OdPBag current = SarogliaGateway.GetCurOdP(db, false, true);
                 if (current.Id != -1)
                 {
-                    VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 15);
+                    VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.OrderBy(d => d.IDQuotationDetail).FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 15);
                     if (wmp != null)
                     {
                         var toManageTimeStamp = db.ProductionTimeStamps.OrderByDescending(po => po.ID).FirstOrDefault(po => po.IDProductionOrder == current.Id && po.MinIDQuotationDetail == wmp.IDQuotationDetail);
@@ -495,6 +495,11 @@ namespace DLLabExtim
                             toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart: DateTime.Now);
                             toManageTimeStamp.IdUser = -1;
                             db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
+                        }
+                        else if (toManageTimeStamp != null && toManageTimeStamp.ProdEnd == null)
+                        {
+                            toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart : DateTime.Now);
+                            toManageTimeStamp.IdUser = -1;
                         }
                         else if (toManageTimeStamp != null && toManageTimeStamp.ProdEnd != null)
                         {
@@ -516,7 +521,7 @@ namespace DLLabExtim
                 current = SarogliaGateway.GetCurOdP(db, true, false);
                 if (current.Id != -1)
                 {
-                    VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 101);
+                    VW_ProductionExtMP wmp = db.VW_ProductionExtMPs.OrderBy(d => d.IDQuotationDetail).FirstOrDefault(d => d.IDProductionOrder == current.Id && d.Status != 12 && d.IDProductionMachine == 101);
                     if (wmp != null)
                     {
                         var toManageTimeStamp = db.ProductionTimeStamps.OrderByDescending(po => po.ID).FirstOrDefault(po => po.IDProductionOrder == current.Id && po.MinIDQuotationDetail == wmp.IDQuotationDetail);
@@ -529,6 +534,11 @@ namespace DLLabExtim
                             toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart : DateTime.Now);
                             toManageTimeStamp.IdUser = -1;
                             db.ProductionTimeStamps.InsertOnSubmit(toManageTimeStamp);
+                        }
+                        else if (toManageTimeStamp != null && toManageTimeStamp.ProdEnd == null)
+                        {
+                            toManageTimeStamp.ProdStart = (current.ProdStart != null ? current.ProdStart : DateTime.Now);
+                            toManageTimeStamp.IdUser = -1;
                         }
                         else if (toManageTimeStamp != null && toManageTimeStamp.ProdEnd != null)
                         {
