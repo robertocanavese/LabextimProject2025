@@ -869,6 +869,14 @@ namespace DLLabExtim
 			}
 		}
 		
+		public System.Data.Linq.Table<VW_DDTQUOPORCostsPrice> VW_DDTQUOPORCostsPrices
+		{
+			get
+			{
+				return this.GetTable<VW_DDTQUOPORCostsPrice>();
+			}
+		}
+		
 		public System.Data.Linq.Table<VW_QUOPORCostsPrices_select> VW_QUOPORCostsPrices_selects
 		{
 			get
@@ -1221,6 +1229,13 @@ namespace DLLabExtim
 		
 		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prc_LAB_Upd_LAB_VW_QUOPORCostsPrices")]
 		public int prc_LAB_Upd_LAB_VW_QUOPORCostsPrices([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Char(8)")] string startDate)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), startDate);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prc_LAB_Upd_LAB_VW_DDTQUOPORCostsPrices")]
+		public int prc_LAB_Upd_LAB_VW_DDTQUOPORCostsPrices([global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Char(8)")] string startDate)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), startDate);
 			return ((int)(result.ReturnValue));
@@ -35029,6 +35044,663 @@ namespace DLLabExtim
 				if ((this._TipoRec != value))
 				{
 					this._TipoRec = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PriceCom", DbType="NVarChar(MAX)")]
+		public string PriceCom
+		{
+			get
+			{
+				return this._PriceCom;
+			}
+			set
+			{
+				if ((this._PriceCom != value))
+				{
+					this._PriceCom = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NonConformityCode", DbType="Int")]
+		public System.Nullable<int> NonConformityCode
+		{
+			get
+			{
+				return this._NonConformityCode;
+			}
+			set
+			{
+				if ((this._NonConformityCode != value))
+				{
+					this._NonConformityCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NonConformityDescription", DbType="VarChar(100)")]
+		public string NonConformityDescription
+		{
+			get
+			{
+				return this._NonConformityDescription;
+			}
+			set
+			{
+				if ((this._NonConformityDescription != value))
+				{
+					this._NonConformityDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Manager", DbType="Int")]
+		public System.Nullable<int> ID_Manager
+		{
+			get
+			{
+				return this._ID_Manager;
+			}
+			set
+			{
+				if ((this._ID_Manager != value))
+				{
+					this._ID_Manager = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ComplaintReceived", DbType="Int")]
+		public System.Nullable<int> ComplaintReceived
+		{
+			get
+			{
+				return this._ComplaintReceived;
+			}
+			set
+			{
+				if ((this._ComplaintReceived != value))
+				{
+					this._ComplaintReceived = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CorrectiveActionCode", DbType="Int")]
+		public System.Nullable<int> CorrectiveActionCode
+		{
+			get
+			{
+				return this._CorrectiveActionCode;
+			}
+			set
+			{
+				if ((this._CorrectiveActionCode != value))
+				{
+					this._CorrectiveActionCode = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CorrectiveActionDescription", DbType="VarChar(100)")]
+		public string CorrectiveActionDescription
+		{
+			get
+			{
+				return this._CorrectiveActionDescription;
+			}
+			set
+			{
+				if ((this._CorrectiveActionDescription != value))
+				{
+					this._CorrectiveActionDescription = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_DDTQUOPORCostsPrices")]
+	public partial class VW_DDTQUOPORCostsPrice
+	{
+		
+		private System.Nullable<int> _ID_Customer;
+		
+		private string _CustomerName;
+		
+		private string _TipoRec;
+		
+		private string _SerieBolla;
+		
+		private int _NumBolla;
+		
+		private System.DateTime _DataBolla;
+		
+		private System.Nullable<decimal> _QtaBolla;
+		
+		private System.Nullable<decimal> _PrezzoBolla;
+		
+		private System.Nullable<decimal> _FATTotValue;
+		
+		private System.Nullable<decimal> _ProvvTotValue;
+		
+		private int _ID;
+		
+		private System.Nullable<int> _ID_Company;
+		
+		private string _Number;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<double> _StartQuantity;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private System.Nullable<int> _ID_Quotation;
+		
+		private string _QUOSubject;
+		
+		private System.Nullable<int> _QUOOwner;
+		
+		private string _OwnerName;
+		
+		private System.Nullable<double> _PORPropCost;
+		
+		private System.Nullable<decimal> _PORPropHistoricalCost;
+		
+		private System.Nullable<double> _QUOPropCost;
+		
+		private System.Nullable<double> _PropProducedQuantity;
+		
+		private string _AccountNote;
+		
+		private string _Note;
+		
+		private System.Nullable<int> _IDAgente1;
+		
+		private string _DescrizioneAgente1;
+		
+		private string _PriceCom;
+		
+		private System.Nullable<int> _NonConformityCode;
+		
+		private string _NonConformityDescription;
+		
+		private System.Nullable<int> _ID_Manager;
+		
+		private System.Nullable<int> _ComplaintReceived;
+		
+		private System.Nullable<int> _CorrectiveActionCode;
+		
+		private string _CorrectiveActionDescription;
+		
+		public VW_DDTQUOPORCostsPrice()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Customer", DbType="Int")]
+		public System.Nullable<int> ID_Customer
+		{
+			get
+			{
+				return this._ID_Customer;
+			}
+			set
+			{
+				if ((this._ID_Customer != value))
+				{
+					this._ID_Customer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CustomerName", DbType="NVarChar(100) NOT NULL", CanBeNull=false)]
+		public string CustomerName
+		{
+			get
+			{
+				return this._CustomerName;
+			}
+			set
+			{
+				if ((this._CustomerName != value))
+				{
+					this._CustomerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_TipoRec", DbType="VarChar(1) NOT NULL", CanBeNull=false)]
+		public string TipoRec
+		{
+			get
+			{
+				return this._TipoRec;
+			}
+			set
+			{
+				if ((this._TipoRec != value))
+				{
+					this._TipoRec = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_SerieBolla", DbType="VarChar(3) NOT NULL", CanBeNull=false)]
+		public string SerieBolla
+		{
+			get
+			{
+				return this._SerieBolla;
+			}
+			set
+			{
+				if ((this._SerieBolla != value))
+				{
+					this._SerieBolla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumBolla", DbType="Int NOT NULL")]
+		public int NumBolla
+		{
+			get
+			{
+				return this._NumBolla;
+			}
+			set
+			{
+				if ((this._NumBolla != value))
+				{
+					this._NumBolla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DataBolla", DbType="DateTime NOT NULL")]
+		public System.DateTime DataBolla
+		{
+			get
+			{
+				return this._DataBolla;
+			}
+			set
+			{
+				if ((this._DataBolla != value))
+				{
+					this._DataBolla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QtaBolla", DbType="Decimal(38,9)")]
+		public System.Nullable<decimal> QtaBolla
+		{
+			get
+			{
+				return this._QtaBolla;
+			}
+			set
+			{
+				if ((this._QtaBolla != value))
+				{
+					this._QtaBolla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PrezzoBolla", DbType="Decimal(38,6)")]
+		public System.Nullable<decimal> PrezzoBolla
+		{
+			get
+			{
+				return this._PrezzoBolla;
+			}
+			set
+			{
+				if ((this._PrezzoBolla != value))
+				{
+					this._PrezzoBolla = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_FATTotValue", DbType="Money")]
+		public System.Nullable<decimal> FATTotValue
+		{
+			get
+			{
+				return this._FATTotValue;
+			}
+			set
+			{
+				if ((this._FATTotValue != value))
+				{
+					this._FATTotValue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProvvTotValue", DbType="Money")]
+		public System.Nullable<decimal> ProvvTotValue
+		{
+			get
+			{
+				return this._ProvvTotValue;
+			}
+			set
+			{
+				if ((this._ProvvTotValue != value))
+				{
+					this._ProvvTotValue = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Company", DbType="Int")]
+		public System.Nullable<int> ID_Company
+		{
+			get
+			{
+				return this._ID_Company;
+			}
+			set
+			{
+				if ((this._ID_Company != value))
+				{
+					this._ID_Company = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="VarChar(10)")]
+		public string Number
+		{
+			get
+			{
+				return this._Number;
+			}
+			set
+			{
+				if ((this._Number != value))
+				{
+					this._Number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartQuantity", DbType="Float")]
+		public System.Nullable<double> StartQuantity
+		{
+			get
+			{
+				return this._StartQuantity;
+			}
+			set
+			{
+				if ((this._StartQuantity != value))
+				{
+					this._StartQuantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this._StartDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this._EndDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Quotation", DbType="Int")]
+		public System.Nullable<int> ID_Quotation
+		{
+			get
+			{
+				return this._ID_Quotation;
+			}
+			set
+			{
+				if ((this._ID_Quotation != value))
+				{
+					this._ID_Quotation = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOSubject", DbType="NVarChar(200) NOT NULL", CanBeNull=false)]
+		public string QUOSubject
+		{
+			get
+			{
+				return this._QUOSubject;
+			}
+			set
+			{
+				if ((this._QUOSubject != value))
+				{
+					this._QUOSubject = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOOwner", DbType="Int")]
+		public System.Nullable<int> QUOOwner
+		{
+			get
+			{
+				return this._QUOOwner;
+			}
+			set
+			{
+				if ((this._QUOOwner != value))
+				{
+					this._QUOOwner = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OwnerName", DbType="NVarChar(135)")]
+		public string OwnerName
+		{
+			get
+			{
+				return this._OwnerName;
+			}
+			set
+			{
+				if ((this._OwnerName != value))
+				{
+					this._OwnerName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORPropCost", DbType="Float")]
+		public System.Nullable<double> PORPropCost
+		{
+			get
+			{
+				return this._PORPropCost;
+			}
+			set
+			{
+				if ((this._PORPropCost != value))
+				{
+					this._PORPropCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORPropHistoricalCost", DbType="Money")]
+		public System.Nullable<decimal> PORPropHistoricalCost
+		{
+			get
+			{
+				return this._PORPropHistoricalCost;
+			}
+			set
+			{
+				if ((this._PORPropHistoricalCost != value))
+				{
+					this._PORPropHistoricalCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOPropCost", DbType="Float")]
+		public System.Nullable<double> QUOPropCost
+		{
+			get
+			{
+				return this._QUOPropCost;
+			}
+			set
+			{
+				if ((this._QUOPropCost != value))
+				{
+					this._QUOPropCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PropProducedQuantity", DbType="Float")]
+		public System.Nullable<double> PropProducedQuantity
+		{
+			get
+			{
+				return this._PropProducedQuantity;
+			}
+			set
+			{
+				if ((this._PropProducedQuantity != value))
+				{
+					this._PropProducedQuantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_AccountNote", DbType="NVarChar(MAX)")]
+		public string AccountNote
+		{
+			get
+			{
+				return this._AccountNote;
+			}
+			set
+			{
+				if ((this._AccountNote != value))
+				{
+					this._AccountNote = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Note", DbType="NVarChar(MAX)")]
+		public string Note
+		{
+			get
+			{
+				return this._Note;
+			}
+			set
+			{
+				if ((this._Note != value))
+				{
+					this._Note = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDAgente1", DbType="Int")]
+		public System.Nullable<int> IDAgente1
+		{
+			get
+			{
+				return this._IDAgente1;
+			}
+			set
+			{
+				if ((this._IDAgente1 != value))
+				{
+					this._IDAgente1 = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DescrizioneAgente1", DbType="NVarChar(50)")]
+		public string DescrizioneAgente1
+		{
+			get
+			{
+				return this._DescrizioneAgente1;
+			}
+			set
+			{
+				if ((this._DescrizioneAgente1 != value))
+				{
+					this._DescrizioneAgente1 = value;
 				}
 			}
 		}

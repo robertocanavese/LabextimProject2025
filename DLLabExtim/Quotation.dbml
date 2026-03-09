@@ -1661,6 +1661,46 @@
       <Column Name="CorrectiveActionDescription" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.VW_DDTQUOPORCostsPrices" Member="VW_DDTQUOPORCostsPrices">
+    <Type Name="VW_DDTQUOPORCostsPrice">
+      <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerName" Type="System.String" DbType="NVarChar(100) NOT NULL" CanBeNull="false" />
+      <Column Name="TipoRec" Type="System.String" DbType="VarChar(1) NOT NULL" CanBeNull="false" />
+      <Column Name="SerieBolla" Type="System.String" DbType="VarChar(3) NOT NULL" CanBeNull="false" />
+      <Column Name="NumBolla" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="DataBolla" Type="System.DateTime" DbType="DateTime NOT NULL" CanBeNull="false" />
+      <Column Name="QtaBolla" Type="System.Decimal" DbType="Decimal(38,9)" CanBeNull="true" />
+      <Column Name="PrezzoBolla" Type="System.Decimal" DbType="Decimal(38,6)" CanBeNull="true" />
+      <Column Name="FATTotValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ProvvTotValue" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_Quotation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="QUOSubject" Type="System.String" DbType="NVarChar(200) NOT NULL" CanBeNull="false" />
+      <Column Name="QUOOwner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OwnerName" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
+      <Column Name="PORPropCost" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PORPropHistoricalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="QUOPropCost" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PropProducedQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="AccountNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="IDAgente1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="DescrizioneAgente1" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="PriceCom" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="NonConformityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="NonConformityDescription" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ComplaintReceived" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CorrectiveActionCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CorrectiveActionDescription" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
+    </Type>
+  </Table>
   <Table Name="dbo.VW_QUOPORCostsPrices_select" Member="VW_QUOPORCostsPrices_selects">
     <Type Name="VW_QUOPORCostsPrices_select">
       <Column Name="ID_Quotation" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -2268,6 +2308,10 @@
     <ElementType IdRef="ID6" />
   </Function>
   <Function Name="dbo.prc_LAB_Upd_LAB_VW_QUOPORCostsPrices" Method="prc_LAB_Upd_LAB_VW_QUOPORCostsPrices">
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.String" DbType="Char(8)" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.prc_LAB_Upd_LAB_VW_DDTQUOPORCostsPrices" Method="prc_LAB_Upd_LAB_VW_DDTQUOPORCostsPrices">
     <Parameter Name="StartDate" Parameter="startDate" Type="System.String" DbType="Char(8)" />
     <Return Type="System.Int32" />
   </Function>

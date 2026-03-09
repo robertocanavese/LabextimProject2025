@@ -929,6 +929,7 @@ namespace DLLabExtim
         {
             db.CommandTimeout = 600;
             db.prc_LAB_Upd_LAB_VW_QUOPORCostsPrices(startDate);
+            db.prc_LAB_Upd_LAB_VW_DDTQUOPORCostsPrices(startDate);
         }
 
 
