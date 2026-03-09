@@ -928,7 +928,9 @@ namespace DLLabExtim
         public static void RecalcVW_QUOPORCostsPrices(QuotationDataContext db, string startDate)
         {
             db.CommandTimeout = 600;
+#if !DEBUG
             db.prc_LAB_Upd_LAB_VW_QUOPORCostsPrices(startDate);
+#endif
             db.prc_LAB_Upd_LAB_VW_DDTQUOPORCostsPrices(startDate);
         }
 
