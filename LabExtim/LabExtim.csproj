@@ -138,6 +138,7 @@
     <Reference Include="System.Xml.Linq" />
   </ItemGroup>
   <ItemGroup>
+    <Content Include="App_Data\LabextimScript.sql" />
     <Content Include="AutocompleteFilter.asmx" />
     <Content Include="AutocompleteStyle.css" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
@@ -1941,7 +1942,6 @@
     <Content Include="Images\labe.png" />
   </ItemGroup>
   <ItemGroup>
-    <Folder Include="App_Data\" />
     <Folder Include="DynamicData\CustomPages\" />
   </ItemGroup>
   <ItemGroup>
