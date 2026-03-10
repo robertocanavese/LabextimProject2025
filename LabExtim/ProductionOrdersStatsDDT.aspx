@@ -693,7 +693,17 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <%--17--%>
+                                     <%--17--%>
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:Label ID="lblAccountNote" runat="server" Text="Note"></asp:Label>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                           <span><%# DataBinder.Eval(Container.DataItem, "Note")%></span>
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Left" Wrap="true" />
+                                    </asp:TemplateField>
+                                    <%--18--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblAccountNote" runat="server" Text="Note amministrative"></asp:Label>
@@ -703,7 +713,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Left" Wrap="true" />
                                     </asp:TemplateField>
-                                    <%--18--%>
+                                    <%--19--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblOwnerPrj" runat="server" Text="Resp. Progetto"></asp:Label>
