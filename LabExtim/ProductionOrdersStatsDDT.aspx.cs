@@ -85,9 +85,9 @@ namespace LabExtim
 
         private void FillControls()
         {
+            
+            ddlOrderBy.Items.Add(new ListItem("Numero DDT", "DataBollaNumBolla"));
             ddlOrderBy.Items.Add(new ListItem("ID OdP", "ID"));
-            ddlOrderBy.Items.Add(new ListItem("Numero OdP", "Number"));
-            ddlOrderBy.Items.Add(new ListItem("Data fine", "DataBolla"));
             ddlOrderBy.Items.Add(new ListItem("Cliente", "CustomerName"));
             ddlOrderBy.Items.Add(new ListItem("Proprietario preventivo", "OwnerUniqueName"));
             ddlOrderBy.Items.Add(new ListItem("% risparmio", "Margin"));
@@ -589,20 +589,15 @@ namespace LabExtim
             switch (ddlOrderBy.SelectedValue)
             {
 
+                case ("DataBollaNumBolla"):
+                    ldsProductionOrdersStats.OrderByParameters.Clear();
+                    ldsProductionOrdersStats.AutoGenerateOrderByClause = false;
+                    e.Result = _result.OrderBy(qt => qt.DataBolla).ThenBy(qt => qt.NumBolla);
+                    break;
                 case ("ID"):
                     ldsProductionOrdersStats.OrderByParameters.Clear();
                     ldsProductionOrdersStats.AutoGenerateOrderByClause = false;
                     e.Result = _result.OrderByDescending(qt => qt.ID);
-                    break;
-                case ("Number"):
-                    ldsProductionOrdersStats.OrderByParameters.Clear();
-                    ldsProductionOrdersStats.AutoGenerateOrderByClause = false;
-                    e.Result = _result.OrderByDescending(qt => qt.Number);
-                    break;
-                case ("DataBolla"):
-                    ldsProductionOrdersStats.OrderByParameters.Clear();
-                    ldsProductionOrdersStats.AutoGenerateOrderByClause = false;
-                    e.Result = _result.OrderByDescending(qt => qt.DataBolla);
                     break;
                 case ("OwnerUniqueName"):
                     ldsProductionOrdersStats.OrderByParameters.Clear();
