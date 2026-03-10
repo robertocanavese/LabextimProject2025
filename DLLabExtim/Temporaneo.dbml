@@ -1892,6 +1892,9 @@
       <Column Name="PORPropHistoricalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
       <Column Name="QUOPropCost" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="PropProducedQuantity" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PORTotCost" Type="System.Double" DbType="Float" CanBeNull="true" />
+      <Column Name="PORTotHistoricalCost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="QUOTotCost" Type="System.Double" DbType="Float" CanBeNull="true" />
       <Column Name="AccountNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="IDAgente1" Type="System.Int32" DbType="Int" CanBeNull="true" />

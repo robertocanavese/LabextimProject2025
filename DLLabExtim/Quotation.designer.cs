@@ -35215,6 +35215,12 @@ namespace DLLabExtim
 		
 		private System.Nullable<double> _PropProducedQuantity;
 		
+		private System.Nullable<double> _PORTotCost;
+		
+		private System.Nullable<decimal> _PORTotHistoricalCost;
+		
+		private System.Nullable<double> _QUOTotCost;
+		
 		private string _AccountNote;
 		
 		private string _Note;
@@ -35637,6 +35643,54 @@ namespace DLLabExtim
 				if ((this._PropProducedQuantity != value))
 				{
 					this._PropProducedQuantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORTotCost", DbType="Float")]
+		public System.Nullable<double> PORTotCost
+		{
+			get
+			{
+				return this._PORTotCost;
+			}
+			set
+			{
+				if ((this._PORTotCost != value))
+				{
+					this._PORTotCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_PORTotHistoricalCost", DbType="Money")]
+		public System.Nullable<decimal> PORTotHistoricalCost
+		{
+			get
+			{
+				return this._PORTotHistoricalCost;
+			}
+			set
+			{
+				if ((this._PORTotHistoricalCost != value))
+				{
+					this._PORTotHistoricalCost = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_QUOTotCost", DbType="Float")]
+		public System.Nullable<double> QUOTotCost
+		{
+			get
+			{
+				return this._QUOTotCost;
+			}
+			set
+			{
+				if ((this._QUOTotCost != value))
+				{
+					this._QUOTotCost = value;
 				}
 			}
 		}
