@@ -6,6 +6,10 @@ namespace LabExtim.CustomControls
 {
     public partial class YearCounterTextBox : UserControl
     {
+
+        private bool m_DDTMode;
+
+
         public string Text
         {
             get { return TextBox1.Text; }
@@ -16,18 +20,36 @@ namespace LabExtim.CustomControls
         {
             get
             {
-                if (!string.IsNullOrWhiteSpace(TextBox1.Text))
+                if (m_DDTMode == true)
                 {
-                    if (string.IsNullOrEmpty(ddlYears.SelectedValue))
+                    if (!string.IsNullOrWhiteSpace(TextBox1.Text))
                     {
-                        return string.Format("/{0}",TextBox1.Text.PadLeft(5, '0'));
+                        if (string.IsNullOrEmpty(ddlYears.SelectedValue))
+                        {
+                            return string.Format("/{0}", TextBox1.Text);
+                        }
+                        return string.Format("{0}/{1}", ddlYears.SelectedValue, TextBox1.Text);
                     }
-                    return string.Format("{0}/{1}", ddlYears.SelectedValue.Substring(2), TextBox1.Text.PadLeft(5, '0'));
+                    else
+                    {
+                        return ddlYears.SelectedValue;
+                    }
+
                 }
                 else
                 {
-                    //return string.Empty;
-                    return ddlYears.SelectedValue;
+                    if (!string.IsNullOrWhiteSpace(TextBox1.Text))
+                    {
+                        if (string.IsNullOrEmpty(ddlYears.SelectedValue))
+                        {
+                            return string.Format("/{0}", TextBox1.Text.PadLeft(5, '0'));
+                        }
+                        return string.Format("{0}/{1}", ddlYears.SelectedValue.Substring(2), TextBox1.Text.PadLeft(5, '0'));
+                    }
+                    else
+                    {
+                        return ddlYears.SelectedValue;
+                    }
                 }
             }
         }
@@ -54,6 +76,12 @@ namespace LabExtim.CustomControls
         {
             get { return ibtFind.Visible; }
             set { ibtFind.Visible = value; }
+        }
+
+        public bool DDTMode
+        {
+            get { return m_DDTMode; }
+            set { m_DDTMode = value; }
         }
 
         protected void Page_Load(object sender, EventArgs e)
