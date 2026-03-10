@@ -95,24 +95,6 @@ namespace LabExtim
             ddlOrderBy.DataBind();
 
 
-            using (QuotationDataContext db = new QuotationDataContext())
-            {
-                dlsNonConformitiesRender = "";
-                foreach (string row in db.NonConformities.Select(d => string.Format("{0}-{1}  ", d.ID, d.Description)))
-                    dlsNonConformitiesRender += row;
-                dlsCorrectiveActionsRender = "";
-                foreach (string row in db.CorrectiveActions.Select(d => string.Format("{0}-{1}  ", d.ID, d.Description)))
-                    dlsCorrectiveActionsRender += row;
-
-                dlsNonConformities.DataSource = new QuotationDataContext().NonConformities.Select(d => string.Format("<b>{0}</b>  {1}", d.ID, d.Description)).ToArray();
-                dlsNonConformities.DataBind();
-                dlsCorrectiveActions.DataSource = new QuotationDataContext().CorrectiveActions.Select(d => string.Format("<b>{0}</b>  {1}", d.ID, d.Description)).ToArray();
-                dlsCorrectiveActions.DataBind();
-
-            }
-
-
-
         }
 
         protected void lbtEmpty_Click(object sender, EventArgs e)

@@ -456,30 +456,6 @@
                                 </tr>
                             </table>
                         </td>
-                        <td style="vertical-align: top!important">
-                            <asp:DataList ID="dlsNonConformities" runat="server" RepeatColumns="2" RepeatDirection="Vertical">
-                                <HeaderTemplate>
-                                    <span>Codici Non-Conformità</span>
-                                </HeaderTemplate>
-                                <HeaderStyle BorderWidth="1" BorderColor="Navy" HorizontalAlign="Center" BackColor="Navy" ForeColor="White" />
-                                <ItemTemplate>
-                                    <label><%# Container.DataItem %></label>
-                                </ItemTemplate>
-                                <ItemStyle BorderWidth="1" ForeColor="Black" />
-                            </asp:DataList>
-                        </td>
-                        <td style="vertical-align: top!important">
-                            <asp:DataList ID="dlsCorrectiveActions" runat="server" RepeatColumns="2" RepeatDirection="Vertical">
-                                <HeaderTemplate>
-                                    <span>Codici Azioni Correttive</span>
-                                </HeaderTemplate>
-                                <HeaderStyle BorderWidth="1" BorderColor="Red" HorizontalAlign="Center" BackColor="Red" ForeColor="White" />
-                                <ItemTemplate>
-                                    <label><%# Container.DataItem %></label>
-                                </ItemTemplate>
-                                <ItemStyle BorderWidth="1" BorderColor="Red" ForeColor="Black" />
-                            </asp:DataList>
-                        </td>
                     </tr>
 
                 </table>
