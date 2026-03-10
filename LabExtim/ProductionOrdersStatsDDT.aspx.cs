@@ -182,9 +182,9 @@ namespace LabExtim
         {
             ddlAgente1.Items.Insert(0, new ListItem("Tutti", ""));
 
-            if (Session["Agente1OrderBySelector"] != null)
+            if (Session["DDTAgente1OrderBySelector"] != null)
             {
-                ddlAgente1.Items.FindByValue(Session["Agente1OrderBySelector"].ToString()).Selected = true;
+                ddlAgente1.Items.FindByValue(Session["DDTAgente1OrderBySelector"].ToString()).Selected = true;
             }
         }
 
@@ -211,9 +211,9 @@ namespace LabExtim
         protected void ddlNonConformities_DataBound(object sender, EventArgs e)
         {
             ddlNonConformities.Items.Insert(0, new ListItem("Tutte", ""));
-            if (Session["NonConformitySelector"] != null)
+            if (Session["DDTNonConformitySelector"] != null)
             {
-                ddlNonConformities.Items.FindByValue(Session["NonConformitySelector"].ToString()).Selected = true;
+                ddlNonConformities.Items.FindByValue(Session["DDTNonConformitySelector"].ToString()).Selected = true;
             }
         }
 
@@ -305,7 +305,7 @@ namespace LabExtim
                 if (((VW_DDTQUOPORCostsPrice)e.Row.DataItem).Status != 3)
                 {
                     _dycID.CssClass = "red";
-                    _dycNumber.CssClass = "red";
+                    //_dycNumber.CssClass = "red";
                 }
 
                 //HyperLink _hypEdit = (HyperLink)e.Row.Cells[0].FindControl("hypEdit");
@@ -479,13 +479,13 @@ namespace LabExtim
                 int.TryParse(itbNoOdP.Text, out _temp);
                 _result = _result.Where(po => po.ID == _temp);
             }
-            else
-            {
-                if (!IsPostBack)
-                {
-                    _result = _result.Where(po => po.ID == 2);
-                }
-            }
+            //else
+            //{
+            //    if (!IsPostBack)
+            //    {
+            //        _result = _result.Where(po => po.ID == 2);
+            //    }
+            //}
 
             if (!string.IsNullOrEmpty(yctNumber.ReturnValue))
             {
@@ -683,11 +683,11 @@ namespace LabExtim
             //Session["ProductionOrdersStatsDDTSuppliersSelector"] = ddlCustomers.SelectedValue;
             Session["ProductionOrdersStatsDDTSuppliersSelector"] = hidCustomer.Value;
             Session["ProductionOrdersStatsDDTOrderBySelector"] = ddlOrderBy.SelectedValue;
-            Session["Agente1OrderBySelector"] = ddlAgente1.SelectedValue;
+            Session["DDTAgente1OrderBySelector"] = ddlAgente1.SelectedValue;
             //Session["Agente2OrderBySelector"] = ddlAgente1.SelectedValue;
-            Session["NonConformitySelector"] = ddlNonConformities.SelectedValue;
-            Session["ComplaintReceivedSelector"] = ddlComplaintReceived.SelectedValue;
-            Session["CorrectiveActionSelector"] = ddlCorrectiveActions.SelectedValue;
+            Session["DDTNonConformitySelector"] = ddlNonConformities.SelectedValue;
+            Session["DDTComplaintReceivedSelector"] = ddlComplaintReceived.SelectedValue;
+            Session["DDTCorrectiveActionSelector"] = ddlCorrectiveActions.SelectedValue;
             Session["ProductionOrdersStatsDDTManagersSelector"] = ddlManagers.SelectedValue;
             Session["ProductionOrdersStatsDDTOperatorsSelector"] = ddlOperators.SelectedValue;
 
