@@ -109,6 +109,7 @@
     <Compile Include="FileBag.cs" />
     <Compile Include="FtpService.cs" />
     <Compile Include="LocalService.cs" />
+    <Compile Include="PartialOrInheritedClasses\VW_DDTQUOPORCostsPrice.cs" />
     <Compile Include="SharedParameters.cs" />
     <Compile Include="SarogliaGateway.cs" />
     <Compile Include="ZechiniGateway.cs" />
