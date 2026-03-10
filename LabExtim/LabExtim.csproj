@@ -783,6 +783,7 @@
     <Content Include="ProductionGraphicScheduler.aspx" />
     <Content Include="DeliveryTripPopup.aspx" />
     <Content Include="ProductionOrdersDepSched2.aspx" />
+    <Content Include="ProductionOrdersStatsDDT.aspx" />
     <Content Include="QuotationFreeItems.aspx" />
     <Content Include="ProductsUseAnomalies.aspx" />
     <Content Include="RealTimeWorkShopMonitor.aspx" />
@@ -1117,6 +1118,13 @@
     </Compile>
     <Compile Include="ProductionOrdersDepSched2.aspx.designer.cs">
       <DependentUpon>ProductionOrdersDepSched2.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ProductionOrdersStatsDDT.aspx.cs">
+      <DependentUpon>ProductionOrdersStatsDDT.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="ProductionOrdersStatsDDT.aspx.designer.cs">
+      <DependentUpon>ProductionOrdersStatsDDT.aspx</DependentUpon>
     </Compile>
     <Compile Include="QuotationFreeItems.aspx.cs">
       <DependentUpon>QuotationFreeItems.aspx</DependentUpon>

@@ -73,6 +73,9 @@
     <siteMapNode url="~/ProductionOrdersStats.aspx" title="Redditività ordini di produzione"
                  description="Redditività ordini di produzione">
     </siteMapNode>
+    <siteMapNode url="~/ProductionOrdersStatsDDT.aspx" title="Redditività DDT/ordini di produzione"
+                 description="Redditività DDT/ordini di produzione">
+    </siteMapNode>
     <siteMapNode url="~/EmployeesWorkingDayHoursStats.aspx" title="Ore lavoro operatori"
                  description="Ore lavoro operatori">
     </siteMapNode>
