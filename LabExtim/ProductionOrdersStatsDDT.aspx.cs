@@ -292,11 +292,11 @@ namespace LabExtim
                 e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';this.style.textDecoration='underline';";
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
-                e.Row.Cells[14].Attributes["onmouseover"] = string.Format("this.title='{0}'", dlsNonConformitiesRender);
-                e.Row.Cells[14].Attributes["onmouseout"] = "this.title=''";
+                //e.Row.Cells[14].Attributes["onmouseover"] = string.Format("this.title='{0}'", dlsNonConformitiesRender);
+                //e.Row.Cells[14].Attributes["onmouseout"] = "this.title=''";
 
-                e.Row.Cells[18].Attributes["onmouseover"] = string.Format("this.title='{0}'", dlsCorrectiveActionsRender);
-                e.Row.Cells[18].Attributes["onmouseout"] = "this.title=''";
+                //e.Row.Cells[18].Attributes["onmouseover"] = string.Format("this.title='{0}'", dlsCorrectiveActionsRender);
+                //e.Row.Cells[18].Attributes["onmouseout"] = "this.title=''";
 
                 //e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.grdPickingItems, "Select$" + e.Row.RowIndex);
 
@@ -383,13 +383,13 @@ namespace LabExtim
         protected void grdProductionOrders_DataBound(object sender, EventArgs e)
         {
 
-            grdProductionOrdersStats.Columns[2].Visible = !isExporting;
-            grdProductionOrdersStats.Columns[14].Visible = !isExporting;
-            grdProductionOrdersStats.Columns[15].Visible = isExporting;
-            grdProductionOrdersStats.Columns[16].Visible = !isExporting;
-            grdProductionOrdersStats.Columns[17].Visible = isExporting;
-            grdProductionOrdersStats.Columns[18].Visible = !isExporting;
-            grdProductionOrdersStats.Columns[19].Visible = isExporting;
+            //grdProductionOrdersStats.Columns[2].Visible = !isExporting;
+            //grdProductionOrdersStats.Columns[14].Visible = !isExporting;
+            //grdProductionOrdersStats.Columns[15].Visible = isExporting;
+            //grdProductionOrdersStats.Columns[16].Visible = !isExporting;
+            //grdProductionOrdersStats.Columns[17].Visible = isExporting;
+            //grdProductionOrdersStats.Columns[18].Visible = !isExporting;
+            //grdProductionOrdersStats.Columns[19].Visible = isExporting;
 
             if (grdProductionOrdersStats.Rows.Count > 0)
             {

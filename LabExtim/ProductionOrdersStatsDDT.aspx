@@ -664,84 +664,46 @@
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
                                     <%--14--%>
-                                    <asp:TemplateField HeaderStyle-Width="10">
+                                    <asp:TemplateField>
                                         <HeaderTemplate>
-                                            <asp:Label ID="lblNonConformityCode" runat="server" Text="Cod. NC"></asp:Label>
+                                            <asp:Label ID="lblNonConformityDesc" runat="server" Text="Non conformità"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <input type="hidden" id="hidCheck" value='<%# DataBinder.Eval(Container.DataItem, "ID").ToString()%>' />
-                                            <asp:DynamicControl ID="dycNonConformityCode" runat="server" DataField="NonConformityCode" UIHint="SmallInteger_Edit"
-                                                HtmlEncode="false" HeightInRows="2" CssClass="updNonConformityCodeToOdp" />
+                                            <span><%# DataBinder.Eval(Container.DataItem, "NonConformityDescription")%></span>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <%--15--%>
-                                    <asp:TemplateField>
+                                    <asp:TemplateField HeaderStyle-Width="10">
                                         <HeaderTemplate>
-                                            <asp:Label ID="lblNonConformityCode" runat="server" Text="Cod. NC"></asp:Label>
+                                            <asp:Label ID="lblCompliantReceived" runat="server" Text="Reclamo"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <span class="nonConformityValue"><%# DataBinder.Eval(Container.DataItem, "NonConformityCode")%></span>
+                                            <span><%# Convert.ToInt32(DataBinder.Eval(Container.DataItem, "ComplaintReceived")) == 1 ? "Si" : "No" %></span>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <%--16--%>
-                                    <asp:TemplateField HeaderStyle-Width="10">
+                                    <asp:TemplateField>
                                         <HeaderTemplate>
-                                            <asp:Label ID="lblCompliantReceived" runat="server" Text="Reclamo"></asp:Label>
+                                            <asp:Label ID="lblCorrectiveActionDesc" runat="server" Text="Azione correttiva"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <input type="hidden" id="hidCheck" value='<%# DataBinder.Eval(Container.DataItem, "ID").ToString()%>' />
-                                            <asp:DynamicControl ID="dycComplaintReceived" runat="server" DataField="ComplaintReceived" UIHint="YesNo_Edit"  AllowNullValue="false"
-                                                HtmlEncode="false" HeightInRows="2" CssClass="updComplaintReceivedToOdp" />
+                                            <span><%# DataBinder.Eval(Container.DataItem, "CorrectiveActionDescription")%></span>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
                                     <%--17--%>
-                                    <asp:TemplateField HeaderStyle-Width="10">
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lblCompliantReceived" runat="server" Text="Reclamo"></asp:Label>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <span class="compliantReceivedValue"><%# Convert.ToInt32(DataBinder.Eval(Container.DataItem, "ComplaintReceived")) == 1 ? "Si" : "No" %></span>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <%--18--%>
-                                    <asp:TemplateField HeaderStyle-Width="10">
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lblCorrectiveActionCode" runat="server" Text="Cod. AC"></asp:Label>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <input type="hidden" id="hidCheck" value='<%# DataBinder.Eval(Container.DataItem, "ID").ToString()%>' />
-                                            <asp:DynamicControl ID="dycCorrectiveActionCode" runat="server" DataField="CorrectiveActionCode" UIHint="SmallInteger_Edit"
-                                                HtmlEncode="false" HeightInRows="2" CssClass="updCorrectiveActionCodeToOdp" />
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <%--19--%>
-                                    <asp:TemplateField>
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lblCorrectiveActionCode" runat="server" Text="Cod. AC"></asp:Label>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <span class="correctiveActionValue"><%# DataBinder.Eval(Container.DataItem, "CorrectiveActionCode")%></span>
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-                                    <%--20--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblAccountNote" runat="server" Text="Note amministrative"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <input type="hidden" id="hidCheck" value='<%# DataBinder.Eval(Container.DataItem, "ID").ToString()%>' />
-                                            <asp:DynamicControl ID="dycAccountNote" runat="server" DataField="AccountNote" UIHint="Text250Multiline_Edit"
-                                                HtmlEncode="false" HeightInRows="2" CssClass="updNoteToOdp" />
+                                           <span><%# DataBinder.Eval(Container.DataItem, "AccountNote")%></span>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Left" Wrap="true" />
                                     </asp:TemplateField>
-                                    <%--21--%>
+                                    <%--18--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblOwnerPrj" runat="server" Text="Resp. Progetto"></asp:Label>
