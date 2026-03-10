@@ -124,6 +124,8 @@ namespace LabExtim
                 tvwMenu3.Nodes[tvwMenu3.Nodes.Count - 1].SelectAction = TreeNodeSelectAction.SelectExpand;
                 tvwMenu3.Nodes[tvwMenu3.Nodes.Count - 1].ChildNodes.Add(new TreeNode("Redditività ordini di produzione", string.Empty,
                     string.Empty, "~/ProductionOrdersStats.aspx", string.Empty));
+                tvwMenu3.Nodes[tvwMenu3.Nodes.Count - 1].ChildNodes.Add(new TreeNode("Redditività DDT/ordini di produzione", string.Empty,
+                    string.Empty, "~/ProductionOrdersStatsDDT.aspx", string.Empty));
                 tvwMenu3.Nodes[tvwMenu3.Nodes.Count - 1].ChildNodes.Add(new TreeNode("Ore lavoro operatori", string.Empty, string.Empty,
                     "~/EmployeesWorkingDayHoursStats.aspx", string.Empty));
                 tvwMenu3.Nodes[tvwMenu3.Nodes.Count - 1].ChildNodes.Add(new TreeNode("Consumo prodotti", string.Empty, string.Empty,
