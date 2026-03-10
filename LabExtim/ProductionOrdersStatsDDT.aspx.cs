@@ -340,7 +340,7 @@ namespace LabExtim
                 _differenza += qUoporCostsPrices.Saving.GetValueOrDefault(0m);
                 //_mediaRisparmio += qUoporCostsPrices.PercentageSaving ?? 0;
 
-                _PORTotHistoricalOrNotCost += qUoporCostsPrices.PORTotHistoricalOrNotCost.GetValueOrDefault(0m);
+                _PORTotHistoricalOrNotCost += qUoporCostsPrices.PORPropHistoricalOrNotCost.GetValueOrDefault(0m);
                 _ProvvTotValue += qUoporCostsPrices.ProvvTotValue.GetValueOrDefault(0m);
 
             }
