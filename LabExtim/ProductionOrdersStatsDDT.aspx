@@ -486,7 +486,7 @@
                             </asp:LinqDataSource>
 
                             <asp:GridView ID="grdProductionOrdersStats" runat="server" AutoGenerateColumns="False"
-                                AllowPaging="True" DataKeyNames="ID" DataSourceID="ldsProductionOrdersStats"
+                                AllowPaging="True" DataSourceID="ldsProductionOrdersStats"
                                 CssClass="gridview" OnPageIndexChanging="grdProductionOrders_PageIndexChanging"
                                 OnRowDataBound="grdProductionOrders_RowDataBound" OnDataBound="grdProductionOrders_DataBound"
                                 OnRowDeleted="grdProductionOrders_RowDeleted" OnRowCommand="grdProductionOrders_RowCommand"
