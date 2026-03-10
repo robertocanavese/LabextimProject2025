@@ -479,13 +479,13 @@ namespace LabExtim
                 int.TryParse(itbNoOdP.Text, out _temp);
                 _result = _result.Where(po => po.ID == _temp);
             }
-            //else
-            //{
-            //    if (!IsPostBack)
-            //    {
-            //        _result = _result.Where(po => po.ID == 2);
-            //    }
-            //}
+            else
+            {
+                if (!IsPostBack)
+                {
+                    _result = _result.Where(po => po.ID == 2);
+                }
+            }
 
             if (!string.IsNullOrEmpty(yctNumber.ReturnValue))
             {

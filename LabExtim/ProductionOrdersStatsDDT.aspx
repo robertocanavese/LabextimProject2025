@@ -539,7 +539,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <%--2--%>
+                                     <%--2--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblStartDate" runat="server" Text="Data OdP"></asp:Label>
@@ -580,11 +580,8 @@
                                             <asp:Label ID="lblCustomer" runat="server" Text="Preventivo"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <%--<asp:HyperLink ID="hypSubject" runat="server" Width="300" Text='<%# DataBinder.Eval(Container.DataItem, "QUOSubject") %>' ForeColor="#718ABE"
-                                            ToolTip="Visualizza preventivo"></asp:HyperLink>--%>
                                             <asp:LinkButton ID="lbtSubject" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "QUOSubject") %>'
                                                 ForeColor="#718ABE" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
-                                            <%-- <asp:DynamicControl ID="dycSubject" runat="server" DataField="QUOSubject" UIHint="Text250" />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
@@ -752,19 +749,6 @@
                                             <asp:Label ID="dycOwnerPrj" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "OwnerName") %>' Width="100" />
                                         </ItemTemplate>
                                     </asp:TemplateField> 
-                                    <%--22--%>
-                                    <asp:TemplateField>
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lblEndDate" runat="server" Text="Data fine"></asp:Label>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <asp:DynamicControl ID="dycEndDate" runat="server" DataField="DataBolla" UIHint="DateTime"
-                                                DataFormatString="{0:d}" />
-                                        </ItemTemplate>
-                                        <ItemStyle HorizontalAlign="Center" />
-                                    </asp:TemplateField>
-
-                                    
                                 </Columns>
                                 <PagerTemplate>
                                     <asp:GridViewPager ID="Pager1" runat="server" />

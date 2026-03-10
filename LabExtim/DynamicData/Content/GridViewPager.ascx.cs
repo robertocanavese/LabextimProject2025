@@ -63,7 +63,7 @@ namespace LabExtim.DynamicData.Content
                         if (Session[_table.Name + "_PagerSize"] == null)
                         {
                             if (_table.Name == "Customers" || _table.Name == "Suppliers" || _table.Name == "Quotations" ||
-                                _table.Name == "ProductionOrders" || _table.Name == "VW_QUOPORCostsPrices" || _table.Name == "VW_PlasticCoatingMachineStats_news")
+                                _table.Name == "ProductionOrders" || _table.Name == "VW_QUOPORCostsPrices" || _table.Name == "VW_DDTQUOPORCostsPrices" || _table.Name == "VW_PlasticCoatingMachineStats_news")
                             {
                                 DropDownListPageSize.Items.FindByText("30").Selected = true;
                                 Session[_table.Name + "_PagerSize"] = 30;
