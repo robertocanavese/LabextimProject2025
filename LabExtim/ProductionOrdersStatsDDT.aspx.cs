@@ -366,9 +366,9 @@ namespace LabExtim
         {
 
             grdProductionOrdersStats.Columns[14].Visible = !isExporting;
-            grdProductionOrdersStats.Columns[15].Visible = isExporting;
+            grdProductionOrdersStats.Columns[15].Visible = !isExporting;
             grdProductionOrdersStats.Columns[16].Visible = !isExporting;
-            grdProductionOrdersStats.Columns[17].Visible = isExporting;
+            grdProductionOrdersStats.Columns[17].Visible = !isExporting;
             grdProductionOrdersStats.Columns[18].Visible = !isExporting;
 
             if (grdProductionOrdersStats.Rows.Count > 0)
