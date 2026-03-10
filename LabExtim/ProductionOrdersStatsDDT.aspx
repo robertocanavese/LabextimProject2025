@@ -23,123 +23,123 @@
 
             function EndRequestHandler() {
 
-                $('.updNoteToOdp').bind('change', updateNote);
-                $('.updNonConformityCodeToOdp').bind('change', updNonConformityCode);
-                $('.updCorrectiveActionCodeToOdp').bind('change', updCorrectiveActionCode);
-                $('.updComplaintReceivedToOdp').bind('change', updComplaintReceived);
+                //$('.updNoteToOdp').bind('change', updateNote);
+                //$('.updNonConformityCodeToOdp').bind('change', updNonConformityCode);
+                //$('.updCorrectiveActionCodeToOdp').bind('change', updCorrectiveActionCode);
+                //$('.updComplaintReceivedToOdp').bind('change', updComplaintReceived);
                 SetAutoComplete();
 
             }
 
-            function updateNote() {
+            //function updateNote() {
 
-                if (!ajaxLoading4) {
-                    ajaxLoading4 = true;
-                    params = $(this).prev()[0].defaultValue + '|' + $(this).find('textarea').val();
-                    $.ajax({
-                        type: "POST",
-                        url: document.location.href + "/WriteNoteToOdP",
-                        data: JSON.stringify({ pipedParams: params }),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (msg) {
-                            ajaxLoading4 = false;
-                            //alert(msg.d)
-                            //window.location.reload();
-                        },
-                        error: function (msg) {
-                            ajaxLoading4 = false;
-                            alert(msg.d)
-                            //window.location.reload();
-                        }
-                    });
-                }
-                return false;
-            };
+            //    if (!ajaxLoading4) {
+            //        ajaxLoading4 = true;
+            //        params = $(this).prev()[0].defaultValue + '|' + $(this).find('textarea').val();
+            //        $.ajax({
+            //            type: "POST",
+            //            url: document.location.href + "/WriteNoteToOdP",
+            //            data: JSON.stringify({ pipedParams: params }),
+            //            dataType: "json",
+            //            contentType: "application/json; charset=utf-8",
+            //            success: function (msg) {
+            //                ajaxLoading4 = false;
+            //                //alert(msg.d)
+            //                //window.location.reload();
+            //            },
+            //            error: function (msg) {
+            //                ajaxLoading4 = false;
+            //                alert(msg.d)
+            //                //window.location.reload();
+            //            }
+            //        });
+            //    }
+            //    return false;
+            //};
 
-            function updNonConformityCode() {
+            //function updNonConformityCode() {
 
-                if (!ajaxLoading5) {
-                    ajaxLoading5 = true;
-                    debugger;
-                    params = $(this).prev()[0].defaultValue + '|' + $(this).find('input').val();
-                    $.ajax({
-                        type: "POST",
-                        url: document.location.href + "/WriteNonConformityCodeToOdP",
-                        data: JSON.stringify({ pipedParams: params }),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (msg) {
-                            ajaxLoading5 = false;
-                            $('.nonConformityValue').val($(this).find('input').val());
-                            //alert(msg.d)
-                            //window.location.reload();
-                        },
-                        error: function (msg) {
-                            ajaxLoading5 = false;
-                            alert(msg.d)
-                            //window.location.reload();
-                        }
-                    });
-                }
-                return false;
-            };
+            //    if (!ajaxLoading5) {
+            //        ajaxLoading5 = true;
+            //        debugger;
+            //        params = $(this).prev()[0].defaultValue + '|' + $(this).find('input').val();
+            //        $.ajax({
+            //            type: "POST",
+            //            url: document.location.href + "/WriteNonConformityCodeToOdP",
+            //            data: JSON.stringify({ pipedParams: params }),
+            //            dataType: "json",
+            //            contentType: "application/json; charset=utf-8",
+            //            success: function (msg) {
+            //                ajaxLoading5 = false;
+            //                $('.nonConformityValue').val($(this).find('input').val());
+            //                //alert(msg.d)
+            //                //window.location.reload();
+            //            },
+            //            error: function (msg) {
+            //                ajaxLoading5 = false;
+            //                alert(msg.d)
+            //                //window.location.reload();
+            //            }
+            //        });
+            //    }
+            //    return false;
+            //};
 
-            function updComplaintReceived() {
+            //function updComplaintReceived() {
 
-                if (!ajaxLoading5) {
-                    ajaxLoading5 = true;
-                    debugger;
-                    params = $(this).prev()[0].defaultValue + '|' + $(this).find('select').val();
-                    $.ajax({
-                        type: "POST",
-                        url: document.location.href + "/WriteComplaintReceivedToOdP",
-                        data: JSON.stringify({ pipedParams: params }),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (msg) {
-                            ajaxLoading5 = false;
-                            $('.WriteComplaintReceivedToOdP').val($(this).find('select').val());
-                            //alert(msg.d)
-                            //window.location.reload();
-                        },
-                        error: function (msg) {
-                            ajaxLoading5 = false;
-                            alert(msg.d)
-                            //window.location.reload();
-                        }
-                    });
-                }
-                return false;
-            };
+            //    if (!ajaxLoading5) {
+            //        ajaxLoading5 = true;
+            //        debugger;
+            //        params = $(this).prev()[0].defaultValue + '|' + $(this).find('select').val();
+            //        $.ajax({
+            //            type: "POST",
+            //            url: document.location.href + "/WriteComplaintReceivedToOdP",
+            //            data: JSON.stringify({ pipedParams: params }),
+            //            dataType: "json",
+            //            contentType: "application/json; charset=utf-8",
+            //            success: function (msg) {
+            //                ajaxLoading5 = false;
+            //                $('.WriteComplaintReceivedToOdP').val($(this).find('select').val());
+            //                //alert(msg.d)
+            //                //window.location.reload();
+            //            },
+            //            error: function (msg) {
+            //                ajaxLoading5 = false;
+            //                alert(msg.d)
+            //                //window.location.reload();
+            //            }
+            //        });
+            //    }
+            //    return false;
+            //};
 
-            function updCorrectiveActionCode() {
+            //function updCorrectiveActionCode() {
 
-                if (!ajaxLoading5) {
-                    ajaxLoading5 = true;
-                    debugger;
-                    params = $(this).prev()[0].defaultValue + '|' + $(this).find('input').val();
-                    $.ajax({
-                        type: "POST",
-                        url: document.location.href + "/WriteCorrectiveActionCodeToOdP",
-                        data: JSON.stringify({ pipedParams: params }),
-                        dataType: "json",
-                        contentType: "application/json; charset=utf-8",
-                        success: function (msg) {
-                            ajaxLoading5 = false;
-                            $('.correctiveActionValue').val($(this).find('input').val());
-                            //alert(msg.d)
-                            //window.location.reload();
-                        },
-                        error: function (msg) {
-                            ajaxLoading5 = false;
-                            alert(msg.d)
-                            //window.location.reload();
-                        }
-                    });
-                }
-                return false;
-            };
+            //    if (!ajaxLoading5) {
+            //        ajaxLoading5 = true;
+            //        debugger;
+            //        params = $(this).prev()[0].defaultValue + '|' + $(this).find('input').val();
+            //        $.ajax({
+            //            type: "POST",
+            //            url: document.location.href + "/WriteCorrectiveActionCodeToOdP",
+            //            data: JSON.stringify({ pipedParams: params }),
+            //            dataType: "json",
+            //            contentType: "application/json; charset=utf-8",
+            //            success: function (msg) {
+            //                ajaxLoading5 = false;
+            //                $('.correctiveActionValue').val($(this).find('input').val());
+            //                //alert(msg.d)
+            //                //window.location.reload();
+            //            },
+            //            error: function (msg) {
+            //                ajaxLoading5 = false;
+            //                alert(msg.d)
+            //                //window.location.reload();
+            //            }
+            //        });
+            //    }
+            //    return false;
+            //};
 
 
             function SetAutoComplete() {
@@ -190,10 +190,10 @@
 
             }
 
-            $('.updNoteToOdp').bind('change', updateNote);
-            $('.updNonConformityCodeToOdp').bind('change', updNonConformityCode);
-            $('.updCorrectiveActionCodeToOdp').bind('change', updCorrectiveActionCode);
-            $('.updComplaintReceivedToOdp').bind('change', updComplaintReceived);
+            //$('.updNoteToOdp').bind('change', updateNote);
+            //$('.updNonConformityCodeToOdp').bind('change', updNonConformityCode);
+            //$('.updCorrectiveActionCodeToOdp').bind('change', updCorrectiveActionCode);
+            //$('.updComplaintReceivedToOdp').bind('change', updComplaintReceived);
             SetAutoComplete();
             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
 

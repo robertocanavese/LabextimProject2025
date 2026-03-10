@@ -26,19 +26,19 @@ namespace LabExtim
 
         private string GridRender
         {
-            get { return Session["ProductionOrdersStatsGridRender"].ToString(); }
-            set { Session["ProductionOrdersStatsGridRender"] = value; }
+            get { return Session["ProductionOrdersStatsDDTGridRender"].ToString(); }
+            set { Session["ProductionOrdersStatsDDTGridRender"] = value; }
         }
 
         private string dlsNonConformitiesRender
         {
-            get { return Session["ProductionOrdersStatsdlsNonConformitiesRender"].ToString(); }
-            set { Session["ProductionOrdersStatsdlsNonConformitiesRender"] = value; }
+            get { return Session["ProductionOrdersStatsDDTdlsNonConformitiesRender"].ToString(); }
+            set { Session["ProductionOrdersStatsDDTdlsNonConformitiesRender"] = value; }
         }
         private string dlsCorrectiveActionsRender
         {
-            get { return Session["ProductionOrdersStatsdlsCorrectiveActionsRender"].ToString(); }
-            set { Session["ProductionOrdersStatsdlsCorrectiveActionsRender"] = value; }
+            get { return Session["ProductionOrdersStatsDDTdlsCorrectiveActionsRender"].ToString(); }
+            set { Session["ProductionOrdersStatsDDTdlsCorrectiveActionsRender"] = value; }
         }
 
 
@@ -160,7 +160,7 @@ namespace LabExtim
         protected void lbtPrintProductionOrders_Click(object sender, EventArgs e)
         {
             Response.Redirect(
-                string.Format("{2}?{0}={1}", GenericReportKey, "ProductionOrdersStats", GenericPrintPage), true);
+                string.Format("{2}?{0}={1}", GenericReportKey, "ProductionOrdersStatsDDT", GenericPrintPage), true);
         }
 
         protected void OnFilterSelectedIndexChanged(object sender, EventArgs e)
@@ -172,9 +172,9 @@ namespace LabExtim
         protected void ddlOwners_DataBound(object sender, EventArgs e)
         {
             ddlOwners.Items.Insert(0, new ListItem("Tutti", ""));
-            if (Session["ProductionOrdersStatsOwnersSelector"] != null)
+            if (Session["ProductionOrdersStatsDDTOwnersSelector"] != null)
             {
-                ddlOwners.Items.FindByValue(Session["ProductionOrdersStatsOwnersSelector"].ToString()).Selected = true;
+                ddlOwners.Items.FindByValue(Session["ProductionOrdersStatsDDTOwnersSelector"].ToString()).Selected = true;
             }
         }
 
@@ -201,9 +201,9 @@ namespace LabExtim
         //protected void ddlCustomers_DataBound(object sender, EventArgs e)
         //{
         //    ddlCustomers.Items.Insert(0, new ListItem("Tutti", ""));
-        //    if (Session["ProductionOrdersStatsCustomersSelector"] != null)
+        //    if (Session["ProductionOrdersStatsDDTCustomersSelector"] != null)
         //    {
-        //        ddlCustomers.Items.FindByValue(Session["ProductionOrdersStatsCustomersSelector"].ToString()).Selected =
+        //        ddlCustomers.Items.FindByValue(Session["ProductionOrdersStatsDDTCustomersSelector"].ToString()).Selected =
         //            true;
         //    }
         //}
@@ -219,44 +219,44 @@ namespace LabExtim
 
         protected void ddlOrderBy_DataBound(object sender, EventArgs e)
         {
-            if (Session["ProductionOrdersStatsOrderBySelector"] != null)
+            if (Session["ProductionOrdersStatsDDTOrderBySelector"] != null)
             {
-                ddlOrderBy.Items.FindByValue(Session["ProductionOrdersStatsOrderBySelector"].ToString()).Selected = true;
+                ddlOrderBy.Items.FindByValue(Session["ProductionOrdersStatsDDTOrderBySelector"].ToString()).Selected = true;
             }
         }
 
         protected void ddlManagers_DataBound(object sender, EventArgs e)
         {
             ddlManagers.Items.Insert(0, new ListItem("Tutti", ""));
-            if (Session["ProductionOrdersStatsManagersSelector"] != null)
+            if (Session["ProductionOrdersStatsDDTManagersSelector"] != null)
             {
-                ddlManagers.Items.FindByValue(Session["ProductionOrdersStatsManagersSelector"].ToString()).Selected = true;
+                ddlManagers.Items.FindByValue(Session["ProductionOrdersStatsDDTManagersSelector"].ToString()).Selected = true;
             }
         }
 
         protected void ddlCorrectiveActions_DataBound(object sender, EventArgs e)
         {
             ddlCorrectiveActions.Items.Insert(0, new ListItem("Tutte", ""));
-            if (Session["ProductionOrdersStatsCorrectiveActionsSelector"] != null)
+            if (Session["ProductionOrdersStatsDDTCorrectiveActionsSelector"] != null)
             {
-                ddlCorrectiveActions.Items.FindByValue(Session["ProductionOrdersStatsCorrectiveActionsSelector"].ToString()).Selected = true;
+                ddlCorrectiveActions.Items.FindByValue(Session["ProductionOrdersStatsDDTCorrectiveActionsSelector"].ToString()).Selected = true;
             }
         }
 
         protected void ddlComplaintReceived_DataBound(object sender, EventArgs e)
         {
-            if (Session["ProductionOrdersStatsComplaintReceivedSelector"] != null)
+            if (Session["ProductionOrdersStatsDDTComplaintReceivedSelector"] != null)
             {
-                ddlComplaintReceived.Items.FindByValue(Session["ProductionOrdersStatsComplaintReceivedSelector"].ToString()).Selected = true;
+                ddlComplaintReceived.Items.FindByValue(Session["ProductionOrdersStatsDDTComplaintReceivedSelector"].ToString()).Selected = true;
             }
         }
 
         protected void ddlOperators_DataBound(object sender, EventArgs e)
         {
             ddlOperators.Items.Insert(0, new ListItem("Tutti", ""));
-            if (Session["ProductionOrdersStatsOperatorsSelector"] != null)
+            if (Session["ProductionOrdersStatsDDTOperatorsSelector"] != null)
             {
-                ddlOperators.Items.FindByValue(Session["ProductionOrdersStatsOperatorsSelector"].ToString()).Selected = true;
+                ddlOperators.Items.FindByValue(Session["ProductionOrdersStatsDDTOperatorsSelector"].ToString()).Selected = true;
             }
         }
 
@@ -302,7 +302,7 @@ namespace LabExtim
 
                 var _dycID = (DynamicControl)e.Row.Cells[2].FindControl("dycID");
                 var _dycNumber = (DynamicControl)e.Row.Cells[3].FindControl("dycNumber");
-                if (((VW_QUOPORCostsPrice)e.Row.DataItem).Status != 3)
+                if (((VW_DDTQUOPORCostsPrice)e.Row.DataItem).Status != 3)
                 {
                     _dycID.CssClass = "red";
                     _dycNumber.CssClass = "red";
@@ -317,20 +317,20 @@ namespace LabExtim
                 var _hypDetails = (HyperLink)e.Row.Cells[1].FindControl("hypDetails");
                 _hypDetails.Attributes.Add("onclick",
                     "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
-                    ((VW_QUOPORCostsPrice)e.Row.DataItem).ID + "' , " + ((VW_QUOPORCostsPrice)e.Row.DataItem).ID +
+                    ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID + "' , " + ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID +
                     " ) ");
 
-                var _lbtClose = (LinkButton)e.Row.Cells[1].FindControl("CloseLinkButton");
+                //var _lbtClose = (LinkButton)e.Row.Cells[1].FindControl("CloseLinkButton");
 
-                if (((VW_QUOPORCostsPrice)e.Row.DataItem).Status == 3)
-                {
-                    _lbtClose.Enabled = false;
-                    _lbtClose.Text = "Evaso";
-                    _lbtClose.OnClientClick = "";
-                }
+                //if (((VW_DDTQUOPORCostsPrice)e.Row.DataItem).Status == 3)
+                //{
+                //    _lbtClose.Enabled = false;
+                //    _lbtClose.Text = "Evaso";
+                //    _lbtClose.OnClientClick = "";
+                //}
 
 
-                var qUoporCostsPrices = ((VW_QUOPORCostsPrice)e.Row.DataItem);
+                var qUoporCostsPrices = ((VW_DDTQUOPORCostsPrice)e.Row.DataItem);
                 _costoPreventivoTotal += qUoporCostsPrices.QUOTotCost.GetValueOrDefault(0d);
                 _costoDaConsuntivo += qUoporCostsPrices.PORTotCost.GetValueOrDefault(0d);
 
@@ -678,18 +678,18 @@ namespace LabExtim
 
         protected void PersistSelection(object sender, EventArgs e)
         {
-            //Session["ProductionOrdersStatsTypesSelector"] = ddlTypes.SelectedValue;
-            Session["ProductionOrdersStatsStatusesSelector"] = ddlOwners.SelectedValue;
-            //Session["ProductionOrdersStatsSuppliersSelector"] = ddlCustomers.SelectedValue;
-            Session["ProductionOrdersStatsSuppliersSelector"] = hidCustomer.Value;
-            Session["ProductionOrdersStatsOrderBySelector"] = ddlOrderBy.SelectedValue;
+            //Session["ProductionOrdersStatsDDTTypesSelector"] = ddlTypes.SelectedValue;
+            Session["ProductionOrdersStatsDDTStatusesSelector"] = ddlOwners.SelectedValue;
+            //Session["ProductionOrdersStatsDDTSuppliersSelector"] = ddlCustomers.SelectedValue;
+            Session["ProductionOrdersStatsDDTSuppliersSelector"] = hidCustomer.Value;
+            Session["ProductionOrdersStatsDDTOrderBySelector"] = ddlOrderBy.SelectedValue;
             Session["Agente1OrderBySelector"] = ddlAgente1.SelectedValue;
             //Session["Agente2OrderBySelector"] = ddlAgente1.SelectedValue;
             Session["NonConformitySelector"] = ddlNonConformities.SelectedValue;
             Session["ComplaintReceivedSelector"] = ddlComplaintReceived.SelectedValue;
             Session["CorrectiveActionSelector"] = ddlCorrectiveActions.SelectedValue;
-            Session["ProductionOrdersStatsManagersSelector"] = ddlManagers.SelectedValue;
-            Session["ProductionOrdersStatsOperatorsSelector"] = ddlOperators.SelectedValue;
+            Session["ProductionOrdersStatsDDTManagersSelector"] = ddlManagers.SelectedValue;
+            Session["ProductionOrdersStatsDDTOperatorsSelector"] = ddlOperators.SelectedValue;
 
         }
 
@@ -772,142 +772,142 @@ namespace LabExtim
         }
 
 
-        [WebMethod()]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string WriteNoteToOdP(string pipedParams)
-        {
+        //[WebMethod()]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //public static string WriteNoteToOdP(string pipedParams)
+        //{
 
-            int idOdp = 0;
-            string note = string.Empty;
+        //    int idOdp = 0;
+        //    string note = string.Empty;
 
-            try
-            {
-                string[] parameters = pipedParams.Split('|');
-                idOdp = Convert.ToInt32(parameters[0]);
-                note = parameters[1]; //.Substring(0, parameters[1].IndexOf('('));
+        //    try
+        //    {
+        //        string[] parameters = pipedParams.Split('|');
+        //        idOdp = Convert.ToInt32(parameters[0]);
+        //        note = parameters[1]; //.Substring(0, parameters[1].IndexOf('('));
 
-                using (QuotationDataContext _qc = new QuotationDataContext())
-                {
-                    ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
-                    _toSaveProductionOrder.AccountNote = note;
-                    QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
-                    if (_toSaveQUOPORCostsPrice != null)
-                    {
-                        _toSaveQUOPORCostsPrice.AccountNote = note;
-                    }
-                    _qc.SubmitChanges();
-                }
-                return "";
-            }
-            catch
-            {
-                return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
-            }
+        //        using (QuotationDataContext _qc = new QuotationDataContext())
+        //        {
+        //            ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
+        //            _toSaveProductionOrder.AccountNote = note;
+        //            QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
+        //            if (_toSaveQUOPORCostsPrice != null)
+        //            {
+        //                _toSaveQUOPORCostsPrice.AccountNote = note;
+        //            }
+        //            _qc.SubmitChanges();
+        //        }
+        //        return "";
+        //    }
+        //    catch
+        //    {
+        //        return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
+        //    }
 
-        }
+        //}
 
-        [WebMethod()]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string WriteNonConformityCodeToOdP(string pipedParams)
-        {
+        //[WebMethod()]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //public static string WriteNonConformityCodeToOdP(string pipedParams)
+        //{
 
-            int idOdp = 0;
-            string code = null;
+        //    int idOdp = 0;
+        //    string code = null;
 
-            try
-            {
-                string[] parameters = pipedParams.Split('|');
-                idOdp = Convert.ToInt32(parameters[0]);
-                code = parameters[1];
+        //    try
+        //    {
+        //        string[] parameters = pipedParams.Split('|');
+        //        idOdp = Convert.ToInt32(parameters[0]);
+        //        code = parameters[1];
 
-                using (QuotationDataContext _qc = new QuotationDataContext())
-                {
-                    ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
-                    if (string.IsNullOrEmpty(code)) { _toSaveProductionOrder.NonConformityCode = null; } else { _toSaveProductionOrder.NonConformityCode = Convert.ToInt32(code); };
-                    QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
-                    if (_toSaveQUOPORCostsPrice != null)
-                    {
-                        if (string.IsNullOrEmpty(code)) { _toSaveQUOPORCostsPrice.NonConformityCode = null; } else { _toSaveQUOPORCostsPrice.NonConformityCode = Convert.ToInt32(code); };
-                    }
-                    _qc.SubmitChanges();
-                }
-                return "";
-            }
-            catch
-            {
-                return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
-            }
+        //        using (QuotationDataContext _qc = new QuotationDataContext())
+        //        {
+        //            ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
+        //            if (string.IsNullOrEmpty(code)) { _toSaveProductionOrder.NonConformityCode = null; } else { _toSaveProductionOrder.NonConformityCode = Convert.ToInt32(code); };
+        //            QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
+        //            if (_toSaveQUOPORCostsPrice != null)
+        //            {
+        //                if (string.IsNullOrEmpty(code)) { _toSaveQUOPORCostsPrice.NonConformityCode = null; } else { _toSaveQUOPORCostsPrice.NonConformityCode = Convert.ToInt32(code); };
+        //            }
+        //            _qc.SubmitChanges();
+        //        }
+        //        return "";
+        //    }
+        //    catch
+        //    {
+        //        return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
+        //    }
 
-        }
+        //}
 
-        [WebMethod()]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string WriteComplaintReceivedToOdP(string pipedParams)
-        {
+        //[WebMethod()]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //public static string WriteComplaintReceivedToOdP(string pipedParams)
+        //{
 
-            int idOdp = 0;
-            string code = null;
+        //    int idOdp = 0;
+        //    string code = null;
 
-            try
-            {
-                string[] parameters = pipedParams.Split('|');
-                idOdp = Convert.ToInt32(parameters[0]);
-                code = parameters[1];
+        //    try
+        //    {
+        //        string[] parameters = pipedParams.Split('|');
+        //        idOdp = Convert.ToInt32(parameters[0]);
+        //        code = parameters[1];
 
-                using (QuotationDataContext _qc = new QuotationDataContext())
-                {
-                    ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
-                    if (string.IsNullOrEmpty(code)) { _toSaveProductionOrder = null; } else { _toSaveProductionOrder.ComplaintReceived = Convert.ToInt32(code); };
-                    QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
-                    if (_toSaveQUOPORCostsPrice != null)
-                    {
-                        if (string.IsNullOrEmpty(code)) { _toSaveQUOPORCostsPrice.ComplaintReceived = null; } else { _toSaveQUOPORCostsPrice.ComplaintReceived = Convert.ToInt32(code); };
-                    }
-                    _qc.SubmitChanges();
-                }
-                return "";
-            }
-            catch
-            {
-                return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
-            }
+        //        using (QuotationDataContext _qc = new QuotationDataContext())
+        //        {
+        //            ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
+        //            if (string.IsNullOrEmpty(code)) { _toSaveProductionOrder = null; } else { _toSaveProductionOrder.ComplaintReceived = Convert.ToInt32(code); };
+        //            QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
+        //            if (_toSaveQUOPORCostsPrice != null)
+        //            {
+        //                if (string.IsNullOrEmpty(code)) { _toSaveQUOPORCostsPrice.ComplaintReceived = null; } else { _toSaveQUOPORCostsPrice.ComplaintReceived = Convert.ToInt32(code); };
+        //            }
+        //            _qc.SubmitChanges();
+        //        }
+        //        return "";
+        //    }
+        //    catch
+        //    {
+        //        return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
+        //    }
 
-        }
+        //}
 
 
-        [WebMethod()]
-        [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string WriteCorrectiveActionCodeToOdP(string pipedParams)
-        {
+        //[WebMethod()]
+        //[ScriptMethod(ResponseFormat = ResponseFormat.Json)]
+        //public static string WriteCorrectiveActionCodeToOdP(string pipedParams)
+        //{
 
-            int idOdp = 0;
-            string code = null;
+        //    int idOdp = 0;
+        //    string code = null;
 
-            try
-            {
-                string[] parameters = pipedParams.Split('|');
-                idOdp = Convert.ToInt32(parameters[0]);
-                code = parameters[1];
+        //    try
+        //    {
+        //        string[] parameters = pipedParams.Split('|');
+        //        idOdp = Convert.ToInt32(parameters[0]);
+        //        code = parameters[1];
 
-                using (QuotationDataContext _qc = new QuotationDataContext())
-                {
-                    ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
-                    if (string.IsNullOrEmpty(code)) { _toSaveProductionOrder = null; } else { _toSaveProductionOrder.CorrectiveActionCode = Convert.ToInt32(code); };
-                    QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
-                    if (_toSaveQUOPORCostsPrice != null)
-                    {
-                        if (string.IsNullOrEmpty(code)) { _toSaveQUOPORCostsPrice.CorrectiveActionCode = null; } else { _toSaveQUOPORCostsPrice.CorrectiveActionCode = Convert.ToInt32(code); };
-                    }
-                    _qc.SubmitChanges();
-                }
-                return "";
-            }
-            catch
-            {
-                return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
-            }
+        //        using (QuotationDataContext _qc = new QuotationDataContext())
+        //        {
+        //            ProductionOrder _toSaveProductionOrder = _qc.ProductionOrders.Single(po => po.ID == idOdp);
+        //            if (string.IsNullOrEmpty(code)) { _toSaveProductionOrder = null; } else { _toSaveProductionOrder.CorrectiveActionCode = Convert.ToInt32(code); };
+        //            QUOPORCostsPrice _toSaveQUOPORCostsPrice = _qc.QUOPORCostsPrices.FirstOrDefault(po => po.ID == idOdp);
+        //            if (_toSaveQUOPORCostsPrice != null)
+        //            {
+        //                if (string.IsNullOrEmpty(code)) { _toSaveQUOPORCostsPrice.CorrectiveActionCode = null; } else { _toSaveQUOPORCostsPrice.CorrectiveActionCode = Convert.ToInt32(code); };
+        //            }
+        //            _qc.SubmitChanges();
+        //        }
+        //        return "";
+        //    }
+        //    catch
+        //    {
+        //        return string.Format("Errore di scrittura sull'OdP {0}, ritentare", idOdp);
+        //    }
 
-        }
+        //}
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
