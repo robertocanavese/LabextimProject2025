@@ -527,6 +527,7 @@
                                         <ItemTemplate>
                                             <asp:DynamicControl ID="dycNumBolla" runat="server" DataField="NumBolla" UIHint="Text" />
                                         </ItemTemplate>
+                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
                                     <%--1--%>
                                     <asp:TemplateField>
