@@ -473,9 +473,13 @@ namespace LabExtim
                 {
                     _result = _result.Where(po => yctNumber.ReturnValue.Substring(yctNumber.ReturnValue.IndexOf('/') + 1) == po.NumBolla.ToString());
                 }
-                else
+                else if (yctNumber.ReturnValue.Length > 4)
                 {
                     _result = _result.Where(po => yctNumber.ReturnValue.Substring(0, yctNumber.ReturnValue.IndexOf('/')) == po.DataBolla.Year.ToString() && yctNumber.ReturnValue.Substring(yctNumber.ReturnValue.IndexOf('/') + 1) == po.NumBolla.ToString());
+                }
+                else
+                {
+                    _result = _result.Where(po => yctNumber.ReturnValue == po.DataBolla.Year.ToString());
                 }
             }
 
