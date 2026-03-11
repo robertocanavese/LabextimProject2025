@@ -516,7 +516,17 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                     <%--2--%>
+                                    <%--2--%>
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:Label ID="lblQtaBolla" runat="server" Text="Qta bolla"></asp:Label>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:DynamicControl ID="dycQtaBolla" runat="server" DataField="QtaBolla" UIHint="Text" />
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Right" />
+                                    </asp:TemplateField>
+                                     <%--3--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblStartDate" runat="server" Text="Data OdP"></asp:Label>
@@ -527,13 +537,13 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <%--3--%>
+                                    <%--4--%>
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:HyperLink ID="hypDetails" runat="server" ImageUrl="~/Images/money_euro.png" ToolTip="Dettaglio statistiche" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <%--4--%>
+                                    <%--5--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblID" runat="server" Text="ID"></asp:Label>
@@ -542,7 +552,7 @@
                                             <asp:DynamicControl ID="dycID" runat="server" DataField="ID" UIHint="Text" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <%--5--%>
+                                    <%--6--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblCustomer" runat="server" Text="Cliente"></asp:Label>
@@ -551,7 +561,7 @@
                                             <asp:Label ID="lblCustomer" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "CustomerName") %>' />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <%--6--%>
+                                    <%--7--%>
                                     <asp:TemplateField SortExpression="QUOSubject">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblCustomer" runat="server" Text="Preventivo"></asp:Label>
@@ -561,7 +571,7 @@
                                                 ForeColor="#718ABE" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <%--7--%>
+                                    <%--8--%>
                                     <asp:TemplateField HeaderStyle-Width="70">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblPORPropHistoricalCost" runat="server" Text="Costo storico da consuntivo (CSC) €"></asp:Label>
@@ -572,7 +582,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <%--8--%>
+                                    <%--9--%>
                                     <asp:TemplateField HeaderStyle-Width="70">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblProvvTotValue" runat="server" Text="Provvigioni (P) €"></asp:Label>
@@ -583,7 +593,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <%--9--%>
+                                    <%--10--%>
                                     <asp:TemplateField HeaderStyle-Width="70">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblTotCosts" runat="server" Text="Totale costi (CSC+P) €"></asp:Label>
@@ -594,7 +604,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <%--10--%>
+                                    <%--11--%>
                                     <asp:TemplateField HeaderStyle-Width="70">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblFATTotValue" runat="server" Text="Fatturato (F) €"></asp:Label>
@@ -605,7 +615,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <%--11--%>
+                                    <%--12--%>
                                     <asp:TemplateField HeaderStyle-Width="70">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblSaving" runat="server" Text="Differenza (F-CSC-P) €"></asp:Label>
@@ -616,7 +626,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <%--12--%>
+                                    <%--13--%>
                                     <asp:TemplateField HeaderStyle-Width="70">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblPercentageSaving" runat="server" Text="% risparmio effettivo"></asp:Label>
@@ -627,7 +637,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
-                                    <%--13--%>
+                                    <%--14--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblNonConformityDesc" runat="server" Text="Non conformità"></asp:Label>
@@ -637,7 +647,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <%--14--%>
+                                    <%--15--%>
                                     <asp:TemplateField HeaderStyle-Width="10">
                                         <HeaderTemplate>
                                             <asp:Label ID="lblCompliantReceived" runat="server" Text="Reclamo"></asp:Label>
@@ -647,7 +657,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                    <%--15--%>
+                                    <%--16--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblCorrectiveActionDesc" runat="server" Text="Azione correttiva"></asp:Label>
@@ -657,7 +667,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
-                                     <%--16--%>
+                                     <%--17--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblAccountNote" runat="server" Text="Note"></asp:Label>
@@ -667,7 +677,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Left" Wrap="true" />
                                     </asp:TemplateField>
-                                    <%--17--%>
+                                    <%--18--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblAccountNote" runat="server" Text="Note amministrative"></asp:Label>
@@ -677,7 +687,7 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Left" Wrap="true" />
                                     </asp:TemplateField>
-                                    <%--18--%>
+                                    <%--19--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblOwnerPrj" runat="server" Text="Resp. Progetto"></asp:Label>

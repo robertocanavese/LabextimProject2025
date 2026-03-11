@@ -285,30 +285,30 @@ namespace LabExtim
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
-                e.Row.Cells[6].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[6].Text = "TOTALI";
+                e.Row.Cells[6+1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[6 + 1].Text = "TOTALI";
 
-                e.Row.Cells[7].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[7].Text = _costoDaStoricoConsuntivo.ToString("N2");
+                e.Row.Cells[7 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[7 + 1].Text = _costoDaStoricoConsuntivo.ToString("N2");
 
-                e.Row.Cells[8].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[8].Text = _provvTotValue.ToString("N2");
+                e.Row.Cells[8 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[8 + 1].Text = _provvTotValue.ToString("N2");
 
-                e.Row.Cells[9].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[9].Text = _totaleCosti.ToString("N2");
+                e.Row.Cells[9 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[9 + 1].Text = _totaleCosti.ToString("N2");
 
-                e.Row.Cells[10].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[10].Text = _fatturato.ToString("N2");
-               
-                e.Row.Cells[11].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[11].Text = _differenza.ToString("N2");
+                e.Row.Cells[10 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[10 + 1].Text = _fatturato.ToString("N2");
+
+                e.Row.Cells[11 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[11 + 1].Text = _differenza.ToString("N2");
 
                 if (_fatturato != 0m)
                 {
                     _mediaRisparmio = (_fatturato - _PORTotHistoricalOrNotCost - _provvTotValue) / Math.Abs(_fatturato); // dobbiamo disattivare il fatturato negativo
                 }
-                e.Row.Cells[12].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[12].Text = _mediaRisparmio.ToString("P2");
+                e.Row.Cells[12 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[12 + 1].Text = _mediaRisparmio.ToString("P2");
             }
 
 
@@ -317,21 +317,27 @@ namespace LabExtim
         protected void grdProductionOrders_DataBound(object sender, EventArgs e)
         {
 
-            grdProductionOrdersStats.Columns[13].Visible = !isExporting;
             grdProductionOrdersStats.Columns[14].Visible = !isExporting;
             grdProductionOrdersStats.Columns[15].Visible = !isExporting;
             grdProductionOrdersStats.Columns[16].Visible = !isExporting;
             grdProductionOrdersStats.Columns[17].Visible = !isExporting;
             grdProductionOrdersStats.Columns[18].Visible = !isExporting;
+            grdProductionOrdersStats.Columns[19].Visible = !isExporting;
 
             if (grdProductionOrdersStats.Rows.Count > 0)
             {
-                m_StringWriter = new StringWriter();
-                m_HtmlTextWriter = new HtmlTextWriter(m_StringWriter);
-                grdProductionOrdersStats.RenderControl(m_HtmlTextWriter);
-                GridRender = m_StringWriter.ToString().Replace("<textarea", "<span").Replace("</textarea", "</span").Replace("<a", "<span").Replace("</a", "</span").Replace("€", "Euro");
-                m_StringWriter.Dispose();
-                m_HtmlTextWriter.Dispose();
+                try
+                {
+                    m_StringWriter = new StringWriter();
+                    m_HtmlTextWriter = new HtmlTextWriter(m_StringWriter);
+                    grdProductionOrdersStats.RenderControl(m_HtmlTextWriter);
+                    GridRender = m_StringWriter.ToString().Replace("<textarea", "<span").Replace("</textarea", "</span").Replace("<a", "<span").Replace("</a", "</span").Replace("€", "Euro");
+                    m_StringWriter.Dispose();
+                    m_HtmlTextWriter.Dispose();
+                }
+                catch
+                { 
+                }
             }
 
         }
