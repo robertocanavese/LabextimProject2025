@@ -416,7 +416,7 @@ namespace LabExtim
             {
                 if (!IsPostBack)
                 {
-                    _result = _result.Where(po => po.ID == 2);
+                    _result = _result.Where(po => po.ID == -1);
                 }
             }
 
