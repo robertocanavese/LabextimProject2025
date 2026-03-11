@@ -307,8 +307,8 @@ namespace LabExtim
                 {
                     _mediaRisparmio = (_fatturato - _PORTotHistoricalOrNotCost - _provvTotValue) / Math.Abs(_fatturato); // dobbiamo disattivare il fatturato negativo
                 }
-                e.Row.Cells[12 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[12 + 1].Text = _mediaRisparmio.ToString("P2");
+                e.Row.Cells[12].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[12].Text = _mediaRisparmio.ToString("P2");
             }
 
 
