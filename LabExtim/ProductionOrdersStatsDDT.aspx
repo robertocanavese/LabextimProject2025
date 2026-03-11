@@ -522,7 +522,7 @@
                                             <asp:Label ID="lblQtaBolla" runat="server" Text="Qta bolla"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <asp:DynamicControl ID="dycQtaBolla" runat="server" DataField="QtaBolla" UIHint="Text" />
+                                            <asp:DynamicControl ID="dycQtaBolla" runat="server" DataField="QtaBolla" UIHint="Text" DataFormatString="{0:N0}" />
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Right" />
                                     </asp:TemplateField>
