@@ -312,13 +312,12 @@ namespace LabExtim
             }
 
 
-
-
         }
 
         protected void grdProductionOrders_DataBound(object sender, EventArgs e)
         {
 
+            grdProductionOrdersStats.Columns[13].Visible = !isExporting;
             grdProductionOrdersStats.Columns[14].Visible = !isExporting;
             grdProductionOrdersStats.Columns[15].Visible = !isExporting;
             grdProductionOrdersStats.Columns[16].Visible = !isExporting;
