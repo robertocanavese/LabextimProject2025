@@ -170,26 +170,6 @@ namespace LabExtim
             }
         }
 
-        //protected void ddlAgente2_DataBound(object sender, EventArgs e)
-        //{
-        //    ddlAgente2.Items.Insert(0, new ListItem("Tutti", ""));
-        //    if (Session["Agente2OrderBySelector"] != null)
-        //    {
-        //        ddlAgente2.Items.FindByValue(Session["Agente2OrderBySelector"].ToString()).Selected =
-        //            true;
-        //    }
-        //}
-
-        //protected void ddlCustomers_DataBound(object sender, EventArgs e)
-        //{
-        //    ddlCustomers.Items.Insert(0, new ListItem("Tutti", ""));
-        //    if (Session["ProductionOrdersStatsDDTCustomersSelector"] != null)
-        //    {
-        //        ddlCustomers.Items.FindByValue(Session["ProductionOrdersStatsDDTCustomersSelector"].ToString()).Selected =
-        //            true;
-        //    }
-        //}
-
         protected void ddlNonConformities_DataBound(object sender, EventArgs e)
         {
             ddlNonConformities.Items.Insert(0, new ListItem("Tutte", ""));
@@ -274,16 +254,9 @@ namespace LabExtim
                 e.Row.Attributes["onmouseover"] = "this.style.cursor='hand';this.style.textDecoration='underline';";
                 e.Row.Attributes["onmouseout"] = "this.style.textDecoration='none';";
 
-                //e.Row.Cells[14].Attributes["onmouseover"] = string.Format("this.title='{0}'", dlsNonConformitiesRender);
-                //e.Row.Cells[14].Attributes["onmouseout"] = "this.title=''";
-
-                //e.Row.Cells[18].Attributes["onmouseover"] = string.Format("this.title='{0}'", dlsCorrectiveActionsRender);
-                //e.Row.Cells[18].Attributes["onmouseout"] = "this.title=''";
-
-                //e.Row.Attributes["onclick"] = ClientScript.GetPostBackClientHyperlink(this.grdPickingItems, "Select$" + e.Row.RowIndex);
-
-                var _dycID = (DynamicControl)e.Row.Cells[2].FindControl("dycID");
-                var _dycNumber = (DynamicControl)e.Row.Cells[3].FindControl("dycNumber");
+                var _dycID = (DynamicControl)e.Row.Cells[4].FindControl("dycID");
+                var _dycNumBolla = (DynamicControl)e.Row.Cells[0].FindControl("dycNumBolla");
+                var _dycDataBolla = (DynamicControl)e.Row.Cells[1].FindControl("dycDataBolla");
                 if (((VW_DDTQUOPORCostsPrice)e.Row.DataItem).Status != 3)
                 {
                     _dycID.CssClass = "red";
@@ -313,11 +286,11 @@ namespace LabExtim
 
 
                 var qUoporCostsPrices = ((VW_DDTQUOPORCostsPrice)e.Row.DataItem);
-                _costoPreventivoTotal += qUoporCostsPrices.QUOTotCost.GetValueOrDefault(0d);
-                _costoDaConsuntivo += qUoporCostsPrices.PORTotCost.GetValueOrDefault(0d);
+                _costoPreventivoTotal += qUoporCostsPrices.QUOPropCost.GetValueOrDefault(0d);
+                _costoDaConsuntivo += qUoporCostsPrices.PORPropCost.GetValueOrDefault(0d);
 
-                _costoDaStoricoConsuntivo += qUoporCostsPrices.PORTotHistoricalCost.GetValueOrDefault(0m);
-                _totaleCosti += qUoporCostsPrices.TotCosts.GetValueOrDefault(0m);
+                _costoDaStoricoConsuntivo += qUoporCostsPrices.PORPropHistoricalCost.GetValueOrDefault(0m);
+                _totaleCosti += qUoporCostsPrices.TotCosts.GetValueOrDefault();
                 _fatturato += qUoporCostsPrices.FATTotValue.GetValueOrDefault(0m);
                 _differenza += qUoporCostsPrices.Saving.GetValueOrDefault(0m);
                 //_mediaRisparmio += qUoporCostsPrices.PercentageSaving ?? 0;
@@ -333,28 +306,27 @@ namespace LabExtim
                 e.Row.Cells[6 + 1].HorizontalAlign = HorizontalAlign.Right;
                 e.Row.Cells[6 + 1].Text = _costoPreventivoTotal.ToString("N2");
 
+                e.Row.Cells[6 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[6 + 1].Text = _costoDaConsuntivo.ToString("N2");
+
+
                 e.Row.Cells[7 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[7 + 1].Text = _costoDaConsuntivo.ToString("N2");
+                e.Row.Cells[7 + 1].Text = _ProvvTotValue.ToString("N2");
 
 
                 e.Row.Cells[8 + 1].HorizontalAlign = HorizontalAlign.Right;
-                //e.Row.Cells[8 + 1].Text = _costoDaStoricoConsuntivo.ToString("N2");
-                e.Row.Cells[8 + 1].Text = _ProvvTotValue.ToString("N2");
-
-
+                e.Row.Cells[8 + 1].Text = _totaleCosti.ToString("N2");
                 e.Row.Cells[9 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[9 + 1].Text = _totaleCosti.ToString("N2");
+                e.Row.Cells[9 + 1].Text = _fatturato.ToString("N2");
                 e.Row.Cells[10 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[10 + 1].Text = _fatturato.ToString("N2");
-                e.Row.Cells[11 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[11 + 1].Text = _differenza.ToString("N2");
+                e.Row.Cells[10 + 1].Text = _differenza.ToString("N2");
 
                 if (_fatturato != 0m)
                 {
                     _mediaRisparmio = (_fatturato - _PORTotHistoricalOrNotCost - _ProvvTotValue) / Math.Abs(_fatturato); // dobbiamo disattivare il fatturato negativo
                 }
-                e.Row.Cells[12 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[12 + 1].Text = _mediaRisparmio.ToString("P2");
+                e.Row.Cells[11 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[11 + 1].Text = _mediaRisparmio.ToString("P2");
             }
 
 
