@@ -222,29 +222,26 @@ namespace LabExtim
             }
         }
 
-        double _costoPreventivoTotal;
-        double _costoDaConsuntivo;
         decimal _costoDaStoricoConsuntivo;
+        decimal _provvTotValue;
         decimal _totaleCosti;
         decimal _fatturato;
         decimal _differenza;
         decimal _mediaRisparmio;
         decimal _PORTotHistoricalOrNotCost;
-        decimal _ProvvTotValue;
 
         protected void grdProductionOrders_RowDataBound(object sender, GridViewRowEventArgs e)
         {
             if (e.Row.RowType == DataControlRowType.Header)
             {
-                _costoPreventivoTotal = 0d;
-                _costoDaConsuntivo = 0d;
                 _costoDaStoricoConsuntivo = 0m;
+                _provvTotValue = 0m;
                 _totaleCosti = 0m;
                 _fatturato = 0m;
                 _differenza = 0m;
                 _mediaRisparmio = 0m;
                 _PORTotHistoricalOrNotCost = 0m;
-                _ProvvTotValue = 0m;
+
 
             }
 
@@ -275,58 +272,43 @@ namespace LabExtim
                     ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID + "' , " + ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID +
                     " ) ");
 
-                //var _lbtClose = (LinkButton)e.Row.Cells[1].FindControl("CloseLinkButton");
-
-                //if (((VW_DDTQUOPORCostsPrice)e.Row.DataItem).Status == 3)
-                //{
-                //    _lbtClose.Enabled = false;
-                //    _lbtClose.Text = "Evaso";
-                //    _lbtClose.OnClientClick = "";
-                //}
-
 
                 var qUoporCostsPrices = ((VW_DDTQUOPORCostsPrice)e.Row.DataItem);
-                _costoPreventivoTotal += qUoporCostsPrices.QUOPropCost.GetValueOrDefault(0d);
-                _costoDaConsuntivo += qUoporCostsPrices.PORPropCost.GetValueOrDefault(0d);
 
                 _costoDaStoricoConsuntivo += qUoporCostsPrices.PORPropHistoricalCost.GetValueOrDefault(0m);
+                _provvTotValue += qUoporCostsPrices.ProvvTotValue.GetValueOrDefault(0m);
                 _totaleCosti += qUoporCostsPrices.TotCosts.GetValueOrDefault();
                 _fatturato += qUoporCostsPrices.FATTotValue.GetValueOrDefault(0m);
                 _differenza += qUoporCostsPrices.Saving.GetValueOrDefault(0m);
-                //_mediaRisparmio += qUoporCostsPrices.PercentageSaving ?? 0;
-
-                _PORTotHistoricalOrNotCost += qUoporCostsPrices.PORPropHistoricalOrNotCost.GetValueOrDefault(0m);
-                _ProvvTotValue += qUoporCostsPrices.ProvvTotValue.GetValueOrDefault(0m);
+                _PORTotHistoricalOrNotCost += qUoporCostsPrices.PORPropHistoricalOrNotCost.GetValueOrDefault();
 
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
-                e.Row.Cells[5 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[5 + 1].Text = "TOTALI";
-                e.Row.Cells[6 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[6 + 1].Text = _costoPreventivoTotal.ToString("N2");
+                e.Row.Cells[6].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[6].Text = "TOTALI";
 
-                e.Row.Cells[6 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[6 + 1].Text = _costoDaConsuntivo.ToString("N2");
+                e.Row.Cells[7].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[7].Text = _costoDaStoricoConsuntivo.ToString("N2");
 
+                e.Row.Cells[8].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[8].Text = _provvTotValue.ToString("N2");
 
-                e.Row.Cells[7 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[7 + 1].Text = _ProvvTotValue.ToString("N2");
+                e.Row.Cells[9].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[9].Text = _totaleCosti.ToString("N2");
 
-
-                e.Row.Cells[8 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[8 + 1].Text = _totaleCosti.ToString("N2");
-                e.Row.Cells[9 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[9 + 1].Text = _fatturato.ToString("N2");
-                e.Row.Cells[10 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[10 + 1].Text = _differenza.ToString("N2");
+                e.Row.Cells[10].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[10].Text = _fatturato.ToString("N2");
+               
+                e.Row.Cells[11].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[11].Text = _differenza.ToString("N2");
 
                 if (_fatturato != 0m)
                 {
-                    _mediaRisparmio = (_fatturato - _PORTotHistoricalOrNotCost - _ProvvTotValue) / Math.Abs(_fatturato); // dobbiamo disattivare il fatturato negativo
+                    _mediaRisparmio = (_fatturato - _PORTotHistoricalOrNotCost - _provvTotValue) / Math.Abs(_fatturato); // dobbiamo disattivare il fatturato negativo
                 }
-                e.Row.Cells[11 + 1].HorizontalAlign = HorizontalAlign.Right;
-                e.Row.Cells[11 + 1].Text = _mediaRisparmio.ToString("P2");
+                e.Row.Cells[12 + 1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[12 + 1].Text = _mediaRisparmio.ToString("P2");
             }
 
 
