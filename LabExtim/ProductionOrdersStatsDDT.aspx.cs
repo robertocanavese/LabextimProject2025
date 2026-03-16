@@ -317,6 +317,8 @@ namespace LabExtim
         protected void grdProductionOrders_DataBound(object sender, EventArgs e)
         {
 
+            grdProductionOrdersStats.TopPagerRow.Visible = true;
+
             grdProductionOrdersStats.Columns[14].Visible = !isExporting;
             grdProductionOrdersStats.Columns[15].Visible = !isExporting;
             grdProductionOrdersStats.Columns[16].Visible = !isExporting;

@@ -670,7 +670,7 @@
                                      <%--17--%>
                                     <asp:TemplateField>
                                         <HeaderTemplate>
-                                            <asp:Label ID="lblAccountNote" runat="server" Text="Note"></asp:Label>
+                                            <asp:Label ID="lblNote" runat="server" Text="Note"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                            <span><%# DataBinder.Eval(Container.DataItem, "Note")%></span>
