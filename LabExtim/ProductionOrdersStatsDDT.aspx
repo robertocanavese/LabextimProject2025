@@ -476,7 +476,7 @@
 
                             <asp:LinqDataSource ID="ldsProductionOrdersStats" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                                 TableName="VW_DDTQUOPORCostsPrices" OnSelecting="ldsProductionOrders_Selecting"
-                                AutoGenerateOrderByClause="true" EnableViewState="false">
+                                AutoGenerateOrderByClause="true" >
 
                                 <OrderByParameters>
                                     <asp:ControlParameter ControlID="ddlOrderBy" Name="OrderBy" Type="String" PropertyName="SelectedValue"
@@ -698,14 +698,12 @@
                                     </asp:TemplateField> 
                                 </Columns>
                                 <PagerTemplate>
-                                    <asp:GridViewPager ID="Pager1" runat="server" />
+                                    <asp:GridViewPager ID="Pager1" runat="server"  />
                                 </PagerTemplate>
                                 <EmptyDataTemplate>
                                     Nessuna voce trovata.
                                 </EmptyDataTemplate>
                             </asp:GridView>
-
-
                         </td>
                     </tr>
                 </table>

@@ -61,16 +61,17 @@ namespace LabExtim
             //DynamicDataManager1.RegisterControl(grdQuotationResults);
             itbNoOdP.SearchClick += StartSearch;
             itbNo.SearchClick += StartSearch;
-
         }
 
         public void StartSearch(object sender, EventArgs e)
         {
             grdProductionOrdersStats.DataBind();
         }
+
         protected void lbtUpdateGrid_Click(Object sender, EventArgs e)
         {
             grdProductionOrdersStats.DataBind();
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -85,7 +86,7 @@ namespace LabExtim
 
         private void FillControls()
         {
-            
+
             ddlOrderBy.Items.Add(new ListItem("Numero DDT", "DataBollaNumBolla"));
             ddlOrderBy.Items.Add(new ListItem("ID OdP", "ID"));
             ddlOrderBy.Items.Add(new ListItem("Cliente", "CustomerName"));
@@ -101,13 +102,13 @@ namespace LabExtim
         {
             itbNo.Text = string.Empty;
             yctNumber.Text = string.Empty;
+
             txtBolFrom.Text = "";
             txtBolTo.Text = "";
-            txtCustomer.Text = "";
             txtDateStartFrom.Text = "";
             txtDateStartTo.Text = "";
-            //txtEndDateFrom.Text = "";
-            //txtEndDateTo.Text = "";
+
+            txtCustomer.Text = "";
             txtTitleContains.Text = "";
 
             hidCustomer.Value = "";
@@ -124,6 +125,10 @@ namespace LabExtim
             ddlManagers.SelectedIndex = 0;
             ddlOperators.SelectedIndex = 0;
             PersistSelection(null, null);
+
+            grdProductionOrdersStats.PageSize = 30;
+            Session["VW_DDTQUOPORCostsPrices_PagerSize"] = "30";
+            grdProductionOrdersStats.PageIndex = 0; ;
 
         }
 
@@ -257,23 +262,20 @@ namespace LabExtim
                 if (((VW_DDTQUOPORCostsPrice)e.Row.DataItem).Status != 3)
                 {
                     _dycID.CssClass = "red";
-                    //_dycNumber.CssClass = "red";
                 }
-
-                //HyperLink _hypEdit = (HyperLink)e.Row.Cells[0].FindControl("hypEdit");
-                //_hypEdit.Attributes.Add("onclick", "javascript:OpenBigItem('ProductionOrderPopup.aspx?" + POIdKey + "=" + ((VW_QUOPORCostsPrice)e.Row.DataItem).ID + "')");
-
-                // 20141119 DAVIDE BOGNOLO
-                // AGGIUNTO PARAMENTRO ALLA CHIAMATA OpenBigItem2 in modo da personalizzare la finestra di apertura per poidkey e abilitare in questo modo la possibilità
-                // di avere più finestre aperte di diversi ordini.
-                var _hypDetails = (HyperLink)e.Row.Cells[1].FindControl("hypDetails");
-                _hypDetails.Attributes.Add("onclick",
-                    "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
-                    ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID + "' , " + ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID +
-                    " ) ");
 
 
                 var qUoporCostsPrices = ((VW_DDTQUOPORCostsPrice)e.Row.DataItem);
+
+                if (qUoporCostsPrices.ID > 0)
+                {
+                    var _hypDetails = (HyperLink)e.Row.Cells[1].FindControl("hypDetails");
+                    _hypDetails.Attributes.Add("onclick",
+                        "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
+                        ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID + "' , " + ((VW_DDTQUOPORCostsPrice)e.Row.DataItem).ID +
+                        " ) ");
+
+                }
 
                 _costoDaStoricoConsuntivo += qUoporCostsPrices.PORPropHistoricalCost.GetValueOrDefault(0m);
                 _provvTotValue += qUoporCostsPrices.ProvvTotValue.GetValueOrDefault(0m);
@@ -285,7 +287,7 @@ namespace LabExtim
             }
             else if (e.Row.RowType == DataControlRowType.Footer)
             {
-                e.Row.Cells[6+1].HorizontalAlign = HorizontalAlign.Right;
+                e.Row.Cells[6 + 1].HorizontalAlign = HorizontalAlign.Right;
                 e.Row.Cells[6 + 1].Text = "TOTALI";
 
                 e.Row.Cells[7 + 1].HorizontalAlign = HorizontalAlign.Right;
@@ -317,8 +319,6 @@ namespace LabExtim
         protected void grdProductionOrders_DataBound(object sender, EventArgs e)
         {
 
-            grdProductionOrdersStats.TopPagerRow.Visible = true;
-
             grdProductionOrdersStats.Columns[14].Visible = !isExporting;
             grdProductionOrdersStats.Columns[15].Visible = !isExporting;
             grdProductionOrdersStats.Columns[16].Visible = !isExporting;
@@ -338,7 +338,7 @@ namespace LabExtim
                     m_HtmlTextWriter.Dispose();
                 }
                 catch
-                { 
+                {
                 }
             }
 
@@ -351,7 +351,6 @@ namespace LabExtim
 
         protected void grdProductionOrders_PreRender(object sender, EventArgs e)
         {
-
 
         }
 
@@ -641,8 +640,11 @@ namespace LabExtim
             }
             if (e.CommandName == "GoToQuotation")
             {
-                LoadPersistedQuotation = true;
-                Response.Redirect(QuotationConsolePage + "?" + QuotationKey + "=" + e.CommandArgument + "&Usage=0", true);
+                if (!String.IsNullOrEmpty(e.CommandArgument.ToString()))
+                {
+                    LoadPersistedQuotation = true;
+                    Response.Redirect(QuotationConsolePage + "?" + QuotationKey + "=" + e.CommandArgument + "&Usage=0", true);
+                }
             }
             if (e.CommandName == "Close")
             {
