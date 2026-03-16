@@ -109,9 +109,9 @@ namespace LabExtim
             txtDateStartTo.Text = "";
 
             txtCustomer.Text = "";
-            txtTitleContains.Text = "";
-
             hidCustomer.Value = "";
+
+            txtTitleContains.Text = "";
 
             ddlAgente1.SelectedIndex = 0;
             //ddlAgente2.SelectedIndex = 0;
