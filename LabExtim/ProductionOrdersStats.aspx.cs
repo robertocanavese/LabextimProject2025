@@ -143,6 +143,10 @@ namespace LabExtim
             ddlOperators.SelectedIndex = 0;
             PersistSelection(null, null);
 
+            grdProductionOrdersStats.PageSize = 30;
+            Session["VW_QUOPORCostsPrices_PagerSize"] = "30";
+            grdProductionOrdersStats.PageIndex = 0; ;
+
         }
 
         protected void lbtViewInputItems_Click(object sender, EventArgs e)

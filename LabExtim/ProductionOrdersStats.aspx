@@ -523,8 +523,9 @@
 
                             <asp:LinqDataSource ID="ldsProductionOrdersStats" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                                 TableName="VW_QUOPORCostsPrices" OnSelecting="ldsProductionOrders_Selecting"
-                                AutoGenerateOrderByClause="true" EnableViewState="false">
+                                AutoGenerateOrderByClause="true">
 
+                                <%--tolto 20260318 EnableViewState="false">--%>
                                 <OrderByParameters>
                                     <asp:ControlParameter ControlID="ddlOrderBy" Name="OrderBy" Type="String" PropertyName="SelectedValue"
                                         DefaultValue="" />
