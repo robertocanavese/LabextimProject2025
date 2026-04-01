@@ -204,6 +204,12 @@ namespace TempDLLabExtim
     partial void InsertSarogliaData(SarogliaData instance);
     partial void UpdateSarogliaData(SarogliaData instance);
     partial void DeleteSarogliaData(SarogliaData instance);
+    partial void InsertLeaveRequest(LeaveRequest instance);
+    partial void UpdateLeaveRequest(LeaveRequest instance);
+    partial void DeleteLeaveRequest(LeaveRequest instance);
+    partial void InsertLeaveType(LeaveType instance);
+    partial void UpdateLeaveType(LeaveType instance);
+    partial void DeleteLeaveType(LeaveType instance);
     #endregion
 		
 		public TemporaneoDataContext() : 
@@ -953,6 +959,30 @@ namespace TempDLLabExtim
 			get
 			{
 				return this.GetTable<VW_DDTQUOPORCostsPrice>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LeaveRequest> LeaveRequests
+		{
+			get
+			{
+				return this.GetTable<LeaveRequest>();
+			}
+		}
+		
+		public System.Data.Linq.Table<LeaveType> LeaveTypes
+		{
+			get
+			{
+				return this.GetTable<LeaveType>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_LeaveRequest> VW_LeaveRequests
+		{
+			get
+			{
+				return this.GetTable<VW_LeaveRequest>();
 			}
 		}
 		
@@ -7021,6 +7051,8 @@ namespace TempDLLabExtim
 		
 		private EntitySet<ProductionOrder> _ProductionOrders;
 		
+		private EntitySet<LeaveRequest> _LeaveRequests;
+		
 		private EntityRef<StatusType> _StatusType1;
 		
     #region Extensibility Method Definitions
@@ -7043,6 +7075,7 @@ namespace TempDLLabExtim
 			this._Quotations = new EntitySet<Quotation>(new Action<Quotation>(this.attach_Quotations), new Action<Quotation>(this.detach_Quotations));
 			this._TempQuotations = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations), new Action<TempQuotation>(this.detach_TempQuotations));
 			this._ProductionOrders = new EntitySet<ProductionOrder>(new Action<ProductionOrder>(this.attach_ProductionOrders), new Action<ProductionOrder>(this.detach_ProductionOrders));
+			this._LeaveRequests = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests), new Action<LeaveRequest>(this.detach_LeaveRequests));
 			this._StatusType1 = default(EntityRef<StatusType>);
 			OnCreated();
 		}
@@ -7189,6 +7222,19 @@ namespace TempDLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Statuse_LeaveRequest", Storage="_LeaveRequests", ThisKey="ID", OtherKey="Status")]
+		public EntitySet<LeaveRequest> LeaveRequests
+		{
+			get
+			{
+				return this._LeaveRequests;
+			}
+			set
+			{
+				this._LeaveRequests.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="StatusType_Statuse", Storage="_StatusType1", ThisKey="StatusType", OtherKey="ID", IsForeignKey=true)]
 		public StatusType StatusType1
 		{
@@ -7310,6 +7356,18 @@ namespace TempDLLabExtim
 		}
 		
 		private void detach_ProductionOrders(ProductionOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.Statuse = null;
+		}
+		
+		private void attach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Statuse = this;
+		}
+		
+		private void detach_LeaveRequests(LeaveRequest entity)
 		{
 			this.SendPropertyChanging();
 			entity.Statuse = null;
@@ -39411,6 +39469,867 @@ namespace TempDLLabExtim
 				if ((this._CorrectiveActionDescription != value))
 				{
 					this._CorrectiveActionDescription = value;
+				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LeaveRequests")]
+	public partial class LeaveRequest : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private System.Nullable<int> _ID_Applicant;
+		
+		private System.Nullable<int> _LeaveType;
+		
+		private System.Nullable<System.DateTime> _RequestDate;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private System.Nullable<char> _DayFraction;
+		
+		private System.Nullable<int> _VacationDays;
+		
+		private string _MessageToManager;
+		
+		private System.Nullable<int> _ID_Manager;
+		
+		private System.Nullable<int> _Status;
+		
+		private System.Nullable<System.DateTime> _StatusDate;
+		
+		private string _MessageToApplicant;
+		
+		private EntityRef<Statuse> _Statuse;
+		
+		private EntityRef<LeaveType> _LeaveType1;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnID_ApplicantChanging(System.Nullable<int> value);
+    partial void OnID_ApplicantChanged();
+    partial void OnLeaveTypeChanging(System.Nullable<int> value);
+    partial void OnLeaveTypeChanged();
+    partial void OnRequestDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnRequestDateChanged();
+    partial void OnStartDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStartDateChanged();
+    partial void OnEndDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnEndDateChanged();
+    partial void OnDayFractionChanging(System.Nullable<char> value);
+    partial void OnDayFractionChanged();
+    partial void OnVacationDaysChanging(System.Nullable<int> value);
+    partial void OnVacationDaysChanged();
+    partial void OnMessageToManagerChanging(string value);
+    partial void OnMessageToManagerChanged();
+    partial void OnID_ManagerChanging(System.Nullable<int> value);
+    partial void OnID_ManagerChanged();
+    partial void OnStatusChanging(System.Nullable<int> value);
+    partial void OnStatusChanged();
+    partial void OnStatusDateChanging(System.Nullable<System.DateTime> value);
+    partial void OnStatusDateChanged();
+    partial void OnMessageToApplicantChanging(string value);
+    partial void OnMessageToApplicantChanged();
+    #endregion
+		
+		public LeaveRequest()
+		{
+			this._Statuse = default(EntityRef<Statuse>);
+			this._LeaveType1 = default(EntityRef<LeaveType>);
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", AutoSync=AutoSync.OnInsert, DbType="Int NOT NULL IDENTITY", IsPrimaryKey=true, IsDbGenerated=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Applicant", DbType="Int")]
+		public System.Nullable<int> ID_Applicant
+		{
+			get
+			{
+				return this._ID_Applicant;
+			}
+			set
+			{
+				if ((this._ID_Applicant != value))
+				{
+					this.OnID_ApplicantChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Applicant = value;
+					this.SendPropertyChanged("ID_Applicant");
+					this.OnID_ApplicantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveType", DbType="Int")]
+		public System.Nullable<int> LeaveType
+		{
+			get
+			{
+				return this._LeaveType;
+			}
+			set
+			{
+				if ((this._LeaveType != value))
+				{
+					if (this._LeaveType1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnLeaveTypeChanging(value);
+					this.SendPropertyChanging();
+					this._LeaveType = value;
+					this.SendPropertyChanged("LeaveType");
+					this.OnLeaveTypeChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RequestDate
+		{
+			get
+			{
+				return this._RequestDate;
+			}
+			set
+			{
+				if ((this._RequestDate != value))
+				{
+					this.OnRequestDateChanging(value);
+					this.SendPropertyChanging();
+					this._RequestDate = value;
+					this.SendPropertyChanged("RequestDate");
+					this.OnRequestDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this.OnStartDateChanging(value);
+					this.SendPropertyChanging();
+					this._StartDate = value;
+					this.SendPropertyChanged("StartDate");
+					this.OnStartDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this.OnEndDateChanging(value);
+					this.SendPropertyChanging();
+					this._EndDate = value;
+					this.SendPropertyChanged("EndDate");
+					this.OnEndDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayFraction", DbType="Char(1)")]
+		public System.Nullable<char> DayFraction
+		{
+			get
+			{
+				return this._DayFraction;
+			}
+			set
+			{
+				if ((this._DayFraction != value))
+				{
+					this.OnDayFractionChanging(value);
+					this.SendPropertyChanging();
+					this._DayFraction = value;
+					this.SendPropertyChanged("DayFraction");
+					this.OnDayFractionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
+		public System.Nullable<int> VacationDays
+		{
+			get
+			{
+				return this._VacationDays;
+			}
+			set
+			{
+				if ((this._VacationDays != value))
+				{
+					this.OnVacationDaysChanging(value);
+					this.SendPropertyChanging();
+					this._VacationDays = value;
+					this.SendPropertyChanged("VacationDays");
+					this.OnVacationDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToManager", DbType="VarChar(1024)")]
+		public string MessageToManager
+		{
+			get
+			{
+				return this._MessageToManager;
+			}
+			set
+			{
+				if ((this._MessageToManager != value))
+				{
+					this.OnMessageToManagerChanging(value);
+					this.SendPropertyChanging();
+					this._MessageToManager = value;
+					this.SendPropertyChanged("MessageToManager");
+					this.OnMessageToManagerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Manager", DbType="Int")]
+		public System.Nullable<int> ID_Manager
+		{
+			get
+			{
+				return this._ID_Manager;
+			}
+			set
+			{
+				if ((this._ID_Manager != value))
+				{
+					this.OnID_ManagerChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Manager = value;
+					this.SendPropertyChanged("ID_Manager");
+					this.OnID_ManagerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					if (this._Statuse.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnStatusChanging(value);
+					this.SendPropertyChanging();
+					this._Status = value;
+					this.SendPropertyChanged("Status");
+					this.OnStatusChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StatusDate
+		{
+			get
+			{
+				return this._StatusDate;
+			}
+			set
+			{
+				if ((this._StatusDate != value))
+				{
+					this.OnStatusDateChanging(value);
+					this.SendPropertyChanging();
+					this._StatusDate = value;
+					this.SendPropertyChanged("StatusDate");
+					this.OnStatusDateChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToApplicant", DbType="VarChar(1024)")]
+		public string MessageToApplicant
+		{
+			get
+			{
+				return this._MessageToApplicant;
+			}
+			set
+			{
+				if ((this._MessageToApplicant != value))
+				{
+					this.OnMessageToApplicantChanging(value);
+					this.SendPropertyChanging();
+					this._MessageToApplicant = value;
+					this.SendPropertyChanged("MessageToApplicant");
+					this.OnMessageToApplicantChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Statuse_LeaveRequest", Storage="_Statuse", ThisKey="Status", OtherKey="ID", IsForeignKey=true)]
+		public Statuse Statuse
+		{
+			get
+			{
+				return this._Statuse.Entity;
+			}
+			set
+			{
+				Statuse previousValue = this._Statuse.Entity;
+				if (((previousValue != value) 
+							|| (this._Statuse.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Statuse.Entity = null;
+						previousValue.LeaveRequests.Remove(this);
+					}
+					this._Statuse.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests.Add(this);
+						this._Status = value.ID;
+					}
+					else
+					{
+						this._Status = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Statuse");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveType_LeaveRequest", Storage="_LeaveType1", ThisKey="LeaveType", OtherKey="ID", IsForeignKey=true)]
+		public LeaveType LeaveType1
+		{
+			get
+			{
+				return this._LeaveType1.Entity;
+			}
+			set
+			{
+				LeaveType previousValue = this._LeaveType1.Entity;
+				if (((previousValue != value) 
+							|| (this._LeaveType1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._LeaveType1.Entity = null;
+						previousValue.LeaveRequests.Remove(this);
+					}
+					this._LeaveType1.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests.Add(this);
+						this._LeaveType = value.ID;
+					}
+					else
+					{
+						this._LeaveType = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("LeaveType1");
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LeaveTypes")]
+	public partial class LeaveType : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private int _ID;
+		
+		private string _Description;
+		
+		private EntitySet<LeaveRequest> _LeaveRequests;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(int value);
+    partial void OnIDChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public LeaveType()
+		{
+			this._LeaveRequests = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests), new Action<LeaveRequest>(this.detach_LeaveRequests));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL", IsPrimaryKey=true)]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveType_LeaveRequest", Storage="_LeaveRequests", ThisKey="ID", OtherKey="LeaveType")]
+		public EntitySet<LeaveRequest> LeaveRequests
+		{
+			get
+			{
+				return this._LeaveRequests;
+			}
+			set
+			{
+				this._LeaveRequests.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.LeaveType1 = this;
+		}
+		
+		private void detach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.LeaveType1 = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_LeaveRequests")]
+	public partial class VW_LeaveRequest
+	{
+		
+		private int _ID;
+		
+		private System.Nullable<int> _ID_Applicant;
+		
+		private string _ApplicantDesc;
+		
+		private System.Nullable<int> _LeaveType;
+		
+		private string _LeaveTypeDesc;
+		
+		private System.Nullable<System.DateTime> _RequestDate;
+		
+		private System.Nullable<System.DateTime> _StartDate;
+		
+		private System.Nullable<System.DateTime> _EndDate;
+		
+		private System.Nullable<char> _DayFraction;
+		
+		private System.Nullable<int> _VacationDays;
+		
+		private string _MessageToManager;
+		
+		private System.Nullable<int> _ID_Manager;
+		
+		private string _ManagerDesc;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _StatusDesc;
+		
+		private System.Nullable<System.DateTime> _StatusDate;
+		
+		private string _MessageToApplicant;
+		
+		public VW_LeaveRequest()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int NOT NULL")]
+		public int ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Applicant", DbType="Int")]
+		public System.Nullable<int> ID_Applicant
+		{
+			get
+			{
+				return this._ID_Applicant;
+			}
+			set
+			{
+				if ((this._ID_Applicant != value))
+				{
+					this._ID_Applicant = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApplicantDesc", DbType="NVarChar(135)")]
+		public string ApplicantDesc
+		{
+			get
+			{
+				return this._ApplicantDesc;
+			}
+			set
+			{
+				if ((this._ApplicantDesc != value))
+				{
+					this._ApplicantDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveType", DbType="Int")]
+		public System.Nullable<int> LeaveType
+		{
+			get
+			{
+				return this._LeaveType;
+			}
+			set
+			{
+				if ((this._LeaveType != value))
+				{
+					this._LeaveType = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_LeaveTypeDesc", DbType="VarChar(50)")]
+		public string LeaveTypeDesc
+		{
+			get
+			{
+				return this._LeaveTypeDesc;
+			}
+			set
+			{
+				if ((this._LeaveTypeDesc != value))
+				{
+					this._LeaveTypeDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RequestDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> RequestDate
+		{
+			get
+			{
+				return this._RequestDate;
+			}
+			set
+			{
+				if ((this._RequestDate != value))
+				{
+					this._RequestDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StartDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StartDate
+		{
+			get
+			{
+				return this._StartDate;
+			}
+			set
+			{
+				if ((this._StartDate != value))
+				{
+					this._StartDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_EndDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> EndDate
+		{
+			get
+			{
+				return this._EndDate;
+			}
+			set
+			{
+				if ((this._EndDate != value))
+				{
+					this._EndDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayFraction", DbType="Char(1)")]
+		public System.Nullable<char> DayFraction
+		{
+			get
+			{
+				return this._DayFraction;
+			}
+			set
+			{
+				if ((this._DayFraction != value))
+				{
+					this._DayFraction = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
+		public System.Nullable<int> VacationDays
+		{
+			get
+			{
+				return this._VacationDays;
+			}
+			set
+			{
+				if ((this._VacationDays != value))
+				{
+					this._VacationDays = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToManager", DbType="VarChar(1024)")]
+		public string MessageToManager
+		{
+			get
+			{
+				return this._MessageToManager;
+			}
+			set
+			{
+				if ((this._MessageToManager != value))
+				{
+					this._MessageToManager = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Manager", DbType="Int")]
+		public System.Nullable<int> ID_Manager
+		{
+			get
+			{
+				return this._ID_Manager;
+			}
+			set
+			{
+				if ((this._ID_Manager != value))
+				{
+					this._ID_Manager = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ManagerDesc", DbType="NVarChar(135)")]
+		public string ManagerDesc
+		{
+			get
+			{
+				return this._ManagerDesc;
+			}
+			set
+			{
+				if ((this._ManagerDesc != value))
+				{
+					this._ManagerDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusDesc", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string StatusDesc
+		{
+			get
+			{
+				return this._StatusDesc;
+			}
+			set
+			{
+				if ((this._StatusDesc != value))
+				{
+					this._StatusDesc = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_StatusDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> StatusDate
+		{
+			get
+			{
+				return this._StatusDate;
+			}
+			set
+			{
+				if ((this._StatusDate != value))
+				{
+					this._StatusDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToApplicant", DbType="VarChar(1024)")]
+		public string MessageToApplicant
+		{
+			get
+			{
+				return this._MessageToApplicant;
+			}
+			set
+			{
+				if ((this._MessageToApplicant != value))
+				{
+					this._MessageToApplicant = value;
 				}
 			}
 		}

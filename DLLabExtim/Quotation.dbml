@@ -613,6 +613,7 @@
       <Association Name="Statuse_ProductionOrderTechSpec" Member="ProductionOrderTechSpecs" ThisKey="ID" OtherKey="Status" Type="ProductionOrderTechSpec" />
       <Association Name="Statuse_ProductionMP" Member="ProductionMPs" ThisKey="ID" OtherKey="Status" Type="ProductionMP" />
       <Association Name="StatusType_Statuse" Member="StatusType1" ThisKey="StatusType" OtherKey="ID" Type="StatusType" IsForeignKey="true" />
+      <Association Name="Statuse_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="Status" Type="LeaveRequest" />
     </Type>
   </Table>
   <Table Name="dbo.StatusTypes" Member="StatusTypes">
@@ -1476,6 +1477,9 @@
     </Type>
   </Table>
   
+  
+  
+  
   <Table Name="dbo.VW_ProductionMPSGroupedByMachine" Member="VW_ProductionMPSGroupedByMachines">
     <Type Name="VW_ProductionMPSGroupedByMachine">
       <Column Name="IDProductionOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -2023,6 +2027,57 @@
       <Column Name="[Save]" Member="Save" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
+
+  <Table Name="dbo.LeaveRequests" Member="LeaveRequests">
+    <Type Name="LeaveRequest">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Applicant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeaveType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="RequestDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DayFraction" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="VacationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MessageToManager" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Association Name="Statuse_LeaveRequest" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
+      <Association Name="LeaveType_LeaveRequest" Member="LeaveType1" ThisKey="LeaveType" OtherKey="ID" Type="LeaveType" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.LeaveTypes" Member="LeaveTypes">
+    <Type Name="LeaveType">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="LeaveType_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="LeaveType" Type="LeaveRequest" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_LeaveRequests" Member="VW_LeaveRequests">
+    <Type Name="VW_LeaveRequest">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Applicant" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ApplicantDesc" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
+      <Column Name="LeaveType" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="LeaveTypeDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Column Name="RequestDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="DayFraction" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="VacationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MessageToManager" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ManagerDesc" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StatusDesc" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="StatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </Type>
+  </Table>
+  
+  
+  
   <Function Name="dbo.prc_LAB_MGet_LAB_CalculatedResultsByQuotationID" Method="prc_LAB_MGet_LAB_CalculatedResultsByQuotationID">
     <Parameter Name="QuotationID" Parameter="quotationID" Type="System.Int32" DbType="Int" />
     <ElementType IdRef="ID1" />

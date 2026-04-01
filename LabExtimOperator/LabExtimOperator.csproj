@@ -350,6 +350,7 @@
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\WebApiConfig.cs" />
     <Compile Include="Controllers\AccountController.cs" />
+    <Compile Include="Controllers\LeaveRequestController.cs" />
     <Compile Include="Controllers\DeliveryTripController.cs" />
     <Compile Include="Controllers\EmployeeWorkingDayHoursController.cs" />
     <Compile Include="Controllers\HomeController.cs">
