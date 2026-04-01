@@ -796,6 +796,7 @@
       <Association Name="Company_Department" Member="Departments" ThisKey="ID" OtherKey="ID_Company" Type="Department" />
       <Association Name="Company_CloseOfDay" Member="CloseOfDays" ThisKey="ID" OtherKey="ID_Company" Type="CloseOfDay" />
       <Association Name="Company_Location" Member="Locations" ThisKey="ID" OtherKey="ID_Company" Type="Location" />
+      <Association Name="Company_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="ID_Company" Type="LeaveRequest" />
     </Type>
   </Table>
   <Table Name="dbo.Employees" Member="Employees">
@@ -2031,6 +2032,7 @@
   <Table Name="dbo.LeaveRequests" Member="LeaveRequests">
     <Type Name="LeaveRequest">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_Applicant" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="LeaveType" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="RequestDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
@@ -2045,6 +2047,7 @@
       <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
       <Association Name="Statuse_LeaveRequest" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
       <Association Name="LeaveType_LeaveRequest" Member="LeaveType1" ThisKey="LeaveType" OtherKey="ID" Type="LeaveType" IsForeignKey="true" />
+      <Association Name="Company_LeaveRequest" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.LeaveTypes" Member="LeaveTypes">
@@ -2057,6 +2060,8 @@
   <Table Name="dbo.VW_LeaveRequests" Member="VW_LeaveRequests">
     <Type Name="VW_LeaveRequest">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CompanyDesc" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Column Name="ID_Applicant" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ApplicantDesc" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
       <Column Name="LeaveType" Type="System.Int32" DbType="Int" CanBeNull="true" />

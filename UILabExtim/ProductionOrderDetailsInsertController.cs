@@ -441,6 +441,57 @@ namespace UILabExtim
         }
 
 
+
+        public List<LeaveRequest> GetLeaveRequestsOfAnOwner(int? owner, DateTime? date, int idCompany)
+        {
+            var _listTempLeaveRequests = new List<LeaveRequest>();
+            var _listLeaveRequests = new List<LeaveRequest>();
+
+            using (QuotationDataContext _context = new QuotationDataContext())
+            {
+
+                var dataOptions = new DataLoadOptions();
+                dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                _context.LoadOptions = dataOptions;
+
+                if (owner != null && owner != 0 && date != null)
+                {
+                    _listLeaveRequests =
+                        _context.LeaveRequests.Where(
+                            pod =>
+                                pod.StartDate == date && pod.ID_Applicant == owner && pod.Status == 0).ToList();
+                }
+                else if (owner != null && owner != 0 && date == null)
+                {
+                    _listLeaveRequests =
+                        _context.LeaveRequests.Where(
+                            pod =>
+                                pod.ID_Applicant == owner && pod.Status == 0 && (idCompany == -1 || pod.ID_Company == idCompany)).ToList();
+                }
+                else if (owner != null && owner != 0)
+                {
+                    _listLeaveRequests =
+                        _context.LeaveRequests.Where(
+                            pod =>
+                                pod.ID_Applicant == owner && pod.Status == 0).ToList();
+                }
+                else
+                {
+                    _listLeaveRequests =
+                        _context.LeaveRequests.Where(
+                            pod => pod.Status == 0 && (idCompany == -1 || pod.ID_Company == idCompany))
+                            .ToList();
+                }
+                foreach (var _LeaveRequest in _listLeaveRequests)
+                {
+                    _listTempLeaveRequests.Add(_LeaveRequest);
+                }
+            }
+            return _listTempLeaveRequests;
+        }
+
+
         public List<TempProductionOrderDetail> GetProductionOrderDetailsOfAnOdPId(int? productionOrderId)
         {
             var _listTempProductionOrderDetails = new List<TempProductionOrderDetail>();

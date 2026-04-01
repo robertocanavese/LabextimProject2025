@@ -17623,6 +17623,8 @@ namespace DLLabExtim
 		
 		private EntitySet<Location> _Locations;
 		
+		private EntitySet<LeaveRequest> _LeaveRequests;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
@@ -17652,6 +17654,7 @@ namespace DLLabExtim
 			this._Departments = new EntitySet<Department>(new Action<Department>(this.attach_Departments), new Action<Department>(this.detach_Departments));
 			this._CloseOfDays = new EntitySet<CloseOfDay>(new Action<CloseOfDay>(this.attach_CloseOfDays), new Action<CloseOfDay>(this.detach_CloseOfDays));
 			this._Locations = new EntitySet<Location>(new Action<Location>(this.attach_Locations), new Action<Location>(this.detach_Locations));
+			this._LeaveRequests = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests), new Action<LeaveRequest>(this.detach_LeaveRequests));
 			OnCreated();
 		}
 		
@@ -17916,6 +17919,19 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_LeaveRequest", Storage="_LeaveRequests", ThisKey="ID", OtherKey="ID_Company")]
+		public EntitySet<LeaveRequest> LeaveRequests
+		{
+			get
+			{
+				return this._LeaveRequests;
+			}
+			set
+			{
+				this._LeaveRequests.Assign(value);
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -18135,6 +18151,18 @@ namespace DLLabExtim
 		}
 		
 		private void detach_Locations(Location entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = null;
+		}
+		
+		private void attach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Company = this;
+		}
+		
+		private void detach_LeaveRequests(LeaveRequest entity)
 		{
 			this.SendPropertyChanging();
 			entity.Company = null;
@@ -41577,6 +41605,8 @@ namespace DLLabExtim
 		
 		private int _ID;
 		
+		private System.Nullable<int> _ID_Company;
+		
 		private System.Nullable<int> _ID_Applicant;
 		
 		private System.Nullable<int> _LeaveType;
@@ -41605,12 +41635,16 @@ namespace DLLabExtim
 		
 		private EntityRef<LeaveType> _LeaveType1;
 		
+		private EntityRef<Company> _Company;
+		
     #region Extensibility Method Definitions
     partial void OnLoaded();
     partial void OnValidate(System.Data.Linq.ChangeAction action);
     partial void OnCreated();
     partial void OnIDChanging(int value);
     partial void OnIDChanged();
+    partial void OnID_CompanyChanging(System.Nullable<int> value);
+    partial void OnID_CompanyChanged();
     partial void OnID_ApplicantChanging(System.Nullable<int> value);
     partial void OnID_ApplicantChanged();
     partial void OnLeaveTypeChanging(System.Nullable<int> value);
@@ -41641,6 +41675,7 @@ namespace DLLabExtim
 		{
 			this._Statuse = default(EntityRef<Statuse>);
 			this._LeaveType1 = default(EntityRef<LeaveType>);
+			this._Company = default(EntityRef<Company>);
 			OnCreated();
 		}
 		
@@ -41660,6 +41695,30 @@ namespace DLLabExtim
 					this._ID = value;
 					this.SendPropertyChanged("ID");
 					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Company", DbType="Int")]
+		public System.Nullable<int> ID_Company
+		{
+			get
+			{
+				return this._ID_Company;
+			}
+			set
+			{
+				if ((this._ID_Company != value))
+				{
+					if (this._Company.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_CompanyChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Company = value;
+					this.SendPropertyChanged("ID_Company");
+					this.OnID_CompanyChanged();
 				}
 			}
 		}
@@ -41980,6 +42039,40 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_LeaveRequest", Storage="_Company", ThisKey="ID_Company", OtherKey="ID", IsForeignKey=true)]
+		public Company Company
+		{
+			get
+			{
+				return this._Company.Entity;
+			}
+			set
+			{
+				Company previousValue = this._Company.Entity;
+				if (((previousValue != value) 
+							|| (this._Company.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Company.Entity = null;
+						previousValue.LeaveRequests.Remove(this);
+					}
+					this._Company.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests.Add(this);
+						this._ID_Company = value.ID;
+					}
+					else
+					{
+						this._ID_Company = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -42121,6 +42214,10 @@ namespace DLLabExtim
 		
 		private int _ID;
 		
+		private System.Nullable<int> _ID_Company;
+		
+		private string _CompanyDesc;
+		
 		private System.Nullable<int> _ID_Applicant;
 		
 		private string _ApplicantDesc;
@@ -42169,6 +42266,38 @@ namespace DLLabExtim
 				if ((this._ID != value))
 				{
 					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Company", DbType="Int")]
+		public System.Nullable<int> ID_Company
+		{
+			get
+			{
+				return this._ID_Company;
+			}
+			set
+			{
+				if ((this._ID_Company != value))
+				{
+					this._ID_Company = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_CompanyDesc", DbType="VarChar(255)")]
+		public string CompanyDesc
+		{
+			get
+			{
+				return this._CompanyDesc;
+			}
+			set
+			{
+				if ((this._CompanyDesc != value))
+				{
+					this._CompanyDesc = value;
 				}
 			}
 		}
