@@ -491,6 +491,26 @@ namespace UILabExtim
             return _listTempLeaveRequests;
         }
 
+        public static LeaveRequest GetLeaveRequest(QuotationDataContext context, int id)
+        {
+            return context.LeaveRequests.FirstOrDefault(pi => pi.ID == id);
+        }
+
+        public void DeleteLeaveRequest(int id)
+        {
+            using (QuotationDataContext _context = new QuotationDataContext())
+            {
+                var _leaveRequest = GetLeaveRequest(_context, id);
+                if (_leaveRequest != null)
+                {
+                    _context.LeaveRequests.DeleteOnSubmit(_leaveRequest);
+
+                    _context.SubmitChanges();
+
+                }
+            }
+        }
+
 
         public List<TempProductionOrderDetail> GetProductionOrderDetailsOfAnOdPId(int? productionOrderId)
         {

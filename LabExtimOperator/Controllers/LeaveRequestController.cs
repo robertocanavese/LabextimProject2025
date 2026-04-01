@@ -280,7 +280,7 @@ namespace LabExtimOperator.Controllers
 
             LeaveRequestControllerSessionVariables variables = new LeaveRequestControllerSessionVariables();
 
-            if (item.ID_Owner == 0)
+            if (item.ID_Applicant == 0)
             {
                 ViewData["EditError"] = "Operatore non selezionato";
                 ViewBag.IsNew = true;
@@ -314,15 +314,17 @@ namespace LabExtimOperator.Controllers
                             _LeaveRequest.ID = item.ID;
                         }
 
-                        _LeaveRequest.ID_Owner = item.ID_Owner;
-                        _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Owner).ID_Company;
-                        _LeaveRequest.Description = item.Description;
-                        _LeaveRequest.CustomerCode = item.CustomerCode;
-                        _LeaveRequest.LocationCode = item.LocationCode;
+                        _LeaveRequest.ID_Applicant = item.ID_Applicant;
+                        _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).ID_Company;
+                        _LeaveRequest.LeaveType = item.LeaveType;
+                        _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
-                        _LeaveRequest.Note = item.Note;
-                        _LeaveRequest.Status = 0;
-                        _LeaveRequest.MacroRef = 411;
+                        _LeaveRequest.EndDate = item.EndDate;
+                        _LeaveRequest.DayFraction = item.DayFraction;
+                        _LeaveRequest.VacationDays = item.VacationDays;
+                        _LeaveRequest.MessageToManager = item.MessageToManager;
+                        _LeaveRequest.Status = 19;
+                        _LeaveRequest.StatusDate = DateTime.Now;
 
                         _quotationDataContext.LeaveRequests.InsertOnSubmit(_LeaveRequest);
                         _quotationDataContext.SubmitChanges();
@@ -375,15 +377,17 @@ namespace LabExtimOperator.Controllers
                             _LeaveRequest.ID = item.ID;
                         }
 
-                        _LeaveRequest.ID_Owner = item.ID_Owner;
-                        _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Owner).ID_Company;
-                        _LeaveRequest.Description = item.Description;
-                        _LeaveRequest.CustomerCode = item.CustomerCode;
-                        _LeaveRequest.LocationCode = item.LocationCode;
+                        _LeaveRequest.ID_Applicant = item.ID_Applicant;
+                        _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).ID_Company;
+                        _LeaveRequest.LeaveType = item.LeaveType;
+                        _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
-                        _LeaveRequest.Note = item.Note;
-                        _LeaveRequest.Status = 0;
-                        _LeaveRequest.MacroRef = 411;
+                        _LeaveRequest.EndDate = item.EndDate;
+                        _LeaveRequest.DayFraction = item.DayFraction;
+                        _LeaveRequest.VacationDays = item.VacationDays;
+                        _LeaveRequest.MessageToManager = item.MessageToManager;
+                        _LeaveRequest.Status = 19;
+                        _LeaveRequest.StatusDate = DateTime.Now;
 
                         _quotationDataContext.SubmitChanges();
 
