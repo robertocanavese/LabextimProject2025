@@ -338,6 +338,9 @@
     <Content Include="Views\DeliveryTrip\_PopupDeliveryTripViewPartial.cshtml" />
     <Content Include="Views\DeliveryTrip\_DeliveryTripViewPartial.cshtml" />
     <Content Include="Views\EmployeeWorkingDayHours\Index.cshtml" />
+    <Content Include="Views\LeaveRequest\LeaveRequestViewPartial.cshtml" />
+    <Content Include="Views\LeaveRequest\_PopupLeaveRequestViewPartial.cshtml" />
+    <Content Include="Views\LeaveRequest\Index.cshtml" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

@@ -1,7 +1,7 @@
-﻿@model DLLabExtim.DeliveryTripDetail
+﻿@model DLLabExtim.LeaveRequest
 
 @{
-    ViewBag.Title = "Delivery trip";
+    ViewBag.Title = "Leave request";
 }
 
 @{
@@ -11,7 +11,7 @@
                 Operatore : @ViewBag.UserName &nbsp; Odp corrente: @ViewBag.IdODP
             </td>
             <td>
-                @using (Html.BeginForm("Index", "DeliveryTrip"))
+                @using (Html.BeginForm("Index", "LeaveRequest"))
                 {
                     <table align="right">
                         <tr>
@@ -52,8 +52,8 @@
     </table>
 }
 
-@Html.Action("DeliveryTripViewPartial", "DeliveryTrip")
-@Html.Action("DeliveryTripDetailViewPartial", "DeliveryTripDetail")
+@Html.Action("LeaveRequestViewPartial", "LeaveRequest")
+@*@Html.Action("LeaveRequestDetailViewPartial", "LeaveRequestDetail")*@
 
 @*<table class="testata_lista">
     <tr>

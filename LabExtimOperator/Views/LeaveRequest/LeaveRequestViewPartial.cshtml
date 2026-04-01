@@ -6,20 +6,20 @@
 @{
 
     var context = new DLLabExtim.QuotationDataContext();
-    DeliveryTripControllerSessionVariables vars = new DeliveryTripControllerSessionVariables();
+    LeaveRequestControllerSessionVariables vars = new LeaveRequestControllerSessionVariables();
 }
 
 @{
 
     var grid = Html.DevExpress().GridView(settings =>
     {
-        settings.Name = "DeliveryTripView";
+        settings.Name = "LeaveRequestView";
         settings.CommandColumn.SetHeaderTemplateContent(c =>
         {
             Html.DevExpress().Button(hyperLinkSettings =>
             {
                 hyperLinkSettings.Name = "link_" + settings.Name;
-                hyperLinkSettings.Text = "Inserisci viaggio";
+                hyperLinkSettings.Text = "Inserisci richiesta permesso";
                 hyperLinkSettings.Width = Unit.Pixel(150);
                 //hyperLinkSettings.NavigateUrl = "javascript:void(0);";
                 hyperLinkSettings.ClientSideEvents.Click = string.Format(@"
@@ -52,15 +52,15 @@
             }
             if (e.SummaryProcess == DevExpress.Data.CustomSummaryProcess.Finalize)
             {
-                e.TotalValue = "viaggi totali:<br>" + totalWork.ToString("N2");
+                e.TotalValue = "richieste totali:<br>" + totalWork.ToString("N2");
             }
         };
 
-        settings.CallbackRouteValues = new { Controller = "DeliveryTrip", Action = "DeliveryTripViewPartial" };
+        settings.CallbackRouteValues = new { Controller = "LeaveRequest", Action = "LeaveRequestViewPartial" };
 
-        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "DeliveryTrip", Action = "DeliveryTripViewPartialAddNew" };
-        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "DeliveryTrip", Action = "DeliveryTripViewPartialUpdate" };
-        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "DeliveryTrip", Action = "DeliveryTripViewPartialDelete" };
+        settings.SettingsEditing.AddNewRowRouteValues = new { Controller = "LeaveRequest", Action = "LeaveRequestViewPartialAddNew" };
+        settings.SettingsEditing.UpdateRowRouteValues = new { Controller = "LeaveRequest", Action = "LeaveRequestViewPartialUpdate" };
+        settings.SettingsEditing.DeleteRowRouteValues = new { Controller = "LeaveRequest", Action = "LeaveRequestViewPartialDelete" };
 
         /*
         GridViewCommandColumnCustomButton btn = new GridViewCommandColumnCustomButton();
@@ -71,7 +71,7 @@
         btn.Styles.Style.Paddings.PaddingLeft = Unit.Pixel(30);
 
         settings.CommandColumn.CustomButtons.Add(btn);
-        settings.ClientSideEvents.CustomButtonClick = "function(s, e) { document.location='" + DevExpressHelper.GetUrl(new { Controller = "DeliveryTripDetail", Action = "Index" }) + "?EvadiODP=' + s.GetRowKey(e.visibleIndex); }";
+        settings.ClientSideEvents.CustomButtonClick = "function(s, e) { document.location='" + DevExpressHelper.GetUrl(new { Controller = "LeaveRequestDetail", Action = "Index" }) + "?EvadiODP=' + s.GetRowKey(e.visibleIndex); }";
         */
 
         settings.SettingsEditing.Mode = GridViewEditingMode.PopupEditForm;
@@ -166,7 +166,7 @@
         {
             Html.DevExpress().FormLayout(formLayoutSettings =>
             {
-                formLayoutSettings.Name = "FormLayoutDeliveryTrip";
+                formLayoutSettings.Name = "FormLayoutLeaveRequest";
                 formLayoutSettings.Width = Unit.Pixel(Request.Browser.ScreenPixelsWidth);
                 formLayoutSettings.Height = Unit.Pixel(Convert.ToInt32(Request.Browser.ScreenPixelsHeight /2));
                 formLayoutSettings.Width = Unit.Percentage(100);
@@ -270,7 +270,7 @@
                         {
                             btnSettings.Name = "btnUpdateDT";
                             btnSettings.Text = "Salva";
-                            btnSettings.ClientSideEvents.Click = "function(s, e){ DeliveryTripView.UpdateEdit(); }";
+                            btnSettings.ClientSideEvents.Click = "function(s, e){ LeaveRequestView.UpdateEdit(); }";
                         }).Render();
                     Html.DevExpress().Button(
                         btnSettings =>
@@ -278,7 +278,7 @@
                             btnSettings.Name = "btnCancelDT";
                             btnSettings.Text = "Annulla";
                             btnSettings.Style[HtmlTextWriterStyle.MarginLeft] = "5px";
-                            btnSettings.ClientSideEvents.Click = "function(s, e){ DeliveryTripView.CancelEdit(); }";
+                            btnSettings.ClientSideEvents.Click = "function(s, e){ LeaveRequestView.CancelEdit(); }";
                         }).Render();
                     ViewContext.Writer.Write("</div>");
                 });
