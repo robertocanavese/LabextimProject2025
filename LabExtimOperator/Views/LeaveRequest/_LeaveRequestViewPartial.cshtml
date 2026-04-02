@@ -112,7 +112,7 @@
         settings.Settings.ShowGroupPanel = false;
         settings.Settings.ShowFilterRow = false;
         settings.SettingsBehavior.AllowSelectByRowClick = false;
-        settings.SettingsText.PopupEditFormCaption = "Nuova richiesta";
+        settings.SettingsText.PopupEditFormCaption = "Nuova richiesta permesso";
         //settings.SettingsPopup.EditForm.Modal = true;
 
         settings.Columns.Add(column =>
@@ -233,8 +233,8 @@
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
                     var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
                     var vdata = from data in context.LeaveTypes
-                               orderby odp.ID
-                               select new { ID = odp.ID, Name = odp.Description };
+                                orderby data.ID
+                                select new { ID = data.ID, Name = data.Description };
                     comboBoxSetings.Properties.DataSource = vdata.ToList();
                     comboBoxSetings.Properties.TextField = "Name";
                     comboBoxSetings.Properties.ValueField = "ID";
@@ -242,6 +242,52 @@
                     comboBoxSetings.Width = Unit.Percentage(100);
                     
                 });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "StartDate";
+                    itemSettings.Caption = "Data iniziale";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.DateEdit;
+                    var dateEditProperties = (DateEditSettings)itemSettings.NestedExtensionSettings;
+                    dateEditProperties.Properties.EditFormatString = "dd/MM/yyyy";
+                    dateEditProperties.Date = vars._currentDate;
+                    dateEditProperties.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "EndDate";
+                    itemSettings.Caption = "Data finale";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.DateEdit;
+                    var dateEditProperties = (DateEditSettings)itemSettings.NestedExtensionSettings;
+                    dateEditProperties.Properties.EditFormatString = "dd/MM/yyyy";
+                    dateEditProperties.Date = vars._currentDate;
+                    dateEditProperties.Width = Unit.Pixel(250);
+                });
+
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "DayFraction";
+                    itemSettings.Caption = "Periodo";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 2;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var vdata = from data in context.DayFractions
+                                orderby data.ID
+                                select new { ID = data.ID, Name = data.Description };
+                    comboBoxSetings.Properties.DataSource = vdata.ToList();
+                    comboBoxSetings.Properties.TextField = "Name";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(100);
+
+                });
+                
 
                 //formLayoutSettings.Items.Add(itemSettings =>
                 //{
