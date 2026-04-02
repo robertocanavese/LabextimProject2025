@@ -143,7 +143,7 @@
         settings.Columns.Add(column =>
         {
             column.FieldName = "StartDate";
-            column.Caption = "Data (inizio)";
+            column.Caption = "Data iniziale";
             column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
             column.EditFormSettings.Visible = DefaultBoolean.False;
 
@@ -152,7 +152,7 @@
         settings.Columns.Add(column =>
         {
             column.FieldName = "EndDate";
-            column.Caption = "Data (fine)";
+            column.Caption = "Data finale";
             column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
             column.EditFormSettings.Visible = DefaultBoolean.False;
 
@@ -166,6 +166,14 @@
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
 
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "VacationDays";
+            column.Caption = "Giorni ferie";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        
         settings.Columns.Add(column =>
         {
             column.FieldName = "Statuse.Description";
@@ -185,11 +193,20 @@
 
         settings.Columns.Add(column =>
         {
-            column.FieldName = "VacationDays";
-            column.Caption = "No giorni ferie";
+            column.FieldName = "Employee1.Uniquename";
+            column.Caption = "Responsabile";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "MessageToApplicant";
+            column.Caption = "Comunicazioni";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        
         
         //***********************************
         // EDIT CUSTOM FORM
