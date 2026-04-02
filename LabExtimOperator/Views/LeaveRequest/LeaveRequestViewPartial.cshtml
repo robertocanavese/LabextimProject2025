@@ -157,8 +157,40 @@
             column.EditFormSettings.Visible = DefaultBoolean.False;
 
         });
-        
 
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "DateFraction.Description";
+            column.Caption = "Periodo";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "Statuse.Description";
+            column.Caption = "Stato richiesta";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "StatusDate";
+            column.Caption = "Data";
+            column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "VacationDays";
+            column.Caption = "No giorni ferie";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        
         //***********************************
         // EDIT CUSTOM FORM
         //***********************************
@@ -175,87 +207,87 @@
                 formLayoutSettings.ColCount = 2;
 
 
-                formLayoutSettings.Items.Add(itemSettings =>
-                {
-                    itemSettings.FieldName = "CustomerCode";
-                    itemSettings.Caption = "Cliente";
-                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                    itemSettings.ColSpan = 2;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
-                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                    var odps = from odp in context.Customers
-                               where ((odp.Code < 200000000 && vars._currentCompanyId == 1)
-                               || (odp.Code >= 200000000 && vars._currentCompanyId == 2)) && !odp.Name.StartsWith("***")
-                               orderby odp.Name
-                               select new { ID = odp.Code, Name = odp.Name };
-                    comboBoxSetings.Properties.DataSource = odps.ToList();
-                    comboBoxSetings.Properties.TextField = "Name";
-                    comboBoxSetings.Properties.ValueField = "ID";
-                    comboBoxSetings.Properties.ValueType = typeof(int);
-                    comboBoxSetings.Width = Unit.Percentage(100);
+                //formLayoutSettings.Items.Add(itemSettings =>
+                //{
+                //    itemSettings.FieldName = "CustomerCode";
+                //    itemSettings.Caption = "Cliente";
+                //    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                //    itemSettings.ColSpan = 2;
+                //    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                //    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                //    var odps = from odp in context.Customers
+                //               where ((odp.Code < 200000000 && vars._currentCompanyId == 1)
+                //               || (odp.Code >= 200000000 && vars._currentCompanyId == 2)) && !odp.Name.StartsWith("***")
+                //               orderby odp.Name
+                //               select new { ID = odp.Code, Name = odp.Name };
+                //    comboBoxSetings.Properties.DataSource = odps.ToList();
+                //    comboBoxSetings.Properties.TextField = "Name";
+                //    comboBoxSetings.Properties.ValueField = "ID";
+                //    comboBoxSetings.Properties.ValueType = typeof(int);
+                //    comboBoxSetings.Width = Unit.Percentage(100);
                     
-                });
+                //});
 
-                formLayoutSettings.Items.Add(itemSettings =>
-                {
-                    itemSettings.FieldName = "LocationCode";
-                    itemSettings.Caption = "Altra destinazione";
-                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                    itemSettings.ColSpan = 2;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
-                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                    var odps = from odp in context.Locations
-                               where (odp.ID_Company == vars._currentCompanyId)
-                               orderby odp.Name
-                               select new { ID = odp.Code, Name = odp.Name };
-                    comboBoxSetings.Properties.DataSource = odps.ToList();
-                    comboBoxSetings.Properties.TextField = "Name";
-                    comboBoxSetings.Properties.ValueField = "ID";
-                    comboBoxSetings.Properties.ValueType = typeof(int);
-                    comboBoxSetings.Width = Unit.Percentage(100);
+                //formLayoutSettings.Items.Add(itemSettings =>
+                //{
+                //    itemSettings.FieldName = "LocationCode";
+                //    itemSettings.Caption = "Altra destinazione";
+                //    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                //    itemSettings.ColSpan = 2;
+                //    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                //    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                //    var odps = from odp in context.Locations
+                //               where (odp.ID_Company == vars._currentCompanyId)
+                //               orderby odp.Name
+                //               select new { ID = odp.Code, Name = odp.Name };
+                //    comboBoxSetings.Properties.DataSource = odps.ToList();
+                //    comboBoxSetings.Properties.TextField = "Name";
+                //    comboBoxSetings.Properties.ValueField = "ID";
+                //    comboBoxSetings.Properties.ValueType = typeof(int);
+                //    comboBoxSetings.Width = Unit.Percentage(100);
                     
-                });
+                //});
 
-                formLayoutSettings.Items.Add(itemSettings =>
-                {
-                    itemSettings.FieldName = "ID_Owner";
-                    itemSettings.Caption = "Autista";
-                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                    itemSettings.ColSpan = 2;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
-                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                    var emps = from emp in context.Employees
-                               where emp.ID_Company == vars._currentCompanyId
-                               orderby emp.Surname
-                               select new { ID = emp.ID, Name = emp.UniqueName };
-                    comboBoxSetings.Properties.DataSource = emps.ToList();
-                    comboBoxSetings.Properties.TextField = "Name";
-                    comboBoxSetings.Properties.ValueField = "ID";
-                    comboBoxSetings.Properties.ValueType = typeof(int);
-                    comboBoxSetings.Width = Unit.Percentage(100);
-                    comboBoxSetings.PreRender = (sender, e) =>
-                    {
-                        if (vars._IDmodel != 0)
-                        {
-                            MVCxComboBox cmb = sender as MVCxComboBox;
-                            cmb.Value = vars._idUser;
-                            //cmb.ReadOnly = true;
-                        }
-                    };
-                });
+                //formLayoutSettings.Items.Add(itemSettings =>
+                //{
+                //    itemSettings.FieldName = "ID_Owner";
+                //    itemSettings.Caption = "Autista";
+                //    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                //    itemSettings.ColSpan = 2;
+                //    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                //    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                //    var emps = from emp in context.Employees
+                //               where emp.ID_Company == vars._currentCompanyId
+                //               orderby emp.Surname
+                //               select new { ID = emp.ID, Name = emp.UniqueName };
+                //    comboBoxSetings.Properties.DataSource = emps.ToList();
+                //    comboBoxSetings.Properties.TextField = "Name";
+                //    comboBoxSetings.Properties.ValueField = "ID";
+                //    comboBoxSetings.Properties.ValueType = typeof(int);
+                //    comboBoxSetings.Width = Unit.Percentage(100);
+                //    comboBoxSetings.PreRender = (sender, e) =>
+                //    {
+                //        if (vars._IDmodel != 0)
+                //        {
+                //            MVCxComboBox cmb = sender as MVCxComboBox;
+                //            cmb.Value = vars._idUser;
+                //            //cmb.ReadOnly = true;
+                //        }
+                //    };
+                //});
 
-                formLayoutSettings.Items.Add(itemSettings =>
-                {
-                    itemSettings.FieldName = "StartDate";
-                    itemSettings.Caption = "Data";
-                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                    itemSettings.ColSpan = 1;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.DateEdit;
-                    var dateEditProperties = (DateEditSettings)itemSettings.NestedExtensionSettings;
-                    dateEditProperties.Properties.EditFormatString = "dd/MM/yyyy";
-                    dateEditProperties.Date = vars._currentDate;
-                    dateEditProperties.Width = Unit.Pixel(250);
-                });
+                //formLayoutSettings.Items.Add(itemSettings =>
+                //{
+                //    itemSettings.FieldName = "StartDate";
+                //    itemSettings.Caption = "Data";
+                //    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                //    itemSettings.ColSpan = 1;
+                //    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.DateEdit;
+                //    var dateEditProperties = (DateEditSettings)itemSettings.NestedExtensionSettings;
+                //    dateEditProperties.Properties.EditFormatString = "dd/MM/yyyy";
+                //    dateEditProperties.Date = vars._currentDate;
+                //    dateEditProperties.Width = Unit.Pixel(250);
+                //});
 
 
                 formLayoutSettings.Items.AddEmptyItem();
