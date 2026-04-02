@@ -574,6 +574,8 @@
       <Association Name="Employee_TempQuotation" Member="TempQuotations" ThisKey="ID" OtherKey="ID_Approver" Type="TempQuotation" />
       <Association Name="Employee_TempQuotation1" Member="TempQuotations1" ThisKey="ID" OtherKey="ID_Owner" Type="TempQuotation" />
       <Association Name="Employee_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Contractor" Type="ProductionOrder" />
+      <Association Name="Employee_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="ID_Applicant" Type="LeaveRequest" />
+      <Association Name="Employee_LeaveRequest1" Member="LeaveRequests1" ThisKey="ID" OtherKey="ID_Manager" Type="LeaveRequest" />
       <Association Name="Employee_Employee" Member="Employee1" ThisKey="ID_Manager" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="UserRole_Employee" Member="UserRole" ThisKey="Role" OtherKey="ID" Type="UserRole" IsForeignKey="true" />
       <Association Name="Company_Employee" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
@@ -1933,11 +1935,19 @@
       <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="StatusDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
-      <Association Name="LeaveRequest_LeaveRequest" Member="LeaveRequest2" ThisKey="ID" OtherKey="ID" Type="LeaveRequest" Cardinality="One" />
       <Association Name="Company_LeaveRequest" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
-      <Association Name="LeaveRequest_LeaveRequest" Member="LeaveRequest1" ThisKey="ID" OtherKey="ID" Type="LeaveRequest" IsForeignKey="true" />
+      <Association Name="Employee_LeaveRequest" Member="Employee" ThisKey="ID_Applicant" OtherKey="ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Employee_LeaveRequest1" Member="Employee1" ThisKey="ID_Manager" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="LeaveType_LeaveRequest" Member="LeaveType1" ThisKey="LeaveType" OtherKey="ID" Type="LeaveType" IsForeignKey="true" />
       <Association Name="Statuse_LeaveRequest" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
+      <Association Name="DayFraction_LeaveRequest" Member="DayFraction1" ThisKey="DayFraction" OtherKey="ID" Type="DayFraction" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.DayFractions" Member="DayFractions">
+    <Type Name="DayFraction">
+      <Column Name="ID" Type="System.Char" DbType="Char(1) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Description" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
+      <Association Name="DayFraction_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="DayFraction" Type="LeaveRequest" />
     </Type>
   </Table>
   <Table Name="dbo.VW_LeaveRequests" Member="VW_LeaveRequests">
@@ -1953,6 +1963,7 @@
       <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DayFraction" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
+      <Column Name="DayFractionDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="VacationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="MessageToManager" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
       <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />

@@ -86,7 +86,7 @@
 
         settings.SettingsText.ConfirmDelete = "Si vuole procedere alla cancellazione del record?";
 
-        settings.SettingsCommandButton.EditButton.Text = "Modifica viaggio";
+        settings.SettingsCommandButton.EditButton.Text = "Modifica richiesta";
         settings.SettingsCommandButton.DeleteButton.Text = "";
         settings.SettingsCommandButton.DeleteButton.Image.DescriptionUrl = "~/Content/Images/icon-trash-32.png";
         settings.SettingsCommandButton.DeleteButton.Image.IconID = "trash";
@@ -112,7 +112,7 @@
         settings.Settings.ShowGroupPanel = false;
         settings.Settings.ShowFilterRow = false;
         settings.SettingsBehavior.AllowSelectByRowClick = false;
-        settings.SettingsText.PopupEditFormCaption = "Nuovo viaggio";
+        settings.SettingsText.PopupEditFormCaption = "Nuova richiesta";
         //settings.SettingsPopup.EditForm.Modal = true;
 
         settings.Columns.Add(column =>
@@ -125,37 +125,38 @@
 
         settings.Columns.Add(column =>
         {
-            column.FieldName = "Customer.Name";
-            column.Caption = "Cliente viaggio";
+            column.FieldName = "LeaveType.Description";
+            column.Caption = "Tipo permesso";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
 
         settings.Columns.Add(column =>
         {
-            column.FieldName = "Location.Name";
-            column.Caption = "Altra destinazione";
-            column.Visible = true;
-            column.EditFormSettings.Visible = DefaultBoolean.False;
-        });
-        
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "Employee.UniqueName";
-            column.Caption = "Autista";
-            column.Visible = true;
-            column.EditFormSettings.Visible = DefaultBoolean.False;
-        });
-
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "StartDate";
-            column.Caption = "Partenza";
+            column.FieldName = "RequestDate";
+            column.Caption = "Data richiesta";
             column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
             column.EditFormSettings.Visible = DefaultBoolean.False;
 
         });
 
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "StartDate";
+            column.Caption = "Data (inizio)";
+            column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+
+        });
+
+        settings.Columns.Add(column =>
+        {
+            column.FieldName = "EndDate";
+            column.Caption = "Data (fine)";
+            column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+
+        });
         
 
         //***********************************

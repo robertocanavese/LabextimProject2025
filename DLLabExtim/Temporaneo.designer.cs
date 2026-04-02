@@ -210,6 +210,9 @@ namespace TempDLLabExtim
     partial void InsertLeaveRequest(LeaveRequest instance);
     partial void UpdateLeaveRequest(LeaveRequest instance);
     partial void DeleteLeaveRequest(LeaveRequest instance);
+    partial void InsertDayFraction(DayFraction instance);
+    partial void UpdateDayFraction(DayFraction instance);
+    partial void DeleteDayFraction(DayFraction instance);
     #endregion
 		
 		public TemporaneoDataContext() : 
@@ -975,6 +978,14 @@ namespace TempDLLabExtim
 			get
 			{
 				return this.GetTable<LeaveRequest>();
+			}
+		}
+		
+		public System.Data.Linq.Table<DayFraction> DayFractions
+		{
+			get
+			{
+				return this.GetTable<DayFraction>();
 			}
 		}
 		
@@ -11017,6 +11028,10 @@ namespace TempDLLabExtim
 		
 		private EntitySet<ProductionOrder> _ProductionOrders;
 		
+		private EntitySet<LeaveRequest> _LeaveRequests;
+		
+		private EntitySet<LeaveRequest> _LeaveRequests1;
+		
 		private EntityRef<Employee> _Employee1;
 		
 		private EntityRef<UserRole> _UserRole;
@@ -11069,6 +11084,8 @@ namespace TempDLLabExtim
 			this._TempQuotations = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations), new Action<TempQuotation>(this.detach_TempQuotations));
 			this._TempQuotations1 = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations1), new Action<TempQuotation>(this.detach_TempQuotations1));
 			this._ProductionOrders = new EntitySet<ProductionOrder>(new Action<ProductionOrder>(this.attach_ProductionOrders), new Action<ProductionOrder>(this.detach_ProductionOrders));
+			this._LeaveRequests = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests), new Action<LeaveRequest>(this.detach_LeaveRequests));
+			this._LeaveRequests1 = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests1), new Action<LeaveRequest>(this.detach_LeaveRequests1));
 			this._Employee1 = default(EntityRef<Employee>);
 			this._UserRole = default(EntityRef<UserRole>);
 			this._Company = default(EntityRef<Company>);
@@ -11503,6 +11520,32 @@ namespace TempDLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_LeaveRequest", Storage="_LeaveRequests", ThisKey="ID", OtherKey="ID_Applicant")]
+		public EntitySet<LeaveRequest> LeaveRequests
+		{
+			get
+			{
+				return this._LeaveRequests;
+			}
+			set
+			{
+				this._LeaveRequests.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_LeaveRequest1", Storage="_LeaveRequests1", ThisKey="ID", OtherKey="ID_Manager")]
+		public EntitySet<LeaveRequest> LeaveRequests1
+		{
+			get
+			{
+				return this._LeaveRequests1;
+			}
+			set
+			{
+				this._LeaveRequests1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Employee", Storage="_Employee1", ThisKey="ID_Manager", OtherKey="ID", IsForeignKey=true)]
 		public Employee Employee1
 		{
@@ -11767,6 +11810,30 @@ namespace TempDLLabExtim
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
+		}
+		
+		private void attach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_LeaveRequests1(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee1 = this;
+		}
+		
+		private void detach_LeaveRequests1(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee1 = null;
 		}
 	}
 	
@@ -39650,15 +39717,17 @@ namespace TempDLLabExtim
 		
 		private string _MessageToApplicant;
 		
-		private EntityRef<LeaveRequest> _LeaveRequest2;
-		
 		private EntityRef<Company> _Company;
 		
-		private EntityRef<LeaveRequest> _LeaveRequest1;
+		private EntityRef<Employee> _Employee;
+		
+		private EntityRef<Employee> _Employee1;
 		
 		private EntityRef<LeaveType> _LeaveType1;
 		
 		private EntityRef<Statuse> _Statuse;
+		
+		private EntityRef<DayFraction> _DayFraction1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -39696,11 +39765,12 @@ namespace TempDLLabExtim
 		
 		public LeaveRequest()
 		{
-			this._LeaveRequest2 = default(EntityRef<LeaveRequest>);
 			this._Company = default(EntityRef<Company>);
-			this._LeaveRequest1 = default(EntityRef<LeaveRequest>);
+			this._Employee = default(EntityRef<Employee>);
+			this._Employee1 = default(EntityRef<Employee>);
 			this._LeaveType1 = default(EntityRef<LeaveType>);
 			this._Statuse = default(EntityRef<Statuse>);
+			this._DayFraction1 = default(EntityRef<DayFraction>);
 			OnCreated();
 		}
 		
@@ -39715,10 +39785,6 @@ namespace TempDLLabExtim
 			{
 				if ((this._ID != value))
 				{
-					if (this._LeaveRequest1.HasLoadedOrAssignedValue)
-					{
-						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
-					}
 					this.OnIDChanging(value);
 					this.SendPropertyChanging();
 					this._ID = value;
@@ -39763,6 +39829,10 @@ namespace TempDLLabExtim
 			{
 				if ((this._ID_Applicant != value))
 				{
+					if (this._Employee.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnID_ApplicantChanging(value);
 					this.SendPropertyChanging();
 					this._ID_Applicant = value;
@@ -39867,6 +39937,10 @@ namespace TempDLLabExtim
 			{
 				if ((this._DayFraction != value))
 				{
+					if (this._DayFraction1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnDayFractionChanging(value);
 					this.SendPropertyChanging();
 					this._DayFraction = value;
@@ -39927,6 +40001,10 @@ namespace TempDLLabExtim
 			{
 				if ((this._ID_Manager != value))
 				{
+					if (this._Employee1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
 					this.OnID_ManagerChanging(value);
 					this.SendPropertyChanging();
 					this._ID_Manager = value;
@@ -40000,35 +40078,6 @@ namespace TempDLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveRequest_LeaveRequest", Storage="_LeaveRequest2", ThisKey="ID", OtherKey="ID", IsUnique=true, IsForeignKey=false)]
-		public LeaveRequest LeaveRequest2
-		{
-			get
-			{
-				return this._LeaveRequest2.Entity;
-			}
-			set
-			{
-				LeaveRequest previousValue = this._LeaveRequest2.Entity;
-				if (((previousValue != value) 
-							|| (this._LeaveRequest2.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._LeaveRequest2.Entity = null;
-						previousValue.LeaveRequest1 = null;
-					}
-					this._LeaveRequest2.Entity = value;
-					if ((value != null))
-					{
-						value.LeaveRequest1 = this;
-					}
-					this.SendPropertyChanged("LeaveRequest2");
-				}
-			}
-		}
-		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Company_LeaveRequest", Storage="_Company", ThisKey="ID_Company", OtherKey="ID", IsForeignKey=true)]
 		public Company Company
 		{
@@ -40063,36 +40112,70 @@ namespace TempDLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveRequest_LeaveRequest", Storage="_LeaveRequest1", ThisKey="ID", OtherKey="ID", IsForeignKey=true)]
-		public LeaveRequest LeaveRequest1
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_LeaveRequest", Storage="_Employee", ThisKey="ID_Applicant", OtherKey="ID", IsForeignKey=true)]
+		public Employee Employee
 		{
 			get
 			{
-				return this._LeaveRequest1.Entity;
+				return this._Employee.Entity;
 			}
 			set
 			{
-				LeaveRequest previousValue = this._LeaveRequest1.Entity;
+				Employee previousValue = this._Employee.Entity;
 				if (((previousValue != value) 
-							|| (this._LeaveRequest1.HasLoadedOrAssignedValue == false)))
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
 					if ((previousValue != null))
 					{
-						this._LeaveRequest1.Entity = null;
-						previousValue.LeaveRequest2 = null;
+						this._Employee.Entity = null;
+						previousValue.LeaveRequests.Remove(this);
 					}
-					this._LeaveRequest1.Entity = value;
+					this._Employee.Entity = value;
 					if ((value != null))
 					{
-						value.LeaveRequest2 = this;
-						this._ID = value.ID;
+						value.LeaveRequests.Add(this);
+						this._ID_Applicant = value.ID;
 					}
 					else
 					{
-						this._ID = default(int);
+						this._ID_Applicant = default(Nullable<int>);
 					}
-					this.SendPropertyChanged("LeaveRequest1");
+					this.SendPropertyChanged("Employee");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_LeaveRequest1", Storage="_Employee1", ThisKey="ID_Manager", OtherKey="ID", IsForeignKey=true)]
+		public Employee Employee1
+		{
+			get
+			{
+				return this._Employee1.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee1.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee1.Entity = null;
+						previousValue.LeaveRequests1.Remove(this);
+					}
+					this._Employee1.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests1.Add(this);
+						this._ID_Manager = value.ID;
+					}
+					else
+					{
+						this._ID_Manager = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Employee1");
 				}
 			}
 		}
@@ -40165,6 +40248,40 @@ namespace TempDLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DayFraction_LeaveRequest", Storage="_DayFraction1", ThisKey="DayFraction", OtherKey="ID", IsForeignKey=true)]
+		public DayFraction DayFraction1
+		{
+			get
+			{
+				return this._DayFraction1.Entity;
+			}
+			set
+			{
+				DayFraction previousValue = this._DayFraction1.Entity;
+				if (((previousValue != value) 
+							|| (this._DayFraction1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DayFraction1.Entity = null;
+						previousValue.LeaveRequests.Remove(this);
+					}
+					this._DayFraction1.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests.Add(this);
+						this._DayFraction = value.ID;
+					}
+					else
+					{
+						this._DayFraction = default(Nullable<char>);
+					}
+					this.SendPropertyChanged("DayFraction1");
+				}
+			}
+		}
+		
 		public event PropertyChangingEventHandler PropertyChanging;
 		
 		public event PropertyChangedEventHandler PropertyChanged;
@@ -40183,6 +40300,120 @@ namespace TempDLLabExtim
 			{
 				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.DayFractions")]
+	public partial class DayFraction : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private char _ID;
+		
+		private string _Description;
+		
+		private EntitySet<LeaveRequest> _LeaveRequests;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIDChanging(char value);
+    partial void OnIDChanged();
+    partial void OnDescriptionChanging(string value);
+    partial void OnDescriptionChanged();
+    #endregion
+		
+		public DayFraction()
+		{
+			this._LeaveRequests = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests), new Action<LeaveRequest>(this.detach_LeaveRequests));
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Char(1) NOT NULL", IsPrimaryKey=true)]
+		public char ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this.OnIDChanging(value);
+					this.SendPropertyChanging();
+					this._ID = value;
+					this.SendPropertyChanged("ID");
+					this.OnIDChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Description", DbType="VarChar(50)")]
+		public string Description
+		{
+			get
+			{
+				return this._Description;
+			}
+			set
+			{
+				if ((this._Description != value))
+				{
+					this.OnDescriptionChanging(value);
+					this.SendPropertyChanging();
+					this._Description = value;
+					this.SendPropertyChanged("Description");
+					this.OnDescriptionChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DayFraction_LeaveRequest", Storage="_LeaveRequests", ThisKey="ID", OtherKey="DayFraction")]
+		public EntitySet<LeaveRequest> LeaveRequests
+		{
+			get
+			{
+				return this._LeaveRequests;
+			}
+			set
+			{
+				this._LeaveRequests.Assign(value);
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+		
+		private void attach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.DayFraction1 = this;
+		}
+		
+		private void detach_LeaveRequests(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.DayFraction1 = null;
 		}
 	}
 	
@@ -40211,6 +40442,8 @@ namespace TempDLLabExtim
 		private System.Nullable<System.DateTime> _EndDate;
 		
 		private System.Nullable<char> _DayFraction;
+		
+		private string _DayFractionDesc;
 		
 		private System.Nullable<int> _VacationDays;
 		
@@ -40404,6 +40637,22 @@ namespace TempDLLabExtim
 				if ((this._DayFraction != value))
 				{
 					this._DayFraction = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DayFractionDesc", DbType="VarChar(50)")]
+		public string DayFractionDesc
+		{
+			get
+			{
+				return this._DayFractionDesc;
+			}
+			set
+			{
+				if ((this._DayFractionDesc != value))
+				{
+					this._DayFractionDesc = value;
 				}
 			}
 		}

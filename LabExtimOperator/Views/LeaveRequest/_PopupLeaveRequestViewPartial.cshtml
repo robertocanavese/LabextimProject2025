@@ -6,15 +6,15 @@
 @{
 
     var context = new DLLabExtim.QuotationDataContext();
-    DeliveryTripControllerSessionVariables vars = new DeliveryTripControllerSessionVariables();
+    LeaveRequestControllerSessionVariables vars = new LeaveRequestControllerSessionVariables();
 }
 
-@model DLLabExtim.DeliveryTrip
+@model DLLabExtim.LeaveRequest
 
 @Html.DevExpress().PopupControl(
     settings =>
     {
-        settings.Name = "popupDeliveryTrip";
+        settings.Name = "popupLeaveRequest";
         settings.Width = Unit.Pixel(600); ;
         settings.AllowDragging = true;
         settings.CloseAction = CloseAction.CloseButton;
@@ -27,13 +27,13 @@
         settings.PopupVerticalAlign = PopupVerticalAlign.WindowCenter;
         settings.SetContent(() =>
         {
-            using (Html.BeginForm("SubmitDeliveryTrip", "DeliveryTrip", FormMethod.Post, new { id = "popupForm", @class = "edit_form" }))
+            using (Html.BeginForm("SubmitLeaveRequest", "LeaveRequest", FormMethod.Post, new { id = "popupForm", @class = "edit_form" }))
             {
                 //Html.Hidden("ID");
 
                 @Html.DevExpress().FormLayout(formLayoutSettings =>
                 {
-                    formLayoutSettings.Name = "FormLayoutDeliveryTrip";
+                    formLayoutSettings.Name = "FormLayoutLeaveRequest";
                     formLayoutSettings.RequiredMarkDisplayMode = RequiredMarkMode.None;
                     formLayoutSettings.Width = Unit.Percentage(100);
                     formLayoutSettings.Height = Unit.Percentage(100);
@@ -153,7 +153,7 @@
                                     buttonSettings.ControlStyle.CssClass = "button";
                                     buttonSettings.Width = 100;
                                     buttonSettings.Text = "Annulla";
-                                    buttonSettings.ClientSideEvents.Click = "function(s, e){ popupDeliveryTrip.Hide(); }";
+                                    buttonSettings.ClientSideEvents.Click = "function(s, e){ popupLeaveRequest.Hide(); }";
                                 }
                             ).Render();
                         });

@@ -16,6 +16,15 @@
                 {
                     <table align="right">
                         <tr>
+                            <td>
+                                @Html.DevExpress().Button(settings =>
+                                {
+                                    settings.Name = "btnGoToLeaveRequests";
+                                    settings.Text = "Vai a richieste permessi";
+                                    settings.UseSubmitBehavior = false;
+                                    settings.RouteValues = new { Controller = "LeaveRequest", Action = "index" };
+                                }).GetHtml()
+                            </td>
                             @*<td>
                                     @Html.DevExpress().Button(settings =>
                                     {
