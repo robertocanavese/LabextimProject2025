@@ -224,26 +224,24 @@
                 formLayoutSettings.ColCount = 2;
 
 
-                //formLayoutSettings.Items.Add(itemSettings =>
-                //{
-                //    itemSettings.FieldName = "CustomerCode";
-                //    itemSettings.Caption = "Cliente";
-                //    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                //    itemSettings.ColSpan = 2;
-                //    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
-                //    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                //    var odps = from odp in context.Customers
-                //               where ((odp.Code < 200000000 && vars._currentCompanyId == 1)
-                //               || (odp.Code >= 200000000 && vars._currentCompanyId == 2)) && !odp.Name.StartsWith("***")
-                //               orderby odp.Name
-                //               select new { ID = odp.Code, Name = odp.Name };
-                //    comboBoxSetings.Properties.DataSource = odps.ToList();
-                //    comboBoxSetings.Properties.TextField = "Name";
-                //    comboBoxSetings.Properties.ValueField = "ID";
-                //    comboBoxSetings.Properties.ValueType = typeof(int);
-                //    comboBoxSetings.Width = Unit.Percentage(100);
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "LeaveType";
+                    itemSettings.Caption = "Tipo permesso";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 2;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var vdata = from data in context.LeaveTypes
+                               orderby odp.ID
+                               select new { ID = odp.ID, Name = odp.Description };
+                    comboBoxSetings.Properties.DataSource = vdata.ToList();
+                    comboBoxSetings.Properties.TextField = "Name";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(100);
                     
-                //});
+                });
 
                 //formLayoutSettings.Items.Add(itemSettings =>
                 //{
@@ -319,7 +317,7 @@
                         btnSettings =>
                         {
                             btnSettings.Name = "btnUpdateDT";
-                            btnSettings.Text = "Salva";
+                            btnSettings.Text = "Invia richiesta";
                             btnSettings.ClientSideEvents.Click = "function(s, e){ LeaveRequestView.UpdateEdit(); }";
                         }).Render();
                     Html.DevExpress().Button(
