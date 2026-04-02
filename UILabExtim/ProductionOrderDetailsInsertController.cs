@@ -466,27 +466,27 @@ namespace UILabExtim
                     _listLeaveRequests =
                         _context.LeaveRequests.Where(
                             pod =>
-                                pod.StartDate == date && pod.ID_Applicant == owner && pod.Status == 0).ToList();
+                                pod.StartDate == date && pod.ID_Applicant == owner).ToList();
                 }
                 else if (owner != null && owner != 0 && date == null)
                 {
                     _listLeaveRequests =
                         _context.LeaveRequests.Where(
                             pod =>
-                                pod.ID_Applicant == owner && pod.Status == 0 && (idCompany == -1 || pod.ID_Company == idCompany)).ToList();
+                                pod.ID_Applicant == owner && (idCompany == -1 || pod.ID_Company == idCompany)).ToList();
                 }
                 else if (owner != null && owner != 0)
                 {
                     _listLeaveRequests =
                         _context.LeaveRequests.Where(
                             pod =>
-                                pod.ID_Applicant == owner && pod.Status == 0).ToList();
+                                pod.ID_Applicant == owner).ToList();
                 }
                 else
                 {
                     _listLeaveRequests =
                         _context.LeaveRequests.Where(
-                            pod => pod.Status == 0 && (idCompany == -1 || pod.ID_Company == idCompany))
+                            pod => (idCompany == -1 || pod.ID_Company == idCompany))
                             .ToList();
                 }
                 foreach (var _LeaveRequest in _listLeaveRequests)
