@@ -177,7 +177,7 @@
         settings.Columns.Add(column =>
         {
             column.FieldName = "StatusDate";
-            column.Caption = "Data";
+            column.Caption = "il";
             column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
             column.EditFormSettings.Visible = DefaultBoolean.False;
 
@@ -316,7 +316,7 @@
                     ViewContext.Writer.Write("</div>");
                 });
             })
-            .Bind(ViewData["EditableTrip"] ?? c.DataItem)
+            .Bind(ViewData["EditableLeaveRequest"] ?? c.DataItem)
             .Render();
         });
 

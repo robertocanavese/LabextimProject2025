@@ -337,9 +337,11 @@ namespace UILabExtim
             {
 
                 var dataOptions = new DataLoadOptions();
-                dataOptions.LoadWith<DeliveryTrip>(c => c.Employee);
-                dataOptions.LoadWith<DeliveryTrip>(c => c.Customer);
-                dataOptions.LoadWith<DeliveryTrip>(c => c.Location);
+                dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
                 _context.LoadOptions = dataOptions;
 
                 if (owner != null && owner != 0 && date != null)
@@ -387,10 +389,11 @@ namespace UILabExtim
             {
 
                 var dataOptions = new DataLoadOptions();
-                dataOptions.LoadWith<DeliveryTripDetail>(c => c.DeliveryTrip);
-                dataOptions.LoadWith<DeliveryTrip>(c => c.Employee);
-                dataOptions.LoadWith<DeliveryTrip>(c => c.Customer);
-                dataOptions.LoadWith<DeliveryTrip>(c => c.Location);
+                dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
                 _context.LoadOptions = dataOptions;
 
                 if (owner != null && owner != 0 && date != null && idDeliveryTrip != 0)
@@ -453,6 +456,9 @@ namespace UILabExtim
                 var dataOptions = new DataLoadOptions();
                 dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType);
                 dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
                 _context.LoadOptions = dataOptions;
 
                 if (owner != null && owner != 0 && date != null)
@@ -488,7 +494,7 @@ namespace UILabExtim
                     _listTempLeaveRequests.Add(_LeaveRequest);
                 }
             }
-            return _listTempLeaveRequests;
+            return _listTempLeaveRequests.OrderByDescending(d => d.ID).ToList();
         }
 
         public static LeaveRequest GetLeaveRequest(QuotationDataContext context, int id)

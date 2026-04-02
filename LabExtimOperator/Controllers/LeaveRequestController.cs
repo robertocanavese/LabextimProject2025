@@ -188,7 +188,7 @@ namespace LabExtimOperator.Controllers
 
             //return new ProductionOrderDetailsInsertController().GetLeaveRequestsOfAnOwner(null, null, variables._currentCompanyId);
             //merge aziendale
-            return new ProductionOrderDetailsInsertController().GetLeaveRequestsOfAnOwner(null, null, -1);
+            return new ProductionOrderDetailsInsertController().GetLeaveRequestsOfAnOwner(variables._idUser, null, -1);
         }
 
         //[HttpPost, ValidateInput(false)]
