@@ -323,6 +323,7 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
                         _LeaveRequest.VacationDays = (item.VacationDays == null ? 1 : item.VacationDays);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
+                        _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
                         _LeaveRequest.StatusDate = DateTime.Now;
 
@@ -382,10 +383,11 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.LeaveType = item.LeaveType;
                         _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
-                        _LeaveRequest.EndDate = item.EndDate;
-                        _LeaveRequest.DayFraction = item.DayFraction;
-                        _LeaveRequest.VacationDays = item.VacationDays;
+                        _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
+                        _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? 1 : item.VacationDays);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
+                        _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
                         _LeaveRequest.StatusDate = DateTime.Now;
 
