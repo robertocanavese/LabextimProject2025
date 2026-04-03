@@ -280,16 +280,16 @@ namespace LabExtimOperator.Controllers
 
             LeaveRequestControllerSessionVariables variables = new LeaveRequestControllerSessionVariables();
 
-            if (item.ID_Applicant == 0)
+            if (item.ID_Manager == 0)
             {
-                ViewData["EditError"] = "Operatore non selezionato";
+                ViewData["EditError"] = "Responsabile destinatario non selezionato";
                 ViewBag.IsNew = true;
                 return PartialView("_LeaveRequestViewPartial", variables._model);
             }
 
             if (item.StartDate == null)
             {
-                ViewData["EditError"] = "Data inizio non selezionata";
+                ViewData["EditError"] = "Data inizio assenza non selezionata";
                 ViewBag.IsNew = true;
                 return PartialView("_LeaveRequestViewPartial", variables._model);
             }
@@ -314,14 +314,14 @@ namespace LabExtimOperator.Controllers
                             _LeaveRequest.ID = item.ID;
                         }
 
-                        _LeaveRequest.ID_Applicant = item.ID_Applicant;
+                        _LeaveRequest.ID_Applicant = variables._idUser;
                         _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).ID_Company;
                         _LeaveRequest.LeaveType = item.LeaveType;
                         _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
-                        _LeaveRequest.EndDate = item.EndDate;
-                        _LeaveRequest.DayFraction = item.DayFraction;
-                        _LeaveRequest.VacationDays = item.VacationDays;
+                        _LeaveRequest.EndDate =  (item.EndDate == null ? item.StartDate : item.EndDate);
+                        _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? 1 : item.VacationDays);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
                         _LeaveRequest.Status = 19;
                         _LeaveRequest.StatusDate = DateTime.Now;
