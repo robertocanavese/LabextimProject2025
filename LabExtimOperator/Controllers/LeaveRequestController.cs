@@ -385,7 +385,7 @@ namespace LabExtimOperator.Controllers
 
                         if (_LeaveRequest.Status > 19)
                         {
-                            throw new Exception("Impossibile modificare, richiesta già evasa dal responsabile!");
+                            throw new Exception("Impossibile modificare, nel frattempo la richiesta è già stata evasa dal responsabile!");
                         }
 
                         _LeaveRequest.LeaveType = item.LeaveType;
