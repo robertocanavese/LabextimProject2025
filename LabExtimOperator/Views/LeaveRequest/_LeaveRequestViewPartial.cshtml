@@ -81,6 +81,17 @@
         settings.CommandColumn.ShowNewButton = false;
         settings.CommandColumn.ShowDeleteButton = true;
         settings.CommandColumn.ShowEditButton = true;
+        settings.CommandButtonInitialize = (s, e) =>
+            {
+                  if(e.VisibleIndex == -1) return;  
+                if (e.ButtonType == ColumnCommandButtonType.Edit)
+                {
+                    object fieldValue = (s as MVCxGridView).GetRowValues(e.VisibleIndex, "Status");  
+                    e.Visible = (Convert.ToInt32(fieldValue) == 19);
+                }
+                
+            };
+        
         settings.SettingsCommandButton.EditButton.ButtonType = GridViewCommandButtonType.Button;
         settings.SettingsCommandButton.DeleteButton.ButtonType = GridViewCommandButtonType.Image;
 
@@ -173,7 +184,7 @@
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
-        
+
         settings.Columns.Add(column =>
         {
             column.FieldName = "Statuse.Description";
@@ -207,8 +218,8 @@
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
-        
-        
+
+
         //***********************************
         // EDIT CUSTOM FORM
         //***********************************
@@ -219,7 +230,7 @@
             {
                 formLayoutSettings.Name = "FormLayoutLeaveRequest";
                 formLayoutSettings.Width = Unit.Pixel(Request.Browser.ScreenPixelsWidth);
-                formLayoutSettings.Height = Unit.Pixel(Convert.ToInt32(Request.Browser.ScreenPixelsHeight /2));
+                formLayoutSettings.Height = Unit.Pixel(Convert.ToInt32(Request.Browser.ScreenPixelsHeight / 2));
                 formLayoutSettings.Width = Unit.Percentage(100);
 
                 formLayoutSettings.ColCount = 2;
@@ -241,7 +252,7 @@
                     comboBoxSetings.Properties.ValueField = "ID";
                     comboBoxSetings.Properties.ValueType = typeof(int);
                     comboBoxSetings.Width = Unit.Percentage(100);
-                    
+
                 });
 
                 formLayoutSettings.Items.Add(itemSettings =>
@@ -311,7 +322,7 @@
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(50);
                 });
-                
+
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.FieldName = "ID_Manager";
@@ -320,7 +331,7 @@
                     itemSettings.ColSpan = 2;
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
                     var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                    var vdata = from data in context.Employees.Where(d => new int[] {1,18,20}.Contains(d.ID))
+                    var vdata = from data in context.Employees.Where(d => new int[] { 1, 18, 20 }.Contains(d.ID))
                                 orderby data.ID
                                 select new { ID = data.ID, Name = data.UniqueName };
                     comboBoxSetings.Properties.DataSource = vdata.ToList();
@@ -355,7 +366,7 @@
                     comboBoxSetings.Height = Unit.Pixel(50);
                     comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
-                
+
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 2;
@@ -368,7 +379,7 @@
                     comboBoxSetings.Height = Unit.Pixel(50);
                     comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
-                
+
                 formLayoutSettings.Items.AddEmptyItem();
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
@@ -400,7 +411,7 @@
         });
 
     });
-    if (ViewData["EditError"] != null) 
+    if (ViewData["EditError"] != null)
     {
         grid.SetEditErrorText((string)ViewData["EditError"]);
     }

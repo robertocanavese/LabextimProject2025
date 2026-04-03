@@ -112,10 +112,15 @@ namespace LabExtimOperator.Controllers
         //}
 
         [Authorize]
-        public ActionResult Index(DateTime? curDate, int? EvadiODP)
+        public ActionResult Index()
         {
-            //LeaveRequestControllerSessionVariables variables = new LeaveRequestControllerSessionVariables();
-            //ViewBag.UserName = WebSecurity.CurrentUserName;
+            LeaveRequestControllerSessionVariables variables = new LeaveRequestControllerSessionVariables();
+
+            using (QuotationDataContext db = new QuotationDataContext())
+            {
+                Employee curEmployee = db.Employees.FirstOrDefault(d => d.ID == variables._idUser);
+                ViewBag.UserName = curEmployee.UniqueName;
+            }
 
             //variables._IDmodel = 0;
             //ViewBag.IdLeaveRequest = "Tutti";
