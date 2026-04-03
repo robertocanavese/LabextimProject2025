@@ -310,6 +310,24 @@
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(50);
                 });
+                
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ID_Manager";
+                    itemSettings.Caption = "Inviare a";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 2;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var vdata = from data in context.Employees.Where(d => new int[] {1,18,20}.Contains(d.ID))
+                                orderby data.ID
+                                select new { ID = data.ID, Name = data.UniqueName };
+                    comboBoxSetings.Properties.DataSource = vdata.ToList();
+                    comboBoxSetings.Properties.TextField = "Name";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(50);
+                });
 
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
@@ -321,50 +339,33 @@
                     var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(30);
+                    comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
 
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 1;
                     itemSettings.FieldName = "StatusDate";
-                    itemSettings.Caption = "Data";
+                    itemSettings.Caption = "Aggiornamento";
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Calendar;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
                     var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
-                    comboBoxSetings.Enabled = false;
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(30);
+                    comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
                 
-                formLayoutSettings.Items.Add(itemSettings =>
-                {
-                    itemSettings.FieldName = "ID_Manager";
-                    itemSettings.Caption = "inviare a";
-                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                    itemSettings.ColSpan = 1;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
-                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                    var vdata = from data in context.Employees
-                                orderby data.ID
-                                select new { ID = data.ID, Name = data.UniqueName };
-                    comboBoxSetings.Properties.DataSource = vdata.ToList();
-                    comboBoxSetings.Properties.TextField = "Name";
-                    comboBoxSetings.Properties.ValueField = "ID";
-                    comboBoxSetings.Properties.ValueType = typeof(int);
-                    comboBoxSetings.Width = Unit.Percentage(100);
-                });
-
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 2;
                     itemSettings.FieldName = "MessageToApplicant";
                     itemSettings.Caption = "Comunicazioni da responsabile";
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Memo;
-                    var comboBoxSetings = (MemoSettings)itemSettings.NestedExtensionSettings;
-                    comboBoxSetings.Enabled = false;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
+                    var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(50);
+                    comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
                 
                 formLayoutSettings.Items.AddEmptyItem();
