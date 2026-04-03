@@ -322,17 +322,36 @@
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(30);
                 });
-                
+
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 1;
-                    itemSettings.FieldName = "Employee1.UniqueName";
-                    itemSettings.Caption = "Responsabile";
+                    itemSettings.FieldName = "StatusDate";
+                    itemSettings.Caption = "Data";
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Calendar;
                     var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Enabled = false;
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(30);
+                });
+                
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.FieldName = "ID_Manager";
+                    itemSettings.Caption = "inviare a";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.ColSpan = 1;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
+                    var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
+                    var vdata = from data in context.Employees
+                                orderby data.ID
+                                select new { ID = data.ID, Name = data.UniqueName };
+                    comboBoxSetings.Properties.DataSource = vdata.ToList();
+                    comboBoxSetings.Properties.TextField = "Name";
+                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.ValueType = typeof(int);
+                    comboBoxSetings.Width = Unit.Percentage(100);
                 });
 
                 formLayoutSettings.Items.Add(itemSettings =>
