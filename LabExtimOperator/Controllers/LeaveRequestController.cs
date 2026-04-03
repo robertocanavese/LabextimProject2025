@@ -383,6 +383,11 @@ namespace LabExtimOperator.Controllers
                             _LeaveRequest.ID = item.ID;
                         }
 
+                        if (_LeaveRequest.Status > 19)
+                        {
+                            throw new Exception("Impossibile modificare, richiesta già evasa dal responsabile!");
+                        }
+
                         _LeaveRequest.LeaveType = item.LeaveType;
                         _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
