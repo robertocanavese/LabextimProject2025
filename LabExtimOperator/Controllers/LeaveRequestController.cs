@@ -406,7 +406,7 @@ namespace LabExtimOperator.Controllers
                 }
             }
             else
-                ViewData["EditError"] = "Please, correct all errors.";
+                ViewData["EditError"] = "Si prega di correggere tutti gli errori.";
             //return PartialView("_PopupLeaveRequestViewPartial", item);
             return PartialView("_LeaveRequestViewPartial", variables._model);
 
