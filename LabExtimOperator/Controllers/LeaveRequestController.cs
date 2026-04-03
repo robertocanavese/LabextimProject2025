@@ -378,8 +378,6 @@ namespace LabExtimOperator.Controllers
                             _LeaveRequest.ID = item.ID;
                         }
 
-                        _LeaveRequest.ID_Applicant = item.ID_Applicant;
-                        _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).ID_Company;
                         _LeaveRequest.LeaveType = item.LeaveType;
                         _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
