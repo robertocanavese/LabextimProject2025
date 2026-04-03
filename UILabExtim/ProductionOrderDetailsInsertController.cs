@@ -506,8 +506,8 @@ namespace UILabExtim
                 var _leaveRequest = GetLeaveRequest(_context, id);
                 if (_leaveRequest != null)
                 {
-                    _context.LeaveRequests.DeleteOnSubmit(_leaveRequest);
-
+                    //_context.LeaveRequests.DeleteOnSubmit(_leaveRequest);
+                    _leaveRequest.Status = 22;
                     _context.SubmitChanges();
 
                 }

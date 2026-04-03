@@ -423,7 +423,7 @@ namespace LabExtimOperator.Controllers
                 {
                     LeaveRequest pod = variables._model.Single(x => x.ID == ID);
                     new UILabExtim.ProductionOrderDetailsInsertController().DeleteLeaveRequest(pod.ID);
-                    variables._model.Remove(pod);
+                    //variables._model.Remove(pod);
                     variables._model = LeaveRequestViewPartialSetModelList();
                 }
                 catch (Exception e)
