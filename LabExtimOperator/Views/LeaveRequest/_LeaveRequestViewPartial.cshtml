@@ -123,7 +123,7 @@
 
         settings.Columns.Add(column =>
         {
-            column.FieldName = "LeaveType";
+            column.FieldName = "LeaveType1.Description";
             column.Caption = "Tipo permesso";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
@@ -144,6 +144,7 @@
             column.Caption = "Data inizio assenza";
             column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
             column.EditFormSettings.Visible = DefaultBoolean.False;
+            column.CellStyle.Font.Bold = true;
 
         });
 
@@ -153,6 +154,7 @@
             column.Caption = "Data fine assenza";
             column.PropertiesEdit.DisplayFormatString = "dd/MM/yyyy";
             column.EditFormSettings.Visible = DefaultBoolean.False;
+            column.CellStyle.Font.Bold = true;
 
         });
 
@@ -178,6 +180,7 @@
             column.Caption = "Stato richiesta";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
+            column.CellStyle.Font.Bold = true;
         });
 
         settings.Columns.Add(column =>
@@ -191,7 +194,7 @@
 
         settings.Columns.Add(column =>
         {
-            column.FieldName = "Employee1.Uniquename";
+            column.FieldName = "Employee1.UniqueName";
             column.Caption = "Responsabile";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
