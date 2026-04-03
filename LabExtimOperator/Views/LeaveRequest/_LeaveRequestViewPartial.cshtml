@@ -83,8 +83,8 @@
         settings.CommandColumn.ShowEditButton = true;
         settings.CommandButtonInitialize = (s, e) =>
             {
-                  if(e.VisibleIndex == -1) return;  
-                if (e.ButtonType == ColumnCommandButtonType.Edit)
+                  if(e.VisibleIndex == -1) return;
+                  if (e.ButtonType == ColumnCommandButtonType.Edit || e.ButtonType == ColumnCommandButtonType.Delete)
                 {
                     object fieldValue = (s as MVCxGridView).GetRowValues(e.VisibleIndex, "Status");  
                     e.Visible = (Convert.ToInt32(fieldValue) == 19);
