@@ -1674,5 +1674,22 @@ namespace UILabExtim
 
         }
 
+
+        public void ChangeLeaveRequestStatus(int status, int idLeaveRequest, int idApprover, string messageToApplicant = "")
+        {
+            using (QuotationDataContext ctx = new QuotationDataContext())
+            {
+                LeaveRequest lr = ctx.LeaveRequests.FirstOrDefault(d => d.ID == idLeaveRequest);
+                lr.MessageToApplicant = messageToApplicant;
+                lr.Status = status;
+                lr.StatusDate = DateTime.Now;
+                lr.ID_Approver = idApprover;
+                ctx.SubmitChanges();
+            }
+
+        }
+
+
+
     }
 }

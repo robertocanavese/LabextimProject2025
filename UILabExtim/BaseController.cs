@@ -70,6 +70,7 @@ namespace UILabExtim
         protected static readonly string GenericReportKey = "P2";
         protected static readonly string LocationKey = "P10";
         protected static readonly string DeliveryTripKey = "P11";
+        protected static readonly string LeaveRequestKey = "P12";
 
 
         public LabextimUser WebUser
@@ -212,6 +213,15 @@ namespace UILabExtim
             get
             {
                 object temp = Request.QueryString[DeliveryTripKey];
+                return temp == null ? string.Empty : temp.ToString().PadRight(9, ' ').Substring(0, 9);
+            }
+        }
+
+        public string LeaveRequestParameter
+        {
+            get
+            {
+                object temp = Request.QueryString[LeaveRequestKey];
                 return temp == null ? string.Empty : temp.ToString().PadRight(9, ' ').Substring(0, 9);
             }
         }
