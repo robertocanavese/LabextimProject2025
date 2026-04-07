@@ -18242,6 +18242,8 @@ namespace DLLabExtim
 		
 		private EntitySet<LeaveRequest> _LeaveRequests1;
 		
+		private EntitySet<LeaveRequest> _LeaveRequests2;
+		
 		private EntityRef<Employee> _Employee1;
 		
 		private EntityRef<UserRole> _UserRole;
@@ -18297,6 +18299,7 @@ namespace DLLabExtim
 			this._CloseOfDays = new EntitySet<CloseOfDay>(new Action<CloseOfDay>(this.attach_CloseOfDays), new Action<CloseOfDay>(this.detach_CloseOfDays));
 			this._LeaveRequests = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests), new Action<LeaveRequest>(this.detach_LeaveRequests));
 			this._LeaveRequests1 = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests1), new Action<LeaveRequest>(this.detach_LeaveRequests1));
+			this._LeaveRequests2 = new EntitySet<LeaveRequest>(new Action<LeaveRequest>(this.attach_LeaveRequests2), new Action<LeaveRequest>(this.detach_LeaveRequests2));
 			this._Employee1 = default(EntityRef<Employee>);
 			this._UserRole = default(EntityRef<UserRole>);
 			this._Company = default(EntityRef<Company>);
@@ -18770,6 +18773,19 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_LeaveRequest2", Storage="_LeaveRequests2", ThisKey="ID", OtherKey="ID_Approver")]
+		public EntitySet<LeaveRequest> LeaveRequests2
+		{
+			get
+			{
+				return this._LeaveRequests2;
+			}
+			set
+			{
+				this._LeaveRequests2.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_Employee", Storage="_Employee1", ThisKey="ID_Manager", OtherKey="ID", IsForeignKey=true)]
 		public Employee Employee1
 		{
@@ -19070,6 +19086,18 @@ namespace DLLabExtim
 		{
 			this.SendPropertyChanging();
 			entity.Employee1 = null;
+		}
+		
+		private void attach_LeaveRequests2(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee2 = this;
+		}
+		
+		private void detach_LeaveRequests2(LeaveRequest entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee2 = null;
 		}
 	}
 	
@@ -41696,19 +41724,23 @@ namespace DLLabExtim
 		
 		private System.Nullable<System.DateTime> _StatusDate;
 		
+		private System.Nullable<int> _ID_Approver;
+		
 		private string _MessageToApplicant;
 		
 		private EntityRef<Company> _Company;
+		
+		private EntityRef<DayFraction> _DayFraction1;
 		
 		private EntityRef<Employee> _Employee;
 		
 		private EntityRef<Employee> _Employee1;
 		
+		private EntityRef<Employee> _Employee2;
+		
 		private EntityRef<LeaveType> _LeaveType1;
 		
 		private EntityRef<Statuse> _Statuse;
-		
-		private EntityRef<DayFraction> _DayFraction1;
 		
     #region Extensibility Method Definitions
     partial void OnLoaded();
@@ -41740,6 +41772,8 @@ namespace DLLabExtim
     partial void OnStatusChanged();
     partial void OnStatusDateChanging(System.Nullable<System.DateTime> value);
     partial void OnStatusDateChanged();
+    partial void OnID_ApproverChanging(System.Nullable<int> value);
+    partial void OnID_ApproverChanged();
     partial void OnMessageToApplicantChanging(string value);
     partial void OnMessageToApplicantChanged();
     #endregion
@@ -41747,11 +41781,12 @@ namespace DLLabExtim
 		public LeaveRequest()
 		{
 			this._Company = default(EntityRef<Company>);
+			this._DayFraction1 = default(EntityRef<DayFraction>);
 			this._Employee = default(EntityRef<Employee>);
 			this._Employee1 = default(EntityRef<Employee>);
+			this._Employee2 = default(EntityRef<Employee>);
 			this._LeaveType1 = default(EntityRef<LeaveType>);
 			this._Statuse = default(EntityRef<Statuse>);
-			this._DayFraction1 = default(EntityRef<DayFraction>);
 			OnCreated();
 		}
 		
@@ -42039,6 +42074,30 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Approver", DbType="Int")]
+		public System.Nullable<int> ID_Approver
+		{
+			get
+			{
+				return this._ID_Approver;
+			}
+			set
+			{
+				if ((this._ID_Approver != value))
+				{
+					if (this._Employee2.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_ApproverChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Approver = value;
+					this.SendPropertyChanged("ID_Approver");
+					this.OnID_ApproverChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToApplicant", DbType="VarChar(1024)")]
 		public string MessageToApplicant
 		{
@@ -42089,6 +42148,40 @@ namespace DLLabExtim
 						this._ID_Company = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Company");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DayFraction_LeaveRequest", Storage="_DayFraction1", ThisKey="DayFraction", OtherKey="ID", IsForeignKey=true)]
+		public DayFraction DayFraction1
+		{
+			get
+			{
+				return this._DayFraction1.Entity;
+			}
+			set
+			{
+				DayFraction previousValue = this._DayFraction1.Entity;
+				if (((previousValue != value) 
+							|| (this._DayFraction1.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._DayFraction1.Entity = null;
+						previousValue.LeaveRequests.Remove(this);
+					}
+					this._DayFraction1.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests.Add(this);
+						this._DayFraction = value.ID;
+					}
+					else
+					{
+						this._DayFraction = default(Nullable<char>);
+					}
+					this.SendPropertyChanged("DayFraction1");
 				}
 			}
 		}
@@ -42161,6 +42254,40 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_LeaveRequest2", Storage="_Employee2", ThisKey="ID_Approver", OtherKey="ID", IsForeignKey=true)]
+		public Employee Employee2
+		{
+			get
+			{
+				return this._Employee2.Entity;
+			}
+			set
+			{
+				Employee previousValue = this._Employee2.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee2.HasLoadedOrAssignedValue == false)))
+				{
+					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee2.Entity = null;
+						previousValue.LeaveRequests2.Remove(this);
+					}
+					this._Employee2.Entity = value;
+					if ((value != null))
+					{
+						value.LeaveRequests2.Add(this);
+						this._ID_Approver = value.ID;
+					}
+					else
+					{
+						this._ID_Approver = default(Nullable<int>);
+					}
+					this.SendPropertyChanged("Employee2");
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="LeaveType_LeaveRequest", Storage="_LeaveType1", ThisKey="LeaveType", OtherKey="ID", IsForeignKey=true)]
 		public LeaveType LeaveType1
 		{
@@ -42225,40 +42352,6 @@ namespace DLLabExtim
 						this._Status = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Statuse");
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="DayFraction_LeaveRequest", Storage="_DayFraction1", ThisKey="DayFraction", OtherKey="ID", IsForeignKey=true)]
-		public DayFraction DayFraction1
-		{
-			get
-			{
-				return this._DayFraction1.Entity;
-			}
-			set
-			{
-				DayFraction previousValue = this._DayFraction1.Entity;
-				if (((previousValue != value) 
-							|| (this._DayFraction1.HasLoadedOrAssignedValue == false)))
-				{
-					this.SendPropertyChanging();
-					if ((previousValue != null))
-					{
-						this._DayFraction1.Entity = null;
-						previousValue.LeaveRequests.Remove(this);
-					}
-					this._DayFraction1.Entity = value;
-					if ((value != null))
-					{
-						value.LeaveRequests.Add(this);
-						this._DayFraction = value.ID;
-					}
-					else
-					{
-						this._DayFraction = default(Nullable<char>);
-					}
-					this.SendPropertyChanged("DayFraction1");
 				}
 			}
 		}
@@ -42553,6 +42646,10 @@ namespace DLLabExtim
 		private string _StatusDesc;
 		
 		private System.Nullable<System.DateTime> _StatusDate;
+		
+		private System.Nullable<int> _ID_Approver;
+		
+		private string _ApproverDesc;
 		
 		private string _MessageToApplicant;
 		
@@ -42860,6 +42957,38 @@ namespace DLLabExtim
 				if ((this._StatusDate != value))
 				{
 					this._StatusDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Approver", DbType="Int")]
+		public System.Nullable<int> ID_Approver
+		{
+			get
+			{
+				return this._ID_Approver;
+			}
+			set
+			{
+				if ((this._ID_Approver != value))
+				{
+					this._ID_Approver = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ApproverDesc", DbType="NVarChar(135)")]
+		public string ApproverDesc
+		{
+			get
+			{
+				return this._ApproverDesc;
+			}
+			set
+			{
+				if ((this._ApproverDesc != value))
+				{
+					this._ApproverDesc = value;
 				}
 			}
 		}
