@@ -705,6 +705,8 @@
     <Content Include="crystalreportviewers13\prompting\js\promptengine_strings_zh_TW.js" />
     <Content Include="crystalreportviewers13\urlreporting\activexviewer.js" />
     <Content Include="crystalreportviewers13\urlreporting\appletviewer.js" />
+    <Content Include="LeaveRequestPopup.aspx" />
+    <Content Include="LeaveRequestsConsole.aspx" />
     <Content Include="DynamicData\FieldTemplates\YesNo_Edit.ascx" />
     <Content Include="DynamicData\FieldTemplates\SmallInteger_Edit.ascx" />
     <Content Include="DynamicData\FieldTemplates\YearCounterText_Edit.ascx" />
@@ -874,6 +876,20 @@
       <DependentUpon>Configuration.aspx</DependentUpon>
     </Compile>
     <Compile Include="CustomControls\StringExtension.cs" />
+    <Compile Include="LeaveRequestPopup.aspx.cs">
+      <DependentUpon>LeaveRequestPopup.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeaveRequestPopup.aspx.designer.cs">
+      <DependentUpon>LeaveRequestPopup.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="LeaveRequestsConsole.aspx.cs">
+      <DependentUpon>LeaveRequestsConsole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="LeaveRequestsConsole.aspx.designer.cs">
+      <DependentUpon>LeaveRequestsConsole.aspx</DependentUpon>
+    </Compile>
     <Compile Include="DynamicData\FieldTemplates\YesNo_Edit.ascx.cs">
       <DependentUpon>YesNo_Edit.ascx</DependentUpon>
       <SubType>ASPXCodeBehind</SubType>

@@ -35,6 +35,8 @@
     </siteMapNode>
     <siteMapNode url="~/DeliveryTripsConsole.aspx" title="Viaggi" description="Viaggi">
     </siteMapNode>
+    <siteMapNode url="~/LeaveRequestsConsole.aspx" title="Gestione permessi/ferie" description="Gestione permessi/ferie">
+    </siteMapNode>
     <siteMapNode url="~/ProductionOrdersConsole.aspx" title="Gestione ordini di produzione"
                  description="Gestione Ordini di Produzione">
     </siteMapNode>
