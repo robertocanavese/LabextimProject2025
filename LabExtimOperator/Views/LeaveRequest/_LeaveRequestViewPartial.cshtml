@@ -187,6 +187,14 @@
 
         settings.Columns.Add(column =>
         {
+            column.FieldName = "Employee1.UniqueName";
+            column.Caption = "Responsabile";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+
+        settings.Columns.Add(column =>
+        {
             column.FieldName = "Statuse.Description";
             column.Caption = "Stato richiesta";
             column.Visible = true;
@@ -205,8 +213,8 @@
 
         settings.Columns.Add(column =>
         {
-            column.FieldName = "Employee1.UniqueName";
-            column.Caption = "Responsabile";
+            column.FieldName = "Employee3.UniqueName";
+            column.Caption = "Approvatore";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
@@ -367,6 +375,19 @@
                     comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
 
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "Employee2.UniqueName";
+                    itemSettings.Caption = "Approvatore";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
+                    var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(50);
+                    comboBoxSetings.Height = Unit.Pixel(50);
+                    comboBoxSetings.ControlStyle.Font.Bold = true;
+                });
+                
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 2;
