@@ -98,7 +98,7 @@ namespace LabExtim
             }
             else
             {
-                lblItemNo.Text = " No " + Request.QueryString["ID"];
+                lblItemNo.Text = " No " + id;
             }
         }
 
@@ -113,31 +113,12 @@ namespace LabExtim
                 ((DropDownList)_dycCompany.Controls[0].Controls[0]).SelectedValue = CurrentCompanyId.ToString();
                 ((DropDownList)_dycCompany.Controls[0].Controls[0]).Enabled = false;
 
-                //if (POCustomerIdParameter != -1)
-                //{
-                //    var _dyc = (DynamicControl)_dvr.FindControl("dycCustomer");
-                //    ((DropDownList)_dyc.Controls[0].Controls[0]).Enabled = false;
+                //var _dyc3 = (DynamicControl)_dvr.FindControl("dycStartDate");
+                //((TextBox)_dyc3.Controls[0].Controls[0]).Text = DateTime.Today.ToString("dd/MM/yyyy");
 
-                //    if (POCustomerIdParameter == 0)
-                //    {
-
-                //        ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue =
-                //            new QuotationDataContext().LeaveRequests.SingleOrDefault(q => q.ID == POQuotationIdParameter)
-                //                .CustomerCode.Value.ToString();
-                //    }
-                //    else
-                //    {
-                //        ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue = POCustomerIdParameter.ToString();
-                //    }
-                //}
-
-
-                var _dyc3 = (DynamicControl)_dvr.FindControl("dycStartDate");
-                ((TextBox)_dyc3.Controls[0].Controls[0]).Text = DateTime.Today.ToString("dd/MM/yyyy");
-
-                //var _dyc0 = (DynamicControl)_dvr.FindControl("dycStatuse");
-                //((DropDownList)_dyc0.Controls[0].Controls[0]).SelectedValue = 0.ToString();
-                //((DropDownList)_dyc0.Controls[0].Controls[0]).Enabled = false;
+                var _dyc0 = (DynamicControl)_dvr.FindControl("dycStatuse");
+                ((DropDownList)_dyc0.Controls[0].Controls[0]).SelectedValue = 0.ToString();
+                ((DropDownList)_dyc0.Controls[0].Controls[0]).Enabled = false;
 
             }
             else
@@ -171,8 +152,8 @@ namespace LabExtim
 
         protected void DetailsDataSource_Inserting(object sender, LinqDataSourceInsertEventArgs e)
         {
-            ((LeaveRequest)e.NewObject).Status = 0;
-            //((LeaveRequest)e.NewObject).MacroRef = 411;
+            ((LeaveRequest)e.NewObject).Status = 19;
+            ((LeaveRequest)e.NewObject).RequestDate = DateTime.Now;
             
         }
 
@@ -332,104 +313,6 @@ namespace LabExtim
             //}
         }
 
-        protected void grdLeaveRequestDetails_RowDataBound(object sender, GridViewRowEventArgs e)
-        {
-            //if (e.Row.RowType == DataControlRowType.DataRow)
-            //{
-            //    var _bound = (LeaveRequestDetail)e.Row.DataItem;
-            //    e.Row.FindControl("dycOwner").Visible = (_bound.FreeTypeCode == null);
-            //    e.Row.FindControl("dycPhase").Visible = (_bound.FreeTypeCode == null);
-            //    e.Row.FindControl("dycProductionTime").Visible = (_bound.FreeTypeCode == null);
-
-            //    e.Row.FindControl("dycRawMaterial").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycRawMaterial").Controls[0].Controls[0] is DropDownList)
-            //        ((DropDownList)e.Row.FindControl("dycRawMaterial").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.RFlag == null);
-
-            //    e.Row.FindControl("dycUMRawMaterial").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycUMRawMaterial").Controls[0].Controls[0] is DropDownList)
-            //        ((DropDownList)e.Row.FindControl("dycUMRawMaterial").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.RFlag == null);
-
-            //    e.Row.FindControl("dycRawMaterialQuantity").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycRawMaterialQuantity").Controls[0].Controls[0] is TextBox)
-            //        ((TextBox)e.Row.FindControl("dycRawMaterialQuantity").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.RFlag == null);
-
-            //    e.Row.FindControl("dycSupplier").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycSupplier").Controls[0].Controls[0] is DropDownList)
-            //        ((DropDownList)e.Row.FindControl("dycSupplier").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.RFlag == null);
-
-            //    e.Row.FindControl("dycRawMaterialSup").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycRawMaterialSup").Controls[0].Controls[0] is DropDownList)
-            //        ((DropDownList)e.Row.FindControl("dycRawMaterialSup").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycSupplierSup").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycSupplierSup").Controls[0].Controls[0] is DropDownList)
-            //        ((DropDownList)e.Row.FindControl("dycSupplierSup").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycUMUser").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycUMUser").Controls[0].Controls[0] is DropDownList)
-            //        ((DropDownList)e.Row.FindControl("dycUMUser").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycRawMaterialX").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycRawMaterialX").Controls[0].Controls[0] is TextBox)
-            //        ((TextBox)e.Row.FindControl("dycRawMaterialX").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycOkCopiesCount").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycOkCopiesCount").Controls[0].Controls[0] is TextBox)
-            //        ((TextBox)e.Row.FindControl("dycOkCopiesCount").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycKoCopiesCount").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycKoCopiesCount").Controls[0].Controls[0] is TextBox)
-            //        ((TextBox)e.Row.FindControl("dycKoCopiesCount").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycRawMaterialY").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycRawMaterialY").Controls[0].Controls[0] is TextBox)
-            //        ((TextBox)e.Row.FindControl("dycRawMaterialY").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycRawMaterialZ").Visible = (_bound.FreeTypeCode == null);
-            //    if (e.Row.FindControl("dycRawMaterialZ").Controls[0].Controls[0] is TextBox)
-            //        ((TextBox)e.Row.FindControl("dycRawMaterialZ").Controls[0].Controls[0]).Visible =
-            //            (_bound.FreeTypeCode == null && _bound.SFlag == null);
-
-            //    e.Row.FindControl("dycDirectSupply").Visible = (_bound.FreeTypeCode == null);
-
-            //    e.Row.FindControl("dycFreeType").Visible = (_bound.FreeTypeCode != null);
-            //    e.Row.FindControl("dycItemFreeType").Visible = (_bound.FreeTypeCode != null);
-            //    e.Row.FindControl("dycFreeItemDescription").Visible = (_bound.FreeTypeCode != null);
-            //}
-        }
-
-        protected void lbtShowHide_Click(object sender, EventArgs e)
-        {
-            tblTestata.Visible = !tblTestata.Visible;
-        }
-
-        protected void grdLeaveRequestDetails_RowUpdated(object sender, GridViewUpdatedEventArgs e)
-        {
-            //using (var _ctx = new QuotationDataContext())
-            //{
-            //    var _curItem =
-            //        _ctx.LeaveRequestDetails.SingleOrDefault(pod => pod.ID == Convert.ToInt32(e.Keys["ID"]));
-            //    _curItem.HistoricalCostPhase = _curItem.CostCalcPhase;
-            //    if (_curItem.RFlag == null)
-            //        _curItem.HistoricalCostRawM = _curItem.CostCalcRawM;
-            //    if (_curItem.SFlag == null)
-            //        _curItem.HistoricalCostSupM = _curItem.CostCalcSupM;
-            //    if (_curItem.FreeTypeCode != null)
-            //        _curItem.ID_Phase = null;
-            //    _ctx.SubmitChanges();
-            //}
-        }
 
         protected void DetailsDataSource_Updated(object sender, LinqDataSourceStatusEventArgs e)
         {

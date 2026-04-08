@@ -25,7 +25,7 @@
                 $("#ctl00_ContentPlaceHolder1_senMain_txtTextField1").autocomplete({
                     source: function (request, response) {
                         $.ajax({
-                            url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
+                            url: document.location.href.split("?")[0].split("#")[0] + '/GetUsers',
                             data: "{ 'q': '" + request.term + "'}",
                             dataType: "json",
                             type: "POST",
@@ -36,9 +36,8 @@
                                 var data = jQuery.parseJSON(result);
                                 response($.map(data, function (item) {
                                     return {
-                                        label: item.Name,
-                                        value: item.Code,
-                                        markUp: item.MarkUp
+                                        label: item.UniqueName,
+                                        value: item.Id
                                     }
                                 }))
                             },
@@ -97,7 +96,7 @@
                     <tr>
                         <td>
                             <asp:LinkButton ID="lbtNewItem" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Nuovo viaggio" />
+                                ForeColor="Green" Text="Nuova richiesta" />
                             &nbsp;
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
                                 ForeColor="Green" Text="Aggiorna lista" />
