@@ -81,10 +81,10 @@
                                                     DataFormatString="{0:d}" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit" Mode="Edit" />
+                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit"/>
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit"/>
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
