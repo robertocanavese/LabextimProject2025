@@ -137,6 +137,22 @@
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                <asp:Label ID="lblManager" runat="server" Text="Inviata a"></asp:Label>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:DynamicControl ID="dycManager" runat="server" DataField="Employee1" UIHint="ForeignKey" />
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:DynamicControl ID="dycManager" runat="server" DataField="Employee1" UIHint="ForeignKey_Edit"
+                                                    Mode="Edit" />
+                                            </EditItemTemplate>
+                                            <InsertItemTemplate>
+                                                <asp:DynamicControl ID="dycManager" runat="server" DataField="Employee1" UIHint="ForeignKey_Edit" />
+                                            </InsertItemTemplate>
+                                        </asp:TemplateField>
+
 
                                         <asp:TemplateField>
                                             <HeaderTemplate>

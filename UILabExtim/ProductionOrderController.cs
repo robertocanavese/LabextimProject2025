@@ -97,7 +97,7 @@ namespace UILabExtim
         {
             get
             {
-                object temp = Request.QueryString[LRIdKey];
+                object temp = Request.QueryString[LeaveRequestKey];
                 return temp == null ? -1 : Convert.ToInt32(temp);
             }
         }
