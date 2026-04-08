@@ -222,7 +222,7 @@
         settings.Columns.Add(column =>
         {
             column.FieldName = "MessageToApplicant";
-            column.Caption = "Comunicazioni";
+            column.Caption = "Comunicazioni da Direzione";
             column.Visible = true;
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
@@ -379,26 +379,25 @@
                 {
                     itemSettings.ColSpan = 1;
                     itemSettings.FieldName = "Employee2.UniqueName";
-                    itemSettings.Caption = "Approvatore";
-                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
-                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
-                    var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
-                    comboBoxSetings.Width = Unit.Percentage(50);
-                    comboBoxSetings.Height = Unit.Pixel(50);
-                    comboBoxSetings.ControlStyle.Font.Bold = true;
-                });
-                
-                formLayoutSettings.Items.Add(itemSettings =>
-                {
-                    itemSettings.ColSpan = 2;
-                    itemSettings.FieldName = "MessageToApplicant";
-                    itemSettings.Caption = "Comunicazioni da responsabile";
+                    itemSettings.Caption = "Evasa da";
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
                     var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
                     comboBoxSetings.Width = Unit.Percentage(100);
                     comboBoxSetings.Height = Unit.Pixel(50);
                     comboBoxSetings.ControlStyle.Font.Bold = true;
+                });
+                
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "MessageToApplicant";
+                    itemSettings.Caption = "Comunicazioni da Direzione";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Top;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.Label;
+                    var comboBoxSetings = (LabelSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.Height = Unit.Pixel(50);
                 });
 
                 formLayoutSettings.Items.AddEmptyItem();
