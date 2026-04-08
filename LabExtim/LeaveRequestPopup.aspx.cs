@@ -40,7 +40,7 @@ namespace LabExtim
         {
             id = Convert.ToInt32(Request.QueryString[LeaveRequestKey]);
 
-            lblItemNo.Text = id == -1 ? " [Nuovo]" : " No " + id;
+            lblItemNo.Text = id == -1 ? " [Nuova]" : " No " + id;
             if (id == -1)
             {
                 //LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == DTIdParameter && p.ID_Company == CurrentCompanyId);
@@ -51,7 +51,7 @@ namespace LabExtim
                     Response.Redirect(string.Format("{0}&{1}={2}", this.Request.Url.ToString(), LeaveRequestKey ,existing.ID), true);
                 }
 
-                lblItemNo.Text = " [Nuovo]";
+                lblItemNo.Text = " [Nuova]";
                 DetailsDataSource.WhereParameters.Clear();
                 dtvLeaveRequest.ChangeMode(DetailsViewMode.Insert);
             }
@@ -94,7 +94,7 @@ namespace LabExtim
         {
             if (e.NewMode == DetailsViewMode.Insert)
             {
-                lblItemNo.Text = " [Nuovo]";
+                lblItemNo.Text = " [Nuova]";
             }
             else
             {
@@ -109,16 +109,16 @@ namespace LabExtim
             {
                 var _dvr = dtvLeaveRequest.Rows[0];
 
-                var _dycCompany = (DynamicControl)_dvr.FindControl("dycCompany");
-                ((DropDownList)_dycCompany.Controls[0].Controls[0]).SelectedValue = CurrentCompanyId.ToString();
-                ((DropDownList)_dycCompany.Controls[0].Controls[0]).Enabled = false;
+                //var _dycCompany = (DynamicControl)_dvr.FindControl("dycCompany");
+                //((DropDownList)_dycCompany.Controls[0].Controls[0]).SelectedValue = CurrentCompanyId.ToString();
+                //((DropDownList)_dycCompany.Controls[0].Controls[0]).Enabled = false;
 
                 //var _dyc3 = (DynamicControl)_dvr.FindControl("dycStartDate");
                 //((TextBox)_dyc3.Controls[0].Controls[0]).Text = DateTime.Today.ToString("dd/MM/yyyy");
 
-                var _dyc0 = (DynamicControl)_dvr.FindControl("dycStatuse");
-                ((DropDownList)_dyc0.Controls[0].Controls[0]).SelectedValue = 0.ToString();
-                ((DropDownList)_dyc0.Controls[0].Controls[0]).Enabled = false;
+                //var _dyc0 = (DynamicControl)_dvr.FindControl("dycStatuse");
+                //((DropDownList)_dyc0.Controls[0].Controls[0]).SelectedValue = 0.ToString();
+                //((DropDownList)_dyc0.Controls[0].Controls[0]).Enabled = false;
 
             }
             else
@@ -127,9 +127,9 @@ namespace LabExtim
 
                 if (dtvLeaveRequest.CurrentMode == DetailsViewMode.Edit)
                 {
-                    var _dvr = dtvLeaveRequest.Rows[0];
-                    var _dyc = (DynamicControl)_dvr.FindControl("dycCompany");
-                    ((DropDownList)_dyc.Controls[0].Controls[0]).Enabled = false;
+                    //var _dvr = dtvLeaveRequest.Rows[0];
+                    //var _dyc = (DynamicControl)_dvr.FindControl("dycCompany");
+                    //((DropDownList)_dyc.Controls[0].Controls[0]).Enabled = false;
                 }
 
             }

@@ -28,7 +28,7 @@
     <form id="form1" runat="server">
         <asp:DynamicDataManager ID="DynamicDataManager1" runat="server" AutoLoadForeignKeys="true" />
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true"></asp:ToolkitScriptManager>
-        <h4>Viaggio<asp:Label ID="lblItemNo" runat="server" />
+        <h4>Richesta permesso/ferie<asp:Label ID="lblItemNo" runat="server" />
         </h4>
         <table>
 
@@ -37,7 +37,7 @@
                     <table id="tblTestata" runat="server">
                         <tr>
                             <td valign="top">
-                                <h4>Richiesta permesso</h4>
+                                <h4>Richiesta permesso/ferie</h4>
                                 <asp:DetailsView ID="dtvLeaveRequest" runat="server" DataSourceID="DetailsDataSource"
                                     AutoGenerateEditButton="true" AutoGenerateInsertButton="true" OnModeChanging="OnDetailsViewModeChanging"
                                     OnPreRender="OnDetailsViewPreRender" OnItemUpdated="OnDetailsViewItemUpdated"
@@ -81,14 +81,14 @@
                                                     DataFormatString="{0:d}" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit"/>
+                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit"/>
+                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
-                                       <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <HeaderTemplate>
                                                 <asp:Label ID="lblApplicant" runat="server" Text="Richiedente"></asp:Label>
                                             </HeaderTemplate>
@@ -96,11 +96,10 @@
                                                 <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey_Edit"
-                                                    Mode="Edit" />
+                                                <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey_Edit" />
+                                                <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
@@ -112,14 +111,14 @@
                                                 <asp:DynamicControl ID="dycLeaveType" runat="server" DataField="LeaveType1" UIHint="ForeignKey" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycLeaveType" runat="server" DataField="LeaveType1" UIHint="ForeignKey_Edit" Mode="Edit"  />
+                                                <asp:DynamicControl ID="dycLeaveType" runat="server" DataField="LeaveType1" UIHint="ForeignKey_Edit" Mode="Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycLeaveType" runat="server" DataField="LeaveType1" UIHint="ForeignKey_Edit" Mode="Edit"  />
+                                                <asp:DynamicControl ID="dycLeaveType" runat="server" DataField="LeaveType1" UIHint="ForeignKey_Edit" Mode="Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
-                                        
+
 
                                         <asp:TemplateField>
                                             <HeaderTemplate>
@@ -133,11 +132,11 @@
                                                 <asp:DynamicControl ID="dycStartDate" runat="server" DataField="StartDate" UIHint="DateTime_Edit" Mode="Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycStartDate" runat="server" DataField="StartDate" UIHint="DateTime_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycStartDate" runat="server" DataField="StartDate" UIHint="DateTime_Edit" Mode="Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
-                                         <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <HeaderTemplate>
                                                 <asp:Label ID="lblEndDate" runat="server" Text="Data fine assenza"></asp:Label>
                                             </HeaderTemplate>
@@ -146,10 +145,10 @@
                                                     DataFormatString="{0:d}" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycEndDate" runat="server" DataField="EndDate" UIHint="DateTime_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycEndDate" runat="server" DataField="EndDate" UIHint="DateTime_Edit" Mode="Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycEndDate" runat="server" DataField="EndDate" UIHint="DateTime_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycEndDate" runat="server" DataField="EndDate" UIHint="DateTime_Edit" Mode="Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
@@ -161,14 +160,14 @@
                                                 <asp:DynamicControl ID="dycDayFraction" runat="server" DataField="DayFraction1" UIHint="ForeignKey" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycDayFraction" runat="server" DataField="DayFraction1" UIHint="ForeignKey_Edit" Mode="Edit"  />
+                                                <asp:DynamicControl ID="dycDayFraction" runat="server" DataField="DayFraction1" UIHint="ForeignKey_Edit" Mode="Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycDayFraction" runat="server" DataField="DayFraction1" UIHint="ForeignKey_Edit" Mode="Edit"  />
+                                                <asp:DynamicControl ID="dycDayFraction" runat="server" DataField="DayFraction1" UIHint="ForeignKey_Edit" Mode="Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
-                                         <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <HeaderTemplate>
                                                 <asp:Label ID="lblVacationDays" runat="server" Text="Giorni assenza"></asp:Label>
                                             </HeaderTemplate>
@@ -184,7 +183,7 @@
                                         </asp:TemplateField>
 
 
-                                         <asp:TemplateField>
+                                        <asp:TemplateField>
                                             <HeaderTemplate>
                                                 <asp:Label ID="lblStatuse" runat="server" Text="Stato richiesta"></asp:Label>
                                             </HeaderTemplate>
@@ -192,10 +191,10 @@
                                                 <asp:DynamicControl ID="dycStatuse" runat="server" DataField="Statuse" UIHint="ForeignKey" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycStatuse" runat="server" DataField="Statuse" UIHint="ForeignKey_Edit" Mode="Edit"  />
+                                                <asp:DynamicControl ID="dycStatuse" runat="server" DataField="Statuse" UIHint="ForeignKey_Edit" Mode="Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycStatuse" runat="server" DataField="Statuse" UIHint="ForeignKey_Edit" Mode="Edit"  />
+                                                <asp:DynamicControl ID="dycStatuse" runat="server" DataField="Statuse" UIHint="ForeignKey_Edit" Mode="Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
@@ -209,10 +208,10 @@
                                                     DataFormatString="{0:d}" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycStatusDate" runat="server" DataField="StatusDate" UIHint="DateTime_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycStatusDate" runat="server" DataField="StatusDate" UIHint="DateTime_Edit" Mode="Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycStatusDate" runat="server" DataField="StatusDate" UIHint="DateTime_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycStatusDate" runat="server" DataField="StatusDate" UIHint="DateTime_Edit" Mode="Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
