@@ -37,7 +37,7 @@
                     <table id="tblTestata" runat="server">
                         <tr>
                             <td valign="top">
-                                <h4>Dati Viaggio</h4>
+                                <h4>Richiesta permesso</h4>
                                 <asp:DetailsView ID="dtvLeaveRequest" runat="server" DataSourceID="DetailsDataSource"
                                     AutoGenerateEditButton="true" AutoGenerateInsertButton="true" OnModeChanging="OnDetailsViewModeChanging"
                                     OnPreRender="OnDetailsViewPreRender" OnItemUpdated="OnDetailsViewItemUpdated"
@@ -50,7 +50,7 @@
                                     <Fields>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                <asp:Label ID="lblID" runat="server" Text="ID Viaggio"></asp:Label>
+                                                <asp:Label ID="lblID" runat="server" Text="ID richiesta"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:DynamicControl ID="dycID" runat="server" DataField="ID" />
