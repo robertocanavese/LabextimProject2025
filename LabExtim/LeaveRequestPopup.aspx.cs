@@ -11,9 +11,10 @@ using UILabExtim;
 
 namespace LabExtim
 {
-    public partial class LeaveRequestPopup : ProductionOrderController
+    public partial class LeaveRequestPopup : BaseController
     {
 
+        public int id;
 
         public bool EditMode
         {
@@ -37,15 +38,17 @@ namespace LabExtim
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblItemNo.Text = LRIdParameter == -1 ? " [Nuovo]" : " No " + LRIdParameter;
-            if (LRIdParameter == -1)
+            id = Convert.ToInt32(Request.QueryString[LeaveRequestKey]);
+
+            lblItemNo.Text = id == -1 ? " [Nuovo]" : " No " + id;
+            if (id == -1)
             {
                 //LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == DTIdParameter && p.ID_Company == CurrentCompanyId);
                 // merge aziendale
-                LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == LRIdParameter);
+                LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == id);
                 if (existing != null)
                 {
-                    Response.Redirect(string.Format("{0}&LRid={1}", this.Request.Url.ToString(), existing.ID), true);
+                    Response.Redirect(string.Format("{0}&{1}={2}", this.Request.Url.ToString(), LeaveRequestKey ,existing.ID), true);
                 }
 
                 lblItemNo.Text = " [Nuovo]";
@@ -144,7 +147,7 @@ namespace LabExtim
                 if (dtvLeaveRequest.CurrentMode == DetailsViewMode.Edit)
                 {
                     var _dvr = dtvLeaveRequest.Rows[0];
-                    var _dyc = (DynamicControl)_dvr.FindControl("dycCustomer");
+                    var _dyc = (DynamicControl)_dvr.FindControl("dycCompany");
                     ((DropDownList)_dyc.Controls[0].Controls[0]).Enabled = false;
                 }
 
@@ -200,7 +203,7 @@ namespace LabExtim
             {
                 var table = DetailsDataSource.GetTable();
                 var _qc = (QuotationDataContext)table.CreateContext();
-                e.Result = _qc.LeaveRequests.Where(po => po.ID == DTIdParameter);
+                e.Result = _qc.LeaveRequests.Where(po => po.ID == id);
             }
         }
 
@@ -228,7 +231,7 @@ namespace LabExtim
             //    }
             //    db.SubmitChanges();
             //}
-            Response.Redirect("LeaveRequestPopup.aspx?" + DTIdKey + "=" + ((LeaveRequest)e.Result).ID);
+            Response.Redirect("LeaveRequestPopup.aspx?" + LeaveRequestKey + "=" + ((LeaveRequest)e.Result).ID);
         }
 
         protected void DetailsDataSource_Updating(object sender, LinqDataSourceUpdateEventArgs e)

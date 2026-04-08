@@ -93,15 +93,6 @@ namespace UILabExtim
             }
         }
 
-        public int LRIdParameter
-        {
-            get
-            {
-                object temp = Request.QueryString[LRIdKey];
-                return temp == null ? -1 : Convert.ToInt32(temp);
-            }
-        }
-
         protected void PrintProductionOrder(QuotationDataContext context)
         {
             var _curProductionOrder = context.ProductionOrders.FirstOrDefault(po => po.ID == POIdParameter);

@@ -139,6 +139,7 @@
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-Font-Bold="true" />
                                     <asp:BoundField DataField="Company.Description" HeaderText="Company" />
+                                    <asp:BoundField DataField="RequestDate" HeaderText="Data richiesta" DataFormatString="{0:dd/MM/yyyy}" />
                                     <asp:BoundField DataField="Employee.UniqueName" HeaderText="Richiedente" ItemStyle-Font-Bold="true"  />
                                     <asp:BoundField DataField="LeaveType1.Description" HeaderText="Tipo permesso" />
                                     <asp:BoundField DataField="StartDate" HeaderText="Data inizio assenza" DataFormatString="{0:dd/MM/yyyy}" />

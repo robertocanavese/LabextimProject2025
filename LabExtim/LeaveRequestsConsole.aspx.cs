@@ -40,11 +40,10 @@ namespace LabExtim
                 ldsLeaveRequests.WhereParameters.Add("ID", DbType.Int32, senMain.ItbNo.ReturnValue.ToString());
                 _filter += " AND ID == @ID";
             }
-
             if (senMain.ValueHidField1Text != string.Empty)
             {
-                ldsLeaveRequests.WhereParameters.Add("CustomerCode", DbType.Int32, senMain.ValueHidField1Text);
-                _filter += " AND CustomerCode == @CustomerCode";
+                ldsLeaveRequests.WhereParameters.Add("ID_Applicant", DbType.Int32, senMain.ValueHidField1Text);
+                _filter += " AND ID_Applicant == @ID_Applicant";
             }
             if (senMain.DropDownList1.SelectedValue != string.Empty)
             {
@@ -77,16 +76,15 @@ namespace LabExtim
             using (var _qc = new QuotationDataContext())
             {
 
-                senMain.LblDropDownList1Text = "Altra destinazione";
-                var _items1 =
-                    _qc.Locations.Select(s => new ListItem { Text = s.Name, Value = s.Code.ToString() }).ToArray();
-                senMain.DropDownList1.Items.AddRange(_items1);
-                senMain.DropDownList1.Items.Insert(0, new ListItem("Tutti", ""));
+                //senMain.LblDropDownList1Text = "Altra destinazione";
+                //var _items1 =
+                //    _qc.Locations.Select(s => new ListItem { Text = s.Name, Value = s.Code.ToString() }).ToArray();
+                //senMain.DropDownList1.Items.AddRange(_items1);
+                //senMain.DropDownList1.Items.Insert(0, new ListItem("Tutti", ""));
 
             }
 
-            senMain.DdlOrderBy.Items.Add(new ListItem("Cliente", "CustomerName"));
-            senMain.DdlOrderBy.Items.Add(new ListItem("Altra destinazione", "LocationName"));
+            senMain.DdlOrderBy.Items.Add(new ListItem("Più recente", "RequestDate"));
         }
 
         private void FillControls()
@@ -167,20 +165,15 @@ namespace LabExtim
             var _qc = (QuotationDataContext)table.CreateContext();
             switch (senMain.DdlOrderBy.SelectedValue)
             {
-                //case (""):
-                //    ldsLeaveRequests.OrderByParameters.Clear();
-                //    ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                //    e.Result = _qc.LeaveRequests.OrderBy(pi => pi.Type.Order).ThenBy(pi => pi.ItemType.Order).ThenBy(pi => pi.Order);
-                //    break;
-                case ("ApplicantName"):
+                case (""):
                     ldsLeaveRequests.OrderByParameters.Clear();
                     ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.LeaveRequests.OrderBy(qt => qt.Employee.UniqueName);
+                    e.Result = __qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
                     break;
-                case ("StatusName"):
+                case ("RequestDate"):
                     ldsLeaveRequests.OrderByParameters.Clear();
                     ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.LeaveRequests.OrderBy(qt => qt.Statuse.Description);
+                    e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
                     break;
 
                 default:
@@ -225,7 +218,7 @@ namespace LabExtim
 
         [WebMethod]
         [ScriptMethod(ResponseFormat = ResponseFormat.Json)]
-        public static string GetCustomers(string q)
+        public static string GetUsers(string q)
         {
             try
             {
