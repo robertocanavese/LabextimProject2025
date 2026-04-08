@@ -357,6 +357,8 @@ namespace LabExtimOperator.Controllers
                             string.Format(
                             "<table>" +
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Azienda:<td>{1}</td></tr>" +
+                            "<tr><td></td>Richiedente:<td>{2}</td></tr>" +
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
@@ -365,8 +367,11 @@ namespace LabExtimOperator.Controllers
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
                             "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
-                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
-                            "<table>", _LeaveRequest.ID),
+                            "<table>",
+                            _LeaveRequest.ID,
+                            _LeaveRequest.Company.Description,
+                            _LeaveRequest.Employee.Name + " " + _LeaveRequest.Employee.Surname
+                            ),
                             applicantMailAddress);
 
 
