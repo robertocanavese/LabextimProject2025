@@ -168,7 +168,7 @@ namespace LabExtim
                 case (""):
                     ldsLeaveRequests.OrderByParameters.Clear();
                     ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                    e.Result = __qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
+                    e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
                     break;
                 case ("RequestDate"):
                     ldsLeaveRequests.OrderByParameters.Clear();
