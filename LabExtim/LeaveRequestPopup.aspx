@@ -107,7 +107,7 @@
 
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                <asp:Label ID="lblStartDate" runat="server" Text="Partenza"></asp:Label>
+                                                <asp:Label ID="lblStartDate" runat="server" Text="Data inizio assenza"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:DynamicControl ID="dycStartDate" runat="server" DataField="StartDate" UIHint="DateTime"
@@ -123,7 +123,7 @@
 
                                          <asp:TemplateField>
                                             <HeaderTemplate>
-                                                <asp:Label ID="lblEndDate" runat="server" Text="Partenza"></asp:Label>
+                                                <asp:Label ID="lblEndDate" runat="server" Text="Data fine assenza"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:DynamicControl ID="dycEndDate" runat="server" DataField="EndDate" UIHint="DateTime"

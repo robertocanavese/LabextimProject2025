@@ -18,6 +18,7 @@ namespace UILabExtim
         public static readonly string POQuantityKey = "POq";
         public static readonly string POStartDateKey = "POsd";
         public static readonly string DTIdKey = "DTid";
+        public static readonly string LRIdKey = "LRid";
 
         public int POIdParameter
         {
@@ -88,6 +89,15 @@ namespace UILabExtim
             get
             {
                 object temp = Request.QueryString[DTIdKey];
+                return temp == null ? -1 : Convert.ToInt32(temp);
+            }
+        }
+
+        public int LRIdParameter
+        {
+            get
+            {
+                object temp = Request.QueryString[LRIdKey];
                 return temp == null ? -1 : Convert.ToInt32(temp);
             }
         }

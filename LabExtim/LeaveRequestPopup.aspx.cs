@@ -37,15 +37,15 @@ namespace LabExtim
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblItemNo.Text = DTIdParameter == -1 ? " [Nuovo]" : " No " + DTIdParameter;
-            if (DTIdParameter == -1)
+            lblItemNo.Text = LRIdParameter == -1 ? " [Nuovo]" : " No " + LRIdParameter;
+            if (LRIdParameter == -1)
             {
                 //LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == DTIdParameter && p.ID_Company == CurrentCompanyId);
                 // merge aziendale
-                LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == DTIdParameter);
+                LeaveRequest existing = new QuotationDataContext().LeaveRequests.FirstOrDefault(p => p.ID == LRIdParameter);
                 if (existing != null)
                 {
-                    Response.Redirect(string.Format("{0}&DTid={1}", this.Request.Url.ToString(), existing.ID), true);
+                    Response.Redirect(string.Format("{0}&LRid={1}", this.Request.Url.ToString(), existing.ID), true);
                 }
 
                 lblItemNo.Text = " [Nuovo]";
