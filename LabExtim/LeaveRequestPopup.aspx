@@ -140,6 +140,24 @@
 
                                         <asp:TemplateField>
                                             <HeaderTemplate>
+                                                <asp:Label ID="lblMessageToManager" runat="server" Text="MessageToManager"></asp:Label>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline"
+                                                    HtmlEncode="false" />
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline_Edit"
+                                                    HtmlEncode="false" />
+                                            </EditItemTemplate>
+                                            <InsertItemTemplate>
+                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline_Edit"
+                                                    HtmlEncode="false" />
+                                            </InsertItemTemplate>
+                                        </asp:TemplateField>
+
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
                                                 <asp:Label ID="lblMessageToApplicant" runat="server" Text="MessageToApplicant"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>
