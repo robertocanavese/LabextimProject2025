@@ -304,8 +304,20 @@ namespace LabExtimOperator.Controllers
                 try
                 {
 
+                    string applicantMailAddress = null;
+                    string managerMailAddress = null;
+                    Employee applicant = null;
+                    Employee manager = null;
+
+
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
+
+                        applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).UserGUID).Email;
+                        managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+                        applicant = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant);
+                        manager = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager);
+
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
                             ProductionOrderDetailsInsertController.GetLeaveRequest(_quotationDataContext,
@@ -324,7 +336,7 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.LeaveType = item.LeaveType;
                         _LeaveRequest.RequestDate = DateTime.Now;
                         _LeaveRequest.StartDate = item.StartDate;
-                        _LeaveRequest.EndDate =  (item.EndDate == null ? item.StartDate : item.EndDate);
+                        _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
                         _LeaveRequest.VacationDays = (item.VacationDays == null ? 1 : item.VacationDays);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
@@ -333,6 +345,31 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.StatusDate = DateTime.Now;
 
                         _quotationDataContext.LeaveRequests.InsertOnSubmit(_LeaveRequest);
+
+
+
+
+                        Utilities.SendMail(
+                            managerMailAddress,
+                            null,
+                            null,
+                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2}", applicant.Name + " " + applicant.Surname, applicant.Company.Description),
+                            string.Format(
+                            "<table>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<tr><td></td>Id richiesta:<td>{0}</td></tr>" +
+                            "<table>", _LeaveRequest.ID),
+                            applicantMailAddress);
+
+
                         _quotationDataContext.SubmitChanges();
 
                         //imposta l'id del nuovo inserimento
