@@ -324,7 +324,7 @@ namespace LabExtimOperator.Controllers
                         approver = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Approver);
                         leaveType = _quotationDataContext.LeaveTypes.FirstOrDefault(d => d.ID == item.LeaveType);
                         dayFraction = _quotationDataContext.DayFractions.FirstOrDefault(d => d.ID == item.DayFraction);
-                        company = _quotationDataContext.Companies.FirstOrDefault(d => d.ID == _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).ID_Company);
+                        company = _quotationDataContext.Companies.FirstOrDefault(d => d.ID == _quotationDataContext.Employees.FirstOrDefault(d1 => d1.ID == variables._idUser).ID_Company);
                         status = _quotationDataContext.Statuses.FirstOrDefault(d => d.ID == item.Status);
 
                         LeaveRequest _LeaveRequest = null;
@@ -465,7 +465,7 @@ namespace LabExtimOperator.Controllers
                         approver = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Approver);
                         leaveType = _quotationDataContext.LeaveTypes.FirstOrDefault(d => d.ID == item.LeaveType);
                         dayFraction = _quotationDataContext.DayFractions.FirstOrDefault(d => d.ID == item.DayFraction);
-                        company = _quotationDataContext.Companies.FirstOrDefault(d => d.ID == _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).ID_Company);
+                        company = _quotationDataContext.Companies.FirstOrDefault(d => d.ID == _quotationDataContext.Employees.FirstOrDefault(d1 => d1.ID == variables._idUser).ID_Company);
                         status = _quotationDataContext.Statuses.FirstOrDefault(d => d.ID == item.Status);
 
                         LeaveRequest _LeaveRequest = null;
