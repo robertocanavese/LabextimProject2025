@@ -312,6 +312,13 @@ namespace LabExtimOperator.Controllers
 
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
+                        var dataOptions = new DataLoadOptions();
+                        dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType1);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
+                        _quotationDataContext.LoadOptions = dataOptions;
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
                         managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
@@ -439,6 +446,13 @@ namespace LabExtimOperator.Controllers
 
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
+                        var dataOptions = new DataLoadOptions();
+                        dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType1);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
+                        _quotationDataContext.LoadOptions = dataOptions;
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).UserGUID).Email;
                         managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
