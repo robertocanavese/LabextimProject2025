@@ -355,8 +355,8 @@ namespace LabExtimOperator.Controllers
                             null,
                             string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2}", applicant.Name + " " + applicant.Surname, applicant.Company.Description),
                             string.Format(
-                            "<table>" +
-                            "<tr><th colspan='2' >DETTAGLIO RICHIESTA:</th></tr>" +
+                            "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
+                            "<tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr>" +
                             "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
                             "<tr><td>Azienda:</td><td>{1}</td></tr>" +
                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
