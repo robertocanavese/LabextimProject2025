@@ -356,7 +356,7 @@ namespace LabExtimOperator.Controllers
                             string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2}", applicant.Name + " " + applicant.Surname, applicant.Company.Description),
                             string.Format(
                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
-                            "<tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr>" +
+                            "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
                             "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
                             "<tr><td>Azienda:</td><td>{1}</td></tr>" +
                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
@@ -372,7 +372,7 @@ namespace LabExtimOperator.Controllers
                             "<tr><td>Aggiornamento:</td>{12}</td></tr>" +
                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
                             "<tr><td>Messaggio a richiedente:</td>{10}</td></tr>" +
-                            "<table>",
+                            "</tbody><table>",
                             _LeaveRequest.ID,
                             _LeaveRequest.Company.Description,
                             _LeaveRequest.Employee.Name + " " + _LeaveRequest.Employee.Surname,
