@@ -2097,6 +2097,12 @@
       <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
     </Type>
   </Table>
+  <Table Name="dbo.Tokens" Member="Tokens">
+    <Type Name="Token">
+      <Column Name="IdToken" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Function Name="dbo.prc_LAB_MGet_LAB_CalculatedResultsByQuotationID" Method="prc_LAB_MGet_LAB_CalculatedResultsByQuotationID">
     <Parameter Name="QuotationID" Parameter="quotationID" Type="System.Int32" DbType="Int" />
     <ElementType IdRef="ID1" />

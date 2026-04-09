@@ -213,6 +213,9 @@ namespace TempDLLabExtim
     partial void InsertLeaveRequest(LeaveRequest instance);
     partial void UpdateLeaveRequest(LeaveRequest instance);
     partial void DeleteLeaveRequest(LeaveRequest instance);
+    partial void InsertToken(Token instance);
+    partial void UpdateToken(Token instance);
+    partial void DeleteToken(Token instance);
     #endregion
 		
 		public TemporaneoDataContext() : 
@@ -994,6 +997,14 @@ namespace TempDLLabExtim
 			get
 			{
 				return this.GetTable<VW_LeaveRequest>();
+			}
+		}
+		
+		public System.Data.Linq.Table<Token> Tokens
+		{
+			get
+			{
+				return this.GetTable<Token>();
 			}
 		}
 		
@@ -40911,6 +40922,92 @@ namespace TempDLLabExtim
 				{
 					this._MessageToApplicant = value;
 				}
+			}
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tokens")]
+	public partial class Token : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _IdToken;
+		
+		private string _RedirectUrl;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdTokenChanging(string value);
+    partial void OnIdTokenChanged();
+    partial void OnRedirectUrlChanging(string value);
+    partial void OnRedirectUrlChanged();
+    #endregion
+		
+		public Token()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdToken", DbType="VarChar(36) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string IdToken
+		{
+			get
+			{
+				return this._IdToken;
+			}
+			set
+			{
+				if ((this._IdToken != value))
+				{
+					this.OnIdTokenChanging(value);
+					this.SendPropertyChanging();
+					this._IdToken = value;
+					this.SendPropertyChanged("IdToken");
+					this.OnIdTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RedirectUrl", DbType="VarChar(1024) NOT NULL", CanBeNull=false)]
+		public string RedirectUrl
+		{
+			get
+			{
+				return this._RedirectUrl;
+			}
+			set
+			{
+				if ((this._RedirectUrl != value))
+				{
+					this.OnRedirectUrlChanging(value);
+					this.SendPropertyChanging();
+					this._RedirectUrl = value;
+					this.SendPropertyChanged("RedirectUrl");
+					this.OnRedirectUrlChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}

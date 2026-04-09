@@ -461,6 +461,11 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.Status = 19;
                         _LeaveRequest.StatusDate = DateTime.Now;
 
+
+                        Guid g = Guid.NewGuid();
+                        string autoAuthUrl = string.Format("{0}/{1}?tkn={2}", ConfigurationManager.AppSettings["LabextimUrl"], "AutoAuth.aspx", g.ToString());
+                        string whereUrl = string.Format("{0}/{1}?toauthid={2}", ConfigurationManager.AppSettings["LabextimUrl"], "LeaveRequestsConsole.aspx", _LeaveRequest.ID);
+
                         Utilities.SendMail(
                             managerMailAddress,
                             null,
@@ -478,12 +483,14 @@ namespace LabExtimOperator.Controllers
                             "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
                             "<tr><td>Orario:</td><td>{7}</td></tr>" +
                             "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                            "<tr><td>Responsabile:</td>{9}</td></tr>" +
-                            "<tr><td>Messaggio a responsabile:</td>{10}</td></tr>" +
-                            "<tr><td>Stato richiesta:</td>{11}</td></tr>" +
-                            "<tr><td>Aggiornamento:</td>{12}</td></tr>" +
+                            "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
+                            "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
+                            "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
+                            "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
-                            "<tr><td>Messaggio a richiedente:</td>{10}</td></tr>" +
+                            "<tr><td>Messaggio a richiedente:</td><td>{14}</td></tr>" +
+                            "<tr><td colspan='2' >Per autorizzare la richiesta premere sul link sottostante</td></tr>" +
+                            "<tr><td colspan='2' >{15}</td></tr>" +
                             "</tbody><table>",
                             _LeaveRequest.ID,
                             _LeaveRequest.Company.Description,
@@ -498,7 +505,8 @@ namespace LabExtimOperator.Controllers
                             _LeaveRequest.Statuse.Description,
                             _LeaveRequest.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
                             _LeaveRequest.Employee2.Name + " " + _LeaveRequest.Employee2.Surname,
-                            _LeaveRequest.MessageToApplicant
+                            _LeaveRequest.MessageToApplicant,
+                            autoAuthUrl
                             ),
                             applicantMailAddress);
 
