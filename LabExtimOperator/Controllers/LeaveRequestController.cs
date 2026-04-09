@@ -306,15 +306,26 @@ namespace LabExtimOperator.Controllers
 
                     string applicantMailAddress = null;
                     string managerMailAddress = null;
+                    Company company = null;
                     Employee applicant = null;
                     Employee manager = null;
-
+                    Employee approver = null;
+                    LeaveType leaveType = null;
+                    DayFraction dayFraction = null;
+                    Statuse status = null;
 
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
                         managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+                        applicant = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser);
+                        manager = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager);
+                        approver = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Approver);
+                        leaveType = _quotationDataContext.LeaveTypes.FirstOrDefault(d => d.ID == item.LeaveType);
+                        dayFraction = _quotationDataContext.DayFractions.FirstOrDefault(d => d.ID == item.DayFraction);
+                        company = _quotationDataContext.Companies.FirstOrDefault(d => d.ID == _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).ID_Company);
+                        status = _quotationDataContext.Statuses.FirstOrDefault(d => d.ID == item.Status);
 
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
@@ -359,7 +370,7 @@ namespace LabExtimOperator.Controllers
                             managerMailAddress,
                             null,
                             null,
-                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", item.Employee.Name + " " + item.Employee.Surname, item.Employee.Company.Description, item.Employee1.Name + " " + item.Employee1.Surname),
+                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", applicant.Name + " " + applicant.Surname, applicant.Company.Description, manager.Name + " " + manager.Surname),
                             string.Format(
                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
@@ -381,20 +392,20 @@ namespace LabExtimOperator.Controllers
                             "<tr><td colspan='2' >Per autorizzare la richiesta premere sul link sottostante</td></tr>" +
                             "<tr><td colspan='2' >{15}</td></tr>" +
                             "</tbody><table>",
-                            item.ID,
-                            item.Company.Description,
-                            item.Employee.Name + " " + item.Employee.Surname,
-                            item.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            item.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
-                            item.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
-                            item.DayFraction1.Description,
-                            item.VacationDays,
-                            item.Employee1.Name + " " + item.Employee1.Surname,
-                            item.MessageToManager,
-                            item.Statuse.Description,
-                            item.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            item.Employee2.Name + " " + item.Employee2.Surname,
-                            item.MessageToApplicant,
+                            _LeaveRequest.ID,
+                            company.Description,
+                            applicant.Name + " " + applicant.Surname,
+                            _LeaveRequest.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            _LeaveRequest.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                            _LeaveRequest.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                            dayFraction.Description,
+                            _LeaveRequest.VacationDays,
+                             manager.Name + " " + manager.Surname,
+                            _LeaveRequest.MessageToManager,
+                            status.Description,
+                            _LeaveRequest.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            approver.Name + " " + approver.Surname,
+                            _LeaveRequest.MessageToApplicant,
                             autoAuthUrl
                             ),
                             applicantMailAddress);
@@ -436,12 +447,26 @@ namespace LabExtimOperator.Controllers
                 {
                     string applicantMailAddress = null;
                     string managerMailAddress = null;
+                    Company company = null;
+                    Employee applicant = null;
+                    Employee manager = null;
+                    Employee approver = null;
+                    LeaveType leaveType = null;
+                    DayFraction dayFraction = null;
+                    Statuse status = null;
 
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
 
-                        applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).UserGUID).Email;
+                        applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
                         managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+                        applicant = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser);
+                        manager = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager);
+                        approver = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Approver);
+                        leaveType = _quotationDataContext.LeaveTypes.FirstOrDefault(d => d.ID == item.LeaveType);
+                        dayFraction = _quotationDataContext.DayFractions.FirstOrDefault(d => d.ID == item.DayFraction);
+                        company = _quotationDataContext.Companies.FirstOrDefault(d => d.ID == _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).ID_Company);
+                        status = _quotationDataContext.Statuses.FirstOrDefault(d => d.ID == item.Status);
 
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
@@ -488,7 +513,7 @@ namespace LabExtimOperator.Controllers
                             managerMailAddress,
                             null,
                             null,
-                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", item.Employee.Name + " " + item.Employee.Surname, item.Employee.Company.Description, item.Employee1.Name + " " + item.Employee1.Surname),
+                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", applicant.Name + " " + applicant.Surname, applicant.Company.Description, manager.Name + " " + manager.Surname),
                             string.Format(
                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
@@ -510,20 +535,20 @@ namespace LabExtimOperator.Controllers
                             "<tr><td colspan='2' >Per autorizzare la richiesta premere sul link sottostante</td></tr>" +
                             "<tr><td colspan='2' >{15}</td></tr>" +
                             "</tbody><table>",
-                            item.ID,
-                            item.Company.Description,
-                            item.Employee.Name + " " + item.Employee.Surname,
-                            item.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            item.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
-                            item.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
-                            item.DayFraction1.Description,
-                            item.VacationDays,
-                            item.Employee1.Name + " " + item.Employee1.Surname,
-                            item.MessageToManager,
-                            item.Statuse.Description,
-                            item.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            item.Employee2.Name + " " + item.Employee2.Surname,
-                            item.MessageToApplicant,
+                            _LeaveRequest.ID,
+                            company.Description,
+                            applicant.Name + " " + applicant.Surname,
+                            _LeaveRequest.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            _LeaveRequest.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                            _LeaveRequest.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                            dayFraction.Description,
+                            _LeaveRequest.VacationDays,
+                             manager.Name + " " + manager.Surname,
+                            _LeaveRequest.MessageToManager,
+                            status.Description,
+                            _LeaveRequest.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            approver.Name + " " + approver.Surname,
+                            _LeaveRequest.MessageToApplicant,
                             autoAuthUrl
                             ),
                             applicantMailAddress);
