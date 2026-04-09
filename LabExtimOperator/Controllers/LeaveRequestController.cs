@@ -313,7 +313,7 @@ namespace LabExtimOperator.Controllers
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
 
-                        applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).UserGUID).Email;
+                        applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
                         managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
 
                         LeaveRequest _LeaveRequest = null;
