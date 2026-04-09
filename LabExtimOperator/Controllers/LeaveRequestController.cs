@@ -307,9 +307,9 @@ namespace LabExtimOperator.Controllers
                     string applicantMailAddress = null;
                     string managerMailAddress = null;
                     Company company = null;
-                    Employee applicant = null;
-                    Employee manager = null;
-                    Employee approver = null;
+                    Employee applicant = new Employee { ID=-1, Name="", Surname = "" };
+                    Employee manager = new Employee { ID = -1, Name = "", Surname = "" };
+                    Employee approver = new Employee { ID = -1, Name = "", Surname = "" };
                     LeaveType leaveType = null;
                     DayFraction dayFraction = null;
                     Statuse status = null;
