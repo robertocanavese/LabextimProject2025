@@ -315,8 +315,6 @@ namespace LabExtimOperator.Controllers
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).UserGUID).Email;
                         managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
-                        applicant = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant);
-                        manager = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager);
 
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
@@ -425,9 +423,15 @@ namespace LabExtimOperator.Controllers
             {
                 try
                 {
+                    string applicantMailAddress = null;
+                    string managerMailAddress = null;
 
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
+
+                        applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Applicant).UserGUID).Email;
+                        managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
                             ProductionOrderDetailsInsertController.GetLeaveRequest(_quotationDataContext,
@@ -456,6 +460,47 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
                         _LeaveRequest.StatusDate = DateTime.Now;
+
+                        Utilities.SendMail(
+                            managerMailAddress,
+                            null,
+                            null,
+                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", _LeaveRequest.Employee.Name + " " + _LeaveRequest.Employee.Surname, _LeaveRequest.Employee.Company.Description, _LeaveRequest.Employee1.Name + " " + _LeaveRequest.Employee1.Surname),
+                            string.Format(
+                            "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
+                            "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
+                            "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
+                            "<tr><td>Azienda:</td><td>{1}</td></tr>" +
+                            "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
+                            "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
+                            "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
+                            "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
+                            "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
+                            "<tr><td>Orario:</td><td>{7}</td></tr>" +
+                            "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
+                            "<tr><td>Responsabile:</td>{9}</td></tr>" +
+                            "<tr><td>Messaggio a responsabile:</td>{10}</td></tr>" +
+                            "<tr><td>Stato richiesta:</td>{11}</td></tr>" +
+                            "<tr><td>Aggiornamento:</td>{12}</td></tr>" +
+                            "<tr><td>Gestita da:</td>{13}</td></tr>" +
+                            "<tr><td>Messaggio a richiedente:</td>{10}</td></tr>" +
+                            "</tbody><table>",
+                            _LeaveRequest.ID,
+                            _LeaveRequest.Company.Description,
+                            _LeaveRequest.Employee.Name + " " + _LeaveRequest.Employee.Surname,
+                            _LeaveRequest.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            _LeaveRequest.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                            _LeaveRequest.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                            _LeaveRequest.DayFraction1.Description,
+                            _LeaveRequest.VacationDays,
+                            _LeaveRequest.Employee1.Name + " " + _LeaveRequest.Employee1.Surname,
+                            _LeaveRequest.MessageToManager,
+                            _LeaveRequest.Statuse.Description,
+                            _LeaveRequest.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            _LeaveRequest.Employee2.Name + " " + _LeaveRequest.Employee2.Surname,
+                            _LeaveRequest.MessageToApplicant
+                            ),
+                            applicantMailAddress);
 
                         _quotationDataContext.SubmitChanges();
 
