@@ -353,7 +353,7 @@ namespace LabExtimOperator.Controllers
                             managerMailAddress,
                             null,
                             null,
-                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2}", applicant.Name + " " + applicant.Surname, applicant.Company.Description),
+                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", _LeaveRequest.Employee.Name + " " + _LeaveRequest.Employee.Surname, _LeaveRequest.Employee.Company.Description, _LeaveRequest.Employee1.Name + " " + _LeaveRequest.Employee1.Surname),
                             string.Format(
                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
