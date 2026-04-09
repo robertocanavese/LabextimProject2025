@@ -395,6 +395,7 @@ namespace LabExtimOperator.Controllers
                             saved.Employee.Company.Description,
                             saved.Employee.Name + " " + saved.Employee.Surname,
                             saved.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                            saved.LeaveType1.Description,
                             saved.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
                             saved.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
                             saved.DayFraction1.Description,
@@ -500,48 +501,49 @@ namespace LabExtimOperator.Controllers
                         LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == _LeaveRequest.ID);
 
                         Utilities.SendMail(
-                            managerMailAddress,
-                            null,
-                            null,
-                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
-                            string.Format(
-                            "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
-                            "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
-                            "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
-                            "<tr><td>Azienda:</td><td>{1}</td></tr>" +
-                            "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
-                            "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
-                            "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
-                            "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
-                            "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
-                            "<tr><td>Orario:</td><td>{7}</td></tr>" +
-                            "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                            "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
-                            "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
-                            "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
-                            "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
-                            "<tr><td>Gestita da:</td>{13}</td></tr>" +
-                            "<tr><td>Messaggio a richiedente:</td><td>{14}</td></tr>" +
-                            "<tr><td colspan='2' >Per autorizzare la richiesta premere sul link sottostante</td></tr>" +
-                            "<tr><td colspan='2' >{15}</td></tr>" +
-                            "</tbody><table>",
-                            saved.ID,
-                            saved.Employee.Company.Description,
-                            saved.Employee.Name + " " + saved.Employee.Surname,
-                            saved.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            saved.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
-                            saved.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
-                            saved.DayFraction1.Description,
-                            saved.VacationDays,
-                            saved.Employee1.Name + " " + saved.Employee1.Surname,
-                            saved.MessageToManager,
-                            saved.Statuse.Description,
-                            saved.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            saved.Employee2.Name + " " + saved.Employee2.Surname,
-                            saved.MessageToApplicant,
-                            autoAuthUrl
-                            ),
-                            applicantMailAddress);
+                             managerMailAddress,
+                             null,
+                             null,
+                             string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
+                             string.Format(
+                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
+                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
+                             "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
+                             "<tr><td>Azienda:</td><td>{1}</td></tr>" +
+                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
+                             "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
+                             "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
+                             "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
+                             "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
+                             "<tr><td>Orario:</td><td>{7}</td></tr>" +
+                             "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
+                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
+                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
+                             "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
+                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
+                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
+                             "<tr><td>Messaggio a richiedente:</td><td>{14}</td></tr>" +
+                             "<tr><td colspan='2' >Per autorizzare la richiesta premere sul link sottostante</td></tr>" +
+                             "<tr><td colspan='2' >{15}</td></tr>" +
+                             "</tbody><table>",
+                             saved.ID,
+                             saved.Employee.Company.Description,
+                             saved.Employee.Name + " " + saved.Employee.Surname,
+                             saved.RequestDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                             saved.LeaveType1.Description,
+                             saved.StartDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                             saved.EndDate.GetValueOrDefault().ToString("yyyy/MM/dd"),
+                             saved.DayFraction1.Description,
+                             saved.VacationDays,
+                             saved.Employee1.Name + " " + saved.Employee1.Surname,
+                             saved.MessageToManager,
+                             saved.Statuse.Description,
+                             saved.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
+                             saved.Employee2.Name + " " + saved.Employee2.Surname,
+                             saved.MessageToApplicant,
+                             autoAuthUrl
+                             ),
+                             applicantMailAddress);
 
                         variables._model = LeaveRequestViewPartialSetModelList();
 
