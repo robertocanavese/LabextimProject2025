@@ -404,7 +404,7 @@ namespace LabExtimOperator.Controllers
                             saved.MessageToManager,
                             saved.Statuse.Description,
                             saved.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                            saved.Employee2.Name + " " + saved.Employee2.Surname,
+                            saved.Employee2 != null ? saved.Employee2.Name + " " + saved.Employee2.Surname : null,
                             saved.MessageToApplicant,
                             autoAuthUrl
                             ),
@@ -539,7 +539,7 @@ namespace LabExtimOperator.Controllers
                              saved.MessageToManager,
                              saved.Statuse.Description,
                              saved.StatusDate.GetValueOrDefault().ToString("yyyy/MM/dd HH:mm"),
-                             saved.Employee2.Name + " " + saved.Employee2.Surname,
+                             saved.Employee2 != null ? saved.Employee2.Name + " " + saved.Employee2.Surname : null,
                              saved.MessageToApplicant,
                              autoAuthUrl
                              ),
