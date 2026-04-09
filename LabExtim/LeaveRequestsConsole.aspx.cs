@@ -202,12 +202,20 @@ namespace LabExtim
         {
             if (e.CommandName == "Approve")
             {
-                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(20, Convert.ToInt32(e.CommandArgument), WebUser.Employee.ID);
+                using (var ctx = new QuotationDataContext())
+                {
+                    new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(ctx, 20, Convert.ToInt32(e.CommandArgument), WebUser.Employee.ID);
+                    ctx.SubmitChanges();
+                }
             }
-            
+
             if (e.CommandName == "Deny")
             {
-                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(21, Convert.ToInt32(e.CommandArgument), WebUser.Employee.ID);
+                using (var ctx = new QuotationDataContext())
+                {
+                    new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(ctx, 21, Convert.ToInt32(e.CommandArgument), WebUser.Employee.ID);
+                    ctx.SubmitChanges();
+                }
             }
         }
 
@@ -225,7 +233,7 @@ namespace LabExtim
                 using (var ctx = new QuotationDataContext())
                 {
                     if (System.Web.HttpContext.Current.Session["CurrentCompanyId"].ToString() == "1")
-                        return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company==1).ToList());
+                        return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company == 1).ToList());
                     else if (System.Web.HttpContext.Current.Session["CurrentCompanyId"].ToString() == "2")
                         return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company == 2).ToList());
                     else
