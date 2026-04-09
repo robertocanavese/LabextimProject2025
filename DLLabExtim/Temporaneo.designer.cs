@@ -40934,6 +40934,8 @@ namespace TempDLLabExtim
 		
 		private string _IdToken;
 		
+		private int _IdUser;
+		
 		private string _RedirectUrl;
 		
     #region Extensibility Method Definitions
@@ -40942,6 +40944,8 @@ namespace TempDLLabExtim
     partial void OnCreated();
     partial void OnIdTokenChanging(string value);
     partial void OnIdTokenChanged();
+    partial void OnIdUserChanging(int value);
+    partial void OnIdUserChanged();
     partial void OnRedirectUrlChanging(string value);
     partial void OnRedirectUrlChanged();
     #endregion
@@ -40967,6 +40971,26 @@ namespace TempDLLabExtim
 					this._IdToken = value;
 					this.SendPropertyChanged("IdToken");
 					this.OnIdTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="Int NOT NULL")]
+		public int IdUser
+		{
+			get
+			{
+				return this._IdUser;
+			}
+			set
+			{
+				if ((this._IdUser != value))
+				{
+					this.OnIdUserChanging(value);
+					this.SendPropertyChanging();
+					this._IdUser = value;
+					this.SendPropertyChanged("IdUser");
+					this.OnIdUserChanged();
 				}
 			}
 		}

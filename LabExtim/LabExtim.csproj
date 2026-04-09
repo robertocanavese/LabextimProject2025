@@ -139,6 +139,7 @@
   </ItemGroup>
   <ItemGroup>
     <Content Include="App_Data\LabextimScript.sql" />
+    <Content Include="AutoAuth.aspx" />
     <Content Include="AutocompleteFilter.asmx" />
     <Content Include="AutocompleteStyle.css" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
@@ -864,6 +865,13 @@
     <Content Include="Script\jquery.tablescroll.js" />
     <Content Include="SessionKeeper.aspx" />
     <Content Include="TablesMan.aspx" />
+    <Compile Include="AutoAuth.aspx.cs">
+      <DependentUpon>AutoAuth.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="AutoAuth.aspx.designer.cs">
+      <DependentUpon>AutoAuth.aspx</DependentUpon>
+    </Compile>
     <Compile Include="AutocompleteFilter.asmx.cs">
       <DependentUpon>AutocompleteFilter.asmx</DependentUpon>
       <SubType>Component</SubType>

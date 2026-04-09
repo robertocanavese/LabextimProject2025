@@ -1982,6 +1982,7 @@
   <Table Name="dbo.Tokens" Member="Tokens">
     <Type Name="Token">
       <Column Name="IdToken" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="RedirectUrl" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
