@@ -369,7 +369,7 @@ namespace LabExtimOperator.Controllers
                             managerMailAddress,
                             null,
                             null,
-                            string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
+                            string.Format("Labextim - Richiesta permesso/ferie da operatore {0} a Direzione {1} ({2})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
                             string.Format(
                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
@@ -504,7 +504,7 @@ namespace LabExtimOperator.Controllers
                              managerMailAddress,
                              null,
                              null,
-                             string.Format("Labextim - Richiesta permesso/ferie da operatore {1} a Direzione {2} ({3})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
+                             string.Format("Labextim - Richiesta permesso/ferie da operatore {0} a Direzione {1} ({2})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
                              string.Format(
                              "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
                              "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
