@@ -1678,68 +1678,69 @@ namespace UILabExtim
 
         public void ChangeLeaveRequestStatus(QuotationDataContext qc, int status, int idLeaveRequest, int idApprover, string messageToApplicant = "")
         {
-                LeaveRequest lr = qc.LeaveRequests.FirstOrDefault(d => d.ID == idLeaveRequest);
-                if (!string.IsNullOrWhiteSpace(messageToApplicant))
-                {
-                    lr.MessageToApplicant = messageToApplicant;
-                }
-                lr.Status = status;
-                lr.StatusDate = DateTime.Now;
-                lr.ID_Approver = idApprover;
+            LeaveRequest lr = qc.LeaveRequests.FirstOrDefault(d => d.ID == idLeaveRequest);
+            if (!string.IsNullOrWhiteSpace(messageToApplicant))
+            {
+                lr.MessageToApplicant = messageToApplicant;
+            }
+            lr.Status = status;
+            lr.StatusDate = DateTime.Now;
+            lr.ID_Approver = idApprover;
 
-                string applicantMailAddress = Membership.GetUser(qc.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
-                string managerMailAddress = Membership.GetUser(qc.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+            Employee applicant = qc.Employees.FirstOrDefault(d => d.ID == lr.ID_Applicant);
+            Employee manager = qc.Employees.FirstOrDefault(d => d.ID == lr.ID_Manager);
+            Employee approver = qc.Employees.FirstOrDefault(d => d.ID == idApprover);
+            LeaveType leaveType = qc.LeaveTypes.FirstOrDefault(d => d.ID == lr.LeaveType);
+            DayFraction dayfraction = qc.DayFractions.FirstOrDefault(d => d.ID == lr.DayFraction);
+
+            string applicantMailAddress = Membership.GetUser(applicant.UserGUID).Email;
+            string managerMailAddress = Membership.GetUser(approver.UserGUID).Email;
 
 
-                if (status == 20 || status == 21)
-                {
-                    Utilities.SendMail(
-                                 applicantMailAddress,
-                                 null,
-                                 null,
-                                 string.Format("Labextim - Richiesta permesso/ferie da operatore {0} a Direzione {1} ({2})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
-                                 string.Format(
-                                 "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
-                                 "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
-                                 "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
-                                 "<tr><td>Azienda:</td><td>{1}</td></tr>" +
-                                 "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
-                                 "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
-                                 "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
-                                 "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
-                                 "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
-                                 "<tr><td>Orario:</td><td>{7}</td></tr>" +
-                                 "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                                 "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
-                                 "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
-                                 "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
-                                 "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
-                                 "<tr><td>Gestita da:</td>{13}</td></tr>" +
-                                 "<tr><td>Messaggio a richiedente:</td><td>{14}</td></tr>" +
-                                 "<tr><td colspan='2' style='text-align:center' ><b>Per autorizzare la richiesta premere sul link sottostante</b></td></tr>" +
-                                 "<tr><td colspan='2' style='text-align:center;text-decoration:underline' >{15}</td></tr>" +
-                                 "</tbody><table>",
-                                 lr.ID,
-                                 lr.Employee.Company.Description,
-                                 lr.Employee.Name + " " + lr.Employee.Surname,
-                                 lr.RequestDate.GetValueOrDefault().ToString("dd/MM/yyyy HH:mm"),
-                                 lr.LeaveType1.Description,
-                                 lr.StartDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
-                                 lr.EndDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
-                                 lr.DayFraction1.Description,
-                                 lr.VacationDays,
-                                 lr.Employee1.Name + " " + lr.Employee1.Surname,
-                                 lr.MessageToManager,
-                                 lr.Statuse.Description,
-                                 lr.StatusDate.GetValueOrDefault().ToString("dd/MM/yyyy HH:mm"),
-                                 lr.Employee2 != null ? lr.Employee2.Name + " " + lr.Employee2.Surname : null,
-                                 lr.MessageToApplicant,
-                                 autoAuthUrl
-                                 ),
-                                 managerMailAddress);
+            if (status == 20 || status == 21)
+            {
+                Utilities.SendMail(
+                             applicantMailAddress,
+                             null,
+                             null,
+                             string.Format("Labextim - Richiesta permesso/ferie No {0} da operatore {1}", lr.ID, applicant.Name + " " + applicant.Surname),
+                             string.Format(
+                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
+                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
+                             "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
+                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
+                             "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
+                             "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
+                             "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
+                             "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
+                             "<tr><td>Orario:</td><td>{7}</td></tr>" +
+                             "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
+                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
+                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
+                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
+                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
+                             "<tr><td colspan='2' style='text-align:center' ><b>LA RICHIESTA E' STATA {14}</b></td></tr>" +
+                             "<tr><td>Messaggio a richiedente:</td><td>{15}</td></tr>" +
+                             "</tbody><table>",
+                             lr.ID,
+                             applicant.Name + " " + applicant.Surname,
+                             lr.RequestDate.GetValueOrDefault().ToString("dd/MM/yyyy HH:mm"),
+                             leaveType.Description,
+                             lr.StartDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
+                             lr.EndDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
+                             dayfraction.Description,
+                             lr.VacationDays,
+                             manager.Name + " " + manager.Surname,
+                             lr.MessageToManager,
+                             lr.StatusDate.GetValueOrDefault().ToString("dd/MM/yyyy HH:mm"),
+                             approver != null ? approver.Name + " " + approver.Surname : null,
+                             status == 20 ? "APPROVATA" : "RESPINTA",
+                             lr.MessageToApplicant
+                             ),
+                             managerMailAddress);
 
-                }
-                //ctx.SubmitChanges();
+            }
+            //ctx.SubmitChanges();
 
         }
 
