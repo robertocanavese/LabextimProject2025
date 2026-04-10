@@ -4,8 +4,10 @@ using System.Linq;
 using System.Web;
 using System.Web.UI;
 using System.Web.UI.WebControls;
+using System.Web.Security;
 using DLLabExtim;
 using UILabExtim;
+using CMLabExtim;
 
 namespace LabExtim
 {
@@ -30,7 +32,7 @@ namespace LabExtim
                             LeaveRequest leaveRequest = _qc.LeaveRequests.FirstOrDefault(d => d.ID == idLeaveRequest);
                             lblRequest.Text =
                                 string.Format(
-                             "<table>" +
+                             "<table style='text-align:left!important' >" +
                              "<thead><tr><th><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
                              "<tr><td>Id richiesta:<b>{0}</b></td></tr>" +
                              "<tr><td>Azienda:<b>{1}</b></td></tr>" +
