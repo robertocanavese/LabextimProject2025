@@ -10,7 +10,7 @@
 <body>
     <form id="form1" runat="server">
         <div>
-            <asp:Panel ID="pnlLeaveRequestsConsole" CssClass="droplist" runat="server">
+            <asp:Panel ID="pnlLeaveRequestsConsole" Visible="false" CssClass="droplist" runat="server">
                 <table style="text-align:center">
                     <tr>
                         <td colspan="2">
@@ -27,9 +27,9 @@
 
                     <tr>
                         <td>
-                            <asp:Button ID="btnReject" CssClass="droplist" runat="server" Text="Approva" /></td>
+                            <asp:Button ID="btnReject" CssClass="droplist" runat="server" Text="Approva" OnClick="btnReject_Click" /></td>
                         <td>
-                            <asp:Button ID="btnApprove" CssClass="droplist" runat="server" Text="Respingi" /></td>
+                            <asp:Button ID="btnApprove" CssClass="droplist" runat="server" Text="Respingi" OnClick="btnApprove_Click" /></td>
                     </tr>
                 </table>
             </asp:Panel>

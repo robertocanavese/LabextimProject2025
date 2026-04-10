@@ -11,37 +11,94 @@ namespace LabExtim
 {
     public partial class AutoAuth : System.Web.UI.Page
     {
+        Token Found;
         protected void Page_Load(object sender, EventArgs e)
         {
-            if (!string.IsNullOrWhiteSpace(Request.QueryString["tkn"]))
+            if (!IsPostBack)
             {
-                int idUser = -1;
-                using (var _qc = new QuotationDataContext())
+                if (!string.IsNullOrWhiteSpace(Request.QueryString["tkn"]))
                 {
-                    Token found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
-                    if (found != null)
+                    int idUser = -1;
+                    using (var _qc = new QuotationDataContext())
                     {
-                        Uri uri = new Uri(found.RedirectUrl);
-
-                        if (uri.AbsoluteUri.ToLower().Contains("LeaveRequestsConsole".ToLower()))
+                        Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
+                        if (Found != null)
                         {
-                            pnlLeaveRequestsConsole.Visible = true;
+                            Uri uri = new Uri(Found.RedirectUrl);
+                            pnlLeaveRequestsConsole.Visible = (uri.AbsoluteUri.ToLower().Contains("LeaveRequestsConsole".ToLower()));
                             int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
-                            new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, found.IdUser);
-                            lblMessage.Text = string.Format("Richiesta permesso No. {0} autorizzata con successo!", idLeaveRequest);
+                            LeaveRequest leaveRequest = _qc.LeaveRequests.FirstOrDefault(d => d.ID == idLeaveRequest);
+                            lblRequest.Text =
+                                string.Format(
+                             "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
+                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
+                             "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
+                             "<tr><td>Azienda:</td><td>{1}</td></tr>" +
+                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
+                             "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
+                             "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
+                             "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
+                             "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
+                             "<tr><td>Orario:</td><td>{7}</td></tr>" +
+                             "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
+                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
+                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
+                             "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
+                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
+                             "</tbody><table>",
+                             leaveRequest.ID,
+                             leaveRequest.Employee.Company.Description,
+                             leaveRequest.Employee.Name + " " + leaveRequest.Employee.Surname,
+                             leaveRequest.RequestDate.GetValueOrDefault().ToString("dd/MM/yyyy HH:mm"),
+                             leaveRequest.LeaveType1.Description,
+                             leaveRequest.StartDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
+                             leaveRequest.EndDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
+                             leaveRequest.DayFraction1.Description,
+                             leaveRequest.VacationDays,
+                             leaveRequest.Employee1.Name + " " + leaveRequest.Employee1.Surname,
+                             leaveRequest.MessageToManager,
+                             leaveRequest.Statuse.Description,
+                             leaveRequest.StatusDate.GetValueOrDefault().ToString("dd/MM/yyyy HH:mm")
+                             );
                         }
-                        _qc.Tokens.DeleteOnSubmit(found);
-                        _qc.SubmitChanges();
+                        else
+                        {
+                            lblMessage.Text = "Autoautenticazione fallita!";
+                        }
                     }
-                    else
-                    {
-                        lblMessage.Text = "Autoautenticazione fallita!";
-                    }
+
+
                 }
-
-
             }
 
+        }
+
+        protected void btnReject_Click(object sender, EventArgs e)
+        {
+            using (var _qc = new QuotationDataContext())
+            {
+                Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
+                Uri uri = new Uri(Found.RedirectUrl);
+                int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
+                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, Found.IdUser);
+                lblMessage.Text = string.Format("Richiesta permesso No. {0} autorizzata con successo!", idLeaveRequest);
+                _qc.Tokens.DeleteOnSubmit(Found);
+                _qc.SubmitChanges();
+            }
+        }
+
+        protected void btnApprove_Click(object sender, EventArgs e)
+        {
+            using (var _qc = new QuotationDataContext())
+            {
+                Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
+                Uri uri = new Uri(Found.RedirectUrl);
+                int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
+                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 21, idLeaveRequest, Found.IdUser);
+                lblMessage.Text = string.Format("Richiesta permesso No. {0} respinta con successo!", idLeaveRequest);
+                _qc.Tokens.DeleteOnSubmit(Found);
+                _qc.SubmitChanges();
+            }
         }
     }
 }
