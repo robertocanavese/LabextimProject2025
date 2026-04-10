@@ -1706,7 +1706,7 @@ namespace UILabExtim
                              string.Format("Labextim - Richiesta permesso/ferie No {0} da operatore {1}", lr.ID, applicant.Name + " " + applicant.Surname),
                              string.Format(
                              "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
-                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
+                             "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA</b></th></tr></thead><tbody>" +
                              "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
                              "<tr><td>Richiedente:</td><td>{1}</td></tr>" +
                              "<tr><td>Data richiesta:</td><td>{2}</td></tr>" +
