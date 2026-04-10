@@ -71,7 +71,7 @@ namespace LabExtim
 
         private void PopulateSearchEngine()
         {
-            senMain.LblTextField1Text = "Cliente";
+            senMain.LblTextField1Text = "Richiedente";
 
             using (var _qc = new QuotationDataContext())
             {
