@@ -349,6 +349,7 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.StatusDate = DateTime.Now;
 
                         _quotationDataContext.LeaveRequests.InsertOnSubmit(_LeaveRequest);
+                        _quotationDataContext.SubmitChanges();
 
                         Guid g = Guid.NewGuid();
                         string autoAuthUrl = string.Format("{0}/{1}?tkn={2}", ConfigurationManager.AppSettings["LabextimUrl"], "AutoAuth.aspx", g.ToString());
@@ -362,7 +363,6 @@ namespace LabExtimOperator.Controllers
 
                         _quotationDataContext.SubmitChanges();
 
-                        item.ID = _LeaveRequest.ID;
                         LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == _LeaveRequest.ID);
 
                         Utilities.SendMail(
