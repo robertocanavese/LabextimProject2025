@@ -1708,19 +1708,19 @@ namespace UILabExtim
                              "<table cellspacing='0' cellpadding='3' style='font-family:verdana;font-size:12px'>" +
                              "<thead><tr><th style='background-color:navy;color:white' colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
                              "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
-                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
-                             "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
-                             "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
-                             "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
-                             "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
-                             "<tr><td>Orario:</td><td>{7}</td></tr>" +
-                             "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
-                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
-                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
-                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
-                             "<tr><td colspan='2' style='text-align:center' ><b>LA RICHIESTA E' STATA {14}</b></td></tr>" +
-                             "<tr><td>Messaggio a richiedente:</td><td>{15}</td></tr>" +
+                             "<tr><td>Richiedente:</td><td>{1}</td></tr>" +
+                             "<tr><td>Data richiesta:</td><td>{2}</td></tr>" +
+                             "<tr><td>Tipo permesso:</td><td>{3}</td></tr>" +
+                             "<tr><td>Data inizio assenza:</td><td>{4}</td></tr>" +
+                             "<tr><td>Data fine assenza:</td><td>{5}</td></tr>" +
+                             "<tr><td>Orario:</td><td>{6}</td></tr>" +
+                             "<tr><td>Giorni di assenza:</td><td>{7}</td></tr>" +
+                             "<tr><td>Responsabile:</td><td>{8}</td></tr>" +
+                             "<tr><td>Messaggio a responsabile:</td><td>{9}</td></tr>" +
+                             "<tr><td>Aggiornamento:</td><td>{10}</td></tr>" +
+                             "<tr><td>Gestita da:</td>{11}</td></tr>" +
+                             "<tr><td colspan='2' style='text-align:center' ><b>LA RICHIESTA E' STATA {12}</b></td></tr>" +
+                             "<tr><td>Messaggio a richiedente:</td><td>{13}</td></tr>" +
                              "</tbody><table>",
                              lr.ID,
                              applicant.Name + " " + applicant.Surname,
