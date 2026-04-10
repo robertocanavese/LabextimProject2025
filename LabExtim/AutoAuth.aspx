@@ -14,7 +14,7 @@
                 <table style="text-align:center">
                     <tr>
                         <td colspan="2">
-                            <asp:Label ID="lblRequest" runat="server"></asp:Label></td>
+                            <asp:Label ID="lblRequest" CssClass="droplist" runat="server"></asp:Label></td>
                     </tr>
                     <tr>
                         <td colspan="2">
