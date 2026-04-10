@@ -80,7 +80,7 @@ namespace LabExtim
                 Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
                 Uri uri = new Uri(Found.RedirectUrl);
                 int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
-                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, Found.IdUser);
+                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, Found.IdUser, txtmessageToApplicant.Text);
                 lblMessage.Text = string.Format("Richiesta permesso No. {0} autorizzata con successo!", idLeaveRequest);
                 _qc.Tokens.DeleteOnSubmit(Found);
                 _qc.SubmitChanges();
@@ -94,7 +94,7 @@ namespace LabExtim
                 Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
                 Uri uri = new Uri(Found.RedirectUrl);
                 int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
-                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 21, idLeaveRequest, Found.IdUser);
+                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 21, idLeaveRequest, Found.IdUser, txtmessageToApplicant.Text);
                 lblMessage.Text = string.Format("Richiesta permesso No. {0} respinta con successo!", idLeaveRequest);
                 _qc.Tokens.DeleteOnSubmit(Found);
                 _qc.SubmitChanges();
