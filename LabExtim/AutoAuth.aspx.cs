@@ -31,20 +31,20 @@ namespace LabExtim
                             lblRequest.Text =
                                 string.Format(
                              "<table>" +
-                             "<thead><tr><th colspan='2' ><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
-                             "<tr><td>Id richiesta:</td><td>{0}</td></tr>" +
-                             "<tr><td>Azienda:</td><td>{1}</td></tr>" +
-                             "<tr><td>Richiedente:</td><td>{2}</td></tr>" +
-                             "<tr><td>Data richiesta:</td><td>{3}</td></tr>" +
-                             "<tr><td>Tipo permesso:</td><td>{4}</td></tr>" +
-                             "<tr><td>Data inizio assenza:</td><td>{5}</td></tr>" +
-                             "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
-                             "<tr><td>Orario:</td><td>{7}</td></tr>" +
-                             "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
-                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
-                             "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
-                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
+                             "<thead><tr><th><b>DETTAGLIO RICHIESTA:</b></th></tr></thead><tbody>" +
+                             "<tr><td>Id richiesta:<b>{0}</b></td></tr>" +
+                             "<tr><td>Azienda:<b>{1}</b></td></tr>" +
+                             "<tr><td>Richiedente:<b>{2}</b></td></tr>" +
+                             "<tr><td>Data richiesta:<b>{3}</b></td></tr>" +
+                             "<tr><td>Tipo permesso:<b>{4}</b></td></tr>" +
+                             "<tr><td>Data inizio assenza:<b>{5}</b></td></tr>" +
+                             "<tr><td>Data fine assenza:<b>{6}</b></td></tr>" +
+                             "<tr><td>Orario:<b>{7}</b></td></tr>" +
+                             "<tr><td>Giorni di assenza:<b>{8}</b></td></tr>" +
+                             "<tr><td>Responsabile:<b>{9}</b></td></tr>" +
+                             "<tr><td>Messaggio a responsabile:<b>{10}</b></td></tr>" +
+                             "<tr><td>Stato richiesta:<b>{11}</b></td></tr>" +
+                             "<tr><td>Aggiornamento:<b>{12}</b></td></tr>" +
                              "</tbody><table>",
                              leaveRequest.ID,
                              leaveRequest.Employee.Company.Description,
