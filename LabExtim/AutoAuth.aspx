@@ -33,7 +33,7 @@
                     </tr>
                 </table>
             </asp:Panel>
-            <asp:Label ID="lblMessage" runat="server"></asp:Label>
+            <asp:Label ID="lblMessage" CssClass="droplist" runat="server"></asp:Label>
         </div>
     </form>
 </body>
