@@ -25,6 +25,7 @@ namespace LabExtim
 
                         if (uri.AbsoluteUri.ToLower().Contains("LeaveRequestsConsole".ToLower()))
                         {
+                            pnlLeaveRequestsConsole.Visible = true;
                             int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
                             new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, found.IdUser);
                             lblMessage.Text = string.Format("Richiesta permesso No. {0} autorizzata con successo!", idLeaveRequest);
