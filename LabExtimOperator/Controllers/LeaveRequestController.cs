@@ -438,18 +438,14 @@ namespace LabExtimOperator.Controllers
                 {
                     string applicantMailAddress = null;
                     string managerMailAddress = null;
+                    string autoAuthUrl = null;
+                    string whereUrl = null;
+                    int curId = -1;
 
 
                     using (var _quotationDataContext = new QuotationDataContext())
                     {
-                        var dataOptions = new DataLoadOptions();
-                        dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType1);
-                        dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
-                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
-                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
-                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee2);
-                        dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
-                        _quotationDataContext.LoadOptions = dataOptions;
+
 
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
@@ -466,6 +462,7 @@ namespace LabExtimOperator.Controllers
                         else
                         {
                             _LeaveRequest.ID = item.ID;
+                            curId = item.ID;
                         }
 
                         if (_LeaveRequest.Status > 19)
@@ -486,8 +483,8 @@ namespace LabExtimOperator.Controllers
 
 
                         Guid g = Guid.NewGuid();
-                        string autoAuthUrl = string.Format("{0}/{1}?tkn={2}", ConfigurationManager.AppSettings["LabextimUrl"], "AutoAuth.aspx", g.ToString());
-                        string whereUrl = string.Format("{0}/{1}?toauthid={2}", ConfigurationManager.AppSettings["LabextimUrl"], "LeaveRequestsConsole.aspx", _LeaveRequest.ID);
+                        autoAuthUrl = string.Format("{0}/{1}?tkn={2}", ConfigurationManager.AppSettings["LabextimUrl"], "AutoAuth.aspx", g.ToString());
+                        whereUrl = string.Format("{0}/{1}?toauthid={2}", ConfigurationManager.AppSettings["LabextimUrl"], "LeaveRequestsConsole.aspx", _LeaveRequest.ID);
 
                         Token token = new Token();
                         token.IdToken = g.ToString();
@@ -497,8 +494,24 @@ namespace LabExtimOperator.Controllers
 
                         _quotationDataContext.SubmitChanges();
 
-                        item.ID = _LeaveRequest.ID;
-                        LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == _LeaveRequest.ID);
+                    }
+
+                    using (var _quotationDataContext = new QuotationDataContext())
+                    {
+
+                        var dataOptions = new DataLoadOptions();
+                        dataOptions.LoadWith<LeaveRequest>(c => c.LeaveType1);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.Employee2);
+                        dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
+                        _quotationDataContext.LoadOptions = dataOptions;
+
+                        //item.ID = _LeaveRequest.ID;
+                        LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == curId);
+
+
 
                         Utilities.SendMail(
                              managerMailAddress,
