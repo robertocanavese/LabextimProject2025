@@ -63,7 +63,7 @@ namespace LabExtim
                         }
                         else
                         {
-                            lblMessage.Text = "Autoautenticazione fallita!";
+                            lblMessage.Text = "Autenticazione automatica fallita!";
                         }
                     }
 
