@@ -29,7 +29,7 @@ namespace LabExtim
             ldsLeaveRequests.AutoGenerateWhereClause = false;
 
             ldsLeaveRequests.WhereParameters.Clear();
-            var _filter = "";
+            var _filter = "TRUE ";
 
             // merge aziendale
             //ldsLeaveRequests.WhereParameters.Add("ID_Company", DbType.Int32, CurrentCompanyId.ToString());
@@ -47,7 +47,7 @@ namespace LabExtim
             }
             if (senMain.DropDownList1.SelectedValue != string.Empty)
             {
-                ldsLeaveRequests.WhereParameters.Add("Status", DbType.String, senMain.DropDownList1.SelectedValue);
+                ldsLeaveRequests.WhereParameters.Add("Status", DbType.Int32, senMain.DropDownList1.SelectedValue);
                 _filter += " AND Status == @Status";
             }
 
