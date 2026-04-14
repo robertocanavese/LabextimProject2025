@@ -33,6 +33,7 @@
                             contentType: "application/json; charset=utf-8",
                             success: function (result) {
                                 if (result.hasOwnProperty("d")) { result = result.d; }
+                                debugger;
                                 var data = jQuery.parseJSON(result);
                                 response($.map(data, function (item) {
                                     return {
@@ -51,6 +52,7 @@
                     },
                     minLength: 3,
                     select: function (event, ui) {
+                        debugger;
                         //log(ui.item ? ui.item.label : this.label);
                         $("#ctl00_ContentPlaceHolder1_senMain_txtTextField1").val(ui.item.label);
                         $("#ctl00_ContentPlaceHolder1_senMain_hidTextField1").val(ui.item.value);

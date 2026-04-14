@@ -820,6 +820,7 @@
       <Association Name="Employee_Quotation1" Member="Quotations1" ThisKey="ID" OtherKey="ID_Owner" Type="Quotation" />
       <Association Name="Employee_Employee" Member="Employees" ThisKey="ID" OtherKey="ID_Manager" Type="Employee" />
       <Association Name="Employee_DeliveryTrip" Member="DeliveryTrips" ThisKey="ID" OtherKey="ID_Owner" Type="DeliveryTrip" />
+      <Association Name="Employee_DeliveryTripDetail" Member="DeliveryTripDetails" ThisKey="ID" OtherKey="ID_Owner" Type="DeliveryTripDetail" />
       <Association Name="Employee_TempQuotation" Member="TempQuotations" ThisKey="ID" OtherKey="ID_Approver" Type="TempQuotation" />
       <Association Name="Employee_TempQuotation1" Member="TempQuotations1" ThisKey="ID" OtherKey="ID_Owner" Type="TempQuotation" />
       <Association Name="Employee_VW_AllQuotations" Member="VW_AllQuotations" ThisKey="ID" OtherKey="ID_Approver" Type="VW_AllQuotations" />

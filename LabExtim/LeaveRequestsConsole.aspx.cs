@@ -233,9 +233,9 @@ namespace LabExtim
                 using (var ctx = new QuotationDataContext())
                 {
                     if (System.Web.HttpContext.Current.Session["CurrentCompanyId"].ToString() == "1")
-                        return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company == 1).ToList());
+                        return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company == 1 && c.UniqueName.ToLower().Contains(q.ToLower())).Select(c => new { Id = c.ID, UniqueName = c.UniqueName }).ToList());
                     else if (System.Web.HttpContext.Current.Session["CurrentCompanyId"].ToString() == "2")
-                        return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company == 2).ToList());
+                        return new JavaScriptSerializer().Serialize(ctx.Employees.Where(c => c.ID_Company == 2 && c.UniqueName.ToLower().Contains(q.ToLower())).Select(c => new { Id = c.ID, UniqueName = c.UniqueName }).ToList());
                     else
                         return null;
                 }

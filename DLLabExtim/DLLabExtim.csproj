@@ -112,6 +112,9 @@
     <Compile Include="PartialOrInheritedClasses\VW_DDTQUOPORCostsPrice.cs" />
     <Compile Include="SharedParameters.cs" />
     <Compile Include="SarogliaGateway.cs" />
+    <Compile Include="Temporaneo.cs">
+      <DependentUpon>Temporaneo.dbml</DependentUpon>
+    </Compile>
     <Compile Include="ZechiniGateway.cs" />
     <Compile Include="EuroProgettiGateway.cs" />
     <Compile Include="General.cs">

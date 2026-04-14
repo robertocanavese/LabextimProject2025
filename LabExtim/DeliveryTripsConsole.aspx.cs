@@ -29,7 +29,7 @@ namespace LabExtim
             ldsDeliveryTrips.AutoGenerateWhereClause = false;
 
             ldsDeliveryTrips.WhereParameters.Clear();
-            var _filter = "";
+            var _filter = "TRUE";
 
             // merge aziendale
             //ldsDeliveryTrips.WhereParameters.Add("ID_Company", DbType.Int32, CurrentCompanyId.ToString());

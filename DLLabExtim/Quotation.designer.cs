@@ -18235,6 +18235,8 @@ namespace DLLabExtim
 		
 		private EntitySet<DeliveryTrip> _DeliveryTrips;
 		
+		private EntitySet<DeliveryTripDetail> _DeliveryTripDetails;
+		
 		private EntitySet<TempQuotation> _TempQuotations;
 		
 		private EntitySet<TempQuotation> _TempQuotations1;
@@ -18301,6 +18303,7 @@ namespace DLLabExtim
 			this._Quotations1 = new EntitySet<Quotation>(new Action<Quotation>(this.attach_Quotations1), new Action<Quotation>(this.detach_Quotations1));
 			this._Employees = new EntitySet<Employee>(new Action<Employee>(this.attach_Employees), new Action<Employee>(this.detach_Employees));
 			this._DeliveryTrips = new EntitySet<DeliveryTrip>(new Action<DeliveryTrip>(this.attach_DeliveryTrips), new Action<DeliveryTrip>(this.detach_DeliveryTrips));
+			this._DeliveryTripDetails = new EntitySet<DeliveryTripDetail>(new Action<DeliveryTripDetail>(this.attach_DeliveryTripDetails), new Action<DeliveryTripDetail>(this.detach_DeliveryTripDetails));
 			this._TempQuotations = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations), new Action<TempQuotation>(this.detach_TempQuotations));
 			this._TempQuotations1 = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations1), new Action<TempQuotation>(this.detach_TempQuotations1));
 			this._VW_AllQuotations = new EntitySet<VW_AllQuotations>(new Action<VW_AllQuotations>(this.attach_VW_AllQuotations), new Action<VW_AllQuotations>(this.detach_VW_AllQuotations));
@@ -18667,6 +18670,19 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_DeliveryTripDetail", Storage="_DeliveryTripDetails", ThisKey="ID", OtherKey="ID_Owner")]
+		public EntitySet<DeliveryTripDetail> DeliveryTripDetails
+		{
+			get
+			{
+				return this._DeliveryTripDetails;
+			}
+			set
+			{
+				this._DeliveryTripDetails.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Employee_TempQuotation", Storage="_TempQuotations", ThisKey="ID", OtherKey="ID_Approver")]
 		public EntitySet<TempQuotation> TempQuotations
 		{
@@ -18986,6 +19002,18 @@ namespace DLLabExtim
 		}
 		
 		private void detach_DeliveryTrips(DeliveryTrip entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = null;
+		}
+		
+		private void attach_DeliveryTripDetails(DeliveryTripDetail entity)
+		{
+			this.SendPropertyChanging();
+			entity.Employee = this;
+		}
+		
+		private void detach_DeliveryTripDetails(DeliveryTripDetail entity)
 		{
 			this.SendPropertyChanging();
 			entity.Employee = null;
@@ -19908,10 +19936,26 @@ namespace DLLabExtim
 			}
 			set
 			{
-				if ((this._Employee.Entity != value))
+				Employee previousValue = this._Employee.Entity;
+				if (((previousValue != value) 
+							|| (this._Employee.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Employee.Entity = null;
+						previousValue.DeliveryTripDetails.Remove(this);
+					}
 					this._Employee.Entity = value;
+					if ((value != null))
+					{
+						value.DeliveryTripDetails.Add(this);
+						this._ID_Owner = value.ID;
+					}
+					else
+					{
+						this._ID_Owner = default(Nullable<int>);
+					}
 					this.SendPropertyChanged("Employee");
 				}
 			}
