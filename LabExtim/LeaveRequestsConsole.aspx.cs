@@ -76,11 +76,11 @@ namespace LabExtim
             using (var _qc = new QuotationDataContext())
             {
 
-                //senMain.LblDropDownList1Text = "Altra destinazione";
-                //var _items1 =
-                //    _qc.Locations.Select(s => new ListItem { Text = s.Name, Value = s.Code.ToString() }).ToArray();
-                //senMain.DropDownList1.Items.AddRange(_items1);
-                //senMain.DropDownList1.Items.Insert(0, new ListItem("Tutti", ""));
+                senMain.LblDropDownList1Text = "Stato richiesta";
+                var _items1 =
+                    _qc.Statuses.Where(s => s.StatusType == 5).Select(s => new ListItem { Text = s.Description, Value = s.ID.ToString() }).ToArray();
+                senMain.DropDownList1.Items.AddRange(_items1);
+                senMain.DropDownList1.Items.Insert(0, new ListItem("Tutti", ""));
 
             }
 
