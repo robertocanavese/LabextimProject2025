@@ -138,6 +138,10 @@ namespace LabExtim.DynamicData.FieldTemplates
                 {
                     Sql += " WHERE StatusType = 4";
                 }
+                if (ForeignKeyColumn.ParentTable.Name.Contains("Statuse") && Table.Name.Contains("LeaveRequests"))
+                {
+                    Sql += " WHERE StatusType = 5";
+                }
                 if (ForeignKeyColumn.ParentTable.Name.Contains("Quotation") && Table.Name.Contains("ProductionOrders"))
                 {
                     Sql += " WHERE date > dateadd(YY, -1, getdate())";
