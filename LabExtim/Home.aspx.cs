@@ -59,14 +59,14 @@ namespace LabExtim
                 tvwMenu1.Nodes.Add(new TreeNode("Viaggi", string.Empty, string.Empty, "~/DeliveryTripsConsole.aspx",
                 string.Empty));
 
-                tvwMenu1.Nodes.Add(new TreeNode("Gestione permessi/ferie", string.Empty, string.Empty, "~/LeaveRequestsConsole.aspx",
-                string.Empty));
-
                 //tvwMenu1.Nodes.Add(new TreeNode("Ordini Clienti", string.Empty, string.Empty,
                 //    "~/CustomerOrdersConsole.aspx", string.Empty));
 
+            }
 
-
+            if (WebUser.IsAdministrator)
+            {
+                tvwMenu1.Nodes.Add(new TreeNode("Gestione permessi/ferie", string.Empty, string.Empty, "~/LeaveRequestsConsole.aspx", string.Empty));
             }
 
             tvwMenu2.Nodes.Add(new TreeNode("Ordini di produzione"));
@@ -121,7 +121,7 @@ namespace LabExtim
             if (WebUser.IsOfficeUser)
             {
 
-                
+
 
                 tvwMenu3.Nodes.Add(new TreeNode("Statistiche"));
                 tvwMenu3.Nodes[tvwMenu3.Nodes.Count - 1].SelectAction = TreeNodeSelectAction.SelectExpand;
