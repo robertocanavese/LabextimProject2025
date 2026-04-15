@@ -221,7 +221,7 @@ namespace LabExtim
             {
                 var table = DetailsDataSource.GetTable();
                 var _qc = (QuotationDataContext)table.CreateContext();
-                e.Result = _qc.DeliveryTrips.Where(po => po.ID == DTIdParameter);
+                e.Result = _qc.DeliveryTrips.Where(po => po.ID == id);
             }
         }
 
@@ -249,7 +249,7 @@ namespace LabExtim
             //    }
             //    db.SubmitChanges();
             //}
-            Response.Redirect("DeliveryTripPopup.aspx?" + DTIdKey + "=" + ((DeliveryTrip)e.Result).ID);
+            Response.Redirect("DeliveryTripPopup.aspx?" + DeliveryTripKey + "=" + ((DeliveryTrip)e.Result).ID);
         }
 
         protected void DetailsDataSource_Updating(object sender, LinqDataSourceUpdateEventArgs e)
