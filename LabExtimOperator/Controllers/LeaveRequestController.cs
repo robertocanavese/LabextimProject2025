@@ -320,7 +320,7 @@ namespace LabExtimOperator.Controllers
                         _quotationDataContext.LoadOptions = dataOptions;
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
-                        managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+                        //managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
 
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
@@ -366,7 +366,7 @@ namespace LabExtimOperator.Controllers
                         LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == _LeaveRequest.ID);
 
                         Utilities.SendMail(
-                             managerMailAddress,
+                             saved.ID_Company == 1 ? ConfigurationManager.AppSettings["mailAddressToCSV_Azienda01"] : ConfigurationManager.AppSettings["mailAddressToCSV_Azienda02"],
                              null,
                              null,
                              string.Format("Labextim - Richiesta permesso/ferie da operatore {0} a Direzione {1} ({2})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
@@ -449,7 +449,7 @@ namespace LabExtimOperator.Controllers
 
 
                         applicantMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).UserGUID).Email;
-                        managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
+                        //managerMailAddress = Membership.GetUser(_quotationDataContext.Employees.FirstOrDefault(d => d.ID == item.ID_Manager).UserGUID).Email;
 
                         LeaveRequest _LeaveRequest = null;
                         _LeaveRequest =
@@ -514,7 +514,7 @@ namespace LabExtimOperator.Controllers
 
 
                         Utilities.SendMail(
-                             managerMailAddress,
+                             saved.ID_Company == 1 ? ConfigurationManager.AppSettings["mailAddressToCSV_Azienda01"] : ConfigurationManager.AppSettings["mailAddressToCSV_Azienda02",
                              null,
                              null,
                              string.Format("Labextim - Richiesta permesso/ferie da operatore {0} a Direzione {1} ({2})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),

@@ -83,15 +83,15 @@
         settings.CommandColumn.ShowEditButton = true;
         settings.CommandButtonInitialize = (s, e) =>
             {
-                  if(e.VisibleIndex == -1) return;
-                  if (e.ButtonType == ColumnCommandButtonType.Edit || e.ButtonType == ColumnCommandButtonType.Delete)
+                if (e.VisibleIndex == -1) return;
+                if (e.ButtonType == ColumnCommandButtonType.Edit || e.ButtonType == ColumnCommandButtonType.Delete)
                 {
-                    object fieldValue = (s as MVCxGridView).GetRowValues(e.VisibleIndex, "Status");  
+                    object fieldValue = (s as MVCxGridView).GetRowValues(e.VisibleIndex, "Status");
                     e.Visible = (Convert.ToInt32(fieldValue) == 19);
                 }
-                
+
             };
-        
+
         settings.SettingsCommandButton.EditButton.ButtonType = GridViewCommandButtonType.Button;
         settings.SettingsCommandButton.DeleteButton.ButtonType = GridViewCommandButtonType.Image;
 
@@ -339,12 +339,15 @@
                     itemSettings.ColSpan = 2;
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
                     var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
-                    var vdata = from data in context.Employees.Where(d => new int[] { 1, 18, 20 }.Contains(d.ID))
-                                orderby data.ID
-                                select new { ID = data.ID, Name = data.UniqueName };
+                    //var vdata = from data in context.Employees.Where(d => new int[] { 1, 18, 20 }.Contains(d.ID))
+                    //            orderby data.ID
+                    //            select new { ID = data.ID, Name = data.UniqueName };
+                    //comboBoxSetings.Properties.TextField = "Name";
+                    //comboBoxSetings.Properties.ValueField = "ID";
+                    var vdata = new KeyValuePair<int, string>[] { new KeyValuePair<int, string>(18, "Direzione") };
                     comboBoxSetings.Properties.DataSource = vdata.ToList();
-                    comboBoxSetings.Properties.TextField = "Name";
-                    comboBoxSetings.Properties.ValueField = "ID";
+                    comboBoxSetings.Properties.TextField = "Value";
+                    comboBoxSetings.Properties.ValueField = "key";
                     comboBoxSetings.Properties.ValueType = typeof(int);
                     comboBoxSetings.Width = Unit.Percentage(50);
                 });
@@ -387,7 +390,7 @@
                     comboBoxSetings.Height = Unit.Pixel(50);
                     comboBoxSetings.ControlStyle.Font.Bold = true;
                 });
-                
+
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 1;
