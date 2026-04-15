@@ -54,7 +54,7 @@ namespace LabExtim
             {
                 ldsLeaveRequests.WhereParameters.Add("StartDateFrom", DbType.DateTime,
                     DateTime.Parse(senMain.TextDateFromText).ToString());
-                _filter += " AND EndtDate >= @StartDateFrom";
+                _filter += " AND EndDate >= @StartDateFrom";
             }
             if (senMain.TextDateToText != string.Empty)
             {
