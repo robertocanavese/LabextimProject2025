@@ -14,6 +14,24 @@ namespace LabExtim
     public partial class AutoAuth : System.Web.UI.Page
     {
         Token Found;
+
+        public LabextimUser WebUser
+        {
+            get
+            {
+                if (User.Identity.IsAuthenticated)
+                {
+                    if (Session["LabextimUser"] == null)
+                    {
+                        LabextimUser user = new LabextimUser(Membership.GetUser());
+                        Session["LabextimUser"] = user;
+                    }
+                    return Session["LabextimUser"] as LabextimUser;
+                }
+                return null;
+            }
+        }
+
         protected void Page_Load(object sender, EventArgs e)
         {
             if (!IsPostBack)
@@ -77,12 +95,20 @@ namespace LabExtim
 
         protected void btnReject_Click(object sender, EventArgs e)
         {
+
+            
+
             using (var _qc = new QuotationDataContext())
             {
                 Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
+
+                int curUser = Found.IdUser;
+                if (WebUser != null)
+                    curUser = WebUser.Employee.ID;
+
                 Uri uri = new Uri(Found.RedirectUrl);
                 int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
-                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, Found.IdUser, txtmessageToApplicant.Text);
+                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 20, idLeaveRequest, curUser, txtmessageToApplicant.Text);
                 lblMessage.Text = string.Format("Richiesta permesso No. {0} autorizzata con successo!", idLeaveRequest);
                 _qc.Tokens.DeleteOnSubmit(Found);
                 _qc.SubmitChanges();
@@ -94,9 +120,14 @@ namespace LabExtim
             using (var _qc = new QuotationDataContext())
             {
                 Found = _qc.Tokens.FirstOrDefault(d => d.IdToken == Request.QueryString["tkn"]);
+
+                int curUser = Found.IdUser;
+                if (WebUser != null)
+                    curUser = WebUser.Employee.ID;
+
                 Uri uri = new Uri(Found.RedirectUrl);
                 int idLeaveRequest = Convert.ToInt32(HttpUtility.ParseQueryString(uri.Query).Get("toauthid"));
-                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 21, idLeaveRequest, Found.IdUser, txtmessageToApplicant.Text);
+                new ProductionOrderDetailsInsertController().ChangeLeaveRequestStatus(_qc, 21, idLeaveRequest, curUser, txtmessageToApplicant.Text);
                 lblMessage.Text = string.Format("Richiesta permesso No. {0} respinta con successo!", idLeaveRequest);
                 _qc.Tokens.DeleteOnSubmit(Found);
                 _qc.SubmitChanges();
