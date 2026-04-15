@@ -514,7 +514,7 @@ namespace LabExtimOperator.Controllers
 
 
                         Utilities.SendMail(
-                             saved.ID_Company == 1 ? ConfigurationManager.AppSettings["mailAddressToCSV_Azienda01"] : ConfigurationManager.AppSettings["mailAddressToCSV_Azienda02",
+                             saved.ID_Company == 1 ? ConfigurationManager.AppSettings["mailAddressToCSV_Azienda01"] : ConfigurationManager.AppSettings["mailAddressToCSV_Azienda02"],
                              null,
                              null,
                              string.Format("Labextim - Richiesta permesso/ferie da operatore {0} a Direzione {1} ({2})", saved.Employee.Name + " " + saved.Employee.Surname, saved.Employee.Company.Description, saved.Employee1.Name + " " + saved.Employee1.Surname),
