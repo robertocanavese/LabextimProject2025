@@ -50,6 +50,18 @@ namespace LabExtim
                 ldsLeaveRequests.WhereParameters.Add("Status", DbType.Int32, senMain.DropDownList1.SelectedValue);
                 _filter += " AND Status == @Status";
             }
+            if (senMain.TextDateFromText != string.Empty)
+            {
+                ldsLeaveRequests.WhereParameters.Add("StartDateFrom", DbType.DateTime,
+                    DateTime.Parse(senMain.TextDateFromText).ToString());
+                _filter += " AND EndtDate >= @StartDateFrom";
+            }
+            if (senMain.TextDateToText != string.Empty)
+            {
+                ldsLeaveRequests.WhereParameters.Add("StartDateTo", DbType.DateTime,
+                    DateTime.Parse(senMain.TextDateToText).ToString());
+                _filter += " AND StartDate <= @StartDateTo";
+            }
 
             if (_filter != "TRUE ")
                 ldsLeaveRequests.Where = _filter;
@@ -72,6 +84,8 @@ namespace LabExtim
         private void PopulateSearchEngine()
         {
             senMain.LblTextField1Text = "Richiedente";
+            senMain.LblDateFromText = "Fine periodo da";
+            senMain.LblDateToText = "Inizio periodo a";
 
             using (var _qc = new QuotationDataContext())
             {
@@ -85,6 +99,7 @@ namespace LabExtim
             }
 
             senMain.DdlOrderBy.Items.Add(new ListItem("Più recente", "RequestDate"));
+            senMain.DdlOrderBy.Items.Add(new ListItem("Più recente, Operatore", "RequestDateApplicant"));
         }
 
         private void FillControls()
@@ -174,6 +189,11 @@ namespace LabExtim
                     ldsLeaveRequests.OrderByParameters.Clear();
                     ldsLeaveRequests.AutoGenerateOrderByClause = false;
                     e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
+                    break;
+                case ("RequestDateApplicant"):
+                    ldsLeaveRequests.OrderByParameters.Clear();
+                    ldsLeaveRequests.AutoGenerateOrderByClause = false;
+                    e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate).ThenBy(qt => qt.Employee.Surname);
                     break;
 
                 default:
