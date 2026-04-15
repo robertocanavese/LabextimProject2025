@@ -285,6 +285,20 @@ namespace LabExtimOperator.Controllers
 
             LeaveRequestControllerSessionVariables variables = new LeaveRequestControllerSessionVariables();
 
+            if (item.LeaveType == 0)
+            {
+                ViewData["EditError"] = "Tipo permesso non selezionato";
+                ViewBag.IsNew = true;
+                return PartialView("_LeaveRequestViewPartial", variables._model);
+            }
+
+            if (item.DayFraction == 0)
+            {
+                ViewData["EditError"] = "Orario non selezionato";
+                ViewBag.IsNew = true;
+                return PartialView("_LeaveRequestViewPartial", variables._model);
+            }
+
             if (item.ID_Manager == 0)
             {
                 ViewData["EditError"] = "Responsabile destinatario non selezionato";
@@ -342,7 +356,7 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.StartDate = item.StartDate;
                         _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
-                        _LeaveRequest.VacationDays = (item.VacationDays == null ? 1 : item.VacationDays);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Convert.ToInt32((_LeaveRequest.EndDate.Value - _LeaveRequest.StartDate.Value).TotalDays) : item.VacationDays);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
                         _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
