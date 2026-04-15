@@ -151,7 +151,7 @@
                                     <asp:BoundField DataField="StatusDate" HeaderText="Aggiornamento" DataFormatString="{0:dd/MM/yyyy}" />
                                     <asp:BoundField DataField="Employee1.UniqueName" HeaderText="Richiesta a" />
                                     <asp:BoundField DataField="MessageToManager" HeaderText="Comunicazioni da richiedente" />
-                                    <asp:BoundField DataField="Employee2.UniqueName" HeaderText="Evasa da" ItemStyle-Font-Bold="true"  />
+                                    <asp:BoundField DataField="Employee2.UniqueName" HeaderText="Approvata da" ItemStyle-Font-Bold="true"  />
                                     <asp:BoundField DataField="MessageToApplicant" HeaderText="Comunicazioni da responsabile" />
                                 </Columns>
                                 <PagerStyle CssClass="footer" />
