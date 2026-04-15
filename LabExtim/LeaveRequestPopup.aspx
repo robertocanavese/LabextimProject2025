@@ -65,10 +65,10 @@
                                                 <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey" CssClass="bold red" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey_Edit" />
+                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey_Edit"  Mode="Edit"/>
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey_Edit" />
+                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey_Edit"  Mode="Edit"/>
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
