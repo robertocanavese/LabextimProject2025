@@ -14,6 +14,7 @@ namespace LabExtim
     public partial class DeliveryTripPopup : ProductionOrderController
     {
 
+        public int id;
 
         public bool EditMode
         {
@@ -38,12 +39,15 @@ namespace LabExtim
 
         protected void Page_Load(object sender, EventArgs e)
         {
-            lblItemNo.Text = DTIdParameter == -1 ? " [Nuovo]" : " No " + DTIdParameter;
-            if (DTIdParameter == -1)
+
+            id = Convert.ToInt32(Request.QueryString[DeliveryTripKey]);
+
+            lblItemNo.Text = id == -1 ? " [Nuovo]" : " No " + id;
+            if (id == -1)
             {
                 //DeliveryTrip existing = new QuotationDataContext().DeliveryTrips.FirstOrDefault(p => p.ID == DTIdParameter && p.ID_Company == CurrentCompanyId);
                 // merge aziendale
-                DeliveryTrip existing = new QuotationDataContext().DeliveryTrips.FirstOrDefault(p => p.ID == DTIdParameter);
+                DeliveryTrip existing = new QuotationDataContext().DeliveryTrips.FirstOrDefault(p => p.ID == id);
                 if (existing != null)
                 {
                     Response.Redirect(string.Format("{0}&DTid={1}", this.Request.Url.ToString(), existing.ID), true);
@@ -107,7 +111,7 @@ namespace LabExtim
             }
             else
             {
-                lblItemNo.Text = " No " + Request.QueryString["ID"];
+                lblItemNo.Text = " No " + id;
             }
         }
 
