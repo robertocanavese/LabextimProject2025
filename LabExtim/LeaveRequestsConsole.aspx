@@ -146,8 +146,8 @@
                                     <asp:BoundField DataField="StartDate" HeaderText="Data inizio assenza" DataFormatString="{0:dd/MM/yyyy}" />
                                     <asp:BoundField DataField="EndDate" HeaderText="Data fine assenza" DataFormatString="{0:dd/MM/yyyy}" />
                                     <asp:BoundField DataField="DayFraction1.Description" HeaderText="Orario" />
-                                    <asp:BoundField DataField="VacationDays" HeaderText="Giorni assenza" />
-                                    <asp:BoundField DataField="VacationHours" HeaderText="Ore totali assenza" />
+                                    <asp:BoundField DataField="VacationDays" HeaderText="Giorni assenza" ItemStyle-HorizontalAlign="Right" />
+                                    <asp:BoundField DataField="VacationHours" HeaderText="Ore totali assenza" ItemStyle-HorizontalAlign="Right"  />
                                     <asp:BoundField DataField="Statuse.Description" HeaderText="Stato richiesta" ItemStyle-Font-Bold="true"  />
                                     <asp:BoundField DataField="StatusDate" HeaderText="Aggiornamento" DataFormatString="{0:dd/MM/yyyy}" />
                                     <asp:BoundField DataField="Employee1.UniqueName" HeaderText="Richiesta a" />
