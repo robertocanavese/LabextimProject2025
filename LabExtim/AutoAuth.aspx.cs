@@ -61,10 +61,11 @@ namespace LabExtim
                              "<tr><td>Data fine assenza:<b>{6}</b></td></tr>" +
                              "<tr><td>Orario:<b>{7}</b></td></tr>" +
                              "<tr><td>Giorni di assenza:<b>{8}</b></td></tr>" +
-                             "<tr><td>Responsabile:<b>{9}</b></td></tr>" +
-                             "<tr><td>Messaggio a responsabile:<b>{10}</b></td></tr>" +
-                             "<tr><td>Stato richiesta:<b>{11}</b></td></tr>" +
-                             "<tr><td>Aggiornamento:<b>{12}</b></td></tr>" +
+                             "<tr><td>Ore totali di assenza:<b>{9}</b></td></tr>" +
+                             "<tr><td>Responsabile:<b>{10}</b></td></tr>" +
+                             "<tr><td>Messaggio a responsabile:<b>{11}</b></td></tr>" +
+                             "<tr><td>Stato richiesta:<b>{12}</b></td></tr>" +
+                             "<tr><td>Aggiornamento:<b>{13}</b></td></tr>" +
                              "</tbody><table>",
                              leaveRequest.ID,
                              leaveRequest.Employee.Company.Description,
@@ -75,6 +76,7 @@ namespace LabExtim
                              leaveRequest.EndDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
                              leaveRequest.DayFraction1.Description,
                              leaveRequest.VacationDays,
+                             leaveRequest.VacationHours,
                              leaveRequest.Employee1.Name + " " + leaveRequest.Employee1.Surname,
                              leaveRequest.MessageToManager,
                              leaveRequest.Statuse.Description,

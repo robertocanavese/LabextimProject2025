@@ -183,6 +183,21 @@
                                         </asp:TemplateField>
 
 
+                                         <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                <asp:Label ID="lblVacationHours" runat="server" Text="Giorni assenza"></asp:Label>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:DynamicControl ID="dycVacationHours" runat="server" DataField="VacationHours" UIHint="Text" />
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:DynamicControl ID="dycVacationHours" runat="server" DataField="VacationHours" UIHint="Decimal_Edit" />
+                                            </EditItemTemplate>
+                                            <InsertItemTemplate>
+                                                <asp:DynamicControl ID="dycVacationHours" runat="server" DataField="VacationHours" UIHint="Decimal_Edit" />
+                                            </InsertItemTemplate>
+                                        </asp:TemplateField>
+
                                         <asp:TemplateField>
                                             <HeaderTemplate>
                                                 <asp:Label ID="lblStatuse" runat="server" Text="Stato richiesta"></asp:Label>
