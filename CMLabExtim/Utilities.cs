@@ -54,7 +54,7 @@ namespace CMLabExtim
 
         public static int GetTotalWorkingDays(DateTime startDate, DateTime endDate)
         {
-            int inputDays =  Convert.ToInt32(endDate.Date - startDate.Date) + 1;
+            int inputDays =  Convert.ToInt32((endDate.Date - startDate.Date).TotalDays) + 1;
             int outPutDays = 0;
             DateTime newDate;
 

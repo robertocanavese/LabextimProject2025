@@ -268,7 +268,7 @@
                     comboBoxSetings.Properties.TextField = "Name";
                     comboBoxSetings.Properties.ValueField = "ID";
                     comboBoxSetings.Properties.ValueType = typeof(int);
-                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.Width = Unit.Percentage(50);
 
                 });
 
@@ -303,7 +303,7 @@
                     itemSettings.FieldName = "DayFraction";
                     itemSettings.Caption = "Orario";
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
-                    itemSettings.ColSpan = 1;
+                    itemSettings.ColSpan = 2;
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
                     var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
                     var vdata = from data in context.DayFractions
@@ -313,7 +313,7 @@
                     comboBoxSetings.Properties.TextField = "Name";
                     comboBoxSetings.Properties.ValueField = "ID";
                     comboBoxSetings.Properties.ValueType = typeof(int);
-                    comboBoxSetings.Width = Unit.Percentage(100);
+                    comboBoxSetings.Width = Unit.Percentage(50);
 
                 });
 
