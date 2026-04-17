@@ -7,6 +7,8 @@ using System.Web.Mvc;
 using System.Web;
 using System.Web.Security;
 using System.Configuration;
+using System.Net;
+
 using CMLabExtim;
 using CMLabExtim.CustomClasses;
 using DevExpress.Web;
@@ -379,6 +381,13 @@ namespace LabExtimOperator.Controllers
                         _quotationDataContext.SubmitChanges();
 
                         LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == _LeaveRequest.ID);
+
+                        var securityProtocol = (int)System.Net.ServicePointManager.SecurityProtocol;
+                        // 0 = SystemDefault in .NET 4.7+
+                        if (securityProtocol != 0)
+                        {
+                            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                        }
 
                         Utilities.SendMail(
                              saved.ID_Company == 1 ? ConfigurationManager.AppSettings["mailAddressToCSV_Azienda01"] : ConfigurationManager.AppSettings["mailAddressToCSV_Azienda02"],
