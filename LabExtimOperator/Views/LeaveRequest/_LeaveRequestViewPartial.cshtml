@@ -188,6 +188,14 @@
 
         settings.Columns.Add(column =>
         {
+            column.FieldName = "VacationHours";
+            column.Caption = "Ore totali assenza";
+            column.Visible = true;
+            column.EditFormSettings.Visible = DefaultBoolean.False;
+        });
+        
+        settings.Columns.Add(column =>
+        {
             column.FieldName = "Employee1.UniqueName";
             column.Caption = "Richesta a";
             column.Visible = true;
@@ -320,6 +328,17 @@
                     comboBoxSetings.Width = Unit.Percentage(100);
                 });
 
+                formLayoutSettings.Items.Add(itemSettings =>
+                {
+                    itemSettings.ColSpan = 1;
+                    itemSettings.FieldName = "VacationHours";
+                    itemSettings.Caption = "Ore totali assenza (decimali)";
+                    itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
+                    itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
+                    var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
+                    comboBoxSetings.Width = Unit.Percentage(100);
+                });
+                
                 formLayoutSettings.Items.Add(itemSettings =>
                 {
                     itemSettings.ColSpan = 2;

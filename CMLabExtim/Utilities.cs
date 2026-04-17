@@ -51,6 +51,22 @@ namespace CMLabExtim
             return newDate;
         }
 
+
+        public static int GetTotalWorkingDays(DateTime startDate, DateTime endDate)
+        {
+            int inputDays =  Convert.ToInt32(endDate.Date - startDate.Date) + 1;
+            int outPutDays = 0;
+            DateTime newDate;
+
+            for (var i = 0; i < inputDays; i++)
+            {
+                newDate = startDate.AddDays(i);
+                if (newDate.IsLocalHoliday()) continue;
+                outPutDays += 1;
+            }
+            return outPutDays;
+        }
+
         public static decimal DecimalHoursToTicks(decimal decimalHours)
         {
             var hours = Math.Truncate(decimalHours);
@@ -208,6 +224,49 @@ namespace CMLabExtim
             return (input.Length > maxLen ? input.Substring(0, maxLen) : input);
 
         }
+
+
+        public static bool IsLocalHoliday(this DateTime date)
+        {
+            if (date.DayOfWeek == DayOfWeek.Saturday || date.DayOfWeek == DayOfWeek.Sunday) return true;
+            if (date.Month == 1 && date.Day == 1) return true;
+            if (date.Month == 1 && date.Day == 6) return true;
+            if (date.Month == 4 && date.Day == 25) return true;
+            if (date.Month == 5 && date.Day == 1) return true;
+            if (date.Month == 6 && date.Day == 2) return true;
+            if (date.Month == 6 && date.Day == 13) return true;
+            if (date.Month == 8 && date.Day == 15) return true;
+            if (date.Month == 11 && date.Day == 1) return true;
+            if (date.Month == 12 && date.Day == 8) return true;
+            if (date.Month == 12 && date.Day == 25) return true;
+            if (date.Month == 12 && date.Day == 26) return true;
+            if (date.Date == EasterSunday(date.Year).AddDays(1)) return true;
+            if (date.Date == EasterSunday(date.Year + 1).AddDays(1)) return true;
+
+            return false;
+
+        }
+
+        public static void EasterSunday(int year, ref int month, ref int day)
+        {
+            if (year < 1 || year > 9999)
+                throw new ArgumentOutOfRangeException("anno", year, "deve essere compreso tra 0001 e 9999.");
+            int g = year % 19; int c = year / 100;
+            int h = h = (c - (int)(c / 4) - (int)((8 * c + 13) / 25) + 19 * g + 15) % 30;
+            int i = h - (int)(h / 28) * (1 - (int)(h / 28) * (int)(29 / (h + 1)) * (int)((21 - g) / 11));
+            day = i - ((year + (int)(year / 4) + i + 2 - c + (int)(c / 4)) % 7) + 28; month = 3;
+            if (day > 31) { month++; day -= 31; }
+        }
+
+        public static DateTime EasterSunday(int year)
+        {
+            if (year < 1 || year > 9999)
+                throw new ArgumentOutOfRangeException("anno", year, "deve essere compreso tra 0001 e 9999.");
+            int month = 0;
+            int day = 0;
+            EasterSunday(year, ref month, ref day); return new DateTime(year, month, day);
+        }
+
 
 
     }

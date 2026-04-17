@@ -356,7 +356,8 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.StartDate = item.StartDate;
                         _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
-                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Convert.ToInt32((_LeaveRequest.EndDate.Value - _LeaveRequest.StartDate.Value).TotalDays) + 1 : item.VacationDays);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value,_LeaveRequest.EndDate.Value) : item.VacationDays);
+                        _LeaveRequest.VacationHours = (item.VacationHours == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) * (item.DayFraction == 'G' ? 8 : 4) : item.VacationHours);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
                         _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
@@ -396,14 +397,15 @@ namespace LabExtimOperator.Controllers
                              "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
                              "<tr><td>Orario:</td><td>{7}</td></tr>" +
                              "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
-                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
-                             "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
-                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
-                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
-                             "<tr><td>Messaggio a richiedente:</td><td>{14}</td></tr>" +
+                             "<tr><td>Ore totali di assenza:</td><td>{9}</td></tr>" +
+                             "<tr><td>Responsabile:</td><td>{10}</td></tr>" +
+                             "<tr><td>Messaggio a responsabile:</td><td>{11}</td></tr>" +
+                             "<tr><td>Stato richiesta:</td><td>{12}</td></tr>" +
+                             "<tr><td>Aggiornamento:</td><td>{13}</td></tr>" +
+                             "<tr><td>Gestita da:</td>{14}</td></tr>" +
+                             "<tr><td>Messaggio a richiedente:</td><td>{15}</td></tr>" +
                              "<tr><td colspan='2' style='text-align:center' ><b>Per autorizzare la richiesta premere sul link sottostante</b></td></tr>" +
-                             "<tr><td colspan='2' style='text-align:center;text-decoration:underline' >{15}</td></tr>" +
+                             "<tr><td colspan='2' style='text-align:center;text-decoration:underline' >{16}</td></tr>" +
                              "</tbody><table>",
                              saved.ID,
                              saved.Employee.Company.Description,
@@ -414,6 +416,7 @@ namespace LabExtimOperator.Controllers
                              saved.EndDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
                              saved.DayFraction1.Description,
                              saved.VacationDays,
+                             saved.VacationHours,
                              saved.Employee1.Name + " " + saved.Employee1.Surname,
                              saved.MessageToManager,
                              saved.Statuse.Description,
@@ -489,7 +492,8 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.StartDate = item.StartDate;
                         _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
-                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Convert.ToInt32((_LeaveRequest.EndDate.Value - _LeaveRequest.StartDate.Value).TotalDays) + 1 : item.VacationDays);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) : item.VacationDays);
+                        _LeaveRequest.VacationHours = (item.VacationHours == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) * (item.DayFraction == 'G' ? 8 : 4) : item.VacationHours);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
                         _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
@@ -544,14 +548,15 @@ namespace LabExtimOperator.Controllers
                              "<tr><td>Data fine assenza:</td><td>{6}</td></tr>" +
                              "<tr><td>Orario:</td><td>{7}</td></tr>" +
                              "<tr><td>Giorni di assenza:</td><td>{8}</td></tr>" +
-                             "<tr><td>Responsabile:</td><td>{9}</td></tr>" +
-                             "<tr><td>Messaggio a responsabile:</td><td>{10}</td></tr>" +
-                             "<tr><td>Stato richiesta:</td><td>{11}</td></tr>" +
-                             "<tr><td>Aggiornamento:</td><td>{12}</td></tr>" +
-                             "<tr><td>Gestita da:</td>{13}</td></tr>" +
-                             "<tr><td>Messaggio a richiedente:</td><td>{14}</td></tr>" +
+                             "<tr><td>Ore totali di assenza:</td><td>{9}</td></tr>" +
+                             "<tr><td>Responsabile:</td><td>{10}</td></tr>" +
+                             "<tr><td>Messaggio a responsabile:</td><td>{11}</td></tr>" +
+                             "<tr><td>Stato richiesta:</td><td>{12}</td></tr>" +
+                             "<tr><td>Aggiornamento:</td><td>{13}</td></tr>" +
+                             "<tr><td>Gestita da:</td>{14}</td></tr>" +
+                             "<tr><td>Messaggio a richiedente:</td><td>{15}</td></tr>" +
                              "<tr><td colspan='2' style='text-align:center' ><b>Per autorizzare la richiesta premere sul link sottostante</b></td></tr>" +
-                             "<tr><td colspan='2' style='text-align:center;text-decoration:underline' >{15}</td></tr>" +
+                             "<tr><td colspan='2' style='text-align:center;text-decoration:underline' >{16}</td></tr>" +
                              "</tbody><table>",
                              saved.ID,
                              saved.Employee.Company.Description,
@@ -562,6 +567,7 @@ namespace LabExtimOperator.Controllers
                              saved.EndDate.GetValueOrDefault().ToString("dd/MM/yyyy"),
                              saved.DayFraction1.Description,
                              saved.VacationDays,
+                             saved.VacationHours,
                              saved.Employee1.Name + " " + saved.Employee1.Surname,
                              saved.MessageToManager,
                              saved.Statuse.Description,

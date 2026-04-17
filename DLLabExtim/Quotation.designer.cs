@@ -41773,6 +41773,8 @@ namespace DLLabExtim
 		
 		private string _MessageToManager;
 		
+		private System.Nullable<decimal> _VacationHours;
+		
 		private System.Nullable<int> _ID_Manager;
 		
 		private System.Nullable<int> _Status;
@@ -41821,6 +41823,8 @@ namespace DLLabExtim
     partial void OnVacationDaysChanged();
     partial void OnMessageToManagerChanging(string value);
     partial void OnMessageToManagerChanged();
+    partial void OnVacationHoursChanging(System.Nullable<decimal> value);
+    partial void OnVacationHoursChanged();
     partial void OnID_ManagerChanging(System.Nullable<int> value);
     partial void OnID_ManagerChanged();
     partial void OnStatusChanging(System.Nullable<int> value);
@@ -42057,6 +42061,26 @@ namespace DLLabExtim
 					this._MessageToManager = value;
 					this.SendPropertyChanged("MessageToManager");
 					this.OnMessageToManagerChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationHours", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VacationHours
+		{
+			get
+			{
+				return this._VacationHours;
+			}
+			set
+			{
+				if ((this._VacationHours != value))
+				{
+					this.OnVacationHoursChanging(value);
+					this.SendPropertyChanging();
+					this._VacationHours = value;
+					this.SendPropertyChanged("VacationHours");
+					this.OnVacationHoursChanged();
 				}
 			}
 		}
@@ -42690,6 +42714,8 @@ namespace DLLabExtim
 		
 		private System.Nullable<int> _VacationDays;
 		
+		private System.Nullable<decimal> _VacationHours;
+		
 		private string _MessageToManager;
 		
 		private System.Nullable<int> _ID_Manager;
@@ -42916,6 +42942,22 @@ namespace DLLabExtim
 				if ((this._VacationDays != value))
 				{
 					this._VacationDays = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationHours", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VacationHours
+		{
+			get
+			{
+				return this._VacationHours;
+			}
+			set
+			{
+				if ((this._VacationHours != value))
+				{
+					this._VacationHours = value;
 				}
 			}
 		}

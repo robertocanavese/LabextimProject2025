@@ -1927,6 +1927,13 @@
       <Association Name="DayFraction_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="DayFraction" Type="LeaveRequest" />
     </Type>
   </Table>
+  <Table Name="dbo.Tokens" Member="Tokens">
+    <Type Name="Token">
+      <Column Name="IdToken" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="IdUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="RedirectUrl" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
+    </Type>
+  </Table>
   <Table Name="dbo.LeaveRequests" Member="LeaveRequests">
     <Type Name="LeaveRequest">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
@@ -1938,6 +1945,7 @@
       <Column Name="EndDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="DayFraction" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="VacationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VacationHours" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="MessageToManager" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
       <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
@@ -1968,6 +1976,7 @@
       <Column Name="DayFraction" Type="System.Char" DbType="Char(1)" CanBeNull="true" />
       <Column Name="DayFractionDesc" Type="System.String" DbType="VarChar(50)" CanBeNull="true" />
       <Column Name="VacationDays" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="VacationHours" Type="System.Decimal" DbType="Decimal(18,2)" CanBeNull="true" />
       <Column Name="MessageToManager" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
       <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ManagerDesc" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
@@ -1977,13 +1986,6 @@
       <Column Name="ID_Approver" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ApproverDesc" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
       <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Tokens" Member="Tokens">
-    <Type Name="Token">
-      <Column Name="IdToken" Type="System.String" DbType="VarChar(36) NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="IdUser" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="RedirectUrl" Type="System.String" DbType="VarChar(1024) NOT NULL" CanBeNull="false" />
     </Type>
   </Table>
   <Function Name="dbo.prc_LAB_MGet_LAB_CalculatedResultsByQuotationID" Method="prc_LAB_MGet_LAB_CalculatedResultsByQuotationID">

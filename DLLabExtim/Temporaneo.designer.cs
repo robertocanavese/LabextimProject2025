@@ -210,12 +210,12 @@ namespace TempDLLabExtim
     partial void InsertDayFraction(DayFraction instance);
     partial void UpdateDayFraction(DayFraction instance);
     partial void DeleteDayFraction(DayFraction instance);
-    partial void InsertLeaveRequest(LeaveRequest instance);
-    partial void UpdateLeaveRequest(LeaveRequest instance);
-    partial void DeleteLeaveRequest(LeaveRequest instance);
     partial void InsertToken(Token instance);
     partial void UpdateToken(Token instance);
     partial void DeleteToken(Token instance);
+    partial void InsertLeaveRequest(LeaveRequest instance);
+    partial void UpdateLeaveRequest(LeaveRequest instance);
+    partial void DeleteLeaveRequest(LeaveRequest instance);
     #endregion
 		
 		public TemporaneoDataContext() : 
@@ -984,6 +984,14 @@ namespace TempDLLabExtim
 			}
 		}
 		
+		public System.Data.Linq.Table<Token> Tokens
+		{
+			get
+			{
+				return this.GetTable<Token>();
+			}
+		}
+		
 		public System.Data.Linq.Table<LeaveRequest> LeaveRequests
 		{
 			get
@@ -997,14 +1005,6 @@ namespace TempDLLabExtim
 			get
 			{
 				return this.GetTable<VW_LeaveRequest>();
-			}
-		}
-		
-		public System.Data.Linq.Table<Token> Tokens
-		{
-			get
-			{
-				return this.GetTable<Token>();
 			}
 		}
 		
@@ -39836,6 +39836,116 @@ namespace TempDLLabExtim
 		}
 	}
 	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tokens")]
+	public partial class Token : INotifyPropertyChanging, INotifyPropertyChanged
+	{
+		
+		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
+		
+		private string _IdToken;
+		
+		private int _IdUser;
+		
+		private string _RedirectUrl;
+		
+    #region Extensibility Method Definitions
+    partial void OnLoaded();
+    partial void OnValidate(System.Data.Linq.ChangeAction action);
+    partial void OnCreated();
+    partial void OnIdTokenChanging(string value);
+    partial void OnIdTokenChanged();
+    partial void OnIdUserChanging(int value);
+    partial void OnIdUserChanged();
+    partial void OnRedirectUrlChanging(string value);
+    partial void OnRedirectUrlChanged();
+    #endregion
+		
+		public Token()
+		{
+			OnCreated();
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdToken", DbType="VarChar(36) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
+		public string IdToken
+		{
+			get
+			{
+				return this._IdToken;
+			}
+			set
+			{
+				if ((this._IdToken != value))
+				{
+					this.OnIdTokenChanging(value);
+					this.SendPropertyChanging();
+					this._IdToken = value;
+					this.SendPropertyChanged("IdToken");
+					this.OnIdTokenChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="Int NOT NULL")]
+		public int IdUser
+		{
+			get
+			{
+				return this._IdUser;
+			}
+			set
+			{
+				if ((this._IdUser != value))
+				{
+					this.OnIdUserChanging(value);
+					this.SendPropertyChanging();
+					this._IdUser = value;
+					this.SendPropertyChanged("IdUser");
+					this.OnIdUserChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RedirectUrl", DbType="VarChar(1024) NOT NULL", CanBeNull=false)]
+		public string RedirectUrl
+		{
+			get
+			{
+				return this._RedirectUrl;
+			}
+			set
+			{
+				if ((this._RedirectUrl != value))
+				{
+					this.OnRedirectUrlChanging(value);
+					this.SendPropertyChanging();
+					this._RedirectUrl = value;
+					this.SendPropertyChanged("RedirectUrl");
+					this.OnRedirectUrlChanged();
+				}
+			}
+		}
+		
+		public event PropertyChangingEventHandler PropertyChanging;
+		
+		public event PropertyChangedEventHandler PropertyChanged;
+		
+		protected virtual void SendPropertyChanging()
+		{
+			if ((this.PropertyChanging != null))
+			{
+				this.PropertyChanging(this, emptyChangingEventArgs);
+			}
+		}
+		
+		protected virtual void SendPropertyChanged(String propertyName)
+		{
+			if ((this.PropertyChanged != null))
+			{
+				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
+			}
+		}
+	}
+	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.LeaveRequests")]
 	public partial class LeaveRequest : INotifyPropertyChanging, INotifyPropertyChanged
 	{
@@ -39859,6 +39969,8 @@ namespace TempDLLabExtim
 		private System.Nullable<char> _DayFraction;
 		
 		private System.Nullable<int> _VacationDays;
+		
+		private System.Nullable<decimal> _VacationHours;
 		
 		private string _MessageToManager;
 		
@@ -39908,6 +40020,8 @@ namespace TempDLLabExtim
     partial void OnDayFractionChanged();
     partial void OnVacationDaysChanging(System.Nullable<int> value);
     partial void OnVacationDaysChanged();
+    partial void OnVacationHoursChanging(System.Nullable<decimal> value);
+    partial void OnVacationHoursChanged();
     partial void OnMessageToManagerChanging(string value);
     partial void OnMessageToManagerChanged();
     partial void OnID_ManagerChanging(System.Nullable<int> value);
@@ -40126,6 +40240,26 @@ namespace TempDLLabExtim
 					this._VacationDays = value;
 					this.SendPropertyChanged("VacationDays");
 					this.OnVacationDaysChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationHours", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VacationHours
+		{
+			get
+			{
+				return this._VacationHours;
+			}
+			set
+			{
+				if ((this._VacationHours != value))
+				{
+					this.OnVacationHoursChanging(value);
+					this.SendPropertyChanging();
+					this._VacationHours = value;
+					this.SendPropertyChanged("VacationHours");
+					this.OnVacationHoursChanged();
 				}
 			}
 		}
@@ -40551,6 +40685,8 @@ namespace TempDLLabExtim
 		
 		private System.Nullable<int> _VacationDays;
 		
+		private System.Nullable<decimal> _VacationHours;
+		
 		private string _MessageToManager;
 		
 		private System.Nullable<int> _ID_Manager;
@@ -40781,6 +40917,22 @@ namespace TempDLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationHours", DbType="Decimal(18,2)")]
+		public System.Nullable<decimal> VacationHours
+		{
+			get
+			{
+				return this._VacationHours;
+			}
+			set
+			{
+				if ((this._VacationHours != value))
+				{
+					this._VacationHours = value;
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToManager", DbType="VarChar(1024)")]
 		public string MessageToManager
 		{
@@ -40922,116 +41074,6 @@ namespace TempDLLabExtim
 				{
 					this._MessageToApplicant = value;
 				}
-			}
-		}
-	}
-	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.Tokens")]
-	public partial class Token : INotifyPropertyChanging, INotifyPropertyChanged
-	{
-		
-		private static PropertyChangingEventArgs emptyChangingEventArgs = new PropertyChangingEventArgs(String.Empty);
-		
-		private string _IdToken;
-		
-		private int _IdUser;
-		
-		private string _RedirectUrl;
-		
-    #region Extensibility Method Definitions
-    partial void OnLoaded();
-    partial void OnValidate(System.Data.Linq.ChangeAction action);
-    partial void OnCreated();
-    partial void OnIdTokenChanging(string value);
-    partial void OnIdTokenChanged();
-    partial void OnIdUserChanging(int value);
-    partial void OnIdUserChanged();
-    partial void OnRedirectUrlChanging(string value);
-    partial void OnRedirectUrlChanged();
-    #endregion
-		
-		public Token()
-		{
-			OnCreated();
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdToken", DbType="VarChar(36) NOT NULL", CanBeNull=false, IsPrimaryKey=true)]
-		public string IdToken
-		{
-			get
-			{
-				return this._IdToken;
-			}
-			set
-			{
-				if ((this._IdToken != value))
-				{
-					this.OnIdTokenChanging(value);
-					this.SendPropertyChanging();
-					this._IdToken = value;
-					this.SendPropertyChanged("IdToken");
-					this.OnIdTokenChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IdUser", DbType="Int NOT NULL")]
-		public int IdUser
-		{
-			get
-			{
-				return this._IdUser;
-			}
-			set
-			{
-				if ((this._IdUser != value))
-				{
-					this.OnIdUserChanging(value);
-					this.SendPropertyChanging();
-					this._IdUser = value;
-					this.SendPropertyChanged("IdUser");
-					this.OnIdUserChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_RedirectUrl", DbType="VarChar(1024) NOT NULL", CanBeNull=false)]
-		public string RedirectUrl
-		{
-			get
-			{
-				return this._RedirectUrl;
-			}
-			set
-			{
-				if ((this._RedirectUrl != value))
-				{
-					this.OnRedirectUrlChanging(value);
-					this.SendPropertyChanging();
-					this._RedirectUrl = value;
-					this.SendPropertyChanged("RedirectUrl");
-					this.OnRedirectUrlChanged();
-				}
-			}
-		}
-		
-		public event PropertyChangingEventHandler PropertyChanging;
-		
-		public event PropertyChangedEventHandler PropertyChanged;
-		
-		protected virtual void SendPropertyChanging()
-		{
-			if ((this.PropertyChanging != null))
-			{
-				this.PropertyChanging(this, emptyChangingEventArgs);
-			}
-		}
-		
-		protected virtual void SendPropertyChanged(String propertyName)
-		{
-			if ((this.PropertyChanged != null))
-			{
-				this.PropertyChanged(this, new PropertyChangedEventArgs(propertyName));
 			}
 		}
 	}
