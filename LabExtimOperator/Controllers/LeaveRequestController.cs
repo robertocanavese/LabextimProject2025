@@ -422,7 +422,7 @@ namespace LabExtimOperator.Controllers
                              saved.MessageToApplicant,
                              autoAuthUrl
                              ),
-                             applicantMailAddress);
+                             ConfigurationManager.AppSettings["mailAddressFrom"]);
 
                         variables._model = LeaveRequestViewPartialSetModelList();
                         //return RedirectToAction("Index", "TempProductionOrderDetail");

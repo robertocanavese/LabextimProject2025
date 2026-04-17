@@ -97,12 +97,6 @@ namespace DailyManager
                 {
                     ShrinkDatabasesLogs();
                 }
-
-                if (args[0] == ("ShrinkDatabasesLogs"))
-                {
-                    ShrinkDatabasesLogs();
-                }
-
                 if (args[0] == ("BackupDatabasesLogs"))
                 {
                     BackupDatabasesLogs();
