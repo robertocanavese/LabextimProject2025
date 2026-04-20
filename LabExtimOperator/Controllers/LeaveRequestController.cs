@@ -539,6 +539,12 @@ namespace LabExtimOperator.Controllers
                         LeaveRequest saved = _quotationDataContext.LeaveRequests.FirstOrDefault(d => d.ID == curId);
 
 
+                        var securityProtocol = (int)System.Net.ServicePointManager.SecurityProtocol;
+                        // 0 = SystemDefault in .NET 4.7+
+                        if (securityProtocol != 0)
+                        {
+                            System.Net.ServicePointManager.SecurityProtocol = System.Net.SecurityProtocolType.Tls12;
+                        }
 
                         Utilities.SendMail(
                              saved.ID_Company == 1 ? ConfigurationManager.AppSettings["mailAddressToCSV_Azienda01"] : ConfigurationManager.AppSettings["mailAddressToCSV_Azienda02"],
@@ -585,7 +591,7 @@ namespace LabExtimOperator.Controllers
                              saved.MessageToApplicant,
                              autoAuthUrl
                              ),
-                             applicantMailAddress);
+                             ConfigurationManager.AppSettings["mailAddressFrom"]);
 
                         variables._model = LeaveRequestViewPartialSetModelList();
 
