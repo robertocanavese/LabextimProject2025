@@ -41769,11 +41769,11 @@ namespace DLLabExtim
 		
 		private System.Nullable<char> _DayFraction;
 		
-		private System.Nullable<int> _VacationDays;
-		
-		private string _MessageToManager;
+		private System.Nullable<decimal> _VacationDays;
 		
 		private System.Nullable<decimal> _VacationHours;
+		
+		private string _MessageToManager;
 		
 		private System.Nullable<int> _ID_Manager;
 		
@@ -41819,12 +41819,12 @@ namespace DLLabExtim
     partial void OnEndDateChanged();
     partial void OnDayFractionChanging(System.Nullable<char> value);
     partial void OnDayFractionChanged();
-    partial void OnVacationDaysChanging(System.Nullable<int> value);
+    partial void OnVacationDaysChanging(System.Nullable<decimal> value);
     partial void OnVacationDaysChanged();
-    partial void OnMessageToManagerChanging(string value);
-    partial void OnMessageToManagerChanged();
     partial void OnVacationHoursChanging(System.Nullable<decimal> value);
     partial void OnVacationHoursChanged();
+    partial void OnMessageToManagerChanging(string value);
+    partial void OnMessageToManagerChanged();
     partial void OnID_ManagerChanging(System.Nullable<int> value);
     partial void OnID_ManagerChanged();
     partial void OnStatusChanging(System.Nullable<int> value);
@@ -42025,8 +42025,8 @@ namespace DLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
-		public System.Nullable<int> VacationDays
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VacationDays
 		{
 			get
 			{
@@ -42041,26 +42041,6 @@ namespace DLLabExtim
 					this._VacationDays = value;
 					this.SendPropertyChanged("VacationDays");
 					this.OnVacationDaysChanged();
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToManager", DbType="VarChar(1024)")]
-		public string MessageToManager
-		{
-			get
-			{
-				return this._MessageToManager;
-			}
-			set
-			{
-				if ((this._MessageToManager != value))
-				{
-					this.OnMessageToManagerChanging(value);
-					this.SendPropertyChanging();
-					this._MessageToManager = value;
-					this.SendPropertyChanged("MessageToManager");
-					this.OnMessageToManagerChanged();
 				}
 			}
 		}
@@ -42081,6 +42061,26 @@ namespace DLLabExtim
 					this._VacationHours = value;
 					this.SendPropertyChanged("VacationHours");
 					this.OnVacationHoursChanged();
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_MessageToManager", DbType="VarChar(1024)")]
+		public string MessageToManager
+		{
+			get
+			{
+				return this._MessageToManager;
+			}
+			set
+			{
+				if ((this._MessageToManager != value))
+				{
+					this.OnMessageToManagerChanging(value);
+					this.SendPropertyChanging();
+					this._MessageToManager = value;
+					this.SendPropertyChanged("MessageToManager");
+					this.OnMessageToManagerChanged();
 				}
 			}
 		}
@@ -42712,7 +42712,7 @@ namespace DLLabExtim
 		
 		private string _DayFractionDesc;
 		
-		private System.Nullable<int> _VacationDays;
+		private System.Nullable<decimal> _VacationDays;
 		
 		private System.Nullable<decimal> _VacationHours;
 		
@@ -42930,8 +42930,8 @@ namespace DLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
-		public System.Nullable<int> VacationDays
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VacationDays
 		{
 			get
 			{

@@ -39968,7 +39968,7 @@ namespace TempDLLabExtim
 		
 		private System.Nullable<char> _DayFraction;
 		
-		private System.Nullable<int> _VacationDays;
+		private System.Nullable<decimal> _VacationDays;
 		
 		private System.Nullable<decimal> _VacationHours;
 		
@@ -40018,7 +40018,7 @@ namespace TempDLLabExtim
     partial void OnEndDateChanged();
     partial void OnDayFractionChanging(System.Nullable<char> value);
     partial void OnDayFractionChanged();
-    partial void OnVacationDaysChanging(System.Nullable<int> value);
+    partial void OnVacationDaysChanging(System.Nullable<decimal> value);
     partial void OnVacationDaysChanged();
     partial void OnVacationHoursChanging(System.Nullable<decimal> value);
     partial void OnVacationHoursChanged();
@@ -40224,8 +40224,8 @@ namespace TempDLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
-		public System.Nullable<int> VacationDays
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VacationDays
 		{
 			get
 			{
@@ -40683,7 +40683,7 @@ namespace TempDLLabExtim
 		
 		private string _DayFractionDesc;
 		
-		private System.Nullable<int> _VacationDays;
+		private System.Nullable<decimal> _VacationDays;
 		
 		private System.Nullable<decimal> _VacationHours;
 		
@@ -40901,8 +40901,8 @@ namespace TempDLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Int")]
-		public System.Nullable<int> VacationDays
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_VacationDays", DbType="Decimal(18,5)")]
+		public System.Nullable<decimal> VacationDays
 		{
 			get
 			{
