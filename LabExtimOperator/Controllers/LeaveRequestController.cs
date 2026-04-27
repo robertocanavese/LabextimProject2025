@@ -287,21 +287,21 @@ namespace LabExtimOperator.Controllers
 
             LeaveRequestControllerSessionVariables variables = new LeaveRequestControllerSessionVariables();
 
-            if (item.LeaveType == 0)
+            if (item.LeaveType == null)
             {
                 ViewData["EditError"] = "Tipo permesso non selezionato";
                 ViewBag.IsNew = true;
                 return PartialView("_LeaveRequestViewPartial", variables._model);
             }
 
-            if (item.DayFraction == 0)
+            if (item.DayFraction == null)
             {
                 ViewData["EditError"] = "Orario non selezionato";
                 ViewBag.IsNew = true;
                 return PartialView("_LeaveRequestViewPartial", variables._model);
             }
 
-            if (item.ID_Manager == 0)
+            if (item.ID_Manager == null)
             {
                 ViewData["EditError"] = "Responsabile destinatario non selezionato";
                 ViewBag.IsNew = true;
