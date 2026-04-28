@@ -349,7 +349,7 @@ namespace LabExtimOperator.Controllers
                         else
                         {
                             _LeaveRequest.ID = item.ID;
-                        }
+                        } 
 
                         _LeaveRequest.ID_Applicant = variables._idUser;
                         _LeaveRequest.ID_Company = _quotationDataContext.Employees.FirstOrDefault(d => d.ID == variables._idUser).ID_Company;
