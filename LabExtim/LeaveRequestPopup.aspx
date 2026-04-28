@@ -175,17 +175,17 @@
                                                 <asp:DynamicControl ID="dycVacationDays" runat="server" DataField="VacationDays" UIHint="Text" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycVacationDays" runat="server" DataField="VacationDays" UIHint="Integer_Edit" />
+                                                <asp:DynamicControl ID="dycVacationDays" runat="server" DataField="VacationDays" UIHint="Decimal_Edit" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycVacationDays" runat="server" DataField="VacationDays" UIHint="Integer_Edit" />
+                                                <asp:DynamicControl ID="dycVacationDays" runat="server" DataField="VacationDays" UIHint="Decimal_Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
 
                                          <asp:TemplateField>
                                             <HeaderTemplate>
-                                                <asp:Label ID="lblVacationHours" runat="server" Text="Giorni assenza"></asp:Label>
+                                                <asp:Label ID="lblVacationHours" runat="server" Text="Ore assenza"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:DynamicControl ID="dycVacationHours" runat="server" DataField="VacationHours" UIHint="Text" />

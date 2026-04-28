@@ -190,7 +190,7 @@
         settings.Columns.Add(column =>
         {
             column.FieldName = "VacationHours";
-            column.Caption = "Ore totali assenza";
+            column.Caption = "Ore assenza";
             column.Visible = true;
             ((TextBoxProperties)column.PropertiesEdit).DisplayFormatString = "N2";
             column.EditFormSettings.Visible = DefaultBoolean.False;
@@ -334,7 +334,7 @@
                 {
                     itemSettings.ColSpan = 1;
                     itemSettings.FieldName = "VacationHours";
-                    itemSettings.Caption = "Ore totali assenza (decimali)";
+                    itemSettings.Caption = "Ore assenza (decimali)";
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.TextBox;
                     var comboBoxSetings = (TextBoxSettings)itemSettings.NestedExtensionSettings;
