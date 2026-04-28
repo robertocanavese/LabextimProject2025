@@ -183,6 +183,7 @@
             column.FieldName = "VacationDays";
             column.Caption = "Giorni assenza";
             column.Visible = true;
+            ((TextBoxProperties)column.PropertiesEdit).DisplayFormatString = "N2";
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
 
@@ -191,6 +192,7 @@
             column.FieldName = "VacationHours";
             column.Caption = "Ore totali assenza";
             column.Visible = true;
+            ((TextBoxProperties)column.PropertiesEdit).DisplayFormatString = "N2";
             column.EditFormSettings.Visible = DefaultBoolean.False;
         });
         
