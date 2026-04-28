@@ -359,7 +359,9 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
                         _LeaveRequest.VacationHours = (item.VacationHours == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) * (item.DayFraction == 'G' ? 8 : 4) : item.VacationHours);
-                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) * (_LeaveRequest.VacationHours / 8m) : item.VacationDays);
+                        //_LeaveRequest.VacationDays = (item.VacationDays == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value): item.VacationDays);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? _LeaveRequest.VacationHours / 8m : item.VacationDays);
+
                         _LeaveRequest.MessageToManager = item.MessageToManager;
                         _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
@@ -502,7 +504,8 @@ namespace LabExtimOperator.Controllers
                         _LeaveRequest.EndDate = (item.EndDate == null ? item.StartDate : item.EndDate);
                         _LeaveRequest.DayFraction = (item.DayFraction == null ? 'G' : item.DayFraction);
                         _LeaveRequest.VacationHours = (item.VacationHours == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) * (item.DayFraction == 'G' ? 8 : 4) : item.VacationHours);
-                        _LeaveRequest.VacationDays = (item.VacationDays == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value) * (_LeaveRequest.VacationHours / 8m) : item.VacationDays);
+                        //_LeaveRequest.VacationDays = (item.VacationDays == null ? Utilities.GetTotalWorkingDays(_LeaveRequest.StartDate.Value, _LeaveRequest.EndDate.Value): item.VacationDays);
+                        _LeaveRequest.VacationDays = (item.VacationDays == null ? _LeaveRequest.VacationHours / 8m : item.VacationDays);
                         _LeaveRequest.MessageToManager = item.MessageToManager;
                         _LeaveRequest.ID_Manager = item.ID_Manager;
                         _LeaveRequest.Status = 19;
