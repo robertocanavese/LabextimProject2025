@@ -151,8 +151,8 @@
                                     <asp:BoundField DataField="StartDate" HeaderText="Data inizio assenza" DataFormatString="{0:dd/MM/yyyy}" SortExpression="StartDate"  />
                                     <asp:BoundField DataField="EndDate" HeaderText="Data fine assenza" DataFormatString="{0:dd/MM/yyyy}" SortExpression="EndDate"  />
                                     <asp:BoundField DataField="DayFraction1.Description" HeaderText="Orario"  SortExpression="DayFraction1.Description" />
-                                    <asp:BoundField DataField="VacationDays" HeaderText="Giorni assenza" ItemStyle-HorizontalAlign="Right" SortExpression="VacationDays"  />
-                                    <asp:BoundField DataField="VacationHours" HeaderText="Ore totali assenza" ItemStyle-HorizontalAlign="Right" SortExpression="VacationHours"   />
+                                    <asp:BoundField DataField="VacationDays" HeaderText="Giorni assenza" ItemStyle-HorizontalAlign="Right" DataFormatString="{0:N2}" SortExpression="VacationDays"  />
+                                    <asp:BoundField DataField="VacationHours" HeaderText="Ore totali assenza" ItemStyle-HorizontalAlign="Right" SortExpression="VacationHours" DataFormatString="{0:N2}"  />
                                     <asp:BoundField DataField="Statuse.Description" HeaderText="Stato richiesta" ItemStyle-Font-Bold="true"  SortExpression="Statuse.Description"  />
                                     <asp:BoundField DataField="StatusDate" HeaderText="Aggiornamento" DataFormatString="{0:dd/MM/yyyy}" SortExpression="StatusDate"  />
                                     <asp:BoundField DataField="Employee1.UniqueName" HeaderText="Richiesta a" SortExpression="Employee1.UniqueName"  />
