@@ -111,13 +111,13 @@
                         <td>
                             <asp:LinqDataSource ID="ldsLeaveRequests" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                                 TableName="LeaveRequests" OnSelected="ldsLeaveRequests_Selected" EnableUpdate="True"
-                                AutoGenerateOrderByClause="true" EnableDelete="True" EnableInsert="True" OnSelecting="ldsLeaveRequests_Selecting">
+                                AutoGenerateOrderByClause="true" EnableDelete="True" EnableInsert="True" OnSelecting="ldsLeaveRequests_Selecting" >
                             </asp:LinqDataSource>
                             <asp:GridView ID="grdLeaveRequests" runat="server" AutoGenerateColumns="False"
-                                AllowPaging="True" DataSourceID="ldsLeaveRequests" DataKeyNames="ID" CssClass="gridview"
+                                AllowPaging="True" PagerSettings-Position="Top"  DataSourceID="ldsLeaveRequests" DataKeyNames="ID" CssClass="gridview"
                                 OnPageIndexChanging="grdLeaveRequests_PageIndexChanging" OnDataBound="grdLeaveRequests_DataBound"
                                 OnRowDataBound="grdLeaveRequests_RowDataBound" OnRowDeleted="grdLeaveRequests_RowDeleted"
-                                OnRowCommand="grdLeaveRequests_RowCommand" OnPreRender="grdLeaveRequests_PreRender">
+                                OnRowCommand="grdLeaveRequests_RowCommand" OnPreRender="grdLeaveRequests_PreRender" AllowSorting="true" OnSorting="grdLeaveRequests_Sorting">
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemStyle HorizontalAlign="Center" />
@@ -140,25 +140,25 @@
                                     </asp:TemplateField>
                                     <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-Font-Bold="true" />
                                     <asp:BoundField DataField="Company.Description" HeaderText="Company" />
-                                    <asp:BoundField DataField="RequestDate" HeaderText="Data richiesta" DataFormatString="{0:dd/MM/yyyy}" />
-                                    <asp:BoundField DataField="Employee.UniqueName" HeaderText="Richiedente" ItemStyle-Font-Bold="true"  />
-                                    <asp:BoundField DataField="LeaveType1.Description" HeaderText="Tipo permesso" />
-                                    <asp:BoundField DataField="StartDate" HeaderText="Data inizio assenza" DataFormatString="{0:dd/MM/yyyy}" />
-                                    <asp:BoundField DataField="EndDate" HeaderText="Data fine assenza" DataFormatString="{0:dd/MM/yyyy}" />
-                                    <asp:BoundField DataField="DayFraction1.Description" HeaderText="Orario" />
-                                    <asp:BoundField DataField="VacationDays" HeaderText="Giorni assenza" ItemStyle-HorizontalAlign="Right" />
-                                    <asp:BoundField DataField="VacationHours" HeaderText="Ore totali assenza" ItemStyle-HorizontalAlign="Right"  />
-                                    <asp:BoundField DataField="Statuse.Description" HeaderText="Stato richiesta" ItemStyle-Font-Bold="true"  />
-                                    <asp:BoundField DataField="StatusDate" HeaderText="Aggiornamento" DataFormatString="{0:dd/MM/yyyy}" />
-                                    <asp:BoundField DataField="Employee1.UniqueName" HeaderText="Richiesta a" />
-                                    <asp:BoundField DataField="MessageToManager" HeaderText="Comunicazioni da richiedente" />
-                                    <asp:BoundField DataField="Employee2.UniqueName" HeaderText="Approvata da" ItemStyle-Font-Bold="true"  />
-                                    <asp:BoundField DataField="MessageToApplicant" HeaderText="Comunicazioni da responsabile" />
+                                    <asp:BoundField DataField="RequestDate" HeaderText="Data richiesta" DataFormatString="{0:dd/MM/yyyy}" SortExpression="RequestDate" />
+                                    <asp:BoundField DataField="Employee.UniqueName" HeaderText="Richiedente" ItemStyle-Font-Bold="true"  SortExpression="Employee.UniqueName" />
+                                    <asp:BoundField DataField="LeaveType1.Description" HeaderText="Tipo permesso" SortExpression="LeaveType1.Description" />
+                                    <asp:BoundField DataField="StartDate" HeaderText="Data inizio assenza" DataFormatString="{0:dd/MM/yyyy}" SortExpression="StartDate"  />
+                                    <asp:BoundField DataField="EndDate" HeaderText="Data fine assenza" DataFormatString="{0:dd/MM/yyyy}" SortExpression="EndDate"  />
+                                    <asp:BoundField DataField="DayFraction1.Description" HeaderText="Orario"  SortExpression="DayFraction1.Description" />
+                                    <asp:BoundField DataField="VacationDays" HeaderText="Giorni assenza" ItemStyle-HorizontalAlign="Right" SortExpression="VacationDays"  />
+                                    <asp:BoundField DataField="VacationHours" HeaderText="Ore totali assenza" ItemStyle-HorizontalAlign="Right" SortExpression="VacationHours"   />
+                                    <asp:BoundField DataField="Statuse.Description" HeaderText="Stato richiesta" ItemStyle-Font-Bold="true"  SortExpression="Statuse.Description"  />
+                                    <asp:BoundField DataField="StatusDate" HeaderText="Aggiornamento" DataFormatString="{0:dd/MM/yyyy}" SortExpression="StatusDate"  />
+                                    <asp:BoundField DataField="Employee1.UniqueName" HeaderText="Richiesta a" SortExpression="Employee1.UniqueName"  />
+                                    <asp:BoundField DataField="MessageToManager" HeaderText="Comunicazioni da richiedente"  SortExpression="MessageToManager" />
+                                    <asp:BoundField DataField="Employee2.UniqueName" HeaderText="Approvata da" ItemStyle-Font-Bold="true"  SortExpression="Employee2.UniqueName"  />
+                                    <asp:BoundField DataField="MessageToApplicant" HeaderText="Comunicazioni da responsabile" SortExpression="MessageToApplicant"  />
                                 </Columns>
                                 <PagerStyle CssClass="footer" />
                                 <%--<SelectedRowStyle CssClass="selected" />--%>
                                 <PagerTemplate>
-                                    <asp:GridViewPager ID="Pager1" runat="server" />
+                                    <asp:GridViewPager ID="Pager1" runat="server"  />
                                 </PagerTemplate>
                                 <EmptyDataTemplate>
                                     Nessuna voce trovata.

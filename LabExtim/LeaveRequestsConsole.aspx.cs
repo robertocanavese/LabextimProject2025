@@ -10,6 +10,7 @@ using UILabExtim;
 using System.Web.Services;
 using System.Web.Script.Services;
 using System.Web.Script.Serialization;
+using System.Linq.Dynamic;
 
 
 namespace LabExtim
@@ -26,6 +27,8 @@ namespace LabExtim
 
         public void senMain_SearchClick(object sender, EventArgs e)
         {
+            ViewState["SortExpression"] = "";
+
             ldsLeaveRequests.AutoGenerateWhereClause = false;
 
             ldsLeaveRequests.WhereParameters.Clear();
@@ -178,26 +181,36 @@ namespace LabExtim
         {
             var table = ldsLeaveRequests.GetTable();
             var _qc = (QuotationDataContext)table.CreateContext();
-            switch (senMain.DdlOrderBy.SelectedValue)
-            {
-                case (""):
-                    ldsLeaveRequests.OrderByParameters.Clear();
-                    ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
-                    break;
-                case ("RequestDate"):
-                    ldsLeaveRequests.OrderByParameters.Clear();
-                    ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
-                    break;
-                case ("RequestDateApplicant"):
-                    ldsLeaveRequests.OrderByParameters.Clear();
-                    ldsLeaveRequests.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate).ThenBy(qt => qt.Employee.Surname);
-                    break;
 
-                default:
-                    break;
+            if (!string.IsNullOrEmpty(ViewState["SortExpression"].ToString()))
+            {
+                ldsLeaveRequests.OrderByParameters.Clear();
+                ldsLeaveRequests.AutoGenerateOrderByClause = false;
+                e.Result = _qc.LeaveRequests.OrderBy(string.Format("{0} {1}", ViewState["SortExpression"], ViewState["SortDirection"]));
+            }
+            else
+            {
+                switch (senMain.DdlOrderBy.SelectedValue)
+                {
+                    case (""):
+                        ldsLeaveRequests.OrderByParameters.Clear();
+                        ldsLeaveRequests.AutoGenerateOrderByClause = false;
+                        e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
+                        break;
+                    case ("RequestDate"):
+                        ldsLeaveRequests.OrderByParameters.Clear();
+                        ldsLeaveRequests.AutoGenerateOrderByClause = false;
+                        e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate);
+                        break;
+                    case ("RequestDateApplicant"):
+                        ldsLeaveRequests.OrderByParameters.Clear();
+                        ldsLeaveRequests.AutoGenerateOrderByClause = false;
+                        e.Result = _qc.LeaveRequests.OrderByDescending(qt => qt.RequestDate).ThenBy(qt => qt.Employee.Surname);
+                        break;
+
+                    default:
+                        break;
+                }
             }
         }
 
@@ -265,6 +278,12 @@ namespace LabExtim
                 return String.Format("Errore: {0}", ex.Message);
             }
 
+        }
+
+        protected void grdLeaveRequests_Sorting(object sender, GridViewSortEventArgs e)
+        {
+            ViewState["SortExpression"] = e.SortExpression;
+            ViewState["SortDirection"] = e.SortDirection;
         }
     }
 }
