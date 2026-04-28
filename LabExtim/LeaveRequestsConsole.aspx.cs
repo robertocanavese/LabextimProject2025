@@ -23,6 +23,7 @@ namespace LabExtim
         {
             DynamicDataManager1.RegisterControl(grdLeaveRequests);
             senMain.SearchClick += senMain_SearchClick;
+            senMain.EmptyClick += senMain_EmptyClick;
 
         }
 
@@ -73,6 +74,14 @@ namespace LabExtim
                 ldsLeaveRequests.Where = _filter;
 
 
+            grdLeaveRequests.PageSize = 30;
+            Session["LeaveRequests_PagerSize"] = "30";
+            grdLeaveRequests.PageIndex = 0;
+
+        }
+
+        public void senMain_EmptyClick(object sender, EventArgs e)
+        {
             grdLeaveRequests.PageSize = 30;
             Session["LeaveRequests_PagerSize"] = "30";
             grdLeaveRequests.PageIndex = 0;
