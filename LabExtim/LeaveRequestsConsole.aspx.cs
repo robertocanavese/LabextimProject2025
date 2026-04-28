@@ -179,6 +179,11 @@ namespace LabExtim
 
                 LeaveRequest item = e.Row.DataItem as LeaveRequest;
 
+                if (item.Status == 19)
+                {
+                    e.Row.BackColor = System.Drawing.Color.LightYellow;
+                }
+
                 var _hypApprove = (LinkButton)e.Row.Cells[0].FindControl("ibtApprove");
                 _hypApprove.Visible = (item.Status == 19);
                 var _hypDeny = (LinkButton)e.Row.Cells[1].FindControl("ibtDeny");
