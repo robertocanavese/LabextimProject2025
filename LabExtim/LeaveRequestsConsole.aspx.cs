@@ -304,5 +304,10 @@ namespace LabExtim
             ViewState["SortExpression"] = e.SortExpression;
             ViewState["SortDirection"] = e.SortDirection;
         }
+
+        protected void lbtUpdateGrid_Click(object sender, EventArgs e)
+        {
+            senMain_SearchClick(null, null);
+        }
     }
 }

@@ -103,7 +103,7 @@
                                 ForeColor="Green" Text="Nuova richiesta" />
                             &nbsp;
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" />
+                                ForeColor="Green" Text="Aggiorna lista" OnClick="lbtUpdateGrid_Click" />
                             &nbsp;
                             <asp:LinkButton ID="lbtPrintLeaveRequests" runat="server" CssClass="gridview" Font-Bold="True"
                                 OnClick="lbtPrintLeaveRequests_Click" Text="Stampa tabella" />
