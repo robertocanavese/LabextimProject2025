@@ -23,10 +23,17 @@ namespace LabExtim
         {
             DynamicDataManager1.RegisterControl(grdLeaveRequests);
             senMain.SearchClick += senMain_SearchClick;
+
+            grdLeaveRequests.PageSize = 30;
+            Session["LeaveRequests_PagerSize"] = "30";
+            grdLeaveRequests.PageIndex = 0; ;
+
         }
 
         public void senMain_SearchClick(object sender, EventArgs e)
         {
+
+
             ViewState["SortExpression"] = "";
 
             ldsLeaveRequests.AutoGenerateWhereClause = false;
@@ -68,6 +75,8 @@ namespace LabExtim
 
             if (_filter != "TRUE ")
                 ldsLeaveRequests.Where = _filter;
+
+
         }
 
         protected void Page_Load(object sender, EventArgs e)
@@ -187,6 +196,8 @@ namespace LabExtim
                 ldsLeaveRequests.OrderByParameters.Clear();
                 ldsLeaveRequests.AutoGenerateOrderByClause = false;
                 e.Result = _qc.LeaveRequests.OrderBy(string.Format("{0} {1}", ViewState["SortExpression"], ViewState["SortDirection"]));
+                    //.Skip(grdLeaveRequests.PageIndex)
+                    //.Take(20);
             }
             else
             {
@@ -211,6 +222,7 @@ namespace LabExtim
                     default:
                         break;
                 }
+
             }
         }
 
@@ -254,7 +266,7 @@ namespace LabExtim
 
         protected void grdLeaveRequests_PreRender(object sender, EventArgs e)
         {
-            grdLeaveRequests.DataBind();
+            //grdLeaveRequests.DataBind();
         }
 
         [WebMethod]

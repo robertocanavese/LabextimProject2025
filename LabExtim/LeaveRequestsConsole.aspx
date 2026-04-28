@@ -80,6 +80,8 @@
         <ContentTemplate>
             <h2>Gestione permessi/ferie
             </h2>
+            <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdLeaveRequests"
+                Display="None" />
             <table width="100%">
                 <tr>
                     <td>
@@ -110,14 +112,17 @@
                     <tr>
                         <td>
                             <asp:LinqDataSource ID="ldsLeaveRequests" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
-                                TableName="LeaveRequests" OnSelected="ldsLeaveRequests_Selected" EnableUpdate="True"
-                                AutoGenerateOrderByClause="true" EnableDelete="True" EnableInsert="True" OnSelecting="ldsLeaveRequests_Selecting" >
+                                TableName="LeaveRequests" 
+                                AutoGenerateOrderByClause="true" OnSelecting="ldsLeaveRequests_Selecting" >
                             </asp:LinqDataSource>
                             <asp:GridView ID="grdLeaveRequests" runat="server" AutoGenerateColumns="False"
-                                AllowPaging="True" PagerSettings-Position="Top"  DataSourceID="ldsLeaveRequests" DataKeyNames="ID" CssClass="gridview"
+                                AllowPaging="True"  DataSourceID="ldsLeaveRequests" DataKeyNames="ID" CssClass="gridview"
                                 OnPageIndexChanging="grdLeaveRequests_PageIndexChanging" OnDataBound="grdLeaveRequests_DataBound"
                                 OnRowDataBound="grdLeaveRequests_RowDataBound" OnRowDeleted="grdLeaveRequests_RowDeleted"
-                                OnRowCommand="grdLeaveRequests_RowCommand" OnPreRender="grdLeaveRequests_PreRender" AllowSorting="true" OnSorting="grdLeaveRequests_Sorting">
+                                OnRowCommand="grdLeaveRequests_RowCommand" PagerSettings-Position="Top" ShowFooter="True"  OnPreRender="grdLeaveRequests_PreRender" AllowSorting="true" OnSorting="grdLeaveRequests_Sorting">
+                                <RowStyle CssClass="row" />
+                                <AlternatingRowStyle CssClass="altRow" />
+                                <PagerStyle CssClass="footer" />
                                 <Columns>
                                     <asp:TemplateField>
                                         <ItemStyle HorizontalAlign="Center" />
@@ -138,8 +143,8 @@
                                             <asp:HyperLink ID="hypEdit" runat="server" ImageUrl="~/Images/pencil.png" ToolTip="Modifica richiesta" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
-                                    <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-Font-Bold="true" />
-                                    <asp:BoundField DataField="Company.Description" HeaderText="Company" />
+                                    <asp:BoundField DataField="ID" HeaderText="ID" ItemStyle-Font-Bold="true"  SortExpression="ID" />
+                                    <asp:BoundField DataField="Company.Description" HeaderText="Company"  SortExpression="Company.Description"  />
                                     <asp:BoundField DataField="RequestDate" HeaderText="Data richiesta" DataFormatString="{0:dd/MM/yyyy}" SortExpression="RequestDate" />
                                     <asp:BoundField DataField="Employee.UniqueName" HeaderText="Richiedente" ItemStyle-Font-Bold="true"  SortExpression="Employee.UniqueName" />
                                     <asp:BoundField DataField="LeaveType1.Description" HeaderText="Tipo permesso" SortExpression="LeaveType1.Description" />
@@ -155,8 +160,6 @@
                                     <asp:BoundField DataField="Employee2.UniqueName" HeaderText="Approvata da" ItemStyle-Font-Bold="true"  SortExpression="Employee2.UniqueName"  />
                                     <asp:BoundField DataField="MessageToApplicant" HeaderText="Comunicazioni da responsabile" SortExpression="MessageToApplicant"  />
                                 </Columns>
-                                <PagerStyle CssClass="footer" />
-                                <%--<SelectedRowStyle CssClass="selected" />--%>
                                 <PagerTemplate>
                                     <asp:GridViewPager ID="Pager1" runat="server"  />
                                 </PagerTemplate>
