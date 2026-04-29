@@ -31,8 +31,6 @@ namespace LabExtim
         {
 
 
-            ViewState["SortExpression"] = "";
-
             ldsLeaveRequests.AutoGenerateWhereClause = false;
 
             ldsLeaveRequests.WhereParameters.Clear();
@@ -82,6 +80,7 @@ namespace LabExtim
 
         public void senMain_EmptyClick(object sender, EventArgs e)
         {
+            ViewState["SortExpression"] = "";
             grdLeaveRequests.PageSize = 30;
             Session["LeaveRequests_PagerSize"] = "30";
             grdLeaveRequests.PageIndex = 0;
@@ -93,6 +92,8 @@ namespace LabExtim
 
             if (!IsPostBack)
             {
+                ViewState["SortExpression"] = "RequestDate";
+                ViewState["SortDirection"] = "DESC";
                 FillControls();
                 PopulateSearchEngine();
                 SwitchDependingControls();
@@ -134,7 +135,7 @@ namespace LabExtim
 
         protected void grdLeaveRequests_PageIndexChanging(object sender, GridViewPageEventArgs e)
         {
-            grdLeaveRequests.PageIndex = e.NewPageIndex;
+            grdLeaveRequests.PageIndex = Math.Max(0,e.NewPageIndex);
         }
 
         protected void lbtPrintLeaveRequests_Click(object sender, EventArgs e)
@@ -274,6 +275,7 @@ namespace LabExtim
                     ctx.SubmitChanges();
                 }
             }
+            senMain_SearchClick(null, null);
         }
 
         protected void grdLeaveRequests_PreRender(object sender, EventArgs e)
