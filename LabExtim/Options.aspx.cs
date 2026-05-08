@@ -98,6 +98,15 @@ namespace LabExtim
         protected void btnCostChange_Click(object sender, EventArgs e)
         {
 
+            DateTime _tempDateFrom;
+            if (DateTime.TryParse(txtDate1From.Text, out _tempDateFrom))
+            {
+                using (QuotationDataContext db = new QuotationDataContext())
+                {
+                    ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempDateFrom.ToString("yyyyMMdd"));
+                }
+            }
+
         }
 
     }

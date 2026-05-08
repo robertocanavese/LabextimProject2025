@@ -1335,6 +1335,13 @@ namespace DLLabExtim
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), quotationID, productionOrderId, quantity);
 			return ((ISingleResult<prc_LAB_MGet_LAB_ProductionScheduleByQuotationIDandPoIDandQuantityResult>)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prc_LAB_Upd_LAB_PickingitemsCostByDateInterval")]
+		public int prc_LAB_Upd_LAB_PickingitemsCostByDateInterval([global::System.Data.Linq.Mapping.ParameterAttribute(Name="TypeCode", DbType="Int")] System.Nullable<int> typeCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="ItemTypeCode", DbType="Int")] System.Nullable<int> itemTypeCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="SupplierCode", DbType="Int")] System.Nullable<int> supplierCode, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="StartDate", DbType="Char(8)")] string startDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="EndDate", DbType="Char(8)")] string endDate, [global::System.Data.Linq.Mapping.ParameterAttribute(Name="Increment", DbType="Money")] System.Nullable<decimal> increment)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), typeCode, itemTypeCode, supplierCode, startDate, endDate, increment);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]

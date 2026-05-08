@@ -2461,4 +2461,13 @@
     <Parameter Name="Quantity" Parameter="quantity" Type="System.Single" DbType="Real" />
     <ElementType IdRef="ID7" />
   </Function>
+  <Function Name="dbo.prc_LAB_Upd_LAB_PickingitemsCostByDateInterval" Method="prc_LAB_Upd_LAB_PickingitemsCostByDateInterval">
+    <Parameter Name="TypeCode" Parameter="typeCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="ItemTypeCode" Parameter="itemTypeCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="SupplierCode" Parameter="supplierCode" Type="System.Int32" DbType="Int" />
+    <Parameter Name="StartDate" Parameter="startDate" Type="System.String" DbType="Char(8)" />
+    <Parameter Name="EndDate" Parameter="endDate" Type="System.String" DbType="Char(8)" />
+    <Parameter Name="Increment" Parameter="increment" Type="System.Decimal" DbType="Money" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

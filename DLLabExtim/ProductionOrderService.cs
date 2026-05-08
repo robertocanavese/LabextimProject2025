@@ -939,6 +939,15 @@ namespace DLLabExtim
         }
 
 
+        public static void BulkRecalcPickingItemCosts(QuotationDataContext db, string startDate, string endDate, int? supplierCode, int? typeCode, int? itemTypeCode, decimal? increment)
+        {
+
+            db.CommandTimeout = 1200;
+            db.prc_LAB_Upd_LAB_PickingitemsCostByDateInterval(supplierCode, typeCode, itemTypeCode, startDate, endDate, increment);
+
+        }
+
+
         public static string GetNoteFromProduction(int idPo)
         {
 
