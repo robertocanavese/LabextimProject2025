@@ -104,35 +104,48 @@ namespace LabExtim
             Int32? _tempSupplierCode = null;
             Int32? _tempTypeCode = null;
             Int32? _tempItemTypeCode = null;
-
-            DateTime? _tempDateFrom = Convert.ToDateTime(txtPIDateFrom.Text);
-            if (_tempDateFrom != null)
-                _tempTxtDateFrom = _tempDateFrom.Value.ToString("yyyyMMdd");
-
-            DateTime? _tempDateTo = Convert.ToDateTime(txtPIDateTo.Text);
-            if (_tempDateTo != null)
-                _tempTxtDateTo = _tempDateTo.Value.ToString("yyyyMMdd");
+            Decimal? _tempPercIncrement = null;
 
             try
             {
-                _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
-            }
-            catch
-            { }
-            try
-            {
-                _tempTypeCode = Convert.ToInt32(ddlTypes.SelectedValue);
-            }
-            catch
-            { }
-            try
-            {
-                _tempItemTypeCode = Convert.ToInt32(ddlItemTypes.SelectedValue);
-            }
-            catch
-            { }
+                DateTime? _tempDateFrom = Convert.ToDateTime(txtPIDateFrom.Text);
+                if (_tempDateFrom != null)
+                    _tempTxtDateFrom = _tempDateFrom.Value.ToString("yyyyMMdd");
 
-            decimal? _tempPercIncrement = Convert.ToDecimal(txtPercIncrement.Text);
+                DateTime? _tempDateTo = Convert.ToDateTime(txtPIDateTo.Text);
+                if (_tempDateTo != null)
+                    _tempTxtDateTo = _tempDateTo.Value.ToString("yyyyMMdd");
+
+                try
+                {
+                    _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
+                }
+                catch
+                { }
+                try
+                {
+                    _tempTypeCode = Convert.ToInt32(ddlTypes.SelectedValue);
+                }
+                catch
+                { }
+                try
+                {
+                    _tempItemTypeCode = Convert.ToInt32(ddlItemTypes.SelectedValue);
+                }
+                catch
+                { }
+
+                try
+                {
+                    _tempPercIncrement = Convert.ToDecimal(txtPercIncrement.Text) / 100m;
+                }
+                catch
+                { }
+            }
+            catch (Exception ex)
+            {
+                
+            }
 
             using (QuotationDataContext db = new QuotationDataContext())
             {
