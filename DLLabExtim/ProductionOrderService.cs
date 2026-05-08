@@ -939,7 +939,7 @@ namespace DLLabExtim
         }
 
 
-        public static void BulkRecalcPickingItemCosts(QuotationDataContext db, string startDate, string endDate, int? supplierCode, int? typeCode, int? itemTypeCode, decimal? increment)
+        public static void BulkRecalcPickingItemCosts(QuotationDataContext db, int? supplierCode, int? typeCode, int? itemTypeCode, string startDate, string endDate, decimal? increment)
         {
 
             db.CommandTimeout = 1200;

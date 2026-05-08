@@ -161,8 +161,8 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlSuppliers" runat="server" AutoPostBack="false" DataSourceID="ldsSuppliers"
-                    DataTextField="Name" DataValueField="Code" CssClass="droplist" OnDataBound="ddlSuppliers_DataBound"
-                    OnSelectedIndexChanged="PersistSelection">
+                    DataTextField="Name" DataValueField="Code" CssClass="droplist" >
+                    <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsSuppliers" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                     TableName="Suppliers" OrderBy="Name">
@@ -170,8 +170,8 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlTypes" runat="server" AutoPostBack="false" DataSourceID="ldsTypes"
-                    DataTextField="Description" DataValueField="Code" CssClass="droplist" OnDataBound="ddlTypes_DataBound"
-                    OnSelectedIndexChanged="PersistSelection">
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" >
+                    <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                     TableName="Types" Where='Category="I"' OrderBy="Order">
@@ -179,8 +179,8 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlItemTypes" runat="server" AutoPostBack="false" DataSourceID="ldsItemTypes"
-                    DataTextField="Description" DataValueField="Code" CssClass="droplist" OnDataBound="ddlItemTypes_DataBound"
-                    OnSelectedIndexChanged="PersistSelection">
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" >
+                    <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsItemTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                     TableName="ItemTypes" Where='Category="I"' OrderBy="Order">

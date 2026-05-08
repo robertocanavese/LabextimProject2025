@@ -99,19 +99,46 @@ namespace LabExtim
         protected void btnCostChange_Click(object sender, EventArgs e)
         {
 
+            string _tempTxtDateFrom = null;
+            string _tempTxtDateTo = null;
+            Int32? _tempSupplierCode = null;
+            Int32? _tempTypeCode = null;
+            Int32? _tempItemTypeCode = null;
+
             DateTime? _tempDateFrom = Convert.ToDateTime(txtPIDateFrom.Text);
-            DateTime? _tempDateto = Convert.ToDateTime(txtPIDateTo.Text);
-            Int32? _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
-            Int32? _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
-            Int32? _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
+            if (_tempDateFrom != null)
+                _tempTxtDateFrom = _tempDateFrom.Value.ToString("yyyyMMdd");
 
+            DateTime? _tempDateTo = Convert.ToDateTime(txtPIDateTo.Text);
+            if (_tempDateTo != null)
+                _tempTxtDateTo = _tempDateTo.Value.ToString("yyyyMMdd");
 
+            try
+            {
+                _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
+            }
+            catch
+            { }
+            try
+            {
+                _tempTypeCode = Convert.ToInt32(ddlTypes.SelectedValue);
+            }
+            catch
+            { }
+            try
+            {
+                _tempItemTypeCode = Convert.ToInt32(ddlItemTypes.SelectedValue);
+            }
+            catch
+            { }
 
-                using (QuotationDataContext db = new QuotationDataContext())
-                {
-                    ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempDateFrom.ToString("yyyyMMdd"));
-                }
-            
+            decimal? _tempPercIncrement = Convert.ToDecimal(txtPercIncrement.Text);
+
+            using (QuotationDataContext db = new QuotationDataContext())
+            {
+                ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempSupplierCode, _tempTypeCode, _tempItemTypeCode, _tempTxtDateFrom, _tempTxtDateTo, _tempPercIncrement);
+            }
+
 
         }
 
