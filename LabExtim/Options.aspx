@@ -12,10 +12,10 @@
         </tr>
         <tr>
             <td colspan="3" align="center">
-                <asp:Label ID="lblDateFrom" runat="server" Text="Data inizio elaborazione"></asp:Label>
+                <asp:Label ID="lblDateFrom" runat="server" Text="Data INIZIO elaborazione"></asp:Label>
             </td>
             <td colspan="3" align="center">
-                <asp:Label ID="lblDateTo" runat="server" Text="Data fine elaborazione"></asp:Label>
+                <asp:Label ID="lblDateTo" runat="server" Text="Data FINE elaborazione"></asp:Label>
             </td>
         </tr>
         <tr align="center">
@@ -116,11 +116,11 @@
         </tr>
         <tr>
             <td align="center">
-                <asp:Label ID="Label2" runat="server" Text="Ultima data aggiornamento voce da"></asp:Label>
+                <asp:Label ID="Label2" runat="server" Text="Data aggiornamento voce DA"></asp:Label>
             </td>
 
             <td align="center">
-                <asp:Label ID="Label3" runat="server" Text="Ultima data aggiornamento voce a"></asp:Label>
+                <asp:Label ID="Label3" runat="server" Text="Data aggiornamento voce A"></asp:Label>
             </td>
 
             <td align="center">
@@ -161,7 +161,7 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlSuppliers" runat="server" AutoPostBack="false" DataSourceID="ldsSuppliers"
-                    DataTextField="Name" DataValueField="Code" CssClass="droplist" >
+                    DataTextField="Name" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true" >
                     <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsSuppliers" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
@@ -170,7 +170,7 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlTypes" runat="server" AutoPostBack="false" DataSourceID="ldsTypes"
-                    DataTextField="Description" DataValueField="Code" CssClass="droplist" >
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true"  >
                     <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
@@ -179,7 +179,7 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlItemTypes" runat="server" AutoPostBack="false" DataSourceID="ldsItemTypes"
-                    DataTextField="Description" DataValueField="Code" CssClass="droplist" >
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true"  >
                     <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsItemTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
