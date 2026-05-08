@@ -192,6 +192,7 @@
         </tr>
         <tr>
             <td colspan="6" align="center">
+                <asp:Label runat="server" ID="lblCostChange_Error" CssClass="ui-state-error"></asp:Label>
                 <asp:Button ID="btnCostChange" runat="server" Text="Esegui" OnClientClick="javascript:return confirm('Confermi il ricalcolo del costo delle voci di tabella base incluse nella selezione corrente?');"
                     CssClass="myButton" OnClick="btnCostChange_Click" />
                 <hr />

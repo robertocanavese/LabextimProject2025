@@ -14,6 +14,7 @@ namespace LabExtim
             if (!IsPostBack)
             {
             }
+            lblCostChange_Error.Text = string.Empty;
         }
 
         protected void btnExecute_Click(object sender, EventArgs e)
@@ -140,11 +141,13 @@ namespace LabExtim
                     _tempPercIncrement = Convert.ToDecimal(txtPercIncrement.Text) / 100m;
                 }
                 catch
-                { }
+                {
+                    throw;
+                }
             }
             catch (Exception ex)
             {
-                
+                lblCostChange_Error.Text = string.Format("Errore nell'inserimento dei parametri! ({0})", ex.Message);
             }
 
             using (QuotationDataContext db = new QuotationDataContext())
