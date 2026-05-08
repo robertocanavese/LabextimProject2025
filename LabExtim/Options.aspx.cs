@@ -109,13 +109,19 @@ namespace LabExtim
 
             try
             {
-                DateTime? _tempDateFrom = Convert.ToDateTime(txtPIDateFrom.Text);
-                if (_tempDateFrom != null)
-                    _tempTxtDateFrom = _tempDateFrom.Value.ToString("yyyyMMdd");
+                DateTime _tempDateFrom = DateTime.MinValue;
+                DateTime.TryParse(txtPIDateFrom.Text, out _tempDateFrom);
+                if (_tempDateFrom != DateTime.MinValue)
+                    _tempTxtDateFrom = _tempDateFrom.ToString("yyyyMMdd");
+                else
+                    throw new Exception("Uan data aggiornamento voce iniziale deve essere sempre specificata!");
 
-                DateTime? _tempDateTo = Convert.ToDateTime(txtPIDateTo.Text);
-                if (_tempDateTo != null)
-                    _tempTxtDateTo = _tempDateTo.Value.ToString("yyyyMMdd");
+                DateTime _tempDateTo = DateTime.MinValue;
+                DateTime.TryParse(txtPIDateTo.Text, out _tempDateTo);
+                if (_tempDateTo != DateTime.MinValue)
+                    _tempTxtDateTo = _tempDateTo.ToString("yyyyMMdd");
+                else
+                    throw new Exception("Uan data aggiornamento voce finale deve essere sempre specificata!");
 
                 try
                 {
@@ -144,17 +150,17 @@ namespace LabExtim
                 {
                     throw;
                 }
+
+                using (QuotationDataContext db = new QuotationDataContext())
+                {
+                    ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempSupplierCode, _tempTypeCode, _tempItemTypeCode, _tempTxtDateFrom, _tempTxtDateTo, _tempPercIncrement);
+                }
+
             }
             catch (Exception ex)
             {
                 lblCostChange_Error.Text = string.Format("Errore nell'inserimento dei parametri! ({0})", ex.Message);
             }
-
-            using (QuotationDataContext db = new QuotationDataContext())
-            {
-                ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempSupplierCode, _tempTypeCode, _tempItemTypeCode, _tempTxtDateFrom, _tempTxtDateTo, _tempPercIncrement);
-            }
-
 
         }
 

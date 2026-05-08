@@ -161,7 +161,7 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlSuppliers" runat="server" AutoPostBack="false" DataSourceID="ldsSuppliers"
-                    DataTextField="Name" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true" >
+                    DataTextField="Name" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true">
                     <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsSuppliers" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
@@ -170,7 +170,7 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlTypes" runat="server" AutoPostBack="false" DataSourceID="ldsTypes"
-                    DataTextField="Description" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true"  >
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true">
                     <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
@@ -179,7 +179,7 @@
             </td>
             <td align="center">
                 <asp:DropDownList ID="ddlItemTypes" runat="server" AutoPostBack="false" DataSourceID="ldsItemTypes"
-                    DataTextField="Description" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true"  >
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" AppendDataBoundItems="true">
                     <asp:ListItem Text="Tutti" Value=""></asp:ListItem>
                 </asp:DropDownList>
                 <asp:LinqDataSource ID="ldsItemTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
@@ -187,14 +187,15 @@
                 </asp:LinqDataSource>
             </td>
             <td align="center">
-                <cfb:FloatTextBox ID="txtPercIncrement" runat="server" CssClass="droplist" />%
+                <cfb:FloatTextBox ID="txtPercIncrement" runat="server" CssClass="droplist" />
+                %
             </td>
         </tr>
         <tr>
             <td colspan="6" align="center">
-                <asp:Label runat="server" ID="lblCostChange_Error" CssClass="ui-state-error"></asp:Label>
                 <asp:Button ID="btnCostChange" runat="server" Text="Esegui" OnClientClick="javascript:return confirm('Confermi il ricalcolo del costo delle voci di tabella base incluse nella selezione corrente?');"
-                    CssClass="myButton" OnClick="btnCostChange_Click" />
+                    CssClass="myButton" OnClick="btnCostChange_Click" /><br />
+                <asp:Label runat="server" ID="lblCostChange_Error" CssClass="red"></asp:Label>
                 <hr />
             </td>
         </tr>
@@ -207,7 +208,5 @@
                 <hr />
             </td>
         </tr>--%>
-
-
     </table>
 </asp:Content>
