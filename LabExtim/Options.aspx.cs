@@ -148,7 +148,7 @@ namespace LabExtim
                 }
                 catch
                 {
-                    throw;
+                    throw new Exception("L'incremento percentuale specificato non è valido!");
                 }
 
                 using (QuotationDataContext db = new QuotationDataContext())
@@ -159,7 +159,7 @@ namespace LabExtim
             }
             catch (Exception ex)
             {
-                lblCostChange_Error.Text = string.Format("Errore nell'inserimento dei parametri! ({0})", ex.Message);
+                lblCostChange_Error.Text = string.Format("Errore: {0}", ex.Message);
             }
 
         }
