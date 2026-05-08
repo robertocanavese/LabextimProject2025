@@ -2,6 +2,7 @@
     CodeBehind="Options.aspx.cs" Inherits="LabExtim.Options" %>
 
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
+<%@ Register Src="~/CustomControls/FloatTextBox.ascx" TagName="FloatTextBox" TagPrefix="cfb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
     <table>
         <tr>
@@ -135,7 +136,7 @@
             </td>
 
             <td align="center">
-                <asp:Label ID="Label7" runat="server" Text="Variazione (+/-) %"></asp:Label>
+                <asp:Label ID="Label7" runat="server" Text="Variazione (+/-)"></asp:Label>
             </td>
 
         </tr>
@@ -158,27 +159,53 @@
                     PopupPosition="Right" SelectedDate='<%# DateTime.Today.AddYears(-1) %>'>
                 </cc1:CalendarExtender>
             </td>
-            <td align="center"></td>
-            <td align="center"></td>
-            <td align="center"></td>
-            <td align="center"></td>
+            <td align="center">
+                <asp:DropDownList ID="ddlSuppliers" runat="server" AutoPostBack="false" DataSourceID="ldsSuppliers"
+                    DataTextField="Name" DataValueField="Code" CssClass="droplist" OnDataBound="ddlSuppliers_DataBound"
+                    OnSelectedIndexChanged="PersistSelection">
+                </asp:DropDownList>
+                <asp:LinqDataSource ID="ldsSuppliers" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
+                    TableName="Suppliers" OrderBy="Name">
+                </asp:LinqDataSource>
+            </td>
+            <td align="center">
+                <asp:DropDownList ID="ddlTypes" runat="server" AutoPostBack="false" DataSourceID="ldsTypes"
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" OnDataBound="ddlTypes_DataBound"
+                    OnSelectedIndexChanged="PersistSelection">
+                </asp:DropDownList>
+                <asp:LinqDataSource ID="ldsTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
+                    TableName="Types" Where='Category="I"' OrderBy="Order">
+                </asp:LinqDataSource>
+            </td>
+            <td align="center">
+                <asp:DropDownList ID="ddlItemTypes" runat="server" AutoPostBack="false" DataSourceID="ldsItemTypes"
+                    DataTextField="Description" DataValueField="Code" CssClass="droplist" OnDataBound="ddlItemTypes_DataBound"
+                    OnSelectedIndexChanged="PersistSelection">
+                </asp:DropDownList>
+                <asp:LinqDataSource ID="ldsItemTypes" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
+                    TableName="ItemTypes" Where='Category="I"' OrderBy="Order">
+                </asp:LinqDataSource>
+            </td>
+            <td align="center">
+                <cfb:FloatTextBox ID="txtPercIncrement" runat="server" CssClass="droplist" />%
+            </td>
         </tr>
         <tr>
             <td colspan="6" align="center">
                 <asp:Button ID="btnCostChange" runat="server" Text="Esegui" OnClientClick="javascript:return confirm('Confermi il ricalcolo del costo delle voci di tabella base incluse nella selezione corrente?');"
-                    CssClass="myButton" />
+                    CssClass="myButton" OnClick="btnCostChange_Click" />
                 <hr />
             </td>
         </tr>
 
 
-        <tr>
+        <%--<tr>
             <td colspan="6" align="center">
                 <asp:Button ID="btnTest" runat="server" Text="Test"
                     CssClass="myButton" OnClick="btnTest_Click" />
                 <hr />
             </td>
-        </tr>
+        </tr>--%>
 
 
     </table>

@@ -95,5 +95,10 @@ namespace LabExtim
 
         }
 
+        protected void btnCostChange_Click(object sender, EventArgs e)
+        {
+
+        }
+
     }
 }
