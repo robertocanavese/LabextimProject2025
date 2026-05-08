@@ -115,14 +115,14 @@ namespace LabExtim
                 if (_tempDateFrom != DateTime.MinValue)
                     _tempTxtDateFrom = _tempDateFrom.ToString("yyyyMMdd");
                 else
-                    throw new Exception("Uan data aggiornamento voce iniziale deve essere sempre specificata!");
+                    throw new Exception("Una data aggiornamento voce iniziale deve essere sempre specificata!");
 
                 DateTime _tempDateTo = DateTime.MinValue;
                 DateTime.TryParse(txtPIDateTo.Text, out _tempDateTo);
                 if (_tempDateTo != DateTime.MinValue)
                     _tempTxtDateTo = _tempDateTo.ToString("yyyyMMdd");
                 else
-                    throw new Exception("Uan data aggiornamento voce finale deve essere sempre specificata!");
+                    throw new Exception("Una data aggiornamento voce finale deve essere sempre specificata!");
 
                 try
                 {

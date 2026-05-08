@@ -4,19 +4,19 @@
 <%@ Register Assembly="AjaxControlToolkit" Namespace="AjaxControlToolkit" TagPrefix="cc1" %>
 <%@ Register Src="~/CustomControls/FloatTextBox.ascx" TagName="FloatTextBox" TagPrefix="cfb" %>
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table>
+    <table class="verticalLines">
         <tr>
             <td colspan="6" align="center">
-                <h4>Ricalcolo massivo denunce di produzione</h4>
+                <h3>RICALCOLO MASSIVO DENUNCE DI PRODUZIONE</h3>
             </td>
         </tr>
         <tr>
-            <td colspan="3" align="center">
+            <th colspan="3" align="center">
                 <asp:Label ID="lblDateFrom" runat="server" Text="Data INIZIO elaborazione"></asp:Label>
-            </td>
-            <td colspan="3" align="center">
+            </th>
+            <th colspan="3" align="center">
                 <asp:Label ID="lblDateTo" runat="server" Text="Data FINE elaborazione"></asp:Label>
-            </td>
+            </th>
         </tr>
         <tr align="center">
             <td colspan="3" align="center">
@@ -48,7 +48,7 @@
 
         <tr>
             <td colspan="6" align="center">
-                <h4>Ricalcolo massivo Master Production Schedule</h4>
+                <h3>RICALCOLO MASSIVO MASTER PRODUCTION SCHEDULE</h3>
             </td>
         </tr>
         <tr>
@@ -65,7 +65,7 @@
 
         <tr>
             <td colspan="6" align="center">
-                <h4>Aggiornamento generale dei menu</h4>
+                <h3>AGGIORNAMENTO GENERALE DEI MENU</h3>
             </td>
         </tr>
         <tr>
@@ -81,13 +81,13 @@
 
         <tr>
             <td colspan="6" align="center">
-                <h4>Ricalcolo dati redditività da data</h4>
+                <h3>RICALCOLO DATI REDDITIVITÀ DA DATA</h3>
             </td>
         </tr>
         <tr>
-            <td colspan="6" align="center">
+            <th colspan="6" align="center">
                 <asp:Label ID="Label1" runat="server" Text="Data inizio elaborazione"></asp:Label>
-            </td>
+            </th>
 
         </tr>
         <tr align="center">
@@ -111,33 +111,33 @@
 
         <tr>
             <td colspan="6" align="center">
-                <h4>Variazione massiva costo voci di tabella base</h4>
+                <h3>AGGIORNAMENTO MASSIVO COSTO VOCI DI TABELLA BASE</h3>
             </td>
         </tr>
         <tr>
-            <td align="center">
+            <th align="center">
                 <asp:Label ID="Label2" runat="server" Text="Data aggiornamento voce DA"></asp:Label>
-            </td>
+            </th>
 
-            <td align="center">
+            <th align="center">
                 <asp:Label ID="Label3" runat="server" Text="Data aggiornamento voce A"></asp:Label>
-            </td>
+            </th>
 
-            <td align="center">
+            <th align="center">
                 <asp:Label ID="Label4" runat="server" Text="Fornitore"></asp:Label>
-            </td>
+            </th>
 
-            <td align="center">
+            <th align="center">
                 <asp:Label ID="Label5" runat="server" Text="Tipo"></asp:Label>
-            </td>
+            </th>
 
-            <td align="center">
+            <th align="center">
                 <asp:Label ID="Label6" runat="server" Text="Tipo voce"></asp:Label>
-            </td>
+            </th>
 
-            <td align="center">
-                <asp:Label ID="Label7" runat="server" Text="Variazione (+/-)"></asp:Label>
-            </td>
+            <th align="center">
+                <asp:Label ID="Label7" runat="server" Text="Variazione (+/-) Es.: +15%, -10.3%"></asp:Label>
+            </th>
 
         </tr>
         <tr align="center">

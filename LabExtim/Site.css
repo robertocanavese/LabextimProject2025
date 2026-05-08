@@ -699,3 +699,14 @@ input[type=submit].myButton {
 
 .ui-dialog ui-dialog-content {
 }
+
+table.verticalLines th {
+    padding: 5px 5px 5px 5px;
+    /*height: 25px;*/
+    color: white;
+    background-color: navy;
+}
+table.verticalLines td {
+    /*padding: 5px 5px 5px 5px;*/
+    background-color: whitesmoke;
+}
