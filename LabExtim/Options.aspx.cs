@@ -2,6 +2,7 @@
 using UILabExtim;
 using DLLabExtim;
 using CMLabExtim.S7Classes;
+using System.Globalization;
 
 
 namespace LabExtim
@@ -98,14 +99,19 @@ namespace LabExtim
         protected void btnCostChange_Click(object sender, EventArgs e)
         {
 
-            DateTime _tempDateFrom;
-            if (DateTime.TryParse(txtDate1From.Text, out _tempDateFrom))
-            {
+            DateTime? _tempDateFrom = Convert.ToDateTime(txtPIDateFrom.Text);
+            DateTime? _tempDateto = Convert.ToDateTime(txtPIDateTo.Text);
+            Int32? _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
+            Int32? _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
+            Int32? _tempSupplierCode = Convert.ToInt32(ddlSuppliers.SelectedValue);
+
+
+
                 using (QuotationDataContext db = new QuotationDataContext())
                 {
                     ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempDateFrom.ToString("yyyyMMdd"));
                 }
-            }
+            
 
         }
 
