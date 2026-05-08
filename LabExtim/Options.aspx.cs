@@ -154,7 +154,7 @@ namespace LabExtim
 
                 using (QuotationDataContext db = new QuotationDataContext())
                 {
-                    ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempSupplierCode, _tempTypeCode, _tempItemTypeCode, _tempTxtDateFrom, _tempTxtDateTo, _tempPercIncrement);
+                    ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempTypeCode, _tempItemTypeCode, _tempSupplierCode, _tempTxtDateFrom, _tempTxtDateTo, _tempPercIncrement);
                 }
                 lblCostChange_Error.Text = "Aggiornamento costi completato con successo";
 

@@ -939,11 +939,11 @@ namespace DLLabExtim
         }
 
 
-        public static void BulkRecalcPickingItemCosts(QuotationDataContext db, int? supplierCode, int? typeCode, int? itemTypeCode, string startDate, string endDate, decimal? increment)
+        public static void BulkRecalcPickingItemCosts(QuotationDataContext db, int? typeCode, int? itemTypeCode, int? supplierCode, string startDate, string endDate, decimal? increment)
         {
 
             db.CommandTimeout = 1200;
-            db.prc_LAB_Upd_LAB_PickingitemsCostByDateInterval(supplierCode, typeCode, itemTypeCode, startDate, endDate, increment);
+            db.prc_LAB_Upd_LAB_PickingitemsCostByDateInterval(typeCode, itemTypeCode, supplierCode, startDate, endDate, increment);
 
         }
 
