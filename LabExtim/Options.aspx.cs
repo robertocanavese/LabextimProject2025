@@ -14,6 +14,7 @@ namespace LabExtim
             if (!IsPostBack)
             {
             }
+            lblCostChange_Error.ForeColor = new System.Drawing.Color();
             lblCostChange_Error.Text = string.Empty;
         }
 
@@ -155,10 +156,12 @@ namespace LabExtim
                 {
                     ProductionOrderService.BulkRecalcPickingItemCosts(db, _tempSupplierCode, _tempTypeCode, _tempItemTypeCode, _tempTxtDateFrom, _tempTxtDateTo, _tempPercIncrement);
                 }
+                lblCostChange_Error.Text = "Aggiornamento costi completato con successo";
 
             }
             catch (Exception ex)
             {
+                lblCostChange_Error.ForeColor = System.Drawing.Color.Red;
                 lblCostChange_Error.Text = string.Format("Errore: {0}", ex.Message);
             }
 
