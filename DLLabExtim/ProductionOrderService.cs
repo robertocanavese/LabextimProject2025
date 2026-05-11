@@ -942,11 +942,20 @@ namespace DLLabExtim
         public static void BulkRecalcPickingItemCosts(QuotationDataContext db, int? typeCode, int? itemTypeCode, int? supplierCode, string startDate, string endDate, decimal? increment)
         {
 
-            db.CommandTimeout = 1200;
+            //db.CommandTimeout = 1200;
             db.prc_LAB_Upd_LAB_PickingitemsCostByDateInterval(typeCode, itemTypeCode, supplierCode, startDate, endDate, increment);
 
         }
 
+
+        public static string RestoreLastBulkPickingItemCostsUpdate(QuotationDataContext db)
+        {
+            string tsRestored = string.Empty;
+            //db.CommandTimeout = 1200;
+            db.prc_LAB_Upd_LAB_PickingitemsCostRollbackLastUpdate(ref tsRestored);
+            return tsRestored;
+
+        }
 
         public static string GetNoteFromProduction(int idPo)
         {

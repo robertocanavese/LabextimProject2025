@@ -167,5 +167,26 @@ namespace LabExtim
 
         }
 
+        protected void btnRestoreLast_Click(object sender, EventArgs e)
+        {
+            string result = string.Empty;
+            using (QuotationDataContext db = new QuotationDataContext())
+            {
+                try
+                {
+                    result = ProductionOrderService.RestoreLastBulkPickingItemCostsUpdate(db);
+                    lblCostChange_Error.Text = string.Format("Restore della sessione di aggiornamento con data ora {0} completato", result);
+                }
+                catch (Exception ex)
+                {
+                    lblCostChange_Error.ForeColor = System.Drawing.Color.Red;
+                    lblCostChange_Error.Text = string.Format("Errore: {0}", ex.Message);
+                }
+
+            }
+
+        }
+
+
     }
 }

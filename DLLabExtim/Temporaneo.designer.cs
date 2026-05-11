@@ -1287,6 +1287,14 @@ namespace TempDLLabExtim
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), typeCode, itemTypeCode, supplierCode, startDate, endDate, increment);
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prc_LAB_Upd_LAB_PickingitemsCostRollbackLastUpdate")]
+		public int prc_LAB_Upd_LAB_PickingitemsCostRollbackLastUpdate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="RollbackedTS", DbType="Char(15)")] ref string rollbackedTS)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), rollbackedTS);
+			rollbackedTS = ((string)(result.GetParameterValue(0)));
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]
