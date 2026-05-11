@@ -193,8 +193,8 @@
         </tr>
         <tr>
             <td colspan="6" align="center">
-                <asp:Button ID="btnRestoreLast" runat="server" Text="Ripristina" OnClientClick="javascript:return confirm('Confermi il ripristino dei dati esistenti prima dell'ultimo aggiornamento? (N.B.: la selezione corrente (date, fornitore, etc:..) in questo caso è ininfluente)';"
-                    CssClass="myButton" OnClick="btnRestoreLast_Click" /><br />
+                <asp:Button ID="btnRestoreLast" runat="server" Text="Ripristina da ultimo aggiornamento" OnClientClick="javascript:return confirm('Confermi il ripristino dei dati esistenti prima dell'ultimo aggiornamento? (N.B.: la selezione corrente (date, fornitore, etc:..) in questo caso è ininfluente)';"
+                    CssClass="myButton" OnClick="btnRestoreLast_Click" />&nbsp;&nbsp;
                 <asp:Button ID="btnCostChange" runat="server" Text="Esegui" OnClientClick="javascript:return confirm('Confermi il ricalcolo del costo delle voci di tabella base incluse nella selezione corrente?');"
                     CssClass="myButton" OnClick="btnCostChange_Click" /><br />
                 <asp:Label runat="server" ID="lblCostChange_Error" ></asp:Label>
