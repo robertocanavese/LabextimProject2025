@@ -175,7 +175,7 @@ namespace LabExtim
                 try
                 {
                     result = ProductionOrderService.RestoreLastBulkPickingItemCostsUpdate(db);
-                    lblCostChange_Error.Text = string.Format("Restore della sessione di aggiornamento con data ora {0} completato", result);
+                    lblCostChange_Error.Text = (string.IsNullOrWhiteSpace(result) ? "Nulla da ripristinare" : string.Format("Ripristino a prima della sessione di aggiornamento con data ora {0} completato",  result ));
                 }
                 catch (Exception ex)
                 {
