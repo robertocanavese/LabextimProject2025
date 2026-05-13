@@ -80,6 +80,7 @@ namespace DailyManager
                 if (args[0] == ("RecalcVW_QUOPORCostsPrices"))
                 {
                     RecalcVW_QUOPORCostsPrices();
+                    AutoDeactivateUnusedPIAndMI();
                 }
                 if (args[0] == ("Sync_EuroProgetti_DB_Ordini"))
                 {
@@ -122,15 +123,16 @@ namespace DailyManager
 
                 if (args[0] == ("test"))
                 {
-                    using (QuotationDataContext dbLoc = new QuotationDataContext())
-                    {
-                        foreach (EuroProgetti_DB_Ordini odp in dbLoc.EuroProgetti_DB_Ordinis)
-                        {
-                            odp.i_Cliente = odp.i_Cliente.ControlCharsCleaned();
-                            odp.i_Codice = odp.i_Codice.ControlCharsCleaned();
-                            dbLoc.SubmitChanges();
-                        }
-                    }
+                    //using (QuotationDataContext dbLoc = new QuotationDataContext())
+                    //{
+                    //    foreach (EuroProgetti_DB_Ordini odp in dbLoc.EuroProgetti_DB_Ordinis)
+                    //    {
+                    //        odp.i_Cliente = odp.i_Cliente.ControlCharsCleaned();
+                    //        odp.i_Codice = odp.i_Codice.ControlCharsCleaned();
+                    //        dbLoc.SubmitChanges();
+                    //    }
+                    //}
+                    AutoDeactivateUnusedPIAndMI();
                 }
 
 
@@ -424,6 +426,17 @@ namespace DailyManager
             }
 
         }
+
+        private static void AutoDeactivateUnusedPIAndMI()
+        {
+            using (QuotationDataContext db = new QuotationDataContext())
+            using (GeneralDataContext dbg = new GeneralDataContext())
+            {
+                ProductionOrderService.AutoDeactivateUnusedPIAndMI(db, dbg);
+            }
+
+        }
+
 
         private static void Sync_EuroProgetti_DB_Ordini()
         {

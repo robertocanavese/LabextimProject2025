@@ -947,7 +947,6 @@ namespace DLLabExtim
 
         }
 
-
         public static string RestoreLastBulkPickingItemCostsUpdate(QuotationDataContext db)
         {
             string tsRestored = string.Empty;
@@ -956,6 +955,20 @@ namespace DLLabExtim
             return tsRestored;
 
         }
+
+        public static void AutoDeactivateUnusedPIAndMI(QuotationDataContext db, GeneralDataContext dbg)
+        {
+            Configuration pideConf = dbg.Configuration.First(d => d.ConfigKey == "PIDE");
+            int monthsUnusedFrom = 60;
+
+            if (pideConf != null)
+            {
+                monthsUnusedFrom = Int32.Parse(pideConf.ConfigValue);
+            }
+            db.prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate(monthsUnusedFrom);
+
+        }
+
 
         public static string GetNoteFromProduction(int idPo)
         {
