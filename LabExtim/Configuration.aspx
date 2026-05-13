@@ -7,7 +7,7 @@
     <table width="100%">
         <tr>
             <td class="labelsForEditTable">
-                <asp:Label ID="lblForPIMustUpdateAfter" runat="server" Text="Periodo di validità voci tabella base (mesi)"></asp:Label>
+                <asp:Label ID="lblForPIMustUpdateAfter" runat="server" Text="Periodo di validità costi voci tabella base (mesi) per segnalazione obsolescenza"></asp:Label>
             </td>
             <td class="textBoxesForEditTable">
                
@@ -16,7 +16,11 @@
             </td>
         </tr>
         <tr>
-            <td>
+            <td class="labelsForEditTable">
+                <asp:Label ID="Label2" runat="server" Text="Periodo di validità voci tabella base (mesi) per disattivazione automatica"></asp:Label>
+            </td>
+            <td class="textBoxesForEditTable">
+                <cfb:IntTextBox ID="itbPIMustDeactivateAfter" runat="server" ShowFindButton="false" />
             </td>
         </tr>
         <tr>

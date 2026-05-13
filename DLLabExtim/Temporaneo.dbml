@@ -2541,4 +2541,8 @@
     <Parameter Name="RollbackedTS" Parameter="rollbackedTS" Type="System.String" DbType="Char(15)" Direction="InOut" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate" Method="prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate">
+    <Parameter Name="MonthsUnusedFrom" Parameter="monthsUnusedFrom" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

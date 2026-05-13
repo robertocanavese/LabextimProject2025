@@ -1350,6 +1350,13 @@ namespace DLLabExtim
 			rollbackedTS = ((string)(result.GetParameterValue(0)));
 			return ((int)(result.ReturnValue));
 		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate")]
+		public int prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MonthsUnusedFrom", DbType="Int")] System.Nullable<int> monthsUnusedFrom)
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), monthsUnusedFrom);
+			return ((int)(result.ReturnValue));
+		}
 	}
 	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="")]

@@ -23,6 +23,10 @@ namespace LabExtim
             if (int.TryParse(itbPIMustUpdateAfter.Text, out _tmpPIMU))
                 _config.Add("PIMU", _tmpPIMU.ToString());
 
+            var _tmpPIDE = 0;
+            if (int.TryParse(itbPIMustDeactivateAfter.Text, out _tmpPIDE))
+                _config.Add("PIDE", _tmpPIDE.ToString());
+
             SetConfiguration(_config);
         }
     }
