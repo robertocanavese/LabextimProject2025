@@ -49,13 +49,13 @@ namespace LabExtim {
         protected global::System.Web.UI.WebControls.Label Label2;
         
         /// <summary>
-        /// itbPIMustDeactivateAfter control.
+        /// itbPIMIDeactivateAfter control.
         /// </summary>
         /// <remarks>
         /// Auto-generated field.
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
-        protected global::LabExtim.CustomControls.IntTextBox itbPIMustDeactivateAfter;
+        protected global::LabExtim.CustomControls.IntTextBox itbPIMIDeactivateAfter;
         
         /// <summary>
         /// btnSave control.

@@ -12,6 +12,7 @@ namespace LabExtim
             {
                 var _config = GetConfiguration();
                 itbPIMustUpdateAfter.Text = _config.ContainsKey("PIMU") ? _config["PIMU"] : null;
+                itbPIMIDeactivateAfter.Text = _config.ContainsKey("PIDE") ? _config["PIDE"] : null;
             }
         }
 
@@ -24,7 +25,7 @@ namespace LabExtim
                 _config.Add("PIMU", _tmpPIMU.ToString());
 
             var _tmpPIDE = 0;
-            if (int.TryParse(itbPIMustDeactivateAfter.Text, out _tmpPIDE))
+            if (int.TryParse(itbPIMIDeactivateAfter.Text, out _tmpPIDE))
                 _config.Add("PIDE", _tmpPIDE.ToString());
 
             SetConfiguration(_config);

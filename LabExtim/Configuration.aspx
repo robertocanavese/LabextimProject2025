@@ -4,31 +4,23 @@
 <%@ Register Src="~/CustomControls/IntTextBox.ascx" TagName="IntTextBox" TagPrefix="cfb" %>
 
 <asp:Content ID="Content1" ContentPlaceHolderID="ContentPlaceHolder1" runat="server">
-    <table width="100%">
+    <table class="verticalLines">
         <tr>
-            <td class="labelsForEditTable">
+            <th align="left">
                 <asp:Label ID="lblForPIMustUpdateAfter" runat="server" Text="Periodo di validità costi voci tabella base (mesi) per segnalazione obsolescenza"></asp:Label>
-            </td>
-            <td class="textBoxesForEditTable">
+            </th>
+            <td align="left">
                
                 <cfb:IntTextBox ID="itbPIMustUpdateAfter" runat="server" ShowFindButton="false" />
                 <asp:Label ID="Label1" runat="server" Text="(0 per disattivare la voce)"></asp:Label>
             </td>
         </tr>
         <tr>
-            <td class="labelsForEditTable">
+            <th align="left">
                 <asp:Label ID="Label2" runat="server" Text="Periodo di validità voci tabella base (mesi) per disattivazione automatica"></asp:Label>
-            </td>
-            <td class="textBoxesForEditTable">
-                <cfb:IntTextBox ID="itbPIMustDeactivateAfter" runat="server" ShowFindButton="false" />
-            </td>
-        </tr>
-        <tr>
-            <td>
-            </td>
-        </tr>
-        <tr>
-            <td>
+            </th>
+            <td align="left">
+                <cfb:IntTextBox ID="itbPIMIDeactivateAfter" runat="server" ShowFindButton="false" />
             </td>
         </tr>
         <tr>
