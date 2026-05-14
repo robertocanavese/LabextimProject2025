@@ -65,10 +65,10 @@
                                                 <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey" CssClass="bold red" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey"  />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey_Edit"  Mode="Edit"/>
+                                                <asp:DynamicControl ID="dycCompany" runat="server" DataField="Company" UIHint="ForeignKey"  />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
@@ -81,10 +81,10 @@
                                                     DataFormatString="{0:d}" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime" />
+                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit" Mode="Edit"  />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime" />
+                                                <asp:DynamicControl ID="dycRequestDate" runat="server" DataField="RequestDate" UIHint="DateTime_Edit" Mode="Edit"  />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
@@ -99,7 +99,7 @@
                                                 <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee" UIHint="ForeignKey" />
+                                                <asp:DynamicControl ID="dycApplicant" runat="server" DataField="Employee"  UIHint="ForeignKey_Edit" Mode="Insert" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
 
@@ -256,11 +256,11 @@
                                                     HtmlEncode="false" />
                                             </ItemTemplate>
                                             <EditItemTemplate>
-                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline"
+                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline_Edit"
                                                     HtmlEncode="false" />
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
-                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline"
+                                                <asp:DynamicControl ID="dycMessageToManager" runat="server" DataField="MessageToManager" UIHint="Text250Multiline_Edit"
                                                     HtmlEncode="false" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>

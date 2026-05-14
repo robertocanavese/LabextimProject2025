@@ -153,7 +153,8 @@ namespace LabExtim
         protected void DetailsDataSource_Inserting(object sender, LinqDataSourceInsertEventArgs e)
         {
             ((LeaveRequest)e.NewObject).Status = 19;
-            ((LeaveRequest)e.NewObject).RequestDate = DateTime.Now;
+            //((LeaveRequest)e.NewObject).RequestDate = DateTime.Now;
+            ((LeaveRequest)e.NewObject).ID_Company = 1;
             
         }
 
