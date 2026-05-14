@@ -152,10 +152,21 @@ namespace LabExtim
 
         protected void DetailsDataSource_Inserting(object sender, LinqDataSourceInsertEventArgs e)
         {
-            ((LeaveRequest)e.NewObject).Status = 19;
+            //((LeaveRequest)e.NewObject).Status = 19;
             //((LeaveRequest)e.NewObject).RequestDate = DateTime.Now;
             ((LeaveRequest)e.NewObject).ID_Company = 1;
-            
+            if (((LeaveRequest)e.NewObject).Status == null)
+            {
+                ((LeaveRequest)e.NewObject).Status = 19;
+            }
+            if (((LeaveRequest)e.NewObject).StatusDate == null)
+            {
+                ((LeaveRequest)e.NewObject).StatusDate = DateTime.Now;
+            }
+            if (((LeaveRequest)e.NewObject).RequestDate == null)
+            {
+                ((LeaveRequest)e.NewObject).RequestDate = DateTime.Now;
+            }
         }
 
         protected void dtvLeaveRequest_ItemCommand(object sender, DetailsViewCommandEventArgs e)
