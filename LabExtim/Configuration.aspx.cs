@@ -33,6 +33,7 @@ namespace LabExtim
                 if (_tmpPIDE >= 36)
                 {
                     _config.Add("PIDE", _tmpPIDE.ToString());
+                    lblError.Text = "Configurazione salvata correttamente";
                 }
                 else
                 {
