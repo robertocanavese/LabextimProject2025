@@ -29,5 +29,12 @@
                     CssClass="droplist" onclick="btnSave_Click" />
             </td>
         </tr>
+        <tr>
+            <td colspan="2" align="center">
+                <asp:Button ID="Button1" runat="server" Text="Salva configurazione" 
+                    CssClass="droplist" onclick="btnSave_Click" /><br />
+                 <asp:Label runat="server" ID="lblError" ></asp:Label>
+            </td>
+        </tr>
     </table>
 </asp:Content>
