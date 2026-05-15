@@ -80,6 +80,9 @@ namespace DailyManager
                 if (args[0] == ("RecalcVW_QUOPORCostsPrices"))
                 {
                     RecalcVW_QUOPORCostsPrices();
+                }
+                if (args[0] == ("AutoDeactivateUnusedPIAndMI"))
+                {
                     AutoDeactivateUnusedPIAndMI();
                 }
                 if (args[0] == ("Sync_EuroProgetti_DB_Ordini"))
