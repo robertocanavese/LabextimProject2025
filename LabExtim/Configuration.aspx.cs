@@ -44,23 +44,6 @@ namespace LabExtim
 
             SetConfiguration(_config);
 
-            using (QuotationDataContext db = new QuotationDataContext())
-            {
-
-                foreach (Company cp in db.Companies)
-                {
-                    Cache.Remove(cp.ID + "|" + MenuType.MenuPickingItems.ToString());
-                    Cache.Remove(cp.ID + "|" + MenuType.MenuOperations.ToString());
-                    Cache.Remove(cp.ID + "|" + MenuType.MenuOperationNoPhases.ToString());
-                    Cache.Remove(cp.ID + "|" + MenuType.MenuMaterials.ToString());
-                    Cache.Remove(cp.ID + "|" + MenuType.MenuProdRecord.ToString());
-                    Cache.Remove(cp.ID + "|" + MenuType.MenuQuotationTemplates.ToString());
-                }
-            }
-            Cache.Remove("PickingItems");
-            Cache.Remove("MacroItems");
-
-
         }
     }
 }
