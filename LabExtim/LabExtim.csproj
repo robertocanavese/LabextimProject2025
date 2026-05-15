@@ -146,6 +146,7 @@
     <Content Include="AutoAuth.aspx" />
     <Content Include="AutocompleteFilter.asmx" />
     <Content Include="AutocompleteStyle.css" />
+    <Content Include="ClearCache.aspx" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_cs.cab" />
     <Content Include="crystalreportviewers13\ActiveXControls\PrintControl_res_da.cab" />
@@ -879,6 +880,12 @@
     <Compile Include="AutocompleteFilter.asmx.cs">
       <DependentUpon>AutocompleteFilter.asmx</DependentUpon>
       <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="ClearCache.aspx.cs">
+      <DependentUpon>ClearCache.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="ClearCache.aspx.designer.cs">
+      <DependentUpon>ClearCache.aspx</DependentUpon>
     </Compile>
     <Compile Include="Configuration.aspx.cs">
       <DependentUpon>Configuration.aspx</DependentUpon>

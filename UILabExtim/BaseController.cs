@@ -371,12 +371,18 @@ namespace UILabExtim
 
         protected void Page_PreInit(object sender, EventArgs e)
         {
-            //Verifico se arrivo con un mac e cambio il rendering
-            var safariRegex = @"AppleWebKit/(?'version'(?'major'\d)(?'minor'\d+)(?'letters'\w*))";
-            var useragent = Request["http_user_agent"];
-            if (Regex.IsMatch(useragent, safariRegex))
+            try
             {
-                Page.ClientTarget = "uplevel";
+                //Verifico se arrivo con un mac e cambio il rendering
+                var safariRegex = @"AppleWebKit/(?'version'(?'major'\d)(?'minor'\d+)(?'letters'\w*))";
+                var useragent = Request["http_user_agent"];
+                if (Regex.IsMatch(useragent, safariRegex))
+                {
+                    Page.ClientTarget = "uplevel";
+                }
+            }
+            catch
+            { 
             }
         }
 

@@ -3,6 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using CMLabExtim;
+using System.Configuration;
+using System.Net;
 
 namespace DLLabExtim
 {
@@ -966,6 +968,18 @@ namespace DLLabExtim
                 monthsUnusedFrom = Int32.Parse(pideConf.ConfigValue);
             }
             db.prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate(monthsUnusedFrom);
+
+            try
+            {
+                var webRequest = HttpWebRequest.Create(ConfigurationManager.AppSettings["LabextimWebSiteClearCacheURL"]);
+                var webResponse = webRequest.GetResponse();
+                var sr = new System.IO.StreamReader(webResponse.GetResponseStream());
+                var result = sr.ReadToEnd();
+            }
+            catch (Exception ex)
+            {
+                Log.Write("Daily Manager LabextimWebSiteClearCacheURL: Errore: ", ex);
+            }
 
         }
 
