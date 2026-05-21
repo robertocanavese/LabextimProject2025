@@ -848,8 +848,20 @@ namespace LabExtim
 
         protected void lbtSaveAs_Click(object sender, EventArgs e)
         {
+
             if (Page.IsValid)
             {
+
+                var hidSearchCli = (HiddenField)dtvQuotation.FindControl("hidSearchCli");
+                int _code = 0;
+                int.TryParse(hidSearchCli.Value, out _code);
+                if (_code == 0)
+                {
+                    lblSuccess.Text = "E' necessario specificare un Cliente!";
+                    return;
+                }
+
+
                 int _destQuotation;
                 using (var QuotationDataContext = new QuotationDataContext())
                 {
@@ -892,6 +904,17 @@ namespace LabExtim
         {
             if (Page.IsValid)
             {
+
+                var hidSearchCli = (HiddenField)dtvQuotation.FindControl("hidSearchCli");
+                int _code = 0;
+                int.TryParse(hidSearchCli.Value, out _code);
+                if (_code == 0)
+                {
+                    lblSuccess.Text = "E' necessario specificare un Cliente!";
+                    return;
+                }
+
+
                 int _destQuotation;
                 using (var QuotationDataContext = new QuotationDataContext())
                 {
@@ -1326,7 +1349,7 @@ namespace LabExtim
 
         }
 
-
+     
 
     }
 }

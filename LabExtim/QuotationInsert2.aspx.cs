@@ -97,27 +97,28 @@ namespace LabExtim
                 if (GetCurrentEmployee() != null)
                     e.Values["ID_Owner"] = GetCurrentEmployee().ID;
 
-            try
-            {
-                if (Convert.ToInt32(e.Values["CustomerCode"]) <= 0)
+            // blocco escluso 20260521
+            //try
+            //{
+            //    if (Convert.ToInt32(e.Values["CustomerCode"]) <= 0)
+                    
+            //        //e.Values["CustomerCode"] = -1;
+            //        using (var QuotationDataContext = new QuotationDataContext())
+            //        {
+            //            Customer firstCustomer = null;
 
-                    //e.Values["CustomerCode"] = -1;
-                    using (var QuotationDataContext = new QuotationDataContext())
-                    {
-                        Customer firstCustomer = null;
+            //            if (CurrentCompanyId == 1)
+            //                firstCustomer = QuotationDataContext.Customers.Where(c =>  c.Code < 199999999).OrderBy(c => c.Name).First();
+            //            if (CurrentCompanyId == 2)
+            //                firstCustomer = QuotationDataContext.Customers.Where(c =>  c.Code > 200000000 && c.Code < 299999999).OrderBy(c => c.Name).First();
 
-                        if (CurrentCompanyId == 1)
-                            firstCustomer = QuotationDataContext.Customers.Where(c =>  c.Code < 199999999).OrderBy(c => c.Name).First();
-                        if (CurrentCompanyId == 2)
-                            firstCustomer = QuotationDataContext.Customers.Where(c =>  c.Code > 200000000 && c.Code < 299999999).OrderBy(c => c.Name).First();
-
-                        e.Values["CustomerCode"] = firstCustomer.Code;
-                    }
-            }
-            catch
-            {
-                e.Values["CustomerCode"] = -1;
-            }
+            //            e.Values["CustomerCode"] = firstCustomer.Code;
+            //        }
+            //}
+            //catch
+            //{
+            //    e.Values["CustomerCode"] = -1;
+            //}
 
             //{ throw new Exception(); }
 
