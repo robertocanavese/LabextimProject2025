@@ -857,7 +857,7 @@ namespace LabExtim
                 int.TryParse(hidSearchCli.Value, out _code);
                 if (_code == 0)
                 {
-                    lblSuccess.Text = "E' necessario specificare un Cliente!";
+                    ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.CustomerIsMandatory);
                     return;
                 }
 
