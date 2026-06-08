@@ -457,6 +457,7 @@ namespace UILabExtim
                 dataOptions.LoadWith<LeaveRequest>(c => c.Statuse);
                 dataOptions.LoadWith<LeaveRequest>(c => c.Employee);
                 dataOptions.LoadWith<LeaveRequest>(c => c.Employee1);
+                dataOptions.LoadWith<LeaveRequest>(c => c.Employee2);
                 dataOptions.LoadWith<LeaveRequest>(c => c.DayFraction1);
                 _context.LoadOptions = dataOptions;
 
