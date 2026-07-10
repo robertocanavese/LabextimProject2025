@@ -94,6 +94,15 @@ namespace LabExtim {
         protected global::System.Web.UI.WebControls.LinkButton lbtPrintLeaveRequests;
         
         /// <summary>
+        /// lbtExportToExcel control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.LinkButton lbtExportToExcel;
+        
+        /// <summary>
         /// ldsLeaveRequests control.
         /// </summary>
         /// <remarks>

@@ -5,6 +5,8 @@ using System.Linq;
 using System.Data.Linq;
 using System.Web.DynamicData;
 using System.Web.UI.WebControls;
+using System.IO;
+using System.Web.UI;
 using DLLabExtim;
 using UILabExtim;
 using System.Web.Services;
@@ -18,6 +20,15 @@ namespace LabExtim
     public partial class LeaveRequestsConsole : BaseController
     {
 
+        private HtmlTextWriter m_HtmlTextWriter;
+        private StringWriter m_StringWriter;
+        private bool isExporting;
+
+        private string GridRender
+        {
+            get { return Session["LeaveRequestsGridRender"].ToString(); }
+            set { Session["LeaveRequestsGridRender"] = value; }
+        }
 
         protected void Page_Init(object sender, EventArgs e)
         {
@@ -169,10 +180,25 @@ namespace LabExtim
 
         protected void grdLeaveRequests_DataBound(object sender, EventArgs e)
         {
-            //if (grdLeaveRequests.Rows.Count == 0 && grdLeaveRequests.PageIndex == 0)
-            //{
-            //    grdLeaveRequests.ChangeMode(DetailsViewMode.Insert);
-            //}
+            grdLeaveRequests.Columns[0].Visible = !isExporting;
+            grdLeaveRequests.Columns[1].Visible = !isExporting;
+            grdLeaveRequests.Columns[2].Visible = !isExporting;
+
+            if (grdLeaveRequests.Rows.Count > 0)
+            {
+                try
+                {
+                    m_StringWriter = new StringWriter();
+                    m_HtmlTextWriter = new HtmlTextWriter(m_StringWriter);
+                    grdLeaveRequests.RenderControl(m_HtmlTextWriter);
+                    GridRender = m_StringWriter.ToString().Replace("<textarea", "<span").Replace("</textarea", "</span").Replace("<a", "<span").Replace("</a", "</span").Replace("€", "Euro");
+                    m_StringWriter.Dispose();
+                    m_HtmlTextWriter.Dispose();
+                }
+                catch
+                {
+                }
+            }
         }
 
         protected void grdLeaveRequests_RowDataBound(object sender, GridViewRowEventArgs e)
@@ -285,6 +311,24 @@ namespace LabExtim
         protected void grdLeaveRequests_PreRender(object sender, EventArgs e)
         {
             //grdLeaveRequests.DataBind();
+        }
+
+        protected void lbtExportToExcel_Click(object sender, EventArgs e)
+        {
+            isExporting = true;
+            grdLeaveRequests.PagerSettings.Visible = false;
+
+            int oldPageSize = grdLeaveRequests.PageSize;
+            grdLeaveRequests.PageSize = Int16.MaxValue;
+            grdLeaveRequests.SetPageIndex(0);
+            grdLeaveRequests.DataBind();
+            ExportToExcel(GridRender);
+            isExporting = false;
+
+            grdLeaveRequests.PageSize = oldPageSize;
+            grdLeaveRequests.SetPageIndex(0);
+            grdLeaveRequests.PagerSettings.Visible = true;
+
         }
 
         [WebMethod]

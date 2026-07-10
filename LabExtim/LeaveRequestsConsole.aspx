@@ -107,6 +107,9 @@
                             &nbsp;
                             <asp:LinkButton ID="lbtPrintLeaveRequests" runat="server" CssClass="gridview" Font-Bold="True"
                                 OnClick="lbtPrintLeaveRequests_Click" Text="Stampa tabella" />
+                            &nbsp;
+                            <asp:LinkButton ID="lbtExportToExcel" runat="server" CssClass="gridview" Font-Bold="True"
+                                Text="Esporta in Excel" OnClick="lbtExportToExcel_Click" />
                         </td>
                     </tr>
                     <tr>
