@@ -1,5 +1,6 @@
 <%@ Page Title="" Language="C#" MasterPageFile="~/Site.master" AutoEventWireup="true"
-    CodeBehind="LeaveRequestsConsole.aspx.cs" Inherits="LabExtim.LeaveRequestsConsole" MaintainScrollPositionOnPostback="true" %>
+    CodeBehind="LeaveRequestsConsole.aspx.cs" Inherits="LabExtim.LeaveRequestsConsole" 
+    MaintainScrollPositionOnPostback="true" EnableEventValidation="false" %>
 
 <%@ Register Src="~/CustomControls/FloatTextBox.ascx" TagName="FloatTextBox" TagPrefix="cfb" %>
 <%@ Register Src="~/CustomControls/IntTextBox.ascx" TagName="IntTextBox" TagPrefix="cfb" %>
