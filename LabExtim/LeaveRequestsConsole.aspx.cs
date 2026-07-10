@@ -55,6 +55,10 @@ namespace LabExtim
                 ldsLeaveRequests.WhereParameters.Add("Status", DbType.Int32, senMain.DropDownList1.SelectedValue);
                 _filter += " AND Status == @Status";
             }
+            else
+            {
+                _filter += " AND Status <> 8";
+            }
             if (senMain.TextDateFromText != string.Empty)
             {
                 ldsLeaveRequests.WhereParameters.Add("StartDateFrom", DbType.DateTime,
@@ -191,7 +195,7 @@ namespace LabExtim
                 _hypDeny.Visible = (item.Status == 19);
 
                 var _hypEdit = (HyperLink)e.Row.Cells[2].FindControl("hypEdit");
-                _hypEdit.Visible = (item.Status == 19);
+                _hypEdit.Visible = true; // (item.Status == 19);
                 _hypEdit.Attributes.Add("onclick",
                     "javascript:OpenItem('LeaveRequestPopup.aspx?" + LeaveRequestKey + "=" +
                     ((LeaveRequest)e.Row.DataItem).ID + "')");
