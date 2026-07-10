@@ -229,6 +229,12 @@ namespace LabExtim
 
         protected void DetailsDataSource_Updating(object sender, LinqDataSourceUpdateEventArgs e)
         {
+
+            if (((LeaveRequest)e.NewObject).Status != ((LeaveRequest)e.OriginalObject).Status) 
+            {
+                ((LeaveRequest)e.NewObject).StatusDate = DateTime.Now;
+            }
+
             //if (((LeaveRequest)e.NewObject).ID_Quotation == null) // allora crea preventivo fittizio
             //{
             //    ((LeaveRequest)e.NewObject).ID_Quotation = CreateDummyQuotation((LeaveRequest)e.NewObject);
