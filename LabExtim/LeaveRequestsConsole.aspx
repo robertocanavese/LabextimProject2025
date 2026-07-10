@@ -176,5 +176,8 @@
                 <br />
             </asp:Panel>
         </ContentTemplate>
+        <Triggers>
+            <asp:PostBackTrigger ControlID="lbtExportToExcel" />
+        </Triggers>
     </asp:UpdatePanel>
 </asp:Content>
