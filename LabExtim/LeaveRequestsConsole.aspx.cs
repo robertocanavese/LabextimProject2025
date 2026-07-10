@@ -57,7 +57,7 @@ namespace LabExtim
             }
             else
             {
-                _filter += " AND Status <> 8";
+                _filter += " AND Status <> 22";
             }
             if (senMain.TextDateFromText != string.Empty)
             {
