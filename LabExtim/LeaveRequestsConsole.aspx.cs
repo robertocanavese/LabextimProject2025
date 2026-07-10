@@ -308,6 +308,11 @@ namespace LabExtim
             senMain_SearchClick(null, null);
         }
 
+        public override void VerifyRenderingInServerForm(Control control)
+        {
+            //base.VerifyRenderingInServerForm(control);
+        }
+
         protected void grdLeaveRequests_PreRender(object sender, EventArgs e)
         {
             //grdLeaveRequests.DataBind();
