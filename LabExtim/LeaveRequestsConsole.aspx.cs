@@ -66,10 +66,10 @@ namespace LabExtim
                 ldsLeaveRequests.WhereParameters.Add("Status", DbType.Int32, senMain.DropDownList1.SelectedValue);
                 _filter += " AND Status == @Status";
             }
-            else
-            {
-                _filter += " AND Status <> 22";
-            }
+            //else
+            //{
+            //    _filter += " AND Status <> 22";
+            //}
             if (senMain.TextDateFromText != string.Empty)
             {
                 ldsLeaveRequests.WhereParameters.Add("StartDateFrom", DbType.DateTime,
