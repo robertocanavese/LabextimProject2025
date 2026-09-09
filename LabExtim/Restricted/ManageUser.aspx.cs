@@ -303,11 +303,11 @@ namespace LabExtim.Restricted
                 try
                 {
                     db.prc_LAB_Del_LAB_All_Lockedout_Memberships();
-                    lblMessage.Text = "Sblocco avvenuto con successo!";
+                    lblMessageLockedOut.Text = "Sblocco avvenuto con successo!";
                 }
                 catch (Exception ex)
                 {
-                    lblMessage.Text = string.Format("Errore nello sblocco degli account bloccati , riprovare!", ex.Message);
+                    lblMessageLockedOut.Text = string.Format("Errore nello sblocco degli account bloccati , riprovare!", ex.Message);
                 }
             }
         }

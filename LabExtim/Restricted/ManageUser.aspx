@@ -221,6 +221,11 @@
                                 <asp:Button ID="btnUnlockLockedAccounts" CssClass="myButton" runat="server" Text="Sblocca accessi bloccati" OnClick="btnUnlockLockedAccounts_Click" />
                             </td>
                         </tr>
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <asp:Label ID="lblMessageLockedOut" runat="server" CssClass="droplist" ForeColor="Red"></asp:Label>
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>
