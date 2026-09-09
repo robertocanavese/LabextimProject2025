@@ -1,5 +1,5 @@
 ﻿<?xml version="1.0" encoding="utf-8"?><Database Name="LabExtim" EntityNamespace="TempDLLabExtim" ContextNamespace="TempDLLabExtim" Class="TemporaneoDataContext" xmlns="http://schemas.microsoft.com/linqtosql/dbml/2007">
-  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=LabExtim;Persist Security Info=True;User ID=usrw;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="DLLabExtim.Properties.Settings" SettingsPropertyName="LabExtimConnectionString8" Provider="System.Data.SqlClient" />
+  <Connection Mode="AppSettings" ConnectionString="Data Source=.;Initial Catalog=LabExtim;Persist Security Info=True;User ID=usrw;MultipleActiveResultSets=True;Application Name=EntityFramework" SettingsObjectName="DLLabExtim.Properties.Settings" SettingsPropertyName="LabExtimConnectionString16" Provider="System.Data.SqlClient" />
   <Table Name="" Member="SPPickingItems">
     <Type Name="SPPickingItem" Id="ID3">
       <Column Name="ID" Type="System.Int32" CanBeNull="false" />
@@ -2543,6 +2543,9 @@
   </Function>
   <Function Name="dbo.prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate" Method="prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate">
     <Parameter Name="MonthsUnusedFrom" Parameter="monthsUnusedFrom" Type="System.Int32" DbType="Int" />
+    <Return Type="System.Int32" />
+  </Function>
+  <Function Name="dbo.prc_LAB_Del_LAB_All_Lockedout_Memberships" Method="prc_LAB_Del_LAB_All_Lockedout_Memberships">
     <Return Type="System.Int32" />
   </Function>
 </Database>

@@ -296,5 +296,21 @@ namespace LabExtim.Restricted
             }
         }
 
+        protected void btnUnlockLockedAccounts_Click(object sender, EventArgs e)
+        {
+            using (QuotationDataContext db = new QuotationDataContext())
+            {
+                try
+                {
+                    db.prc_LAB_Del_LAB_All_Lockedout_Memberships();
+                    lblMessage.Text = "Sblocco avvenuto con successo!";
+                }
+                catch (Exception ex)
+                {
+                    lblMessage.Text = string.Format("Errore nello sblocco degli account bloccati , riprovare!", ex.Message);
+                }
+            }
+        }
+
     }
 }

@@ -2478,4 +2478,7 @@
     <Parameter Name="MonthsUnusedFrom" Parameter="monthsUnusedFrom" Type="System.Int32" DbType="Int" />
     <Return Type="System.Int32" />
   </Function>
+  <Function Name="dbo.prc_LAB_Del_LAB_All_Lockedout_Memberships" Method="prc_LAB_Del_LAB_All_Lockedout_Memberships">
+    <Return Type="System.Int32" />
+  </Function>
 </Database>

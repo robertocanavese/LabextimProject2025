@@ -219,7 +219,7 @@ namespace TempDLLabExtim
     #endregion
 		
 		public TemporaneoDataContext() : 
-				base(global::DLLabExtim.Properties.Settings.Default.LabExtimConnectionString8, mappingSource)
+				base(global::DLLabExtim.Properties.Settings.Default.LabExtimConnectionString16, mappingSource)
 		{
 			OnCreated();
 		}
@@ -1300,6 +1300,13 @@ namespace TempDLLabExtim
 		public int prc_LAB_Upd_LAB_PItemsMItemsDeactivationByDate([global::System.Data.Linq.Mapping.ParameterAttribute(Name="MonthsUnusedFrom", DbType="Int")] System.Nullable<int> monthsUnusedFrom)
 		{
 			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())), monthsUnusedFrom);
+			return ((int)(result.ReturnValue));
+		}
+		
+		[global::System.Data.Linq.Mapping.FunctionAttribute(Name="dbo.prc_LAB_Del_LAB_All_Lockedout_Memberships")]
+		public int prc_LAB_Del_LAB_All_Lockedout_Memberships()
+		{
+			IExecuteResult result = this.ExecuteMethodCall(this, ((MethodInfo)(MethodInfo.GetCurrentMethod())));
 			return ((int)(result.ReturnValue));
 		}
 	}

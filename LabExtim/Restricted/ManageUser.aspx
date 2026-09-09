@@ -214,6 +214,13 @@
                                 (preventivi o ordini di produzione) o di denunce produzione.
                             </td>
                         </tr>
+
+                        <tr>
+                            <td colspan="2" style="text-align: center">
+                                <br />Sblocco di tutti gli utenti il cui accesso è stato bloccato dal sistema per eccesso di tentativi errati.<br />
+                                <asp:Button ID="btnUnlockLockedAccounts" CssClass="myButton" runat="server" Text="Sblocca accessi bloccati" OnClick="btnUnlockLockedAccounts_Click" />
+                            </td>
+                        </tr>
                     </table>
                 </td>
             </tr>
