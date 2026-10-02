@@ -41,7 +41,7 @@ namespace LabExtim
         {
             get
             {
-                if (ViewState["EditMode"] == null)
+                if (ViewState["EditMode"] == null )
                 {
                     ViewState["EditMode"] = false;
                 }
