@@ -267,7 +267,7 @@
                                     </th>
                                     <td>
                                         <asp:TextBox ID="txtDescription" runat="server" Width="400px" TextMode="MultiLine"
-                                            Rows="5"></asp:TextBox>
+                                            Rows="8"></asp:TextBox>
                                     </td>
                                 </tr>
                             </table>
