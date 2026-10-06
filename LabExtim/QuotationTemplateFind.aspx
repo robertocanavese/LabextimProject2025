@@ -89,11 +89,12 @@
                     <Columns>
                         <asp:TemplateField>
                             <ItemTemplate>
-                                <%--<asp:HyperLink ID="SelectHyperLink" runat="server" NavigateUrl='<%# table.GetActionPath(PageAction.QuotationConsole, GetDataItem()) %>'
-                                         Text="Seleziona" />--%>
-                                <%--<asp:HyperLink ID="SelectHyperLink" runat="server" Text="Seleziona" NavigateUrl='<%# string.Format("{2}?{0}={1}", QuotationKey, DataBinder.Eval(Container.DataItem, "ID")  , QuotationConsolePage) %>'/> --%>
                                 <asp:LinkButton ID="lbtSelect" runat="server" Text="Seleziona" CommandName="Select"
                                     CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID") + "|" + DataBinder.Eval(Container.DataItem, "Description") %>'></asp:LinkButton>
+                            </ItemTemplate>
+                        </asp:TemplateField>
+                        <asp:TemplateField>
+                            <ItemTemplate>
                                 <asp:LinkButton ID="lbtDelete" runat="server" Text="Elimina" CommandName="Delete"
                                     CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID") + "|" + DataBinder.Eval(Container.DataItem, "Description") %>'
                                     OnClientClick='return (confirm("Confermi la cancellazione di questo modello di preventivo?") && confirm("I dati del modello di preventivo e le relative voci di dettaglio non saranno più recuperabili, confermi?"));'></asp:LinkButton>
@@ -133,6 +134,15 @@
                             </HeaderTemplate>
                             <ItemTemplate>
                                 <asp:DynamicControl ID="dycPicker_Description" runat="server" DataField="Description" UIHint="Text250" />
+                            </ItemTemplate>
+                        </asp:TemplateField>
+
+                        <asp:TemplateField>
+                            <HeaderTemplate>
+                                <asp:Label ID="lblNote" runat="server" Text="Descrizione lavorazione"></asp:Label>
+                            </HeaderTemplate>
+                            <ItemTemplate>
+                                <asp:DynamicControl ID="dycPicker_Note" runat="server" DataField="Note" UIHint="Text" />
                             </ItemTemplate>
                         </asp:TemplateField>
 

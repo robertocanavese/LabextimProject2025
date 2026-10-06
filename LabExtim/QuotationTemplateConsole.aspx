@@ -256,23 +256,27 @@
                                             <asp:DynamicControl ID="dycOrder" runat="server" DataField="Order" UIHint="Text_Edit" />
                                         </InsertItemTemplate>
                                     </asp:TemplateField>
+
+
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:Label ID="lblNote" runat="server" Text="Descrizione lavorazione"></asp:Label>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:DynamicControl ID="dycNote" runat="server" DataField="Note" UIHint="MultilineText" />
+                                        </ItemTemplate>
+                                        <EditItemTemplate>
+                                            <asp:DynamicControl ID="dycNote" runat="server" DataField="Note" UIHint="MultilineText_Edit" />
+                                        </EditItemTemplate>
+                                        <InsertItemTemplate>
+                                            <asp:DynamicControl ID="dycNote" runat="server" DataField="Note" UIHint="MultilineText_Edit" />
+                                        </InsertItemTemplate>
+                                    </asp:TemplateField>
+
+
                                 </Fields>
                             </asp:DetailsView>
                         </td>
-                        <td>
-                            <table>
-                                <tr>
-                                    <th>
-                                        <asp:Label ID="lblDescription" runat="server" Text="Descrizione lavorazione" Font-Bold="true"> </asp:Label>
-                                    </th>
-                                    <td>
-                                        <asp:TextBox ID="txtDescription" runat="server" Width="400px" TextMode="MultiLine"
-                                            Rows="8"></asp:TextBox>
-                                    </td>
-                                </tr>
-                            </table>
-                        </td>
-
                     </tr>
                 </table>
                 <asp:LinqDataSource ID="DetailsDataSource" runat="server" EnableDelete="false" EnableInsert="false"
