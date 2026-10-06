@@ -15051,6 +15051,8 @@ namespace DLLabExtim
 		
 		private System.Nullable<bool> _UnusedProductsCheck;
 		
+		private System.Nullable<int> _ID_Destination;
+		
 		private EntitySet<DeliveryTripDetail> _DeliveryTripDetails;
 		
 		private EntitySet<ProductionOrderDetail> _ProductionOrderDetails;
@@ -15066,6 +15068,8 @@ namespace DLLabExtim
 		private EntityRef<CustomerOrder> _CustomerOrder;
 		
 		private EntityRef<Customer> _Customer;
+		
+		private EntityRef<Customer> _Customer1;
 		
 		private EntityRef<Employee> _Employee;
 		
@@ -15135,6 +15139,8 @@ namespace DLLabExtim
     partial void OnCorrectiveActionCodeChanged();
     partial void OnUnusedProductsCheckChanging(System.Nullable<bool> value);
     partial void OnUnusedProductsCheckChanged();
+    partial void OnID_DestinationChanging(System.Nullable<int> value);
+    partial void OnID_DestinationChanged();
     #endregion
 		
 		public ProductionOrder()
@@ -15147,6 +15153,7 @@ namespace DLLabExtim
 			this._Company = default(EntityRef<Company>);
 			this._CustomerOrder = default(EntityRef<CustomerOrder>);
 			this._Customer = default(EntityRef<Customer>);
+			this._Customer1 = default(EntityRef<Customer>);
 			this._Employee = default(EntityRef<Employee>);
 			this._Manager = default(EntityRef<Manager>);
 			this._NonConformity = default(EntityRef<NonConformity>);
@@ -15693,6 +15700,30 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Destination", DbType="Int")]
+		public System.Nullable<int> ID_Destination
+		{
+			get
+			{
+				return this._ID_Destination;
+			}
+			set
+			{
+				if ((this._ID_Destination != value))
+				{
+					if (this._Customer1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnID_DestinationChanging(value);
+					this.SendPropertyChanging();
+					this._ID_Destination = value;
+					this.SendPropertyChanged("ID_Destination");
+					this.OnID_DestinationChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="ProductionOrder_DeliveryTripDetail", Storage="_DeliveryTripDetails", ThisKey="ID", OtherKey="ID_ProductionOrder")]
 		public EntitySet<DeliveryTripDetail> DeliveryTripDetails
 		{
@@ -15856,6 +15887,24 @@ namespace DLLabExtim
 						this._ID_Customer = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Customer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_ProductionOrder1", Storage="_Customer1", ThisKey="ID_Destination", OtherKey="Code", IsForeignKey=true)]
+		public Customer Customer1
+		{
+			get
+			{
+				return this._Customer1.Entity;
+			}
+			set
+			{
+				if ((this._Customer1.Entity != value))
+				{
+					this.SendPropertyChanging();
+					this._Customer1.Entity = value;
+					this.SendPropertyChanged("Customer1");
 				}
 			}
 		}
@@ -16241,6 +16290,8 @@ namespace DLLabExtim
 		
 		private string _Note2;
 		
+		private System.Nullable<int> _DestinationCode;
+		
 		private EntitySet<QuotationDetail> _QuotationDetails;
 		
 		private EntitySet<CustomerOrder> _CustomerOrders;
@@ -16252,6 +16303,8 @@ namespace DLLabExtim
 		private EntityRef<Company> _Company;
 		
 		private EntityRef<Customer> _Customer;
+		
+		private EntityRef<Customer> _Customer1;
 		
 		private EntityRef<Manager> _Manager;
 		
@@ -16319,6 +16372,8 @@ namespace DLLabExtim
     partial void OnNote1Changed();
     partial void OnNote2Changing(string value);
     partial void OnNote2Changed();
+    partial void OnDestinationCodeChanging(System.Nullable<int> value);
+    partial void OnDestinationCodeChanged();
     #endregion
 		
 		public Quotation()
@@ -16329,6 +16384,7 @@ namespace DLLabExtim
 			this._Employee = default(EntityRef<Employee>);
 			this._Company = default(EntityRef<Company>);
 			this._Customer = default(EntityRef<Customer>);
+			this._Customer1 = default(EntityRef<Customer>);
 			this._Manager = default(EntityRef<Manager>);
 			this._Employee1 = default(EntityRef<Employee>);
 			this._Statuse = default(EntityRef<Statuse>);
@@ -16919,6 +16975,30 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DestinationCode", DbType="Int")]
+		public System.Nullable<int> DestinationCode
+		{
+			get
+			{
+				return this._DestinationCode;
+			}
+			set
+			{
+				if ((this._DestinationCode != value))
+				{
+					if (this._Customer1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDestinationCodeChanging(value);
+					this.SendPropertyChanging();
+					this._DestinationCode = value;
+					this.SendPropertyChanged("DestinationCode");
+					this.OnDestinationCodeChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Quotation_QuotationDetail", Storage="_QuotationDetails", ThisKey="ID", OtherKey="ID_Quotation")]
 		public EntitySet<QuotationDetail> QuotationDetails
 		{
@@ -17056,6 +17136,24 @@ namespace DLLabExtim
 						this._CustomerCode = default(Nullable<int>);
 					}
 					this.SendPropertyChanged("Customer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Quotation1", Storage="_Customer1", ThisKey="DestinationCode", OtherKey="Code", IsForeignKey=true)]
+		public Customer Customer1
+		{
+			get
+			{
+				return this._Customer1.Entity;
+			}
+			set
+			{
+				if ((this._Customer1.Entity != value))
+				{
+					this.SendPropertyChanging();
+					this._Customer1.Entity = value;
+					this.SendPropertyChanged("Customer1");
 				}
 			}
 		}
@@ -21702,6 +21800,8 @@ namespace DLLabExtim
 		
 		private string _Note2;
 		
+		private System.Nullable<int> _DestinationCode;
+		
 		private EntitySet<TempQuotationDetail> _TempQuotationDetails;
 		
 		private EntityRef<Employee> _Employee;
@@ -21709,6 +21809,8 @@ namespace DLLabExtim
 		private EntityRef<Company> _Company;
 		
 		private EntityRef<Customer> _Customer;
+		
+		private EntityRef<Customer> _Customer1;
 		
 		private EntityRef<Manager> _Manager;
 		
@@ -21778,6 +21880,8 @@ namespace DLLabExtim
     partial void OnNote1Changed();
     partial void OnNote2Changing(string value);
     partial void OnNote2Changed();
+    partial void OnDestinationCodeChanging(System.Nullable<int> value);
+    partial void OnDestinationCodeChanged();
     #endregion
 		
 		public TempQuotation()
@@ -21786,6 +21890,7 @@ namespace DLLabExtim
 			this._Employee = default(EntityRef<Employee>);
 			this._Company = default(EntityRef<Company>);
 			this._Customer = default(EntityRef<Customer>);
+			this._Customer1 = default(EntityRef<Customer>);
 			this._Manager = default(EntityRef<Manager>);
 			this._Employee1 = default(EntityRef<Employee>);
 			this._Statuse = default(EntityRef<Statuse>);
@@ -22396,6 +22501,30 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DestinationCode", DbType="Int")]
+		public System.Nullable<int> DestinationCode
+		{
+			get
+			{
+				return this._DestinationCode;
+			}
+			set
+			{
+				if ((this._DestinationCode != value))
+				{
+					if (this._Customer1.HasLoadedOrAssignedValue)
+					{
+						throw new System.Data.Linq.ForeignKeyReferenceAlreadyHasValueException();
+					}
+					this.OnDestinationCodeChanging(value);
+					this.SendPropertyChanging();
+					this._DestinationCode = value;
+					this.SendPropertyChanged("DestinationCode");
+					this.OnDestinationCodeChanged();
+				}
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="TempQuotation_TempQuotationDetail", Storage="_TempQuotationDetails", ThisKey="SessionUser,ID_Quotation", OtherKey="SessionUser,ID_Quotation")]
 		public EntitySet<TempQuotationDetail> TempQuotationDetails
 		{
@@ -22491,6 +22620,24 @@ namespace DLLabExtim
 					this.SendPropertyChanging();
 					this._Customer.Entity = value;
 					this.SendPropertyChanged("Customer");
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_TempQuotation1", Storage="_Customer1", ThisKey="DestinationCode", OtherKey="Code", IsForeignKey=true)]
+		public Customer Customer1
+		{
+			get
+			{
+				return this._Customer1.Entity;
+			}
+			set
+			{
+				if ((this._Customer1.Entity != value))
+				{
+					this.SendPropertyChanging();
+					this._Customer1.Entity = value;
+					this.SendPropertyChanged("Customer1");
 				}
 			}
 		}

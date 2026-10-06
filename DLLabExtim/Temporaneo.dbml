@@ -326,10 +326,10 @@
       <Association Name="Statuse_CustomerOrder" Member="CustomerOrders" ThisKey="ID" OtherKey="Status" Type="CustomerOrder" />
       <Association Name="Statuse_ProductionMP" Member="ProductionMPs" ThisKey="ID" OtherKey="Status" Type="ProductionMP" />
       <Association Name="Statuse_ProductionOrderTechSpec" Member="ProductionOrderTechSpecs" ThisKey="ID" OtherKey="Status" Type="ProductionOrderTechSpec" />
+      <Association Name="Statuse_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="Status" Type="LeaveRequest" />
+      <Association Name="Statuse_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="Status" Type="ProductionOrder" />
       <Association Name="Statuse_Quotation" Member="Quotations" ThisKey="ID" OtherKey="Status" Type="Quotation" />
       <Association Name="Statuse_TempQuotation" Member="TempQuotations" ThisKey="ID" OtherKey="Status" Type="TempQuotation" />
-      <Association Name="Statuse_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="Status" Type="ProductionOrder" />
-      <Association Name="Statuse_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="Status" Type="LeaveRequest" />
       <Association Name="StatusType_Statuse" Member="StatusType1" ThisKey="StatusType" OtherKey="ID" Type="StatusType" IsForeignKey="true" />
     </Type>
   </Table>
@@ -569,14 +569,14 @@
       <Association Name="Employee_ProductionOrderDetail" Member="ProductionOrderDetails" ThisKey="ID" OtherKey="ID_Owner" Type="ProductionOrderDetail" />
       <Association Name="Employee_ProductionOrderTechSpec" Member="ProductionOrderTechSpecs" ThisKey="ID" OtherKey="ID_Owner" Type="ProductionOrderTechSpec" />
       <Association Name="Employee_Find_Quotation" Member="Find_Quotations" ThisKey="ID" OtherKey="ID_Owner" Type="Find_Quotation" />
+      <Association Name="Employee_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="ID_Applicant" Type="LeaveRequest" />
+      <Association Name="Employee_LeaveRequest1" Member="LeaveRequests1" ThisKey="ID" OtherKey="ID_Manager" Type="LeaveRequest" />
+      <Association Name="Employee_LeaveRequest2" Member="LeaveRequests2" ThisKey="ID" OtherKey="ID_Approver" Type="LeaveRequest" />
+      <Association Name="Employee_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Contractor" Type="ProductionOrder" />
       <Association Name="Employee_Quotation" Member="Quotations" ThisKey="ID" OtherKey="ID_Approver" Type="Quotation" />
       <Association Name="Employee_Quotation1" Member="Quotations1" ThisKey="ID" OtherKey="ID_Owner" Type="Quotation" />
       <Association Name="Employee_TempQuotation" Member="TempQuotations" ThisKey="ID" OtherKey="ID_Approver" Type="TempQuotation" />
       <Association Name="Employee_TempQuotation1" Member="TempQuotations1" ThisKey="ID" OtherKey="ID_Owner" Type="TempQuotation" />
-      <Association Name="Employee_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Contractor" Type="ProductionOrder" />
-      <Association Name="Employee_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="ID_Applicant" Type="LeaveRequest" />
-      <Association Name="Employee_LeaveRequest1" Member="LeaveRequests1" ThisKey="ID" OtherKey="ID_Manager" Type="LeaveRequest" />
-      <Association Name="Employee_LeaveRequest2" Member="LeaveRequests2" ThisKey="ID" OtherKey="ID_Approver" Type="LeaveRequest" />
       <Association Name="Employee_Employee" Member="Employee1" ThisKey="ID_Manager" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="UserRole_Employee" Member="UserRole" ThisKey="Role" OtherKey="ID" Type="UserRole" IsForeignKey="true" />
       <Association Name="Company_Employee" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
@@ -649,10 +649,10 @@
       <Association Name="Company_Location" Member="Locations" ThisKey="ID" OtherKey="ID_Company" Type="Location" />
       <Association Name="Company_DeliveryTrip" Member="DeliveryTrips" ThisKey="ID" OtherKey="ID_Company" Type="DeliveryTrip" />
       <Association Name="Company_ProductionOrderDetail" Member="ProductionOrderDetails" ThisKey="ID" OtherKey="ID_Company" Type="ProductionOrderDetail" />
+      <Association Name="Company_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="ID_Company" Type="LeaveRequest" />
+      <Association Name="Company_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Company" Type="ProductionOrder" />
       <Association Name="Company_Quotation" Member="Quotations" ThisKey="ID" OtherKey="ID_Company" Type="Quotation" />
       <Association Name="Company_TempQuotation" Member="TempQuotations" ThisKey="ID" OtherKey="ID_Company" Type="TempQuotation" />
-      <Association Name="Company_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Company" Type="ProductionOrder" />
-      <Association Name="Company_LeaveRequest" Member="LeaveRequests" ThisKey="ID" OtherKey="ID_Company" Type="LeaveRequest" />
     </Type>
   </Table>
   <Table Name="dbo.MacroItems" Member="MacroItems">
@@ -864,9 +864,12 @@
       <Association Name="Customer_DeliveryTrip" Member="DeliveryTrips" ThisKey="Code" OtherKey="CustomerCode" Type="DeliveryTrip" />
       <Association Name="Customer_CustomerNickname" Member="CustomerNickname" ThisKey="Code" OtherKey="Code" Type="CustomerNickname" Cardinality="One" />
       <Association Name="Customer_Find_Quotation" Member="Find_Quotations" ThisKey="Code" OtherKey="CustomerCode" Type="Find_Quotation" />
-      <Association Name="Customer_Quotation" Member="Quotations" ThisKey="Code" OtherKey="CustomerCode" Type="Quotation" />
-      <Association Name="Customer_TempQuotation" Member="TempQuotations" ThisKey="Code" OtherKey="CustomerCode" Type="TempQuotation" />
       <Association Name="Customer_ProductionOrder" Member="ProductionOrders" ThisKey="Code" OtherKey="ID_Customer" Type="ProductionOrder" />
+      <Association Name="Customer_ProductionOrder1" Member="ProductionOrders1" ThisKey="Code" OtherKey="ID_Destination" Type="ProductionOrder" />
+      <Association Name="Customer_Quotation" Member="Quotations" ThisKey="Code" OtherKey="CustomerCode" Type="Quotation" />
+      <Association Name="Customer_Quotation1" Member="Quotations1" ThisKey="Code" OtherKey="DestinationCode" Type="Quotation" />
+      <Association Name="Customer_TempQuotation" Member="TempQuotations" ThisKey="Code" OtherKey="CustomerCode" Type="TempQuotation" />
+      <Association Name="Customer_TempQuotation1" Member="TempQuotations1" ThisKey="Code" OtherKey="DestinationCode" Type="TempQuotation" />
     </Type>
   </Table>
   <Table Name="dbo.Suppliers" Member="Suppliers">
@@ -1434,9 +1437,9 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
       <Association Name="Manager_Find_Quotation" Member="Find_Quotations" ThisKey="ID" OtherKey="ID_Manager" Type="Find_Quotation" />
+      <Association Name="Manager_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Manager" Type="ProductionOrder" />
       <Association Name="Manager_Quotation" Member="Quotations" ThisKey="ID" OtherKey="ID_Manager" Type="Quotation" />
       <Association Name="Manager_TempQuotation" Member="TempQuotations" ThisKey="ID" OtherKey="ID_Manager" Type="TempQuotation" />
-      <Association Name="Manager_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Manager" Type="ProductionOrder" />
     </Type>
   </Table>
   <Table Name="dbo.Find_Quotations" Member="Find_Quotations">
@@ -1535,89 +1538,6 @@
       <Association Name="ProductionMachine_ProductionMP" Member="ProductionMPs" ThisKey="ID" OtherKey="IDProductionMachine" Type="ProductionMP" />
       <Association Name="ProductionMachine_ProductionMPSException" Member="ProductionMPSExceptions" ThisKey="ID" OtherKey="OldIDProductionMachine" Type="ProductionMPSException" />
       <Association Name="ProductionMachine_ProductionMachinesToPickingItem" Member="ProductionMachinesToPickingItems" ThisKey="ID" OtherKey="IDProductionMachine" Type="ProductionMachinesToPickingItem" />
-    </Type>
-  </Table>
-  <Table Name="dbo.Quotations" Member="Quotations">
-    <Type Name="Quotation">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CustomerCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Subject" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Q1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q3" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q5" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MarkUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Owner" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Approver" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Draft" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="P1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PriceCom" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="PrintingMainText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Note2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="Quotation_CustomerOrder" Member="CustomerOrders" ThisKey="ID" OtherKey="ID_Quotation" Type="CustomerOrder" />
-      <Association Name="Quotation_QuotationDetail" Member="QuotationDetails" ThisKey="ID" OtherKey="ID_Quotation" Type="QuotationDetail" />
-      <Association Name="Quotation_Quotation" Member="Quotation2" ThisKey="ID" OtherKey="ID" Type="Quotation" Cardinality="One" />
-      <Association Name="Quotation_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Quotation" Type="ProductionOrder" />
-      <Association Name="Employee_Quotation" Member="Employee" ThisKey="ID_Approver" OtherKey="ID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Company_Quotation" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
-      <Association Name="Customer_Quotation" Member="Customer" ThisKey="CustomerCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
-      <Association Name="Manager_Quotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
-      <Association Name="Employee_Quotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Quotation_Quotation" Member="Quotation1" ThisKey="ID" OtherKey="ID" Type="Quotation" IsForeignKey="true" />
-      <Association Name="Statuse_Quotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
-    </Type>
-  </Table>
-  <Table Name="dbo.TempQuotations" Member="TempQuotations">
-    <Type Name="TempQuotation">
-      <Column Name="SessionUser" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="ID_Quotation" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
-      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CustomerCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Subject" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="Q1" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q2" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q3" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q4" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Q5" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="MarkUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Owner" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Approver" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Draft" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="P1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="P5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Column Name="PriceCom" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="PrintingMainText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="Note2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Association Name="TempQuotation_TempQuotationDetail" Member="TempQuotationDetails" ThisKey="SessionUser,ID_Quotation" OtherKey="SessionUser,ID_Quotation" Type="TempQuotationDetail" />
-      <Association Name="Employee_TempQuotation" Member="Employee" ThisKey="ID_Approver" OtherKey="ID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Company_TempQuotation" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
-      <Association Name="Customer_TempQuotation" Member="Customer" ThisKey="CustomerCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
-      <Association Name="Manager_TempQuotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
-      <Association Name="Employee_TempQuotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Statuse_TempQuotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.QuotationTemplates" Member="QuotationTemplates">
@@ -1751,52 +1671,6 @@
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
       <Column Name="Description" Type="System.String" DbType="VarChar(100)" CanBeNull="true" />
       <Association Name="CorrectiveAction_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="CorrectiveActionCode" Type="ProductionOrder" />
-    </Type>
-  </Table>
-  <Table Name="dbo.ProductionOrders" Member="ProductionOrders">
-    <Type Name="ProductionOrder">
-      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
-      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_CustomerOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Quotation" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="DirectSupply" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
-      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="AccountNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="YearStartDate" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
-      <Column Name="ID_Contractor" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Number_1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="NonConformityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="ComplaintReceived" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="CorrectiveActionCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="UnusedProductsCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
-      <Association Name="ProductionOrder_ProductionMP" Member="ProductionMPs" ThisKey="ID" OtherKey="IDProductionOrder" Type="ProductionMP" />
-      <Association Name="ProductionOrder_ProductionMPSException" Member="ProductionMPSExceptions" ThisKey="ID" OtherKey="IDProductionOrder" Type="ProductionMPSException" />
-      <Association Name="ProductionOrder_DeliveryTripDetail" Member="DeliveryTripDetails" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="DeliveryTripDetail" />
-      <Association Name="ProductionOrder_ProductionOrderDetail" Member="ProductionOrderDetails" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="ProductionOrderDetail" />
-      <Association Name="ProductionOrder_ProductionOrderTechSpec" Member="ProductionOrderTechSpecs" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="ProductionOrderTechSpec" />
-      <Association Name="ProductionOrder_PlasticCoatingMachineParameter" Member="PlasticCoatingMachineParameter" ThisKey="ID" OtherKey="Id_ProductionOrder" Type="PlasticCoatingMachineParameter" Cardinality="One" />
-      <Association Name="ProductionOrder_ProductionOrder" Member="ProductionOrder2" ThisKey="ID" OtherKey="ID" Type="ProductionOrder" Cardinality="One" />
-      <Association Name="Company_ProductionOrder" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
-      <Association Name="CorrectiveAction_ProductionOrder" Member="CorrectiveAction" ThisKey="CorrectiveActionCode" OtherKey="ID" Type="CorrectiveAction" IsForeignKey="true" />
-      <Association Name="CustomerOrder_ProductionOrder" Member="CustomerOrder" ThisKey="ID_CustomerOrder" OtherKey="ID" Type="CustomerOrder" IsForeignKey="true" />
-      <Association Name="Customer_ProductionOrder" Member="Customer" ThisKey="ID_Customer" OtherKey="Code" Type="Customer" IsForeignKey="true" />
-      <Association Name="Employee_ProductionOrder" Member="Employee" ThisKey="ID_Contractor" OtherKey="ID" Type="Employee" IsForeignKey="true" />
-      <Association Name="Manager_ProductionOrder" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
-      <Association Name="NonConformity_ProductionOrder" Member="NonConformity" ThisKey="NonConformityCode" OtherKey="ID" Type="NonConformity" IsForeignKey="true" />
-      <Association Name="ProductionOrder_ProductionOrder" Member="ProductionOrder1" ThisKey="ID" OtherKey="ID" Type="ProductionOrder" IsForeignKey="true" />
-      <Association Name="Quotation_ProductionOrder" Member="Quotation" ThisKey="ID_Quotation" OtherKey="ID" Type="Quotation" IsForeignKey="true" />
-      <Association Name="Statuse_ProductionOrder" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
     </Type>
   </Table>
   <Table Name="dbo.VW_QuotationDetailsUnusedOnProduction" Member="VW_QuotationDetailsUnusedOnProductions">
@@ -1986,6 +1860,141 @@
       <Column Name="ID_Approver" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ApproverDesc" Type="System.String" DbType="NVarChar(135)" CanBeNull="true" />
       <Column Name="MessageToApplicant" Type="System.String" DbType="VarChar(1024)" CanBeNull="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.ProductionOrders" Member="ProductionOrders">
+    <Type Name="ProductionOrder">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="Description" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_CustomerOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Quotation" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="StartDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Cost" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="DirectSupply" Type="System.Boolean" DbType="Bit NOT NULL" CanBeNull="false" />
+      <Column Name="Price" Type="System.Decimal" DbType="Money" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="AccountNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="YearStartDate" Type="System.Int32" DbType="Int" IsDbGenerated="true" CanBeNull="true" UpdateCheck="Never" />
+      <Column Name="ID_Contractor" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number_1" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="NonConformityCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="ComplaintReceived" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CorrectiveActionCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="UnusedProductsCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ID_Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="ProductionOrder_ProductionMP" Member="ProductionMPs" ThisKey="ID" OtherKey="IDProductionOrder" Type="ProductionMP" />
+      <Association Name="ProductionOrder_ProductionMPSException" Member="ProductionMPSExceptions" ThisKey="ID" OtherKey="IDProductionOrder" Type="ProductionMPSException" />
+      <Association Name="ProductionOrder_DeliveryTripDetail" Member="DeliveryTripDetails" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="DeliveryTripDetail" />
+      <Association Name="ProductionOrder_ProductionOrderDetail" Member="ProductionOrderDetails" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="ProductionOrderDetail" />
+      <Association Name="ProductionOrder_ProductionOrderTechSpec" Member="ProductionOrderTechSpecs" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="ProductionOrderTechSpec" />
+      <Association Name="ProductionOrder_PlasticCoatingMachineParameter" Member="PlasticCoatingMachineParameter" ThisKey="ID" OtherKey="Id_ProductionOrder" Type="PlasticCoatingMachineParameter" Cardinality="One" />
+      <Association Name="ProductionOrder_ProductionOrder" Member="ProductionOrder2" ThisKey="ID" OtherKey="ID" Type="ProductionOrder" Cardinality="One" />
+      <Association Name="Company_ProductionOrder" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
+      <Association Name="CorrectiveAction_ProductionOrder" Member="CorrectiveAction" ThisKey="CorrectiveActionCode" OtherKey="ID" Type="CorrectiveAction" IsForeignKey="true" />
+      <Association Name="CustomerOrder_ProductionOrder" Member="CustomerOrder" ThisKey="ID_CustomerOrder" OtherKey="ID" Type="CustomerOrder" IsForeignKey="true" />
+      <Association Name="Customer_ProductionOrder" Member="Customer" ThisKey="ID_Customer" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Customer_ProductionOrder1" Member="Customer1" ThisKey="ID_Destination" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Employee_ProductionOrder" Member="Employee" ThisKey="ID_Contractor" OtherKey="ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Manager_ProductionOrder" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
+      <Association Name="NonConformity_ProductionOrder" Member="NonConformity" ThisKey="NonConformityCode" OtherKey="ID" Type="NonConformity" IsForeignKey="true" />
+      <Association Name="ProductionOrder_ProductionOrder" Member="ProductionOrder1" ThisKey="ID" OtherKey="ID" Type="ProductionOrder" IsForeignKey="true" />
+      <Association Name="Statuse_ProductionOrder" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
+      <Association Name="Quotation_ProductionOrder" Member="Quotation" ThisKey="ID_Quotation" OtherKey="ID" Type="Quotation" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.Quotations" Member="Quotations">
+    <Type Name="Quotation">
+      <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL IDENTITY" IsPrimaryKey="true" IsDbGenerated="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Q1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MarkUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Owner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Approver" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Draft" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="P1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PriceCom" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PrintingMainText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Note2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DestinationCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="Quotation_CustomerOrder" Member="CustomerOrders" ThisKey="ID" OtherKey="ID_Quotation" Type="CustomerOrder" />
+      <Association Name="Quotation_QuotationDetail" Member="QuotationDetails" ThisKey="ID" OtherKey="ID_Quotation" Type="QuotationDetail" />
+      <Association Name="Quotation_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Quotation" Type="ProductionOrder" />
+      <Association Name="Quotation_Quotation" Member="Quotation2" ThisKey="ID" OtherKey="ID" Type="Quotation" Cardinality="One" />
+      <Association Name="Employee_Quotation" Member="Employee" ThisKey="ID_Approver" OtherKey="ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Company_Quotation" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
+      <Association Name="Customer_Quotation" Member="Customer" ThisKey="CustomerCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Customer_Quotation1" Member="Customer1" ThisKey="DestinationCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Manager_Quotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
+      <Association Name="Employee_Quotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Quotation_Quotation" Member="Quotation1" ThisKey="ID" OtherKey="ID" Type="Quotation" IsForeignKey="true" />
+      <Association Name="Statuse_Quotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.TempQuotations" Member="TempQuotations">
+    <Type Name="TempQuotation">
+      <Column Name="SessionUser" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="ID_Quotation" Type="System.Int32" DbType="Int NOT NULL" IsPrimaryKey="true" CanBeNull="false" />
+      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="CustomerCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Date" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Subject" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="Q1" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q2" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q3" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q4" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Q5" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="MarkUp" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Owner" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Approver" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Draft" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="P1" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P2" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P3" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P4" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="P5" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="PriceCom" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="PrintingMainText" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="UpdateDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="Note2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DestinationCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Association Name="TempQuotation_TempQuotationDetail" Member="TempQuotationDetails" ThisKey="SessionUser,ID_Quotation" OtherKey="SessionUser,ID_Quotation" Type="TempQuotationDetail" />
+      <Association Name="Employee_TempQuotation" Member="Employee" ThisKey="ID_Approver" OtherKey="ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Company_TempQuotation" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
+      <Association Name="Customer_TempQuotation" Member="Customer" ThisKey="CustomerCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Customer_TempQuotation1" Member="Customer1" ThisKey="DestinationCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Manager_TempQuotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
+      <Association Name="Employee_TempQuotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
+      <Association Name="Statuse_TempQuotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
     </Type>
   </Table>
   <Function Name="dbo.prc_LAB_MGet_LAB_CalculatedResultsByQuotationID" Method="prc_LAB_MGet_LAB_CalculatedResultsByQuotationID">

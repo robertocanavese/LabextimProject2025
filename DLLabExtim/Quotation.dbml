@@ -690,6 +690,7 @@
       <Column Name="ComplaintReceived" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="CorrectiveActionCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="UnusedProductsCheck" Type="System.Boolean" DbType="Bit" CanBeNull="true" />
+      <Column Name="ID_Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="ProductionOrder_DeliveryTripDetail" Member="DeliveryTripDetails" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="DeliveryTripDetail" />
       <Association Name="ProductionOrder_ProductionOrderDetail" Member="ProductionOrderDetails" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="ProductionOrderDetail" />
       <Association Name="ProductionOrder_ProductionOrderTechSpec" Member="ProductionOrderTechSpecs" ThisKey="ID" OtherKey="ID_ProductionOrder" Type="ProductionOrderTechSpec" />
@@ -698,6 +699,7 @@
       <Association Name="Company_ProductionOrder" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
       <Association Name="CustomerOrder_ProductionOrder" Member="CustomerOrder" ThisKey="ID_CustomerOrder" OtherKey="ID" Type="CustomerOrder" IsForeignKey="true" />
       <Association Name="Customer_ProductionOrder" Member="Customer" ThisKey="ID_Customer" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Customer_ProductionOrder1" Member="Customer1" ThisKey="ID_Destination" OtherKey="Code" Type="Customer" IsForeignKey="true" />
       <Association Name="Employee_ProductionOrder" Member="Employee" ThisKey="ID_Contractor" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="Manager_ProductionOrder" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
       <Association Name="NonConformity_ProductionOrder" Member="NonConformity" ThisKey="NonConformityCode" OtherKey="ID" Type="NonConformity" IsForeignKey="true" />
@@ -737,12 +739,14 @@
       <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Note2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DestinationCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="Quotation_QuotationDetail" Member="QuotationDetails" ThisKey="ID" OtherKey="ID_Quotation" Type="QuotationDetail" />
       <Association Name="Quotation_CustomerOrder" Member="CustomerOrders" ThisKey="ID" OtherKey="ID_Quotation" Type="CustomerOrder" />
       <Association Name="Quotation_ProductionOrder" Member="ProductionOrders" ThisKey="ID" OtherKey="ID_Quotation" Type="ProductionOrder" />
       <Association Name="Employee_Quotation" Member="Employee" ThisKey="ID_Approver" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="Company_Quotation" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
       <Association Name="Customer_Quotation" Member="Customer" ThisKey="CustomerCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Customer_Quotation1" Member="Customer1" ThisKey="DestinationCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
       <Association Name="Manager_Quotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
       <Association Name="Employee_Quotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="Statuse_Quotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
@@ -1009,10 +1013,12 @@
       <Column Name="ID_Manager" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="Note1" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
       <Column Name="Note2" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="DestinationCode" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Association Name="TempQuotation_TempQuotationDetail" Member="TempQuotationDetails" ThisKey="SessionUser,ID_Quotation" OtherKey="SessionUser,ID_Quotation" Type="TempQuotationDetail" />
       <Association Name="Employee_TempQuotation" Member="Employee" ThisKey="ID_Approver" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="Company_TempQuotation" Member="Company" ThisKey="ID_Company" OtherKey="ID" Type="Company" IsForeignKey="true" />
       <Association Name="Customer_TempQuotation" Member="Customer" ThisKey="CustomerCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
+      <Association Name="Customer_TempQuotation1" Member="Customer1" ThisKey="DestinationCode" OtherKey="Code" Type="Customer" IsForeignKey="true" />
       <Association Name="Manager_TempQuotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
       <Association Name="Employee_TempQuotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="Statuse_TempQuotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
