@@ -1160,6 +1160,7 @@ namespace LabExtim
                     ((TextBox)dtvQuotation.FindControl("txtQ3")).Text = _curQuotationTemplate.Q3.ToString();
                     ((TextBox)dtvQuotation.FindControl("txtQ4")).Text = _curQuotationTemplate.Q4.ToString();
                     ((TextBox)dtvQuotation.FindControl("txtQ5")).Text = _curQuotationTemplate.Q5.ToString();
+                    _curQuotation.Note = _curQuotationTemplate.Note;
 
                     foreach (
                         var _quotationTemplateDetail in
