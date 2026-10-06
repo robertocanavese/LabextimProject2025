@@ -1155,12 +1155,14 @@ namespace LabExtim
                     _curQuotation.Q3 = _curQuotationTemplate.Q3;
                     _curQuotation.Q4 = _curQuotationTemplate.Q4;
                     _curQuotation.Q5 = _curQuotationTemplate.Q5;
+                    _curQuotation.Note = _curQuotationTemplate.Note;
+
                     ((TextBox)dtvQuotation.FindControl("txtQ1")).Text = _curQuotationTemplate.Q1.ToString();
                     ((TextBox)dtvQuotation.FindControl("txtQ2")).Text = _curQuotationTemplate.Q2.ToString();
                     ((TextBox)dtvQuotation.FindControl("txtQ3")).Text = _curQuotationTemplate.Q3.ToString();
                     ((TextBox)dtvQuotation.FindControl("txtQ4")).Text = _curQuotationTemplate.Q4.ToString();
                     ((TextBox)dtvQuotation.FindControl("txtQ5")).Text = _curQuotationTemplate.Q5.ToString();
-                    _curQuotation.Note = _curQuotationTemplate.Note;
+                    txtDescription.Text = _curQuotationTemplate.Note;
 
                     foreach (
                         var _quotationTemplateDetail in
@@ -1350,7 +1352,7 @@ namespace LabExtim
 
         }
 
-     
+
 
     }
 }
