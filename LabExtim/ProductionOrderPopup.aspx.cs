@@ -308,6 +308,26 @@ namespace LabExtim
                         ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue = POCustomerIdParameter.ToString();
                     }
                 }
+
+                if (PODestinationIdParameter != -1)
+                {
+                    var _dyc = (DynamicControl)_dvr.FindControl("dycDestination");
+                    ((DropDownList)_dyc.Controls[0].Controls[0]).Enabled = false;
+
+                    if (PODestinationIdParameter == 0)
+                    {
+
+                        ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue =
+                            new QuotationDataContext().Quotations.SingleOrDefault(q => q.ID == POQuotationIdParameter)
+                                .DestinationCode.Value.ToString();
+                    }
+                    else
+                    {
+                        ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue = PODestinationIdParameter.ToString();
+                    }
+                }
+
+
                 if (POCustomerOrderIdParameter != -1)
                 {
                     //DynamicControl _dyc = (DynamicControl)_dvr.FindControl("dycCustomerOrder_ID");
