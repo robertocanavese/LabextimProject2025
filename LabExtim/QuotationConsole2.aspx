@@ -281,6 +281,7 @@
                     'POquo=' + '<% = QuotationParameter %>' + '&' +
                     'POName=' + '<% = Server.UrlEncode(QuotationHeader.Value ?? " ").Replace("'","%27") %>' + '&' +
                     'POcid=0&' +
+                    'POdid=0&' +
                     'POq=' + SetSelectedQuantity());
             return false;
 
