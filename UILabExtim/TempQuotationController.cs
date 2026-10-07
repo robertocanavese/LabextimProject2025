@@ -28,6 +28,7 @@ namespace UILabExtim
                 _quotationToSave.ID_Company = CurrentCompanyId;
                 _quotationToSave.ID_Manager = _curTempQuotation.ID_Manager;
                 _quotationToSave.CustomerCode = _curTempQuotation.CustomerCode;
+                _quotationToSave.DestinationCode = _curTempQuotation.DestinationCode;
                 if (GetCurrentEmployee() != null)
                     _quotationToSave.ID_Owner = GetCurrentEmployee().ID;
                 _quotationToSave.Date = DateTime.Now;
@@ -84,6 +85,7 @@ namespace UILabExtim
             _curQuotation.ID_Company = CurrentCompanyId;
             _curQuotation.ID_Manager = _curTempQuotation.ID_Manager;
             _curQuotation.CustomerCode = _curTempQuotation.CustomerCode;
+            _curQuotation.DestinationCode = _curTempQuotation.DestinationCode;
             if (_curQuotation.ID_Owner == null)
             {
                 if (GetCurrentEmployee() != null)
@@ -167,6 +169,7 @@ namespace UILabExtim
             _quotationToSave.ID_Company = CurrentCompanyId;
             _quotationToSave.ID_Manager = _curQuotation.ID_Manager;
             _quotationToSave.CustomerCode = _curQuotation.CustomerCode;
+            _quotationToSave.DestinationCode = _curQuotation.DestinationCode;
             if (GetCurrentEmployee() != null)
                 _quotationToSave.ID_Owner = GetCurrentEmployee().ID;
             _quotationToSave.Date = DateTime.Now;
@@ -236,6 +239,7 @@ namespace UILabExtim
             _quotationToSave.ID_Company = CurrentCompanyId;
             _quotationToSave.ID_Manager = _curQuotation.ID_Manager;
             _quotationToSave.CustomerCode = _curQuotation.CustomerCode;
+            _quotationToSave.DestinationCode = _curQuotation.DestinationCode;
             if (GetCurrentEmployee() != null)
                 _quotationToSave.ID_Owner = GetCurrentEmployee().ID;
             _quotationToSave.Date = DateTime.Now;
@@ -597,6 +601,7 @@ namespace UILabExtim
                 _quotationToActivate.ID_Company = CurrentCompanyId;
                 _quotationToActivate.ID_Manager = _curQuotation.ID_Manager;
                 _quotationToActivate.CustomerCode = _curQuotation.CustomerCode;
+                _quotationToActivate.DestinationCode = _curQuotation.DestinationCode;
                 _quotationToActivate.SessionUser = GetCurrentEmployee().ID;
                 if (_curQuotation.ID_Owner == null)
                 {
@@ -704,6 +709,7 @@ namespace UILabExtim
                         if (_curTempQuotation.ID_Company != _curQuotation.ID_Company) _isSyncronized = false;
                         if (_curTempQuotation.ID_Manager != _curQuotation.ID_Manager) _isSyncronized = false;
                         if (_curTempQuotation.CustomerCode != _curQuotation.CustomerCode) _isSyncronized = false;
+                        if (_curTempQuotation.DestinationCode != _curQuotation.DestinationCode) _isSyncronized = false;
                         if (_curTempQuotation.MarkUp != _curQuotation.MarkUp) _isSyncronized = false;
                         if (_curTempQuotation.Q1 != _curQuotation.Q1) _isSyncronized = false;
                         if (_curTempQuotation.Q2 != _curQuotation.Q2) _isSyncronized = false;
