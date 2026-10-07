@@ -316,14 +316,6 @@
       <DependentUpon>Temporaneo.dbml</DependentUpon>
     </None>
   </ItemGroup>
-  <ItemGroup>
-    <Content Include="ModificheDB\ProductionOrders.sql" />
-    <Content Include="ModificheDB\ProductionOrders_ChiaveExt.sql" />
-    <Content Include="ModificheDB\Quotations.sql" />
-    <Content Include="ModificheDB\Quotations_ChiaveExt.sql" />
-    <Content Include="ModificheDB\TempQuotations.sql" />
-    <Content Include="ModificheDB\TempQuotations_ChiaveExt.sql" />
-  </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
   <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
        Other similar extension points exist, see Microsoft.Common.targets.

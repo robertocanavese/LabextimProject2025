@@ -182,6 +182,54 @@
 
         }
 
+        function SetAutoCompleteDest() {
+
+            $("#ctl00_ContentPlaceHolder1_dtvQuotation_txtSearchDest").autocomplete({
+                source: function (request, response) {
+                    $.ajax({
+                        url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
+                        data: "{ 'q': '" + request.term + "'}",
+                        dataType: "json",
+                        type: "POST",
+                        async: false,
+                        contentType: "application/json; charset=utf-8",
+                        success: function (result) {
+                            if (result.hasOwnProperty("d")) { result = result.d; }
+                            var data = jQuery.parseJSON(result);
+                            response($.map(data, function (item) {
+                                return {
+                                    label: item.Name,
+                                    value: item.Code,
+                                    markUp: item.MarkUp
+                                }
+                            }))
+                        },
+                        error: function (response) {
+                            //alert(response.responseText);
+                        },
+                        failure: function (response) {
+                            //alert(response.responseText);
+                        }
+                    });
+                },
+                minLength: 3,
+                select: function (event, ui) {
+                    //log(ui.item ? ui.item.label : this.label);
+                    $("#ctl00_ContentPlaceHolder1_dtvQuotation_txtSearchDest").val(ui.item.label);
+                    $("#ctl00_ContentPlaceHolder1_dtvQuotation_hidSearchDest").val(ui.item.value);
+                    document.getElementById('ctl00_ContentPlaceHolder1_btnRecalc').disabled = false;
+                    return false;
+                },
+                open: function () {
+                    //$(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+                },
+                close: function () {
+                    //$(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+                }
+            });
+
+
+        }
 
         $(document).ready(function () {
 
@@ -195,6 +243,7 @@
             }
 
             SetAutoComplete();
+            SetAutoCompleteDest();
             ClosingEvent();
 
         });
@@ -501,6 +550,22 @@
                                             </EditItemTemplate>
                                             <InsertItemTemplate>
                                                 <asp:DynamicControl ID="dycMarkUp" runat="server" DataField="MarkUp" UIHint="Integer_Edit" />
+                                            </InsertItemTemplate>
+                                        </asp:TemplateField>
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
+                                                <asp:Label ID="lblDestination" runat="server" Text="Cliente"></asp:Label>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:TextBox runat="server" ID="txtSearchDest" MaxLength="255" Width="200" ToolTip="Digitare almeno 3 caratteri per avviare la ricerca" CssClass="droplist" />
+                                                <asp:HiddenField ID="hidSearchDest" runat="server" />
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey_Edit"
+                                                    Mode="Edit" />
+                                            </EditItemTemplate>
+                                            <InsertItemTemplate>
+                                                <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey_Edit" />
                                             </InsertItemTemplate>
                                         </asp:TemplateField>
                                     </Fields>
