@@ -554,7 +554,7 @@
                                         </asp:TemplateField>
                                         <asp:TemplateField>
                                             <HeaderTemplate>
-                                                <asp:Label ID="lblDestination" runat="server" Text="Cliente"></asp:Label>
+                                                <asp:Label ID="lblDestination" runat="server" Text="Destinazione"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>
                                                 <asp:TextBox runat="server" ID="txtSearchDest" MaxLength="255" Width="200" ToolTip="Digitare almeno 3 caratteri per avviare la ricerca" CssClass="droplist" />

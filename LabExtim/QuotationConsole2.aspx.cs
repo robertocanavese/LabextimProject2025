@@ -218,6 +218,20 @@ namespace LabExtim
 
                 }
 
+                var hidSearchDest = (HiddenField)dtvQuotation.FindControl("hidSearchDest");
+                int _codeDest = 0;
+                int.TryParse(hidSearchDest.Value, out _codeDest);
+                if (_codeDest != 0)
+                {
+                    _toUpdateQuotation.DestinationCode = _codeDest;
+                    ProductionOrder found = qc.ProductionOrders.FirstOrDefault(po => po.ID_Quotation == _toUpdateQuotation.ID_Quotation);
+                    if (found != null)
+                    {
+                        found.ID_Destination = _codeDest;
+                    }
+
+                }
+
                 foreach (var _quotationDetail in _toUpdateQuotation.TempQuotationDetails)
                 {
                     _quotationDetail.MarkUp = _markUp;
