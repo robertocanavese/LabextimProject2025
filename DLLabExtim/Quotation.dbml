@@ -299,9 +299,13 @@
       <Association Name="Customer_CustomerOrder" Member="CustomerOrders" ThisKey="Code" OtherKey="CustomerCode" Type="CustomerOrder" />
       <Association Name="Customer_Find_Quotation" Member="Find_Quotations" ThisKey="Code" OtherKey="CustomerCode" Type="Find_Quotation" />
       <Association Name="Customer_ProductionOrder" Member="ProductionOrders" ThisKey="Code" OtherKey="ID_Customer" Type="ProductionOrder" />
+      <Association Name="Customer_ProductionOrder1" Member="ProductionOrders1" ThisKey="Code" OtherKey="ID_Destination" Type="ProductionOrder" />
       <Association Name="Customer_Quotation" Member="Quotations" ThisKey="Code" OtherKey="CustomerCode" Type="Quotation" />
+      <Association Name="Customer_Quotation1" Member="Quotations1" ThisKey="Code" OtherKey="DestinationCode" Type="Quotation" />
       <Association Name="Customer_DeliveryTrip" Member="DeliveryTrips" ThisKey="Code" OtherKey="CustomerCode" Type="DeliveryTrip" />
       <Association Name="Customer_VW_AllQuotations" Member="VW_AllQuotations" ThisKey="Code" OtherKey="CustomerCode" Type="VW_AllQuotations" />
+      <Association Name="Customer_TempQuotation" Member="TempQuotations" ThisKey="Code" OtherKey="CustomerCode" Type="TempQuotation" />
+      <Association Name="Customer_TempQuotation1" Member="TempQuotations1" ThisKey="Code" OtherKey="DestinationCode" Type="TempQuotation" />
     </Type>
   </Table>
   <Table Name="dbo.CustomersMarkUps" Member="CustomersMarkUps">

@@ -6347,9 +6347,17 @@ namespace DLLabExtim
 		
 		private EntitySet<ProductionOrder> _ProductionOrders;
 		
+		private EntitySet<ProductionOrder> _ProductionOrders1;
+		
 		private EntitySet<Quotation> _Quotations;
 		
+		private EntitySet<Quotation> _Quotations1;
+		
 		private EntitySet<DeliveryTrip> _DeliveryTrips;
+		
+		private EntitySet<TempQuotation> _TempQuotations;
+		
+		private EntitySet<TempQuotation> _TempQuotations1;
 		
 		private EntitySet<VW_AllQuotations> _VW_AllQuotations;
 		
@@ -6395,8 +6403,12 @@ namespace DLLabExtim
 			this._CustomerOrders = new EntitySet<CustomerOrder>(new Action<CustomerOrder>(this.attach_CustomerOrders), new Action<CustomerOrder>(this.detach_CustomerOrders));
 			this._Find_Quotations = new EntitySet<Find_Quotation>(new Action<Find_Quotation>(this.attach_Find_Quotations), new Action<Find_Quotation>(this.detach_Find_Quotations));
 			this._ProductionOrders = new EntitySet<ProductionOrder>(new Action<ProductionOrder>(this.attach_ProductionOrders), new Action<ProductionOrder>(this.detach_ProductionOrders));
+			this._ProductionOrders1 = new EntitySet<ProductionOrder>(new Action<ProductionOrder>(this.attach_ProductionOrders1), new Action<ProductionOrder>(this.detach_ProductionOrders1));
 			this._Quotations = new EntitySet<Quotation>(new Action<Quotation>(this.attach_Quotations), new Action<Quotation>(this.detach_Quotations));
+			this._Quotations1 = new EntitySet<Quotation>(new Action<Quotation>(this.attach_Quotations1), new Action<Quotation>(this.detach_Quotations1));
 			this._DeliveryTrips = new EntitySet<DeliveryTrip>(new Action<DeliveryTrip>(this.attach_DeliveryTrips), new Action<DeliveryTrip>(this.detach_DeliveryTrips));
+			this._TempQuotations = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations), new Action<TempQuotation>(this.detach_TempQuotations));
+			this._TempQuotations1 = new EntitySet<TempQuotation>(new Action<TempQuotation>(this.attach_TempQuotations1), new Action<TempQuotation>(this.detach_TempQuotations1));
 			this._VW_AllQuotations = new EntitySet<VW_AllQuotations>(new Action<VW_AllQuotations>(this.attach_VW_AllQuotations), new Action<VW_AllQuotations>(this.detach_VW_AllQuotations));
 			OnCreated();
 		}
@@ -6769,6 +6781,19 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_ProductionOrder1", Storage="_ProductionOrders1", ThisKey="Code", OtherKey="ID_Destination")]
+		public EntitySet<ProductionOrder> ProductionOrders1
+		{
+			get
+			{
+				return this._ProductionOrders1;
+			}
+			set
+			{
+				this._ProductionOrders1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Quotation", Storage="_Quotations", ThisKey="Code", OtherKey="CustomerCode")]
 		public EntitySet<Quotation> Quotations
 		{
@@ -6782,6 +6807,19 @@ namespace DLLabExtim
 			}
 		}
 		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_Quotation1", Storage="_Quotations1", ThisKey="Code", OtherKey="DestinationCode")]
+		public EntitySet<Quotation> Quotations1
+		{
+			get
+			{
+				return this._Quotations1;
+			}
+			set
+			{
+				this._Quotations1.Assign(value);
+			}
+		}
+		
 		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_DeliveryTrip", Storage="_DeliveryTrips", ThisKey="Code", OtherKey="CustomerCode")]
 		public EntitySet<DeliveryTrip> DeliveryTrips
 		{
@@ -6792,6 +6830,32 @@ namespace DLLabExtim
 			set
 			{
 				this._DeliveryTrips.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_TempQuotation", Storage="_TempQuotations", ThisKey="Code", OtherKey="CustomerCode")]
+		public EntitySet<TempQuotation> TempQuotations
+		{
+			get
+			{
+				return this._TempQuotations;
+			}
+			set
+			{
+				this._TempQuotations.Assign(value);
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.AssociationAttribute(Name="Customer_TempQuotation1", Storage="_TempQuotations1", ThisKey="Code", OtherKey="DestinationCode")]
+		public EntitySet<TempQuotation> TempQuotations1
+		{
+			get
+			{
+				return this._TempQuotations1;
+			}
+			set
+			{
+				this._TempQuotations1.Assign(value);
 			}
 		}
 		
@@ -6864,6 +6928,18 @@ namespace DLLabExtim
 			entity.Customer = null;
 		}
 		
+		private void attach_ProductionOrders1(ProductionOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer1 = this;
+		}
+		
+		private void detach_ProductionOrders1(ProductionOrder entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer1 = null;
+		}
+		
 		private void attach_Quotations(Quotation entity)
 		{
 			this.SendPropertyChanging();
@@ -6876,6 +6952,18 @@ namespace DLLabExtim
 			entity.Customer = null;
 		}
 		
+		private void attach_Quotations1(Quotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer1 = this;
+		}
+		
+		private void detach_Quotations1(Quotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer1 = null;
+		}
+		
 		private void attach_DeliveryTrips(DeliveryTrip entity)
 		{
 			this.SendPropertyChanging();
@@ -6886,6 +6974,30 @@ namespace DLLabExtim
 		{
 			this.SendPropertyChanging();
 			entity.Customer = null;
+		}
+		
+		private void attach_TempQuotations(TempQuotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = this;
+		}
+		
+		private void detach_TempQuotations(TempQuotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer = null;
+		}
+		
+		private void attach_TempQuotations1(TempQuotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer1 = this;
+		}
+		
+		private void detach_TempQuotations1(TempQuotation entity)
+		{
+			this.SendPropertyChanging();
+			entity.Customer1 = null;
 		}
 		
 		private void attach_VW_AllQuotations(VW_AllQuotations entity)
@@ -15900,10 +16012,26 @@ namespace DLLabExtim
 			}
 			set
 			{
-				if ((this._Customer1.Entity != value))
+				Customer previousValue = this._Customer1.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer1.Entity = null;
+						previousValue.ProductionOrders1.Remove(this);
+					}
 					this._Customer1.Entity = value;
+					if ((value != null))
+					{
+						value.ProductionOrders1.Add(this);
+						this._ID_Destination = value.Code;
+					}
+					else
+					{
+						this._ID_Destination = default(Nullable<int>);
+					}
 					this.SendPropertyChanged("Customer1");
 				}
 			}
@@ -17149,10 +17277,26 @@ namespace DLLabExtim
 			}
 			set
 			{
-				if ((this._Customer1.Entity != value))
+				Customer previousValue = this._Customer1.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer1.Entity = null;
+						previousValue.Quotations1.Remove(this);
+					}
 					this._Customer1.Entity = value;
+					if ((value != null))
+					{
+						value.Quotations1.Add(this);
+						this._DestinationCode = value.Code;
+					}
+					else
+					{
+						this._DestinationCode = default(Nullable<int>);
+					}
 					this.SendPropertyChanged("Customer1");
 				}
 			}
@@ -22615,10 +22759,26 @@ namespace DLLabExtim
 			}
 			set
 			{
-				if ((this._Customer.Entity != value))
+				Customer previousValue = this._Customer.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer.Entity = null;
+						previousValue.TempQuotations.Remove(this);
+					}
 					this._Customer.Entity = value;
+					if ((value != null))
+					{
+						value.TempQuotations.Add(this);
+						this._CustomerCode = value.Code;
+					}
+					else
+					{
+						this._CustomerCode = default(Nullable<int>);
+					}
 					this.SendPropertyChanged("Customer");
 				}
 			}
@@ -22633,10 +22793,26 @@ namespace DLLabExtim
 			}
 			set
 			{
-				if ((this._Customer1.Entity != value))
+				Customer previousValue = this._Customer1.Entity;
+				if (((previousValue != value) 
+							|| (this._Customer1.HasLoadedOrAssignedValue == false)))
 				{
 					this.SendPropertyChanging();
+					if ((previousValue != null))
+					{
+						this._Customer1.Entity = null;
+						previousValue.TempQuotations1.Remove(this);
+					}
 					this._Customer1.Entity = value;
+					if ((value != null))
+					{
+						value.TempQuotations1.Add(this);
+						this._DestinationCode = value.Code;
+					}
+					else
+					{
+						this._DestinationCode = default(Nullable<int>);
+					}
 					this.SendPropertyChanged("Customer1");
 				}
 			}
