@@ -13,6 +13,7 @@ namespace UILabExtim
         public static readonly string POIdKey = "POid";
         public static readonly string PONameKey = "POName";
         public static readonly string POCustomerIdKey = "POcid";
+        public static readonly string PODestinationIdKey = "POdid";
         public static readonly string POCustomerOrderIdKey = "POcoid";
         public static readonly string POQuotationIdKey = "POquo";
         public static readonly string POQuantityKey = "POq";
@@ -43,6 +44,15 @@ namespace UILabExtim
             get
             {
                 object temp = Request.QueryString[POCustomerIdKey];
+                return temp == null ? -1 : Convert.ToInt32(temp);
+            }
+        }
+
+        public int PODestinationIdParameter
+        {
+            get
+            {
+                object temp = Request.QueryString[PODestinationIdKey];
                 return temp == null ? -1 : Convert.ToInt32(temp);
             }
         }
