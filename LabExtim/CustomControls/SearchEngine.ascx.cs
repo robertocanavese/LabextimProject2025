@@ -87,6 +87,24 @@ namespace LabExtim.CustomControls
             set { hidTextField3.Value = value; }
         }
 
+        public string LblTextField4Text
+        {
+            get { return lblTextField4.Text; }
+            set { lblTextField4.Text = value; }
+        }
+
+        public string TextField4Text
+        {
+            get { return txtTextField4.Text; }
+            set { txtTextField4.Text = value; }
+        }
+
+        public string ValueHidField4Text
+        {
+            get { return hidTextField4.Value; }
+            set { hidTextField4.Value = value; }
+        }
+
         public string LblDateFromText
         {
             get { return lblDateFrom.Text; }
@@ -204,6 +222,7 @@ namespace LabExtim.CustomControls
             result += hidTextField1.Value + "|";
             result += hidTextField2.Value + "|";
             result += hidTextField3.Value + "|";
+            result += hidTextField4.Value + "|";
 
             result += DropDownList1.SelectedValue + "|";
             result += DropDownList2.SelectedValue + "|";
@@ -230,12 +249,13 @@ namespace LabExtim.CustomControls
             if (!String.IsNullOrEmpty(values[6])) hidTextField1.Value = values[6];
             if (!String.IsNullOrEmpty(values[7])) hidTextField2.Value = values[7];
             if (!String.IsNullOrEmpty(values[8])) hidTextField3.Value = values[8];
-            if (!String.IsNullOrEmpty(values[9])) DropDownList1.SelectedValue = values[9];
-            if (!String.IsNullOrEmpty(values[10])) DropDownList2.SelectedValue = values[10];
-            if (!String.IsNullOrEmpty(values[11])) DropDownList3.SelectedValue = values[11];
-            if (!String.IsNullOrEmpty(values[12])) DropDownList4.SelectedValue = values[12];
-            if (!String.IsNullOrEmpty(values[13])) DropDownList5.SelectedValue = values[13];
-            if (!String.IsNullOrEmpty(values[14])) DropDownListAgente.SelectedValue = values[14];
+            if (!String.IsNullOrEmpty(values[9])) hidTextField4.Value = values[9];
+            if (!String.IsNullOrEmpty(values[10])) DropDownList1.SelectedValue = values[10];
+            if (!String.IsNullOrEmpty(values[11])) DropDownList2.SelectedValue = values[11];
+            if (!String.IsNullOrEmpty(values[12])) DropDownList3.SelectedValue = values[12];
+            if (!String.IsNullOrEmpty(values[13])) DropDownList4.SelectedValue = values[13];
+            if (!String.IsNullOrEmpty(values[14])) DropDownList5.SelectedValue = values[14];
+            if (!String.IsNullOrEmpty(values[15])) DropDownListAgente.SelectedValue = values[15];
 
         }
 
@@ -245,9 +265,12 @@ namespace LabExtim.CustomControls
             YctNumber.SearchClick += SearchClick;
 
             YctNumber.Visible = LblYearCounterText != string.Empty;
+
             txtTextField1.Visible = LblTextField1Text != string.Empty;
             txtTextField2.Visible = LblTextField2Text != string.Empty;
             txtTextField3.Visible = LblTextField3Text != string.Empty;
+            txtTextField4.Visible = LblTextField4Text != string.Empty;
+
             txtDateFrom.Visible = LblDateFromText != string.Empty;
             ImageButton1.Visible = LblDateFromText != string.Empty;
             txtDateTo.Visible = LblDateToText != string.Empty;
@@ -325,9 +348,11 @@ namespace LabExtim.CustomControls
             txtTextField1.Text = string.Empty;
             txtTextField2.Text = string.Empty;
             txtTextField3.Text = string.Empty;
+            txtTextField4.Text = string.Empty;
             hidTextField1.Value = string.Empty;
             hidTextField2.Value = string.Empty;
             hidTextField3.Value = string.Empty;
+            hidTextField4.Value = string.Empty;
             txtDateFrom.Text = string.Empty;
             txtDateTo.Text = string.Empty;
             if (DropDownList1.Visible) DropDownList1.SelectedIndex = 0;

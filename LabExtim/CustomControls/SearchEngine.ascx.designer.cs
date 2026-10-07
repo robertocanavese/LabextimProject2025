@@ -67,6 +67,15 @@ namespace LabExtim.CustomControls {
         protected global::System.Web.UI.WebControls.Label lblTextField3;
         
         /// <summary>
+        /// lblTextField4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.Label lblTextField4;
+        
+        /// <summary>
         /// lblDateFrom control.
         /// </summary>
         /// <remarks>
@@ -164,6 +173,24 @@ namespace LabExtim.CustomControls {
         /// To modify move field declaration from designer file to code-behind file.
         /// </remarks>
         protected global::System.Web.UI.WebControls.HiddenField hidTextField3;
+        
+        /// <summary>
+        /// txtTextField4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.TextBox txtTextField4;
+        
+        /// <summary>
+        /// hidTextField4 control.
+        /// </summary>
+        /// <remarks>
+        /// Auto-generated field.
+        /// To modify move field declaration from designer file to code-behind file.
+        /// </remarks>
+        protected global::System.Web.UI.WebControls.HiddenField hidTextField4;
         
         /// <summary>
         /// txtDateFrom control.

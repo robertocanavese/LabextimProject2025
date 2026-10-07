@@ -27,6 +27,9 @@
                         <asp:Label ID="lblTextField3" runat="server"></asp:Label>
                     </td>
                     <td>
+                        <asp:Label ID="lblTextField4" runat="server"></asp:Label>
+                    </td>
+                    <td>
                         <asp:Label ID="lblDateFrom" runat="server"></asp:Label>
                     </td>
                     <td>
@@ -54,6 +57,10 @@
                     <td>
                         <asp:TextBox ID="txtTextField3" runat="server"></asp:TextBox>
                         <asp:HiddenField ID="hidTextField3" runat="server"></asp:HiddenField>
+                    </td>
+                    <td>
+                        <asp:TextBox ID="txtTextField4" runat="server"></asp:TextBox>
+                        <asp:HiddenField ID="hidTextField4" runat="server"></asp:HiddenField>
                     </td>
                     <td>
                         <asp:TextBox ID="txtDateFrom" runat="server" Columns="10"></asp:TextBox>
