@@ -308,6 +308,24 @@
 
                                         <asp:TemplateField>
                                             <HeaderTemplate>
+                                                <asp:Label ID="lblDestination" runat="server" Text="Destinazione"></asp:Label>
+                                            </HeaderTemplate>
+                                            <ItemTemplate>
+                                                <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey" />
+                                            </ItemTemplate>
+                                            <EditItemTemplate>
+                                                <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey_Edit" Mode="Edit" />
+                                            </EditItemTemplate>
+                                            <InsertItemTemplate>
+                                                <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey_Edit" Mode="Edit" />
+                                                <%--<asp:ImageButton ID="ibtFind" runat="server" ImageUrl="~/Images/find.png" ToolTip="Seleziona preventivi Cliente"
+                                                ImageAlign="Middle" />--%>
+                                            </InsertItemTemplate>
+                                        </asp:TemplateField>
+
+
+                                        <asp:TemplateField>
+                                            <HeaderTemplate>
                                                 <asp:Label ID="lblDescription" runat="server" Text="Descrizione"></asp:Label>
                                             </HeaderTemplate>
                                             <ItemTemplate>

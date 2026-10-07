@@ -33,6 +33,7 @@ namespace UILabExtim
             CannotDelete,
             Empty,
             CustomerIsMandatory,
+            DestinationIsMandatory,
             QuantityIsMandatory,
             PriceIsMandatoryForAuto,
             DeliveryDateIsMandatory,
@@ -71,6 +72,7 @@ namespace UILabExtim
         protected static readonly string LocationKey = "P10";
         protected static readonly string DeliveryTripKey = "P11";
         protected static readonly string LeaveRequestKey = "P12";
+        protected static readonly string DestinationKey = "P13";
 
 
         public LabextimUser WebUser
