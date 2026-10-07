@@ -315,6 +315,15 @@
                                         <ItemStyle Font-Bold="true" Wrap="false" />
                                     </asp:TemplateField>
 
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:Label ID="lblDestination" runat="server" Text="Destinazione"></asp:Label>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
                                     <%--<asp:TemplateField>
                                         <HeaderTemplate>
                                             <asp:Label ID="lblCost" runat="server" Text="Costo"></asp:Label></HeaderTemplate>
@@ -353,15 +362,7 @@
                                         </ItemTemplate>
                                     </asp:TemplateField>
 
-                                    <asp:TemplateField>
-                                        <HeaderTemplate>
-                                            <asp:Label ID="lblDestination" runat="server" Text="Destinazione"></asp:Label>
-                                        </HeaderTemplate>
-                                        <ItemTemplate>
-                                            <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey" />
-                                        </ItemTemplate>
-                                    </asp:TemplateField>
-
+                                    
                                 </Columns>
                                 <%--<SelectedRowStyle CssClass="selected" />--%>
                                 <PagerStyle CssClass="footer" />
