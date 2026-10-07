@@ -1025,6 +1025,26 @@ namespace LabExtim
 
             }
 
+            var hidSearchDest = (HiddenField)dtvQuotation.FindControl("hidSearchDest");
+            var txtSearchDest = (TextBox)dtvQuotation.FindControl("txtSearchDest");
+            if (hidSearchDest != null)
+            {
+
+                if (((TempQuotation)dtvQuotation.DataItem).DestinationCode != null)
+                {
+                    hidSearchDest.Value = ((TempQuotation)dtvQuotation.DataItem).DestinationCode.ToString();
+                    using (var QuotationDataContext = new QuotationDataContext())
+                    {
+                        Customer found = QuotationDataContext.Customers.FirstOrDefault(c => !c.Name.StartsWith("**") && c.Code == Convert.ToInt32(hidSearchDest.Value));
+                        if (found != null)
+                        {
+                            txtSearchDest.Text = found.Name;
+                        }
+                    }
+                }
+
+            }
+
 
 
         }
