@@ -352,6 +352,16 @@
                                             <asp:DynamicControl ID="dycNote" runat="server" DataField="Note" UIHint="Text" HtmlEncode="false" />
                                         </ItemTemplate>
                                     </asp:TemplateField>
+
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            <asp:Label ID="lblDestination" runat="server" Text="Destinazione"></asp:Label>
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:DynamicControl ID="dycDestination" runat="server" DataField="Customer1" UIHint="ForeignKey" />
+                                        </ItemTemplate>
+                                    </asp:TemplateField>
+
                                 </Columns>
                                 <%--<SelectedRowStyle CssClass="selected" />--%>
                                 <PagerStyle CssClass="footer" />
