@@ -239,7 +239,7 @@
             function EndRequestHandler(sender, args) {
 
                 SetAutoComplete();
-
+                SetAutoCompleteDest();
             }
 
             SetAutoComplete();
