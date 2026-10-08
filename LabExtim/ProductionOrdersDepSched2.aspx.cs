@@ -402,7 +402,7 @@ namespace LabExtim
                 var _hypDetails = (HyperLink)e.Row.Cells[1].FindControl("hypDetails");
                 _hypDetails.Attributes.Add("onclick",
                     "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
-                    ((ProductionOrder)e.Row.DataItem).ID + "' , " + ((ProductionOrder)e.Row.DataItem).ID +
+                    ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder + "' , " + ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder +
                     " ) ");
 
                 //var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[8].FindControl("CloseCurPhaseLinkButton");
