@@ -404,7 +404,7 @@ namespace LabExtim
                     "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
                     ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder + "' , " + ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder +
                     " ) ");
-                if (GetCurrentEmployee().Role > 2)
+                if (GetCurrentEmployee().Role > 1)
                 {
                     _hypDetails.NavigateUrl = string.Empty;
                     _hypDetails.CssClass = "link-disabilitato";
