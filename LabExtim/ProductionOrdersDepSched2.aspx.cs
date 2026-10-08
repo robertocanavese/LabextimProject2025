@@ -259,6 +259,7 @@ namespace LabExtim
             //senMain.LblTextField1Text = "Descrizione OdP contiene...";
             senMain.LblTextField1Text = "Cliente da INCLUDERE";
             senMain.LblTextField2Text = "Cliente da ESCLUDERE";
+            senMain.LblTextField3Text = "Destinazione";
             //senMain.LblDateFromText = "Data produzione da";
             //senMain.LblDateToText = "Data produzione a";
 

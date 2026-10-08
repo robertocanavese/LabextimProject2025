@@ -26,8 +26,11 @@
 
                 $('.goToOperator').bind('click', goToOperator);
                 $('.pause').bind('click', pauseRestartCurrentProdPhase);
-                SetAutoCompleteInc();
-                SetAutoCompleteEsc();
+                //SetAutoCompleteInc();
+                //SetAutoCompleteEsc();
+                SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField1", "#ctl00_ContentPlaceHolder1_senMain_hidTextField1");
+                SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField2", "#ctl00_ContentPlaceHolder1_senMain_hidTextField2");
+                SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField3", "#ctl00_ContentPlaceHolder1_senMain_hidTextField3");
 
                 SetStartDialog();
                 SetStartDialogButtons();
@@ -436,9 +439,104 @@
             };
 
 
-            function SetAutoCompleteInc() {
+            //function SetAutoCompleteInc() {
 
-                $("#ctl00_ContentPlaceHolder1_senMain_txtTextField1").autocomplete({
+            //    $("#ctl00_ContentPlaceHolder1_senMain_txtTextField1").autocomplete({
+            //        source: function (request, response) {
+            //            $.ajax({
+            //                url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
+            //                data: "{ 'q': '" + request.term + "'}",
+            //                dataType: "json",
+            //                type: "POST",
+            //                async: false,
+            //                contentType: "application/json; charset=utf-8",
+            //                success: function (result) {
+            //                    if (result.hasOwnProperty("d")) { result = result.d; }
+            //                    var data = jQuery.parseJSON(result);
+            //                    response($.map(data, function (item) {
+            //                        return {
+            //                            label: item.Name,
+            //                            value: item.Code,
+            //                            markUp: item.MarkUp
+            //                        }
+            //                    }))
+            //                },
+            //                error: function (response) {
+            //                    //alert(response.responseText);
+            //                },
+            //                failure: function (response) {
+            //                    //alert(response.responseText);
+            //                }
+            //            });
+            //        },
+            //        minLength: 3,
+            //        select: function (event, ui) {
+            //            //log(ui.item ? ui.item.label : this.label);
+            //            $("#ctl00_ContentPlaceHolder1_senMain_txtTextField1").val(ui.item.label);
+            //            $("#ctl00_ContentPlaceHolder1_senMain_hidTextField1").val(ui.item.value);
+            //            return false;
+            //        },
+            //        open: function () {
+            //            //$(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+            //        },
+            //        close: function () {
+            //            //$(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+            //        }
+            //    });
+
+            //}
+
+            //function SetAutoCompleteEsc() {
+
+            //    $("#ctl00_ContentPlaceHolder1_senMain_txtTextField2").autocomplete({
+            //        source: function (request, response) {
+            //            $.ajax({
+            //                url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
+            //                data: "{ 'q': '" + request.term + "'}",
+            //                dataType: "json",
+            //                type: "POST",
+            //                async: false,
+            //                contentType: "application/json; charset=utf-8",
+            //                success: function (result) {
+            //                    if (result.hasOwnProperty("d")) { result = result.d; }
+            //                    var data = jQuery.parseJSON(result);
+            //                    response($.map(data, function (item) {
+            //                        return {
+            //                            label: item.Name,
+            //                            value: item.Code,
+            //                            markUp: item.MarkUp
+            //                        }
+            //                    }))
+            //                },
+            //                error: function (response) {
+            //                    //alert(response.responseText);
+            //                },
+            //                failure: function (response) {
+            //                    //alert(response.responseText);
+            //                }
+            //            });
+            //        },
+            //        minLength: 3,
+            //        select: function (event, ui) {
+            //            //log(ui.item ? ui.item.label : this.label);
+            //            $("#ctl00_ContentPlaceHolder1_senMain_txtTextField2").val(ui.item.label);
+            //            $("#ctl00_ContentPlaceHolder1_senMain_hidTextField2").val(ui.item.value);
+            //            return false;
+            //        },
+            //        open: function () {
+            //            //$(this).removeClass("ui-corner-all").addClass("ui-corner-top");
+            //        },
+            //        close: function () {
+            //            //$(this).removeClass("ui-corner-top").addClass("ui-corner-all");
+            //        }
+            //    });
+
+            //}
+
+
+            function SetAutoComplete(textBoxName, hiddenFieldName) {
+
+                $(textBoxName).autocomplete({
                     source: function (request, response) {
                         $.ajax({
                             url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
@@ -469,8 +567,8 @@
                     minLength: 3,
                     select: function (event, ui) {
                         //log(ui.item ? ui.item.label : this.label);
-                        $("#ctl00_ContentPlaceHolder1_senMain_txtTextField1").val(ui.item.label);
-                        $("#ctl00_ContentPlaceHolder1_senMain_hidTextField1").val(ui.item.value);
+                        $(textBoxName).val(ui.item.label);
+                        $(hiddenFieldName).val(ui.item.value);
                         return false;
                     },
                     open: function () {
@@ -483,52 +581,7 @@
 
             }
 
-            function SetAutoCompleteEsc() {
 
-                $("#ctl00_ContentPlaceHolder1_senMain_txtTextField2").autocomplete({
-                    source: function (request, response) {
-                        $.ajax({
-                            url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
-                            data: "{ 'q': '" + request.term + "'}",
-                            dataType: "json",
-                            type: "POST",
-                            async: false,
-                            contentType: "application/json; charset=utf-8",
-                            success: function (result) {
-                                if (result.hasOwnProperty("d")) { result = result.d; }
-                                var data = jQuery.parseJSON(result);
-                                response($.map(data, function (item) {
-                                    return {
-                                        label: item.Name,
-                                        value: item.Code,
-                                        markUp: item.MarkUp
-                                    }
-                                }))
-                            },
-                            error: function (response) {
-                                //alert(response.responseText);
-                            },
-                            failure: function (response) {
-                                //alert(response.responseText);
-                            }
-                        });
-                    },
-                    minLength: 3,
-                    select: function (event, ui) {
-                        //log(ui.item ? ui.item.label : this.label);
-                        $("#ctl00_ContentPlaceHolder1_senMain_txtTextField2").val(ui.item.label);
-                        $("#ctl00_ContentPlaceHolder1_senMain_hidTextField2").val(ui.item.value);
-                        return false;
-                    },
-                    open: function () {
-                        //$(this).removeClass("ui-corner-all").addClass("ui-corner-top");
-                    },
-                    close: function () {
-                        //$(this).removeClass("ui-corner-top").addClass("ui-corner-all");
-                    }
-                });
-
-            }
             function goToOperator(pidPo, pidQd) {
 
                 if (confirm('Confermi il completamento della lavorazione corrente?')) {
@@ -554,8 +607,11 @@
             };
 
             $('.goToOperator').bind('click', goToOperator);
-            SetAutoCompleteInc();
-            SetAutoCompleteEsc();
+            //SetAutoCompleteInc();
+            //SetAutoCompleteEsc();
+            SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField1", "#ctl00_ContentPlaceHolder1_senMain_hidTextField1");
+            SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField2", "#ctl00_ContentPlaceHolder1_senMain_hidTextField2");
+            SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField3", "#ctl00_ContentPlaceHolder1_senMain_hidTextField3");
 
             SetStartDialog();
             SetStartDialogButtons();
