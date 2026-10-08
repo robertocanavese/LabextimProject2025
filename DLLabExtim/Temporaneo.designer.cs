@@ -744,14 +744,6 @@ namespace TempDLLabExtim
 			}
 		}
 		
-		public System.Data.Linq.Table<VW_ProductionExtMPS_GroupedByPhase> VW_ProductionExtMPS_GroupedByPhases
-		{
-			get
-			{
-				return this.GetTable<VW_ProductionExtMPS_GroupedByPhase>();
-			}
-		}
-		
 		public System.Data.Linq.Table<VW_EmployeesWorkingDayHour> VW_EmployeesWorkingDayHours
 		{
 			get
@@ -1005,6 +997,14 @@ namespace TempDLLabExtim
 			get
 			{
 				return this.GetTable<TempQuotation>();
+			}
+		}
+		
+		public System.Data.Linq.Table<VW_ProductionExtMPS_GroupedByPhase> VW_ProductionExtMPS_GroupedByPhases
+		{
+			get
+			{
+				return this.GetTable<VW_ProductionExtMPS_GroupedByPhase>();
 			}
 		}
 		
@@ -25288,699 +25288,6 @@ namespace TempDLLabExtim
 		}
 	}
 	
-	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_ProductionExtMPS_GroupedByPhase")]
-	public partial class VW_ProductionExtMPS_GroupedByPhase
-	{
-		
-		private System.Nullable<int> _ID;
-		
-		private System.Nullable<int> _IDProductionOrder;
-		
-		private string _Number;
-		
-		private string _poDescription;
-		
-		private System.Nullable<int> _ID_Company;
-		
-		private System.Nullable<int> _ID_Customer;
-		
-		private string _cuName;
-		
-		private int _poStatus;
-		
-		private string _stDescription;
-		
-		private System.Nullable<int> _IDPickingItem;
-		
-		private string _ItemDescription;
-		
-		private System.Nullable<int> _IDQuotationDetail;
-		
-		private System.Nullable<int> _IDProductionMachine;
-		
-		private string _pmDescription;
-		
-		private System.Nullable<int> _NumProductionMachine;
-		
-		private System.Nullable<int> _IDDepartment;
-		
-		private string _deDescription;
-		
-		private string _Order;
-		
-		private System.Nullable<System.DateTime> _ProdStart;
-		
-		private System.Nullable<int> _Priority;
-		
-		private System.Nullable<int> _ProdTimeMin;
-		
-		private string _ProdTime;
-		
-		private System.Nullable<System.DateTime> _ProdEnd;
-		
-		private System.Nullable<int> _ProdEffMin;
-		
-		private System.Nullable<int> _isInLav;
-		
-		private System.Nullable<float> _Quantity;
-		
-		private System.Nullable<System.DateTime> _DeliveryDate;
-		
-		private System.Nullable<int> _Status;
-		
-		private string _mpstDescription;
-		
-		private string _qtNote;
-		
-		private System.Nullable<int> _curMachineId;
-		
-		private string _curMachineDescription;
-		
-		private System.Nullable<int> _curPhaseQuotationDetail;
-		
-		private System.Nullable<int> _curPhaseStatus;
-		
-		private System.Nullable<int> _curPhaseID;
-		
-		private System.Nullable<int> _OkCopiesCount;
-		
-		private System.Nullable<int> _ID_ExternalCompany;
-		
-		private string _ExternalCompanyDescription;
-		
-		public VW_ProductionExtMPS_GroupedByPhase()
-		{
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
-		public System.Nullable<int> ID
-		{
-			get
-			{
-				return this._ID;
-			}
-			set
-			{
-				if ((this._ID != value))
-				{
-					this._ID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDProductionOrder", DbType="Int")]
-		public System.Nullable<int> IDProductionOrder
-		{
-			get
-			{
-				return this._IDProductionOrder;
-			}
-			set
-			{
-				if ((this._IDProductionOrder != value))
-				{
-					this._IDProductionOrder = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="VarChar(10)")]
-		public string Number
-		{
-			get
-			{
-				return this._Number;
-			}
-			set
-			{
-				if ((this._Number != value))
-				{
-					this._Number = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poDescription", DbType="NVarChar(200)")]
-		public string poDescription
-		{
-			get
-			{
-				return this._poDescription;
-			}
-			set
-			{
-				if ((this._poDescription != value))
-				{
-					this._poDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Company", DbType="Int")]
-		public System.Nullable<int> ID_Company
-		{
-			get
-			{
-				return this._ID_Company;
-			}
-			set
-			{
-				if ((this._ID_Company != value))
-				{
-					this._ID_Company = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Customer", DbType="Int")]
-		public System.Nullable<int> ID_Customer
-		{
-			get
-			{
-				return this._ID_Customer;
-			}
-			set
-			{
-				if ((this._ID_Customer != value))
-				{
-					this._ID_Customer = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cuName", DbType="NVarChar(100)")]
-		public string cuName
-		{
-			get
-			{
-				return this._cuName;
-			}
-			set
-			{
-				if ((this._cuName != value))
-				{
-					this._cuName = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poStatus", DbType="Int NOT NULL")]
-		public int poStatus
-		{
-			get
-			{
-				return this._poStatus;
-			}
-			set
-			{
-				if ((this._poStatus != value))
-				{
-					this._poStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stDescription", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string stDescription
-		{
-			get
-			{
-				return this._stDescription;
-			}
-			set
-			{
-				if ((this._stDescription != value))
-				{
-					this._stDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPickingItem", DbType="Int")]
-		public System.Nullable<int> IDPickingItem
-		{
-			get
-			{
-				return this._IDPickingItem;
-			}
-			set
-			{
-				if ((this._IDPickingItem != value))
-				{
-					this._IDPickingItem = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemDescription", DbType="NVarChar(255)")]
-		public string ItemDescription
-		{
-			get
-			{
-				return this._ItemDescription;
-			}
-			set
-			{
-				if ((this._ItemDescription != value))
-				{
-					this._ItemDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDQuotationDetail", DbType="Int")]
-		public System.Nullable<int> IDQuotationDetail
-		{
-			get
-			{
-				return this._IDQuotationDetail;
-			}
-			set
-			{
-				if ((this._IDQuotationDetail != value))
-				{
-					this._IDQuotationDetail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDProductionMachine", DbType="Int")]
-		public System.Nullable<int> IDProductionMachine
-		{
-			get
-			{
-				return this._IDProductionMachine;
-			}
-			set
-			{
-				if ((this._IDProductionMachine != value))
-				{
-					this._IDProductionMachine = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pmDescription", DbType="NVarChar(255)")]
-		public string pmDescription
-		{
-			get
-			{
-				return this._pmDescription;
-			}
-			set
-			{
-				if ((this._pmDescription != value))
-				{
-					this._pmDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumProductionMachine", DbType="Int")]
-		public System.Nullable<int> NumProductionMachine
-		{
-			get
-			{
-				return this._NumProductionMachine;
-			}
-			set
-			{
-				if ((this._NumProductionMachine != value))
-				{
-					this._NumProductionMachine = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDDepartment", DbType="Int")]
-		public System.Nullable<int> IDDepartment
-		{
-			get
-			{
-				return this._IDDepartment;
-			}
-			set
-			{
-				if ((this._IDDepartment != value))
-				{
-					this._IDDepartment = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deDescription", DbType="NVarChar(100)")]
-		public string deDescription
-		{
-			get
-			{
-				return this._deDescription;
-			}
-			set
-			{
-				if ((this._deDescription != value))
-				{
-					this._deDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Order]", Storage="_Order", DbType="NVarChar(50)")]
-		public string Order
-		{
-			get
-			{
-				return this._Order;
-			}
-			set
-			{
-				if ((this._Order != value))
-				{
-					this._Order = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdStart", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ProdStart
-		{
-			get
-			{
-				return this._ProdStart;
-			}
-			set
-			{
-				if ((this._ProdStart != value))
-				{
-					this._ProdStart = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
-		public System.Nullable<int> Priority
-		{
-			get
-			{
-				return this._Priority;
-			}
-			set
-			{
-				if ((this._Priority != value))
-				{
-					this._Priority = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdTimeMin", DbType="Int")]
-		public System.Nullable<int> ProdTimeMin
-		{
-			get
-			{
-				return this._ProdTimeMin;
-			}
-			set
-			{
-				if ((this._ProdTimeMin != value))
-				{
-					this._ProdTimeMin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdTime", DbType="NVarChar(5)")]
-		public string ProdTime
-		{
-			get
-			{
-				return this._ProdTime;
-			}
-			set
-			{
-				if ((this._ProdTime != value))
-				{
-					this._ProdTime = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdEnd", DbType="DateTime")]
-		public System.Nullable<System.DateTime> ProdEnd
-		{
-			get
-			{
-				return this._ProdEnd;
-			}
-			set
-			{
-				if ((this._ProdEnd != value))
-				{
-					this._ProdEnd = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdEffMin", DbType="Int")]
-		public System.Nullable<int> ProdEffMin
-		{
-			get
-			{
-				return this._ProdEffMin;
-			}
-			set
-			{
-				if ((this._ProdEffMin != value))
-				{
-					this._ProdEffMin = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isInLav", DbType="Int")]
-		public System.Nullable<int> isInLav
-		{
-			get
-			{
-				return this._isInLav;
-			}
-			set
-			{
-				if ((this._isInLav != value))
-				{
-					this._isInLav = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Real")]
-		public System.Nullable<float> Quantity
-		{
-			get
-			{
-				return this._Quantity;
-			}
-			set
-			{
-				if ((this._Quantity != value))
-				{
-					this._Quantity = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryDate", DbType="DateTime")]
-		public System.Nullable<System.DateTime> DeliveryDate
-		{
-			get
-			{
-				return this._DeliveryDate;
-			}
-			set
-			{
-				if ((this._DeliveryDate != value))
-				{
-					this._DeliveryDate = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
-		public System.Nullable<int> Status
-		{
-			get
-			{
-				return this._Status;
-			}
-			set
-			{
-				if ((this._Status != value))
-				{
-					this._Status = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mpstDescription", DbType="NChar(30) NOT NULL", CanBeNull=false)]
-		public string mpstDescription
-		{
-			get
-			{
-				return this._mpstDescription;
-			}
-			set
-			{
-				if ((this._mpstDescription != value))
-				{
-					this._mpstDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qtNote", DbType="NVarChar(MAX)")]
-		public string qtNote
-		{
-			get
-			{
-				return this._qtNote;
-			}
-			set
-			{
-				if ((this._qtNote != value))
-				{
-					this._qtNote = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curMachineId", DbType="Int")]
-		public System.Nullable<int> curMachineId
-		{
-			get
-			{
-				return this._curMachineId;
-			}
-			set
-			{
-				if ((this._curMachineId != value))
-				{
-					this._curMachineId = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curMachineDescription", DbType="NVarChar(255)")]
-		public string curMachineDescription
-		{
-			get
-			{
-				return this._curMachineDescription;
-			}
-			set
-			{
-				if ((this._curMachineDescription != value))
-				{
-					this._curMachineDescription = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curPhaseQuotationDetail", DbType="Int")]
-		public System.Nullable<int> curPhaseQuotationDetail
-		{
-			get
-			{
-				return this._curPhaseQuotationDetail;
-			}
-			set
-			{
-				if ((this._curPhaseQuotationDetail != value))
-				{
-					this._curPhaseQuotationDetail = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curPhaseStatus", DbType="Int")]
-		public System.Nullable<int> curPhaseStatus
-		{
-			get
-			{
-				return this._curPhaseStatus;
-			}
-			set
-			{
-				if ((this._curPhaseStatus != value))
-				{
-					this._curPhaseStatus = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curPhaseID", DbType="Int")]
-		public System.Nullable<int> curPhaseID
-		{
-			get
-			{
-				return this._curPhaseID;
-			}
-			set
-			{
-				if ((this._curPhaseID != value))
-				{
-					this._curPhaseID = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OkCopiesCount", DbType="Int")]
-		public System.Nullable<int> OkCopiesCount
-		{
-			get
-			{
-				return this._OkCopiesCount;
-			}
-			set
-			{
-				if ((this._OkCopiesCount != value))
-				{
-					this._OkCopiesCount = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ExternalCompany", DbType="Int")]
-		public System.Nullable<int> ID_ExternalCompany
-		{
-			get
-			{
-				return this._ID_ExternalCompany;
-			}
-			set
-			{
-				if ((this._ID_ExternalCompany != value))
-				{
-					this._ID_ExternalCompany = value;
-				}
-			}
-		}
-		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalCompanyDescription", DbType="VarChar(255)")]
-		public string ExternalCompanyDescription
-		{
-			get
-			{
-				return this._ExternalCompanyDescription;
-			}
-			set
-			{
-				if ((this._ExternalCompanyDescription != value))
-				{
-					this._ExternalCompanyDescription = value;
-				}
-			}
-		}
-	}
-	
 	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_EmployeesWorkingDayHours")]
 	public partial class VW_EmployeesWorkingDayHour
 	{
@@ -41383,6 +40690,735 @@ namespace TempDLLabExtim
 		{
 			this.SendPropertyChanging();
 			entity.TempQuotation = null;
+		}
+	}
+	
+	[global::System.Data.Linq.Mapping.TableAttribute(Name="dbo.VW_ProductionExtMPS_GroupedByPhase")]
+	public partial class VW_ProductionExtMPS_GroupedByPhase
+	{
+		
+		private System.Nullable<int> _ID;
+		
+		private System.Nullable<int> _IDProductionOrder;
+		
+		private string _Number;
+		
+		private string _poDescription;
+		
+		private System.Nullable<int> _ID_Company;
+		
+		private System.Nullable<int> _ID_Customer;
+		
+		private string _cuName;
+		
+		private System.Nullable<int> _ID_Destination;
+		
+		private string _decuName;
+		
+		private int _poStatus;
+		
+		private string _stDescription;
+		
+		private System.Nullable<int> _IDPickingItem;
+		
+		private string _ItemDescription;
+		
+		private System.Nullable<int> _IDQuotationDetail;
+		
+		private System.Nullable<int> _IDProductionMachine;
+		
+		private string _pmDescription;
+		
+		private System.Nullable<int> _NumProductionMachine;
+		
+		private System.Nullable<int> _IDDepartment;
+		
+		private string _deDescription;
+		
+		private string _Order;
+		
+		private System.Nullable<System.DateTime> _ProdStart;
+		
+		private System.Nullable<int> _Priority;
+		
+		private System.Nullable<int> _ProdTimeMin;
+		
+		private string _ProdTime;
+		
+		private System.Nullable<System.DateTime> _ProdEnd;
+		
+		private System.Nullable<int> _ProdEffMin;
+		
+		private System.Nullable<int> _isInLav;
+		
+		private System.Nullable<float> _Quantity;
+		
+		private System.Nullable<System.DateTime> _DeliveryDate;
+		
+		private System.Nullable<int> _Status;
+		
+		private string _mpstDescription;
+		
+		private string _qtNote;
+		
+		private System.Nullable<int> _curMachineId;
+		
+		private string _curMachineDescription;
+		
+		private System.Nullable<int> _curPhaseQuotationDetail;
+		
+		private System.Nullable<int> _curPhaseStatus;
+		
+		private System.Nullable<int> _curPhaseID;
+		
+		private System.Nullable<int> _OkCopiesCount;
+		
+		private System.Nullable<int> _ID_ExternalCompany;
+		
+		private string _ExternalCompanyDescription;
+		
+		public VW_ProductionExtMPS_GroupedByPhase()
+		{
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID", DbType="Int")]
+		public System.Nullable<int> ID
+		{
+			get
+			{
+				return this._ID;
+			}
+			set
+			{
+				if ((this._ID != value))
+				{
+					this._ID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDProductionOrder", DbType="Int")]
+		public System.Nullable<int> IDProductionOrder
+		{
+			get
+			{
+				return this._IDProductionOrder;
+			}
+			set
+			{
+				if ((this._IDProductionOrder != value))
+				{
+					this._IDProductionOrder = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Number", DbType="VarChar(10)")]
+		public string Number
+		{
+			get
+			{
+				return this._Number;
+			}
+			set
+			{
+				if ((this._Number != value))
+				{
+					this._Number = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poDescription", DbType="NVarChar(200)")]
+		public string poDescription
+		{
+			get
+			{
+				return this._poDescription;
+			}
+			set
+			{
+				if ((this._poDescription != value))
+				{
+					this._poDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Company", DbType="Int")]
+		public System.Nullable<int> ID_Company
+		{
+			get
+			{
+				return this._ID_Company;
+			}
+			set
+			{
+				if ((this._ID_Company != value))
+				{
+					this._ID_Company = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Customer", DbType="Int")]
+		public System.Nullable<int> ID_Customer
+		{
+			get
+			{
+				return this._ID_Customer;
+			}
+			set
+			{
+				if ((this._ID_Customer != value))
+				{
+					this._ID_Customer = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_cuName", DbType="NVarChar(100)")]
+		public string cuName
+		{
+			get
+			{
+				return this._cuName;
+			}
+			set
+			{
+				if ((this._cuName != value))
+				{
+					this._cuName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Destination", DbType="Int")]
+		public System.Nullable<int> ID_Destination
+		{
+			get
+			{
+				return this._ID_Destination;
+			}
+			set
+			{
+				if ((this._ID_Destination != value))
+				{
+					this._ID_Destination = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decuName", DbType="NVarChar(100)")]
+		public string decuName
+		{
+			get
+			{
+				return this._decuName;
+			}
+			set
+			{
+				if ((this._decuName != value))
+				{
+					this._decuName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_poStatus", DbType="Int NOT NULL")]
+		public int poStatus
+		{
+			get
+			{
+				return this._poStatus;
+			}
+			set
+			{
+				if ((this._poStatus != value))
+				{
+					this._poStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_stDescription", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string stDescription
+		{
+			get
+			{
+				return this._stDescription;
+			}
+			set
+			{
+				if ((this._stDescription != value))
+				{
+					this._stDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDPickingItem", DbType="Int")]
+		public System.Nullable<int> IDPickingItem
+		{
+			get
+			{
+				return this._IDPickingItem;
+			}
+			set
+			{
+				if ((this._IDPickingItem != value))
+				{
+					this._IDPickingItem = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ItemDescription", DbType="NVarChar(255)")]
+		public string ItemDescription
+		{
+			get
+			{
+				return this._ItemDescription;
+			}
+			set
+			{
+				if ((this._ItemDescription != value))
+				{
+					this._ItemDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDQuotationDetail", DbType="Int")]
+		public System.Nullable<int> IDQuotationDetail
+		{
+			get
+			{
+				return this._IDQuotationDetail;
+			}
+			set
+			{
+				if ((this._IDQuotationDetail != value))
+				{
+					this._IDQuotationDetail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDProductionMachine", DbType="Int")]
+		public System.Nullable<int> IDProductionMachine
+		{
+			get
+			{
+				return this._IDProductionMachine;
+			}
+			set
+			{
+				if ((this._IDProductionMachine != value))
+				{
+					this._IDProductionMachine = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_pmDescription", DbType="NVarChar(255)")]
+		public string pmDescription
+		{
+			get
+			{
+				return this._pmDescription;
+			}
+			set
+			{
+				if ((this._pmDescription != value))
+				{
+					this._pmDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_NumProductionMachine", DbType="Int")]
+		public System.Nullable<int> NumProductionMachine
+		{
+			get
+			{
+				return this._NumProductionMachine;
+			}
+			set
+			{
+				if ((this._NumProductionMachine != value))
+				{
+					this._NumProductionMachine = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_IDDepartment", DbType="Int")]
+		public System.Nullable<int> IDDepartment
+		{
+			get
+			{
+				return this._IDDepartment;
+			}
+			set
+			{
+				if ((this._IDDepartment != value))
+				{
+					this._IDDepartment = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_deDescription", DbType="NVarChar(100)")]
+		public string deDescription
+		{
+			get
+			{
+				return this._deDescription;
+			}
+			set
+			{
+				if ((this._deDescription != value))
+				{
+					this._deDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Name="[Order]", Storage="_Order", DbType="NVarChar(50)")]
+		public string Order
+		{
+			get
+			{
+				return this._Order;
+			}
+			set
+			{
+				if ((this._Order != value))
+				{
+					this._Order = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdStart", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ProdStart
+		{
+			get
+			{
+				return this._ProdStart;
+			}
+			set
+			{
+				if ((this._ProdStart != value))
+				{
+					this._ProdStart = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Priority", DbType="Int")]
+		public System.Nullable<int> Priority
+		{
+			get
+			{
+				return this._Priority;
+			}
+			set
+			{
+				if ((this._Priority != value))
+				{
+					this._Priority = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdTimeMin", DbType="Int")]
+		public System.Nullable<int> ProdTimeMin
+		{
+			get
+			{
+				return this._ProdTimeMin;
+			}
+			set
+			{
+				if ((this._ProdTimeMin != value))
+				{
+					this._ProdTimeMin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdTime", DbType="NVarChar(5)")]
+		public string ProdTime
+		{
+			get
+			{
+				return this._ProdTime;
+			}
+			set
+			{
+				if ((this._ProdTime != value))
+				{
+					this._ProdTime = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdEnd", DbType="DateTime")]
+		public System.Nullable<System.DateTime> ProdEnd
+		{
+			get
+			{
+				return this._ProdEnd;
+			}
+			set
+			{
+				if ((this._ProdEnd != value))
+				{
+					this._ProdEnd = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdEffMin", DbType="Int")]
+		public System.Nullable<int> ProdEffMin
+		{
+			get
+			{
+				return this._ProdEffMin;
+			}
+			set
+			{
+				if ((this._ProdEffMin != value))
+				{
+					this._ProdEffMin = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_isInLav", DbType="Int")]
+		public System.Nullable<int> isInLav
+		{
+			get
+			{
+				return this._isInLav;
+			}
+			set
+			{
+				if ((this._isInLav != value))
+				{
+					this._isInLav = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Quantity", DbType="Real")]
+		public System.Nullable<float> Quantity
+		{
+			get
+			{
+				return this._Quantity;
+			}
+			set
+			{
+				if ((this._Quantity != value))
+				{
+					this._Quantity = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_DeliveryDate", DbType="DateTime")]
+		public System.Nullable<System.DateTime> DeliveryDate
+		{
+			get
+			{
+				return this._DeliveryDate;
+			}
+			set
+			{
+				if ((this._DeliveryDate != value))
+				{
+					this._DeliveryDate = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_Status", DbType="Int")]
+		public System.Nullable<int> Status
+		{
+			get
+			{
+				return this._Status;
+			}
+			set
+			{
+				if ((this._Status != value))
+				{
+					this._Status = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_mpstDescription", DbType="NChar(30) NOT NULL", CanBeNull=false)]
+		public string mpstDescription
+		{
+			get
+			{
+				return this._mpstDescription;
+			}
+			set
+			{
+				if ((this._mpstDescription != value))
+				{
+					this._mpstDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_qtNote", DbType="NVarChar(MAX)")]
+		public string qtNote
+		{
+			get
+			{
+				return this._qtNote;
+			}
+			set
+			{
+				if ((this._qtNote != value))
+				{
+					this._qtNote = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curMachineId", DbType="Int")]
+		public System.Nullable<int> curMachineId
+		{
+			get
+			{
+				return this._curMachineId;
+			}
+			set
+			{
+				if ((this._curMachineId != value))
+				{
+					this._curMachineId = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curMachineDescription", DbType="NVarChar(255)")]
+		public string curMachineDescription
+		{
+			get
+			{
+				return this._curMachineDescription;
+			}
+			set
+			{
+				if ((this._curMachineDescription != value))
+				{
+					this._curMachineDescription = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curPhaseQuotationDetail", DbType="Int")]
+		public System.Nullable<int> curPhaseQuotationDetail
+		{
+			get
+			{
+				return this._curPhaseQuotationDetail;
+			}
+			set
+			{
+				if ((this._curPhaseQuotationDetail != value))
+				{
+					this._curPhaseQuotationDetail = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curPhaseStatus", DbType="Int")]
+		public System.Nullable<int> curPhaseStatus
+		{
+			get
+			{
+				return this._curPhaseStatus;
+			}
+			set
+			{
+				if ((this._curPhaseStatus != value))
+				{
+					this._curPhaseStatus = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_curPhaseID", DbType="Int")]
+		public System.Nullable<int> curPhaseID
+		{
+			get
+			{
+				return this._curPhaseID;
+			}
+			set
+			{
+				if ((this._curPhaseID != value))
+				{
+					this._curPhaseID = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_OkCopiesCount", DbType="Int")]
+		public System.Nullable<int> OkCopiesCount
+		{
+			get
+			{
+				return this._OkCopiesCount;
+			}
+			set
+			{
+				if ((this._OkCopiesCount != value))
+				{
+					this._OkCopiesCount = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_ExternalCompany", DbType="Int")]
+		public System.Nullable<int> ID_ExternalCompany
+		{
+			get
+			{
+				return this._ID_ExternalCompany;
+			}
+			set
+			{
+				if ((this._ID_ExternalCompany != value))
+				{
+					this._ID_ExternalCompany = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ExternalCompanyDescription", DbType="VarChar(255)")]
+		public string ExternalCompanyDescription
+		{
+			get
+			{
+				return this._ExternalCompanyDescription;
+			}
+			set
+			{
+				if ((this._ExternalCompanyDescription != value))
+				{
+					this._ExternalCompanyDescription = value;
+				}
+			}
 		}
 	}
 	

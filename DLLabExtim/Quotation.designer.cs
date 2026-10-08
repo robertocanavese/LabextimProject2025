@@ -32924,6 +32924,10 @@ namespace DLLabExtim
 		
 		private string _cuName;
 		
+		private System.Nullable<int> _ID_Destination;
+		
+		private string _decuName;
+		
 		private int _poStatus;
 		
 		private string _stDescription;
@@ -33098,6 +33102,38 @@ namespace DLLabExtim
 				if ((this._cuName != value))
 				{
 					this._cuName = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ID_Destination", DbType="Int")]
+		public System.Nullable<int> ID_Destination
+		{
+			get
+			{
+				return this._ID_Destination;
+			}
+			set
+			{
+				if ((this._ID_Destination != value))
+				{
+					this._ID_Destination = value;
+				}
+			}
+		}
+		
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_decuName", DbType="NVarChar(100)")]
+		public string decuName
+		{
+			get
+			{
+				return this._decuName;
+			}
+			set
+			{
+				if ((this._decuName != value))
+				{
+					this._decuName = value;
 				}
 			}
 		}

@@ -1521,6 +1521,8 @@
       <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="cuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ID_Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
       <Column Name="poStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
       <Column Name="stDescription" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
       <Column Name="IDPickingItem" Type="System.Int32" DbType="Int" CanBeNull="true" />

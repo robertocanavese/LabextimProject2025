@@ -1169,48 +1169,6 @@
       <Association Name="Customer_CustomerNickname" Member="Customer" ThisKey="Code" OtherKey="Code" Type="Customer" IsForeignKey="true" />
     </Type>
   </Table>
-  <Table Name="dbo.VW_ProductionExtMPS_GroupedByPhase" Member="VW_ProductionExtMPS_GroupedByPhases">
-    <Type Name="VW_ProductionExtMPS_GroupedByPhase">
-      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDProductionOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
-      <Column Name="poDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
-      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="cuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="poStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
-      <Column Name="stDescription" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="IDPickingItem" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ItemDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="IDQuotationDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDProductionMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="pmDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="NumProductionMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="IDDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="deDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
-      <Column Name="[Order]" Member="Order" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
-      <Column Name="ProdStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProdTimeMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProdTime" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
-      <Column Name="ProdEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="ProdEffMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="isInLav" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
-      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
-      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="mpstDescription" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
-      <Column Name="qtNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
-      <Column Name="curMachineId" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="curMachineDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
-      <Column Name="curPhaseQuotationDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="curPhaseStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="curPhaseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="OkCopiesCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ID_ExternalCompany" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ExternalCompanyDescription" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
-    </Type>
-  </Table>
   <Table Name="dbo.VW_EmployeesWorkingDayHours" Member="VW_EmployeesWorkingDayHours">
     <Type Name="VW_EmployeesWorkingDayHour">
       <Column Name="ID" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
@@ -1995,6 +1953,50 @@
       <Association Name="Manager_TempQuotation" Member="Manager" ThisKey="ID_Manager" OtherKey="ID" Type="Manager" IsForeignKey="true" />
       <Association Name="Employee_TempQuotation1" Member="Employee1" ThisKey="ID_Owner" OtherKey="ID" Type="Employee" IsForeignKey="true" />
       <Association Name="Statuse_TempQuotation" Member="Statuse" ThisKey="Status" OtherKey="ID" Type="Statuse" IsForeignKey="true" />
+    </Type>
+  </Table>
+  <Table Name="dbo.VW_ProductionExtMPS_GroupedByPhase" Member="VW_ProductionExtMPS_GroupedByPhases">
+    <Type Name="VW_ProductionExtMPS_GroupedByPhase">
+      <Column Name="ID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDProductionOrder" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Number" Type="System.String" DbType="VarChar(10)" CanBeNull="true" />
+      <Column Name="poDescription" Type="System.String" DbType="NVarChar(200)" CanBeNull="true" />
+      <Column Name="ID_Company" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_Customer" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="cuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="ID_Destination" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="decuName" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="poStatus" Type="System.Int32" DbType="Int NOT NULL" CanBeNull="false" />
+      <Column Name="stDescription" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="IDPickingItem" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ItemDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="IDQuotationDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDProductionMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="pmDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="NumProductionMachine" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="IDDepartment" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="deDescription" Type="System.String" DbType="NVarChar(100)" CanBeNull="true" />
+      <Column Name="[Order]" Member="Order" Type="System.String" DbType="NVarChar(50)" CanBeNull="true" />
+      <Column Name="ProdStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProdTimeMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ProdTime" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ProdEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="ProdEffMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="isInLav" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="Quantity" Type="System.Single" DbType="Real" CanBeNull="true" />
+      <Column Name="DeliveryDate" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
+      <Column Name="Status" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="mpstDescription" Type="System.String" DbType="NChar(30) NOT NULL" CanBeNull="false" />
+      <Column Name="qtNote" Type="System.String" DbType="NVarChar(MAX)" CanBeNull="true" />
+      <Column Name="curMachineId" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="curMachineDescription" Type="System.String" DbType="NVarChar(255)" CanBeNull="true" />
+      <Column Name="curPhaseQuotationDetail" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="curPhaseStatus" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="curPhaseID" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="OkCopiesCount" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ID_ExternalCompany" Type="System.Int32" DbType="Int" CanBeNull="true" />
+      <Column Name="ExternalCompanyDescription" Type="System.String" DbType="VarChar(255)" CanBeNull="true" />
     </Type>
   </Table>
   <Function Name="dbo.prc_LAB_MGet_LAB_CalculatedResultsByQuotationID" Method="prc_LAB_MGet_LAB_CalculatedResultsByQuotationID">
