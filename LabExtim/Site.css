@@ -710,4 +710,9 @@ table.verticalLines td {
     /*padding: 5px 5px 5px 5px;*/
     background-color: whitesmoke;
 }
-
+.link-disabilitato {
+    color: #999;
+    cursor: not-allowed;
+    pointer-events: none;
+    text-decoration: none;
+}

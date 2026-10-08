@@ -731,7 +731,7 @@
                                             <%--<hr style="border: 1px dotted #f7f4f4;">--%>
                                             <%--<br />--%>
                                             <asp:HyperLink ID="hypEdit" runat="server" ToolTip="Gestione ordine di produzione">
-                                                <asp:Image runat="server" ImageUrl="~/Images/pencil.png" style="height:40px" />
+                                                <asp:Image runat="server" ImageUrl="~/Images/pencil.png" style="height:30px" />
                                             </asp:HyperLink>
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
@@ -739,8 +739,8 @@
                                      <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:HyperLink ID="hypDetails" runat="server" ToolTip="Dettaglio statistiche" >
-                                                <asp:Image runat="server" ImageUrl="~/Images/money_euro.png"  style="height:40px" />
-                                            </asp:HyperLink> />
+                                                <asp:Image runat="server" ImageUrl="~/Images/money_euro.png"  style="height:30px" />
+                                            </asp:HyperLink>
                                         </ItemTemplate>
                                          <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>

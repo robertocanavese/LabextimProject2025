@@ -404,6 +404,11 @@ namespace LabExtim
                     "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
                     ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder + "' , " + ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder +
                     " ) ");
+                if (GetCurrentEmployee().Role > 2)
+                {
+                    _hypDetails.NavigateUrl = string.Empty;
+                    _hypDetails.CssClass = "link-disabilitato";
+                }
 
                 //var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[8].FindControl("CloseCurPhaseLinkButton");
                 var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[5+2].FindControl("CloseCurPhaseLinkButton");
