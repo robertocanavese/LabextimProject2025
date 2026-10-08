@@ -148,6 +148,11 @@ namespace LabExtim
                 ldsProductionMPS.WhereParameters.Add("ID_Customer", DbType.Int32, senMain.ValueHidField2Text);
                 _filter += " AND ID_Customer != @ID_Customer";
             }
+            if (senMain.ValueHidField3Text != string.Empty)
+            {
+                ldsProductionMPS.WhereParameters.Add("ID_Destination", DbType.Int32, senMain.ValueHidField3Text);
+                _filter += " AND ID_Destination == @ID_Destination";
+            }
 
             //if (senMain.TextDateFromText != string.Empty)
             //{
