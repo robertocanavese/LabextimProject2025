@@ -653,8 +653,8 @@
                                 </td>
                                 <td>
                                     <asp:RadioButtonList ID="rdlGreenOnly" runat="server" RepeatDirection="Horizontal" Font-Size="10" Font-Bold="true" AutoPostBack="true" OnSelectedIndexChanged="rdlGreenOnly_SelectedIndexChanged">
-                                        <asp:ListItem Text="ODP PRESENTI IN REPARTO ED IN ARRIVO" Value="T" Selected="True"></asp:ListItem>
-                                        <asp:ListItem Text="SOLO ODP PRESENTI IN REPARTO" Value="P"></asp:ListItem>
+                                        <asp:ListItem Text="ODP PRESENTI IN REPARTO ED IN ARRIVO" Value="T" ></asp:ListItem>
+                                        <asp:ListItem Text="SOLO ODP PRESENTI IN REPARTO" Value="P" Selected="True"></asp:ListItem>
                                     </asp:RadioButtonList>
                                 </td>
                                 <td>
@@ -783,6 +783,15 @@
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
 
+                                    <asp:TemplateField>
+                                        <HeaderTemplate>
+                                            DESTINAZIONE
+                                        </HeaderTemplate>
+                                        <ItemTemplate>
+                                            <asp:Label runat="server" Text='<%# Eval("decuName") %>' Font-Bold="true" />
+                                        </ItemTemplate>
+                                        <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
 
                                     <asp:TemplateField>
                                         <HeaderTemplate>

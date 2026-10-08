@@ -240,7 +240,7 @@ namespace LabExtim
 
         public void senMain_EmptyClick(object sender, EventArgs e)
         {
-            rdlGreenOnly.SelectedValue = "T";
+            rdlGreenOnly.SelectedValue = "P";
             grdProductionMPS.PageIndex = 0;
             dlButtonsSelectedIndex = null;
             //rdlGreenOnlySelectedValue = "T";
