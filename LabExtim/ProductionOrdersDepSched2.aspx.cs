@@ -399,31 +399,37 @@ namespace LabExtim
                     "javascript:OpenBigItem('ProductionOrderPopup.aspx?" + POIdKey + "=" +
                     ((VW_ProductionExtMPS_GroupedByPhase)e.Row.DataItem).IDProductionOrder + "')");
 
+                var _hypDetails = (HyperLink)e.Row.Cells[1].FindControl("hypDetails");
+                _hypDetails.Attributes.Add("onclick",
+                    "javascript:OpenBigItem2('ProductionOrderQuotationStats.aspx?" + POIdKey + "=" +
+                    ((ProductionOrder)e.Row.DataItem).ID + "' , " + ((ProductionOrder)e.Row.DataItem).ID +
+                    " ) ");
+
                 //var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[8].FindControl("CloseCurPhaseLinkButton");
-                var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[5].FindControl("CloseCurPhaseLinkButton");
+                var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[5+2].FindControl("CloseCurPhaseLinkButton");
                 //_CloseCurPhaseLinkButton.Visible = ((item.curPhaseStatus == 11 || item.curPhaseStatus == 15) && item.poStatus == 1);
                 _CloseCurPhaseLinkButton.Visible = (((item.Status == 11 || item.Status == 15) && item.poStatus == 1 && item.curPhaseQuotationDetail != -1) || (item.poStatus == 3 && item.curPhaseQuotationDetail == -1));
 
                 //var _CloseCurPhaseAndMaterialLinkButton = (LinkButton)e.Row.Cells[9].FindControl("CloseCurPhaseAndMaterialLinkButton");
-                var _CloseCurPhaseAndMaterialLinkButton = (LinkButton)e.Row.Cells[5].FindControl("CloseCurPhaseAndMaterialLinkButton");
+                var _CloseCurPhaseAndMaterialLinkButton = (LinkButton)e.Row.Cells[5+2].FindControl("CloseCurPhaseAndMaterialLinkButton");
                 _CloseCurPhaseAndMaterialLinkButton.Visible = ((item.Status == 11 || item.Status == 15) && item.poStatus == 1 && item.curPhaseQuotationDetail != -1);
 
-                var _imgSemaphore = (Image)e.Row.Cells[4].FindControl("imgSemaphore");
+                var _imgSemaphore = (Image)e.Row.Cells[4+2].FindControl("imgSemaphore");
 
-                var imgPercExe = (Image)e.Row.Cells[4].FindControl("imgPercExe");
+                var imgPercExe = (Image)e.Row.Cells[4 + 2].FindControl("imgPercExe");
                 imgPercExe.Visible = (item.SemaphoreImage == "GreenCircle" && item.ProdEffMin.HasValue);
                 if (CurOrderOnBOBST1 != null)
                     imgPercExe.Visible = imgPercExe.Visible || (item.IDProductionOrder.ToString() == CurOrderOnBOBST1.Var.FirstOrDefault(d => d.Prefix == "Bobst_Machine" && d.Suffix == "OperationRef").Value);
 
 
-                var lblPercExe = (Label)e.Row.Cells[4].FindControl("lblPercExe");
+                var lblPercExe = (Label)e.Row.Cells[4 + 2].FindControl("lblPercExe");
                 lblPercExe.Visible = (item.SemaphoreImage == "GreenCircle" && item.ProdEffMin.HasValue);
 
 
-                var ibtStart = (Image)e.Row.Cells[6].FindControl("ibtStart");
+                var ibtStart = (Image)e.Row.Cells[6 + 2].FindControl("ibtStart");
                 ibtStart.Visible = ((!new int[] { 99, 100 }.Contains(item.curMachineId.Value)) && new int[] { 1 }.Contains(item.poStatus)) && !item.ProdEffMin.HasValue && item.SemaphoreImage == "GreenCircle";
 
-                var ibtPause = (Image)e.Row.Cells[6].FindControl("ibtPause");
+                var ibtPause = (Image)e.Row.Cells[6 + 2].FindControl("ibtPause");
                 ibtPause.Visible = ((!new int[] { 99, 100 }.Contains(item.curMachineId.Value)) && new int[] { 1 }.Contains(item.poStatus)) && item.ProdEffMin.HasValue && item.SemaphoreImage == "GreenCircle";
                 if (ibtPause.Visible)
                     if (item.isInLav == 1)
@@ -441,11 +447,11 @@ namespace LabExtim
                     }
 
 
-                var ibtEnd = (Image)e.Row.Cells[6].FindControl("ibtEnd");
+                var ibtEnd = (Image)e.Row.Cells[6 + 2].FindControl("ibtEnd");
                 ibtEnd.Visible = (new int[] { 1 }.Contains(item.poStatus)) && item.ProdEffMin.HasValue && item.SemaphoreImage == "GreenCircle";
                 //ibtEnd.Visible = (new int[] { 1 }.Contains(item.poStatus));
 
-                var ibtForceEnd = (Image)e.Row.Cells[6].FindControl("ibtForceEnd");
+                var ibtForceEnd = (Image)e.Row.Cells[6 + 2].FindControl("ibtForceEnd");
                 //ibtForceEnd.Visible = (new int[] { 1 }.Contains(item.poStatus)) && !item.ProdEffMin.HasValue;
 
                 ibtForceEnd.Visible = (
@@ -457,11 +463,11 @@ namespace LabExtim
 
 
                 //var _hidIdProductionOrder = (HiddenField)e.Row.Cells[9].FindControl("hidIdProductionOrder");
-                var _hidIdProductionOrder = (HiddenField)e.Row.Cells[5].FindControl("hidIdProductionOrder");
+                var _hidIdProductionOrder = (HiddenField)e.Row.Cells[5 + 2].FindControl("hidIdProductionOrder");
                 _hidIdProductionOrder.Value = item.IDProductionOrder.ToString();
 
                 //var _hidQuotationDetail = (HiddenField)e.Row.Cells[9].FindControl("hidQuotationDetail");
-                var _hidQuotationDetail = (HiddenField)e.Row.Cells[5].FindControl("hidQuotationDetail");
+                var _hidQuotationDetail = (HiddenField)e.Row.Cells[5 + 2].FindControl("hidQuotationDetail");
                 _hidQuotationDetail.Value = item.IDQuotationDetail.ToString();
 
                 //if (CurOrderOnBOBST1 != null)

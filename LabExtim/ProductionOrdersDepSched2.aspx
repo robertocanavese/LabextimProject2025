@@ -736,6 +736,14 @@
                                         </ItemTemplate>
                                         <ItemStyle HorizontalAlign="Center" />
                                     </asp:TemplateField>
+                                     <asp:TemplateField>
+                                        <ItemTemplate>
+                                            <asp:HyperLink ID="hypDetails" runat="server" ToolTip="Dettaglio statistiche" >
+                                                <asp:Image runat="server" ImageUrl="~/Images/money_euro.png"  style="height:40px" />
+                                            </asp:HyperLink> />
+                                        </ItemTemplate>
+                                         <ItemStyle HorizontalAlign="Center" />
+                                    </asp:TemplateField>
 
                                     <%--<asp:BoundField HeaderText="Cliente" DataField="cuName" ItemStyle-Font-Bold="true" />--%>
 
