@@ -17,12 +17,13 @@
 
             function EndRequestHandler() {
 
-                SetAutoComplete();
+                SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField2", "#ctl00_ContentPlaceHolder1_senMain_hidTextField2")
+                SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField4", "#ctl00_ContentPlaceHolder1_senMain_hidTextField4")
             }
 
-            function SetAutoComplete() {
+            function SetAutoComplete(textBoxName, hiddenFieldName) {
 
-                $("#ctl00_ContentPlaceHolder1_senMain_txtTextField2").autocomplete({
+                $(textBoxName).autocomplete({
                     source: function (request, response) {
                         $.ajax({
                             url: document.location.href.split("?")[0].split("#")[0] + '/GetCustomers',
@@ -53,8 +54,8 @@
                     minLength: 3,
                     select: function (event, ui) {
                         //log(ui.item ? ui.item.label : this.label);
-                        $("#ctl00_ContentPlaceHolder1_senMain_txtTextField2").val(ui.item.label);
-                        $("#ctl00_ContentPlaceHolder1_senMain_hidTextField2").val(ui.item.value);
+                        $(textBoxName).val(ui.item.label);
+                        $(hiddenFieldName).val(ui.item.value);
                         return false;
                     },
                     open: function () {
@@ -67,7 +68,9 @@
 
             }
 
-            SetAutoComplete();
+            SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField2", "#ctl00_ContentPlaceHolder1_senMain_hidTextField2")
+            SetAutoComplete("#ctl00_ContentPlaceHolder1_senMain_txtTextField4", "#ctl00_ContentPlaceHolder1_senMain_hidTextField4")
+
             Sys.WebForms.PageRequestManager.getInstance().add_endRequest(EndRequestHandler);
 
         });

@@ -107,6 +107,11 @@ namespace LabExtim
                 ldsProductionOrders.WhereParameters.Add("ID_Customer", DbType.Int32, senMain.ValueHidField2Text);
                 _filter += " AND ID_Customer = @ID_Customer";
             }
+            if (senMain.ValueHidField4Text != string.Empty)
+            {
+                ldsProductionOrders.WhereParameters.Add("ID_Destination", DbType.Int32, senMain.ValueHidField4Text);
+                _filter += " AND ID_Destination = @ID_Destination";
+            }
             if (_filter != "TRUE ")
                 ldsProductionOrders.Where = _filter;
             else
@@ -148,6 +153,7 @@ namespace LabExtim
             senMain.LblTextField1Text = "Titolo OdP contiene...";
             senMain.LblTextField2Text = "Cliente";
             senMain.LblTextField3Text = "Descrizione Odp contiene...";
+            senMain.LblTextField4Text = "Destinazione";
             senMain.LblDateFromText = "Data lancio da";
             senMain.LblDateToText = "Data lancio a";
 
