@@ -225,14 +225,14 @@ namespace LabExtim
 
         public void senMain_SearchClick(object sender, EventArgs e)
         {
-            if (senMain.DropDownList2.SelectedValue == "10" || senMain.DropDownList2.SelectedValue == "15")
-            {
-                rdlGreenOnly.SelectedValue = "P";
-            }
-            else
-            {
-                rdlGreenOnly.SelectedValue = "T";
-            }
+            //if (senMain.DropDownList2.SelectedValue == "10" || senMain.DropDownList2.SelectedValue == "15")
+            //{
+            //    rdlGreenOnly.SelectedValue = "P";
+            //}
+            //else
+            //{
+            //    rdlGreenOnly.SelectedValue = "T";
+            //}
             grdProductionMPS.PageIndex = 0;
             SetFilter();
 
