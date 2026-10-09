@@ -322,6 +322,7 @@ namespace LabExtim
 
             }
 
+            senMain.DdlOrderBy.Items.Add(new ListItem("Luce semaforo + Data consegna", "Luce semaforo + Data consegna"));
             senMain.DdlOrderBy.Items.Add(new ListItem("Data consegna", "DeliveryDate"));
             senMain.DdlOrderBy.Items.Add(new ListItem("Sequenza produttiva", "StartDate"));
             senMain.DdlOrderBy.Items.Add(new ListItem("Macchina", "ProductionMachine"));
@@ -554,6 +555,11 @@ namespace LabExtim
                     ldsProductionMPS.OrderByParameters.Clear();
                     ldsProductionMPS.AutoGenerateOrderByClause = false;
                     e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToList().OrderBy(qt => qt.SemaphoreCode).ThenBy(qt => qt.ID);
+                    break;
+                case ("Luce semaforo + Data consegna"):
+                    ldsProductionMPS.OrderByParameters.Clear();
+                    ldsProductionMPS.AutoGenerateOrderByClause = false;
+                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToList().OrderBy(qt => qt.SemaphoreOrder).ThenBy(qt => qt.DeliveryDate);
                     break;
                 default:
 

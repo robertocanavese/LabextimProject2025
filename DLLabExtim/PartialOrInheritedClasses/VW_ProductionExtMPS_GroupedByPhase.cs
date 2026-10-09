@@ -57,6 +57,20 @@ namespace DLLabExtim
             }
         }
 
+        public int SemaphoreOrder
+        {
+            get
+            {
+                if (this.poStatus == 2)
+                    return 3;
+                if (this.poStatus == 9)
+                    return 2;
+                if (this.IDProductionMachine == this.curMachineId)
+                    return 0;
+                return 1;
+            }
+        }
+
         public string PercLavExe
         {
             get
