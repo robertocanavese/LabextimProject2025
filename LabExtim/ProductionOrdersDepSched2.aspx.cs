@@ -554,12 +554,12 @@ namespace LabExtim
                 case ("Luce semaforo"):
                     ldsProductionMPS.OrderByParameters.Clear();
                     ldsProductionMPS.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToList().OrderBy(qt => qt.SemaphoreCode).ThenBy(qt => qt.ID);
+                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToArray().OrderBy(qt => qt.SemaphoreCode).ThenBy(qt => qt.ID);
                     break;
                 case ("Luce semaforo + Data consegna"):
                     ldsProductionMPS.OrderByParameters.Clear();
                     ldsProductionMPS.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToList().OrderBy(qt => qt.SemaphoreOrder).ThenBy(qt => qt.DeliveryDate);
+                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToArray().OrderBy(qt => qt.SemaphoreOrder).ThenBy(qt => qt.DeliveryDate);
                     break;
                 default:
 
