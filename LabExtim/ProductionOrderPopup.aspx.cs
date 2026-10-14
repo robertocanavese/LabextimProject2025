@@ -737,11 +737,11 @@ namespace LabExtim
                 ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.CustomerIsMandatory);
                 e.Cancel = true;
             }
-            if (e.NewValues["ID_Destination"] == null)
-            {
-                ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.DestinationIsMandatory);
-                e.Cancel = true;
-            }
+            //if (e.NewValues["ID_Destination"] == null)
+            //{
+            //    ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.DestinationIsMandatory);
+            //    e.Cancel = true;
+            //}
             if (e.NewValues["Quantity"] == null)
             {
                 ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.QuantityIsMandatory);
@@ -767,11 +767,11 @@ namespace LabExtim
                 ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.CustomerIsMandatory);
                 e.Cancel = true;
             }
-            if (e.Values["ID_Destination"] == null)
-            {
-                ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.DestinationIsMandatory);
-                e.Cancel = true;
-            }
+            //if (e.Values["ID_Destination"] == null)
+            //{
+            //    ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.DestinationIsMandatory);
+            //    e.Cancel = true;
+            //}
             if (e.Values["Quantity"] == null)
             {
                 ToggleSuccessMessage(false, lblSuccess, LabExtimErrorType.QuantityIsMandatory);

@@ -39,14 +39,3 @@ E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.cspro
 E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.exe
 E:\VS9\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.pdb
 E:\VS9\LabextimProject\LabextimProject\DailyManager\bin\Debug\snap7.dll
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\snap7.dll
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.exe.config
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.exe
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DailyManager.pdb
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\CMLabExtim.dll
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DLLabExtim.dll
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\CMLabExtim.pdb
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\bin\Debug\DLLabExtim.pdb
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.csprojResolveAssemblyReference.cache
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.exe
-C:\Users\rober\Documents\Visual Studio 2013\Projects\LabextimProject\LabextimProject\DailyManager\obj\Debug\DailyManager.pdb
