@@ -41,7 +41,7 @@ namespace LabExtim
         {
             get
             {
-                if (ViewState["EditMode"] == null )
+                if (ViewState["EditMode"] == null)
                 {
                     ViewState["EditMode"] = false;
                 }
@@ -316,10 +316,14 @@ namespace LabExtim
 
                     if (PODestinationIdParameter == 0)
                     {
+                        int? found = new QuotationDataContext().Quotations.SingleOrDefault(q => q.ID == POQuotationIdParameter).DestinationCode;
 
-                        ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue =
-                            new QuotationDataContext().Quotations.SingleOrDefault(q => q.ID == POQuotationIdParameter)
-                                .DestinationCode.Value.ToString();
+                        if (found != null)
+                        {
+                            ((DropDownList)_dyc.Controls[0].Controls[0]).SelectedValue =
+                                new QuotationDataContext().Quotations.SingleOrDefault(q => q.ID == POQuotationIdParameter)
+                                    .DestinationCode.Value.ToString();
+                        }
                     }
                     else
                     {
@@ -814,7 +818,7 @@ namespace LabExtim
                 e.Row.FindControl("dycRawMaterial").Visible = (_bound.FreeTypeCode == null);
                 if (e.Row.FindControl("dycRawMaterial").Controls[0].Controls[0] is DropDownList)
                     ((DropDownList)e.Row.FindControl("dycRawMaterial").Controls[0].Controls[0]).Visible =
-                        (_bound.FreeTypeCode == null && _bound.RFlag == null); 
+                        (_bound.FreeTypeCode == null && _bound.RFlag == null);
 
                 e.Row.FindControl("dycUMRawMaterial").Visible = (_bound.FreeTypeCode == null);
                 if (e.Row.FindControl("dycUMRawMaterial").Controls[0].Controls[0] is DropDownList)
@@ -829,7 +833,7 @@ namespace LabExtim
                 e.Row.FindControl("dycSupplier").Visible = (_bound.FreeTypeCode == null);
                 if (e.Row.FindControl("dycSupplier").Controls[0].Controls[0] is DropDownList)
                     ((DropDownList)e.Row.FindControl("dycSupplier").Controls[0].Controls[0]).Visible =
-                        (_bound.FreeTypeCode == null && _bound.RFlag == null); 
+                        (_bound.FreeTypeCode == null && _bound.RFlag == null);
 
                 e.Row.FindControl("dycRawMaterialSup").Visible = (_bound.FreeTypeCode == null);
                 if (e.Row.FindControl("dycRawMaterialSup").Controls[0].Controls[0] is DropDownList)
@@ -1385,12 +1389,12 @@ namespace LabExtim
                     {
                         //if (curItem.ID_Company == CurrentCompanyId)
                         //{
-                            //var _machineItems = _qc.ProductionMachines.Where(d => (CurrentCompanyId == -1 || d.ID_Company == CurrentCompanyId)).OrderBy(d => d.Description).Select(s => new ListItem { Text = s.Description, Value = s.ID.ToString() }).ToArray();
-                            // merge aziendale
-                            var _machineItems = _qc.ProductionMachines.OrderBy(d => d.Description).Select(s => new ListItem { Text = s.Description, Value = s.ID.ToString() }).ToArray();
-                            ddlProductionMachines.Items.AddRange(_machineItems);
-                            ddlProductionMachines.Items.FindByValue(curItem.IDProductionMachine.ToString()).Selected = true;
-                            ddlProductionMachines.Visible = EditMode;
+                        //var _machineItems = _qc.ProductionMachines.Where(d => (CurrentCompanyId == -1 || d.ID_Company == CurrentCompanyId)).OrderBy(d => d.Description).Select(s => new ListItem { Text = s.Description, Value = s.ID.ToString() }).ToArray();
+                        // merge aziendale
+                        var _machineItems = _qc.ProductionMachines.OrderBy(d => d.Description).Select(s => new ListItem { Text = s.Description, Value = s.ID.ToString() }).ToArray();
+                        ddlProductionMachines.Items.AddRange(_machineItems);
+                        ddlProductionMachines.Items.FindByValue(curItem.IDProductionMachine.ToString()).Selected = true;
+                        ddlProductionMachines.Visible = EditMode;
                         //}
                         //else
                         //{
