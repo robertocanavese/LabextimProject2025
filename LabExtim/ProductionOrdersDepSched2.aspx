@@ -693,11 +693,17 @@
                     </tr>--%>
                     <tr>
                         <td>
-                            <asp:LinqDataSource ID="ldsProductionMPS" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
+                           <%-- <asp:LinqDataSource ID="ldsProductionMPS" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
                                 TableName="VW_ProductionExtMPS_GroupedByPhases" OnSelected="ldsProductionMPS_Selected" EnableUpdate="True"
                                 EnableDelete="True" EnableInsert="True" OnSelecting="ldsProductionMPS_Selecting"
                                 AutoGenerateOrderByClause="true" EnableViewState="false">
+                            </asp:LinqDataSource>--%>
+
+                            <asp:LinqDataSource ID="ldsProductionMPS" runat="server" ContextTypeName="DLLabExtim.QuotationDataContext"
+                                TableName="VW_ProductionExtMPS_GroupedByPhases" OnSelected="ldsProductionMPS_Selected"  OnSelecting="ldsProductionMPS_Selecting"
+                                AutoGenerateOrderByClause="false" AutoGenerateWhereClause="false" >
                             </asp:LinqDataSource>
+
                             <asp:GridView ID="grdProductionMPS" runat="server" AutoGenerateColumns="False"
                                 PagerSettings-Position="Top" AllowPaging="True" DataSourceID="ldsProductionMPS"
                                 DataKeyNames="ID" CssClass="gridview" OnPageIndexChanging="grdProductionMPS_PageIndexChanging"

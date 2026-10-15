@@ -65,7 +65,7 @@ namespace LabExtim
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            DynamicDataManager1.RegisterControl(grdProductionMPS);
+            //DynamicDataManager1.RegisterControl(grdProductionMPS);
             senMain.SearchClick += senMain_SearchClick;
             senMain.EmptyClick += senMain_EmptyClick;
             senMain.DropDownList1.SelectedIndexChanged += DropDownList_SelectedIndexChanged;
@@ -251,7 +251,6 @@ namespace LabExtim
         {
             if (!IsPostBack)
             {
-                //FillControls();
                 PopulateSearchEngine();
             }
             SetFilter();
@@ -322,13 +321,13 @@ namespace LabExtim
 
             }
 
-            senMain.DdlOrderBy.Items.Add(new ListItem("Luce semaforo + Data consegna", "Luce semaforo + Data consegna"));
+            
             senMain.DdlOrderBy.Items.Add(new ListItem("Data consegna", "DeliveryDate"));
+            senMain.DdlOrderBy.Items.Add(new ListItem("Luce semaforo + Data consegna", "Luce semaforo + Data consegna"));
+            senMain.DdlOrderBy.Items.Add(new ListItem("Luce semaforo", "Luce semaforo"));
             senMain.DdlOrderBy.Items.Add(new ListItem("Sequenza produttiva", "StartDate"));
             senMain.DdlOrderBy.Items.Add(new ListItem("Macchina", "ProductionMachine"));
             senMain.DdlOrderBy.Items.Add(new ListItem("Attualmente in", "AttualmenteIn"));
-            senMain.DdlOrderBy.Items.Add(new ListItem("Luce semaforo", "Luce semaforo"));
-
 
         }
 
@@ -412,15 +411,15 @@ namespace LabExtim
                 //}
 
                 //var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[8].FindControl("CloseCurPhaseLinkButton");
-                var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[5+2].FindControl("CloseCurPhaseLinkButton");
+                var _CloseCurPhaseLinkButton = (LinkButton)e.Row.Cells[5 + 2].FindControl("CloseCurPhaseLinkButton");
                 //_CloseCurPhaseLinkButton.Visible = ((item.curPhaseStatus == 11 || item.curPhaseStatus == 15) && item.poStatus == 1);
                 _CloseCurPhaseLinkButton.Visible = (((item.Status == 11 || item.Status == 15) && item.poStatus == 1 && item.curPhaseQuotationDetail != -1) || (item.poStatus == 3 && item.curPhaseQuotationDetail == -1));
 
                 //var _CloseCurPhaseAndMaterialLinkButton = (LinkButton)e.Row.Cells[9].FindControl("CloseCurPhaseAndMaterialLinkButton");
-                var _CloseCurPhaseAndMaterialLinkButton = (LinkButton)e.Row.Cells[5+2].FindControl("CloseCurPhaseAndMaterialLinkButton");
+                var _CloseCurPhaseAndMaterialLinkButton = (LinkButton)e.Row.Cells[5 + 2].FindControl("CloseCurPhaseAndMaterialLinkButton");
                 _CloseCurPhaseAndMaterialLinkButton.Visible = ((item.Status == 11 || item.Status == 15) && item.poStatus == 1 && item.curPhaseQuotationDetail != -1);
 
-                var _imgSemaphore = (Image)e.Row.Cells[4+2].FindControl("imgSemaphore");
+                var _imgSemaphore = (Image)e.Row.Cells[4 + 2].FindControl("imgSemaphore");
 
                 var imgPercExe = (Image)e.Row.Cells[4 + 2].FindControl("imgPercExe");
                 imgPercExe.Visible = (item.SemaphoreImage == "GreenCircle" && item.ProdEffMin.HasValue);
@@ -554,12 +553,14 @@ namespace LabExtim
                 case ("Luce semaforo"):
                     ldsProductionMPS.OrderByParameters.Clear();
                     ldsProductionMPS.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToArray().OrderBy(qt => qt.SemaphoreCode).ThenBy(qt => qt.ID);
+                    List<VW_ProductionExtMPS_GroupedByPhase> temp0 = _qc.VW_ProductionExtMPS_GroupedByPhases.ToList();
+                    e.Result = temp0.OrderBy(qt => qt.SemaphoreCode).ThenBy(qt => qt.ID);
                     break;
                 case ("Luce semaforo + Data consegna"):
                     ldsProductionMPS.OrderByParameters.Clear();
                     ldsProductionMPS.AutoGenerateOrderByClause = false;
-                    e.Result = _qc.VW_ProductionExtMPS_GroupedByPhases.ToArray().OrderBy(qt => qt.SemaphoreOrder).ThenBy(qt => qt.DeliveryDate);
+                    List<VW_ProductionExtMPS_GroupedByPhase> temp1 = _qc.VW_ProductionExtMPS_GroupedByPhases.ToList();
+                    e.Result = temp1.OrderBy(qt => qt.SemaphoreOrder).ThenBy(qt => qt.DeliveryDate);
                     break;
                 default:
 
