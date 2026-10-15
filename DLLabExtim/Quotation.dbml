@@ -1537,7 +1537,7 @@
       <Column Name="ProdStart" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="Priority" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="ProdTimeMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
-      <Column Name="ProdTime" Type="System.String" DbType="NVarChar(5)" CanBeNull="true" />
+      <Column Name="ProdTime" Type="System.String" DbType="NVarChar(13)" CanBeNull="true" />
       <Column Name="ProdEnd" Type="System.DateTime" DbType="DateTime" CanBeNull="true" />
       <Column Name="ProdEffMin" Type="System.Int32" DbType="Int" CanBeNull="true" />
       <Column Name="isInLav" Type="System.Int32" DbType="Int" CanBeNull="true" />

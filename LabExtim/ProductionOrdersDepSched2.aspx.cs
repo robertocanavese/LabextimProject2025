@@ -65,7 +65,7 @@ namespace LabExtim
 
         protected void Page_Init(object sender, EventArgs e)
         {
-            //DynamicDataManager1.RegisterControl(grdProductionMPS);
+            DynamicDataManager1.RegisterControl(grdProductionMPS);
             senMain.SearchClick += senMain_SearchClick;
             senMain.EmptyClick += senMain_EmptyClick;
             senMain.DropDownList1.SelectedIndexChanged += DropDownList_SelectedIndexChanged;

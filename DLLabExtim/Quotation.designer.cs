@@ -33362,7 +33362,7 @@ namespace DLLabExtim
 			}
 		}
 		
-		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdTime", DbType="NVarChar(5)")]
+		[global::System.Data.Linq.Mapping.ColumnAttribute(Storage="_ProdTime", DbType="NVarChar(13)")]
 		public string ProdTime
 		{
 			get
