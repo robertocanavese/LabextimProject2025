@@ -214,7 +214,7 @@ namespace LabExtim
             {
                 ldsProductionMPS.WhereParameters.Remove(ldsProductionMPS.WhereParameters["IDProductionMachine"]);
                 ldsProductionMPS.Where.Replace(" AND IDProductionMachine == @IDProductionMachine", "");
-                if (dlButtonsSelectedIndex != null)
+                if (dlButtonsSelectedIndex != "0")
                 {
                     ldsProductionMPS.WhereParameters.Add("IDProductionMachine", DbType.Int32, dlButtonsSelectedIndex);
                     ldsProductionMPS.Where += " AND IDProductionMachine == @IDProductionMachine";
@@ -945,7 +945,7 @@ namespace LabExtim
                 return JSONString;
 
             }
-            catch
+            catch (Exception ex)
             {
                 return string.Format("Errore in prioritizzazione ed avvio della fase Odp: {0}- Qd: {1}, ritentare", poId, qdId);
             }
