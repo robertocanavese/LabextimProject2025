@@ -65,7 +65,7 @@
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net.IPNetwork">
-      <HintPath>..\..\..\..\VS15\ipnetwork-master\src\System.Net.IPNetwork\bin\Release\net40\System.Net.IPNetwork.dll</HintPath>
+      <HintPath>..\lib\IPNetwork\System.Net.IPNetwork.dll</HintPath>
     </Reference>
     <Reference Include="System.Web" />
     <Reference Include="System.Web.ApplicationServices" />

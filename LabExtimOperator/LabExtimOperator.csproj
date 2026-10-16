@@ -158,99 +158,131 @@
     <Reference Include="System.Web.Services" />
     <Reference Include="System.EnterpriseServices" />
     <Reference Include="DevExpress.Data.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Data.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxHtmlEditor.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxHtmlEditor.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxSpellChecker.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxSpellChecker.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxTreeList.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxTreeList.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxThemes.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxThemes.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxPivotGrid.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxPivotGrid.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Utils.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Utils.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Office.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Office.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.RichEdit.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.RichEdit.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.SpellChecker.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.SpellChecker.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Charts.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Charts.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraCharts.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraGauges.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraGauges.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraGauges.v14.2.Presets, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraGauges.v14.2.Presets.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxGauges.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxGauges.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraCharts.v14.2.Web, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraCharts.v14.2.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Printing.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Printing.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraReports.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraReports.v14.2.Web, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraReports.v14.2.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraPivotGrid.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraPivotGrid.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.PivotGrid.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.PivotGrid.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.XtraScheduler.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.XtraScheduler.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxScheduler.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxScheduler.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Spreadsheet.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Spreadsheet.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.ASPxSpreadsheet.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.ASPxSpreadsheet.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Xpo.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Xpo.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.DataAccess.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.DataAccess.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Dashboard.v14.2.Core, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Dashboard.v14.2.Core.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Dashboard.v14.2.Web, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Dashboard.v14.2.Web.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Dashboard.v14.2.Web.Mvc5, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Dashboard.v14.2.Web.Mvc5.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="DevExpress.Web.Mvc5.v14.2, Version=14.2.4.0, Culture=neutral, PublicKeyToken=b88d1754d700e49a">
+      <HintPath>..\lib\DevExpress\DevExpress.Web.Mvc5.v14.2.dll</HintPath>
       <Private>True</Private>
     </Reference>
     <Reference Include="WebMatrix.Data, Version=3.0.0.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
