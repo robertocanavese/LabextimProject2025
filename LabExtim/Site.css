@@ -812,7 +812,8 @@ table.gridview, table.detailstable {
     background-color: #f3f6fb;
 }
 
-table.gridview tr.row:hover > td, table.gridview tr.altRow:hover > td {
+/* Evidenziazione al passaggio del mouse; si esclude una griglia con CssClass="gridview noHover" */
+table.gridview:not(.noHover) tr.row:hover > td, table.gridview:not(.noHover) tr.altRow:hover > td {
     background-color: #e4ecf7;
 }
 

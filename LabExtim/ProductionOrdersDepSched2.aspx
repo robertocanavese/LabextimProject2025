@@ -706,7 +706,7 @@
 
                             <asp:GridView ID="grdProductionMPS" runat="server" AutoGenerateColumns="False"
                                 PagerSettings-Position="Top" AllowPaging="True" DataSourceID="ldsProductionMPS"
-                                DataKeyNames="ID" CssClass="gridview" OnPageIndexChanging="grdProductionMPS_PageIndexChanging"
+                                DataKeyNames="ID" CssClass="gridview noHover" OnPageIndexChanging="grdProductionMPS_PageIndexChanging"
                                 OnDataBound="grdProductionMPS_DataBound" OnRowDataBound="grdProductionMPS_RowDataBound"
                                 OnRowDeleted="grdProductionMPS_RowDeleted" OnRowCommand="grdProductionMPS_RowCommand"
                                 OnPreRender="grdProductionMPS_PreRender">
