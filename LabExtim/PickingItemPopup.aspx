@@ -16,7 +16,7 @@
         window.onclose = opener.location.reload();
     </script>--%>
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
+<body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
     <form id="form1" runat="server">
         <div>
             <asp:DynamicDataManager ID="DynamicDataManager1" runat="server"  AutoLoadForeignKeys="true" />

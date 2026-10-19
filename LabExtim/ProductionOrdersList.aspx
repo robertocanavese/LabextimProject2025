@@ -15,7 +15,7 @@
     <%--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />--%>
     <link href="~/Site.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB">
+<body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB">
     <form id="form1" runat="server">
         <asp:DynamicDataManager ID="DynamicDataManager1" runat="server" AutoLoadForeignKeys="true" />
         <%--<asp:ScriptManager ID="ScriptManager1" runat="server" EnablePartialRendering="true"
@@ -31,16 +31,16 @@
                         <table>
                             <tr>
                                 <td>
-                                    <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                                    <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                                 </td>
                             </tr>
                             <tr>
                                 <td>
                                     <%--<asp:LinkButton ID="lbtNewItem" runat="server" CssClass="gridview" Font-Bold="True"
-                                    ForeColor="Brown" Text="Nuova voce" />
+                                    ForeColor="#B5541C" Text="Nuova voce" />
                                 &nbsp;--%>
                                     <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                        ForeColor="Green" Text="Aggiorna lista" />
+                                        ForeColor="#2E7D32" Text="Aggiorna lista" />
                                     &nbsp;
                                 <%--<asp:LinkButton ID="lbtPrintProductionOrders" runat="server" CssClass="gridview"
                                     Font-Bold="True" OnClick="lbtPrintProductionOrders_Click" Text="Stampa tabella" />--%>

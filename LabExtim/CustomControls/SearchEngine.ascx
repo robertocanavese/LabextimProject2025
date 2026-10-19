@@ -136,9 +136,9 @@
                 <tr>
                     <td colspan="7" align="left">
                         <asp:LinkButton ID="lbtEmpty" runat="server" Text="RESET" Font-Bold="true"
-                            ForeColor="Red" OnClick="lbtEmpty_Click"></asp:LinkButton>&nbsp;&nbsp;
+                            ForeColor="#C62828" OnClick="lbtEmpty_Click"></asp:LinkButton>&nbsp;&nbsp;
             <asp:LinkButton ID="lbtSearch" runat="server" Text="CERCA" Font-Bold="true"
-                ForeColor="Green" OnClick="lbtSearch_Click"></asp:LinkButton>
+                ForeColor="#2E7D32" OnClick="lbtSearch_Click"></asp:LinkButton>
                     </td>
                 </tr>
             </table>

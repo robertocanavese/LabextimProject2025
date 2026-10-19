@@ -49,13 +49,13 @@
                 <tr>
                     <td>
                         <asp:LinkButton ID="lbtNewItem" runat="server" CssClass="gridview" Font-Bold="True"
-                            ForeColor="Brown" Text="Aggiungi righe" OnClick="lbtNewItem_Click" />
+                            ForeColor="#B5541C" Text="Aggiungi righe" OnClick="lbtNewItem_Click" />
                         &nbsp;
                         <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                            ForeColor="Green" Text="Aggiorna lista" />
+                            ForeColor="#2E7D32" Text="Aggiorna lista" />
                         &nbsp;
                         <asp:LinkButton ID="lbtSubmit" runat="server" CssClass="gridview" Font-Bold="True"
-                            ForeColor="Red" Text="Invia ad archivo" OnClick="lbtSubmit_Click" />
+                            ForeColor="#C62828" Text="Invia ad archivo" OnClick="lbtSubmit_Click" />
                         &nbsp;
                     </td>
                 </tr>

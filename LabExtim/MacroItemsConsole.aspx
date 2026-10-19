@@ -86,12 +86,12 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>
             <h4 style="width: 100%; text-align: center">
-                <asp:LinkButton ID="lbtToggleView" runat="server" ForeColor="Blue" Text="Lista macrovoci <-> Dettaglio macrovoce selezionata"
+                <asp:LinkButton ID="lbtToggleView" runat="server" ForeColor="#1F5FA8" Text="Lista macrovoci <-> Dettaglio macrovoce selezionata"
                     OnClick="lbtToggleView_Click"></asp:LinkButton>
             </h4>
 

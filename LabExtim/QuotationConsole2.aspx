@@ -651,7 +651,7 @@
                                             HeaderText="Costo Impianti" />
                                         <asp:BoundField DataField="PrcToolsTot" DataFormatString="{0:N2}" ItemStyle-Width="170"
                                             HeaderText="Prezzo Impianti" ItemStyle-Font-Bold="true"
-                                            ItemStyle-BackColor="Yellow" />
+                                            ItemStyle-BackColor="#FFF3A3" />
                                     </Columns>
                                 </asp:GridView>
                                 <br />
@@ -667,9 +667,9 @@
                                             HeaderText="Cst Prod Tot" />
                                         <asp:BoundField DataField="PrcProdUni" DataFormatString="{0:N3}" ItemStyle-Width="80"
                                             ItemStyle-Font-Bold="true" HeaderText="Prz Prod Uni"
-                                            ItemStyle-BackColor="Yellow" />
+                                            ItemStyle-BackColor="#FFF3A3" />
                                         <asp:BoundField DataField="PrcProdTot" DataFormatString="{0:N2}" ItemStyle-Width="90"
-                                            HeaderText="Prz Prod Tot" ItemStyle-BackColor="Yellow" />
+                                            HeaderText="Prz Prod Tot" ItemStyle-BackColor="#FFF3A3" />
                                         <asp:BoundField DataField="PrcUni" DataFormatString="{0:N3}" ItemStyle-Width="80"
                                             HeaderText="Prz Compl Uni" ItemStyle-Font-Bold="true" />
                                         <asp:BoundField DataField="PrcTot" DataFormatString="{0:N2}" ItemStyle-Width="90"
@@ -724,10 +724,10 @@
                 </asp:Panel>
                 <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdQuotationDetails"
                     Display="None" />
-                &nbsp;<asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                &nbsp;<asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                 <h3>Dettaglio&nbsp;
                             <asp:LinkButton ID="lbtAddUnmanagedItem" runat="server" CssClass="gridview" Font-Bold="False"
-                                ForeColor="Olive" Text="Aggiungi voce libera" OnClick="lbtAddUnmanagedItem_Click" />
+                                ForeColor="#6B7A1F" Text="Aggiungi voce libera" OnClick="lbtAddUnmanagedItem_Click" />
                     &nbsp;
                             <asp:LinkButton ID="lbtCreateProductionOrder" runat="server" CssClass="gridview"
                                 Font-Bold="False" Text="Crea Ordine di Produzione" OnClientClick="javascript:return SetParametersAndOpenPopUp();" />

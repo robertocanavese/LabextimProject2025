@@ -180,7 +180,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label></td>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label></td>
                 </tr>
             </table>
             <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdEmployeesWorkingDaysHoursStats"
@@ -190,10 +190,10 @@
                     <tr>
                         <td>&nbsp;
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" OnClick="PersistSelection" />
+                                ForeColor="#2E7D32" Text="Aggiorna lista" OnClick="PersistSelection" />
                             &nbsp; &nbsp; &nbsp; &nbsp;
                             <asp:LinkButton ID="lbtResetFilter" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Red" Text="Reset" OnClick="lbtResetFilter_Click" />
+                                ForeColor="#C62828" Text="Reset" OnClick="lbtResetFilter_Click" />
                             &nbsp; &nbsp; &nbsp; &nbsp;
                             <asp:LinkButton ID="lbtPrintEmployeesWorkingDaysHours" runat="server" CssClass="gridview"
                                 Font-Bold="True" OnClick="lbtPrintEmployeesWorkingDaysHours_Click" Text="Stampa tabella"
@@ -437,7 +437,7 @@
                     <tr>
                         <td>&nbsp; 
                              <asp:LinkButton ID="lbtUpdatePivot" runat="server" CssClass="gridview" Font-Bold="True"
-                                 ForeColor="Green" Text="Aggiorna pivot" OnClick="PersistSelection" />
+                                 ForeColor="#2E7D32" Text="Aggiorna pivot" OnClick="PersistSelection" />
 
                             &nbsp; &nbsp; &nbsp; &nbsp;
                                                         <asp:LinkButton ID="lbtExportPivotToExcel" runat="server" CssClass="gridview" Font-Bold="True"

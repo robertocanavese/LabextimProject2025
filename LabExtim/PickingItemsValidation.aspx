@@ -68,7 +68,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>
@@ -134,8 +134,8 @@
                                     <asp:BoundField DataField="TypeDescChecked" HeaderText="Tipo" />
                                     <asp:BoundField DataField="ItemTypeDescChecked" HeaderText="Tipo Voce" />
                                     <asp:BoundField DataField="ItemDescriptionChecked" HeaderText="Descrizione" ItemStyle-Width="250" />
-                                    <asp:BoundField DataField="UMDescChecked" HeaderText="UM" ItemStyle-Font-Bold="true" ItemStyle-ForeColor="Red" />
-                                    <asp:BoundField DataField="UMDescDep" HeaderText="DIP UM" ItemStyle-Font-Bold="true" ItemStyle-ForeColor="Red"/>
+                                    <asp:BoundField DataField="UMDescChecked" HeaderText="UM" ItemStyle-Font-Bold="true" ItemStyle-ForeColor="#C62828" />
+                                    <asp:BoundField DataField="UMDescDep" HeaderText="DIP UM" ItemStyle-Font-Bold="true" ItemStyle-ForeColor="#C62828"/>
                                     <asp:TemplateField>
                                         <ItemTemplate>
                                             <asp:HyperLink ID="hypEditDep" runat="server" ImageUrl="~/Images/pencil.png" ToolTip="Gestione dipendenza" />

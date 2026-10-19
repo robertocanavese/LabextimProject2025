@@ -131,7 +131,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>
@@ -142,7 +142,7 @@
                     <tr>
                         <td>
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" OnClick="lbtUpdateGrid_Click" />
+                                ForeColor="#2E7D32" Text="Aggiorna lista" OnClick="lbtUpdateGrid_Click" />
                             <asp:Label ID="Label1" runat="server" Text="(a filtro vuoto sono visualizzati gli OdP degli ultimi 3 mesi)"></asp:Label>
                         </td>
                     </tr>

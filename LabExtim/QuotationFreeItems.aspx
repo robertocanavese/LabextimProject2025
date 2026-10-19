@@ -187,7 +187,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>
@@ -198,7 +198,7 @@
                     <tr>
                         <td>
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" OnClick="lbtUpdateGrid_Click" />
+                                ForeColor="#2E7D32" Text="Aggiorna lista" OnClick="lbtUpdateGrid_Click" />
                             <asp:Label ID="Label1" runat="server" Text="(a filtro vuoto sono visualizzati i preventivi degli ultimi 12 mesi)"></asp:Label>
                         </td>
                     </tr>
@@ -264,7 +264,7 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lbtSubject" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "Subject") %>'
-                                                ForeColor="#718ABE" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
+                                                ForeColor="#1F5FA8" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
 

@@ -447,11 +447,11 @@
                                 <tr>
                                     <td colspan="9" align="left">
                                         <asp:LinkButton ID="lbtEmpty" runat="server" Text="RESET" Font-Bold="true" CssClass="gridview"
-                                            ForeColor="Red" OnClick="lbtEmpty_Click"></asp:LinkButton>
-                                        <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" ForeColor="Green"
+                                            ForeColor="#C62828" OnClick="lbtEmpty_Click"></asp:LinkButton>
+                                        <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" ForeColor="#2E7D32"
                                             Font-Bold="true" Text="CERCA"
                                             OnClick="lbtUpdateGrid_Click" />
-                                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                                     </td>
                                 </tr>
                             </table>
@@ -568,7 +568,7 @@
                                         </HeaderTemplate>
                                         <ItemTemplate>
                                             <asp:LinkButton ID="lbtSubject" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "QUOSubject") %>'
-                                                ForeColor="#718ABE" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
+                                                ForeColor="#1F5FA8" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
                                         </ItemTemplate>
                                     </asp:TemplateField>
                                     <%--8--%>

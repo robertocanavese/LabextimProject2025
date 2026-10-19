@@ -12,7 +12,7 @@
     <link href="~/Site.css" rel="stylesheet" type="text/css" />
     <script src="Site.js" type="text/javascript"></script>
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
+<body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
 
     <script type="text/javascript">
 
@@ -30,7 +30,7 @@
         <asp:ToolkitScriptManager ID="ToolkitScriptManager1" runat="server" EnablePartialRendering="true" EnableScriptGlobalization="true"></asp:ToolkitScriptManager>
         <h4>Ordine di Produzione<asp:Label ID="lblItemNo" runat="server" />
         </h4>
-        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red" EnableViewState="false"></asp:Label>
+        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828" EnableViewState="false"></asp:Label>
         <table>
             <%--<tr>
                 <td>
@@ -40,7 +40,7 @@
                     <asp:LinkButton ID="lblShowHideMP" runat="server" CssClass="gridview" Font-Bold="False"
                         Text="Nascondi/visualizza griglia pianificazione di dettaglio" OnClick="lblShowHideMP_Click" />
                     <br />
-                    <asp:Label ID="lblSuccess" runat="server" ForeColor="Red" EnableViewState="false"></asp:Label>
+                    <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828" EnableViewState="false"></asp:Label>
                 </td>
 
             </tr>--%>
@@ -96,8 +96,8 @@
                                         <asp:BoundField HeaderText="Dato OPERATORE Copie OK" DataField="OkCopiesCount" ItemStyle-HorizontalAlign="Right" />
 
 
-                                        <%--<asp:BoundField ItemStyle-BackColor="WhiteSmoke" HeaderText="Dato MACCHINA Copie richieste" DataField="DatiMacchinaCopieRichieste" ItemStyle-HorizontalAlign="Right"/>--%>
-                                        <asp:BoundField ItemStyle-BackColor="WhiteSmoke" HeaderText="Dato MACCHINA Copie lavorate" DataField="DatiMacchinaCopieLavorate" ItemStyle-HorizontalAlign="Right" />
+                                        <%--<asp:BoundField ItemStyle-BackColor="#F4F6FA" HeaderText="Dato MACCHINA Copie richieste" DataField="DatiMacchinaCopieRichieste" ItemStyle-HorizontalAlign="Right"/>--%>
+                                        <asp:BoundField ItemStyle-BackColor="#F4F6FA" HeaderText="Dato MACCHINA Copie lavorate" DataField="DatiMacchinaCopieLavorate" ItemStyle-HorizontalAlign="Right" />
 
                                         <asp:TemplateField>
                                             <ItemStyle HorizontalAlign="Center" />
@@ -215,7 +215,7 @@
                         </tr>
                         <tr>
                             <td valign="top">
-                                <asp:Label ID="lblQtaProdBOBST" runat="server" ForeColor="DarkGreen"></asp:Label>&nbsp;<asp:ImageButton ID="ibtQtaProdBOBST" Visible="false" runat="server" ImageUrl="~/Images/arrow_refresh.png" ToolTip="Aggiorna" OnClick="ibtQtaProdBOBST_Click" />
+                                <asp:Label ID="lblQtaProdBOBST" runat="server" ForeColor="#2E7D32"></asp:Label>&nbsp;<asp:ImageButton ID="ibtQtaProdBOBST" Visible="false" runat="server" ImageUrl="~/Images/arrow_refresh.png" ToolTip="Aggiorna" OnClick="ibtQtaProdBOBST_Click" />
                                 <h4>Dati Odp    </h4>
                                 <asp:DetailsView ID="dtvProductionOrder" runat="server" DataSourceID="DetailsDataSource"
                                     AutoGenerateEditButton="true" AutoGenerateInsertButton="true" OnModeChanging="OnDetailsViewModeChanging"
@@ -551,7 +551,7 @@
                                 </asp:LinqDataSource>
                             </td>
                             <td valign="top">
-                                <asp:Label ID="Label1" runat="server" ForeColor="DarkGreen"></asp:Label>&nbsp;<asp:ImageButton ID="ImageButton1" Visible="false" runat="server" ImageUrl="~/Images/arrow_refresh.png" ToolTip="Aggiorna" OnClick="ibtQtaProdBOBST_Click" />
+                                <asp:Label ID="Label1" runat="server" ForeColor="#2E7D32"></asp:Label>&nbsp;<asp:ImageButton ID="ImageButton1" Visible="false" runat="server" ImageUrl="~/Images/arrow_refresh.png" ToolTip="Aggiorna" OnClick="ibtQtaProdBOBST_Click" />
                                 <h4>Dati formato plastificazione trasmessi alla macchina</h4>
                                 <asp:DetailsView ID="dtvPlasticCoating" runat="server" DataSourceID="ldsPlasticCoating" AutoGenerateRows="false"
                                     AutoGenerateEditButton="true" OnItemUpdated="dtvPlasticCoating_ItemUpdated" DataKeyNames="Id_ProductionOrder">
@@ -619,13 +619,13 @@
             </tr>
             <tr>
                 <td>
-                    <asp:Button ID="btnSuspend" runat="server" CssClass="myButton" Font-Bold="False" ForeColor="Red"
+                    <asp:Button ID="btnSuspend" runat="server" CssClass="myButton" Font-Bold="False" ForeColor="#C62828"
                         OnClientClick="javascript:return confirm('Confermi la sospensione di questo OdP?');"
                         Text="Sospendi" OnClick="btnSuspend_Click" />&nbsp;&nbsp;
-                            <asp:Button ID="btnPortaInCorso" runat="server" CssClass="myButton" Font-Bold="False" ForeColor="Green"
+                            <asp:Button ID="btnPortaInCorso" runat="server" CssClass="myButton" Font-Bold="False" ForeColor="#2E7D32"
                                 OnClientClick="javascript:return confirm('Confermi di voler portare \'In corso\' questo OdP?');"
                                 Text="Porta in corso" OnClick="btnPortaInCorso_Click" />&nbsp;&nbsp;
-                     <asp:Button ID="btnPortainAttesa" runat="server" CssClass="myButton" Font-Bold="False" ForeColor="Brown"
+                     <asp:Button ID="btnPortainAttesa" runat="server" CssClass="myButton" Font-Bold="False" ForeColor="#B5541C"
                          OnClientClick="javascript:return confirm('Confermi di voler portare \'In attesa\' questo OdP?');"
                          Text="Porta in attesa" OnClick="btnPortainAttesa_Click" />
                     <asp:Button ID="btnResetSchedule" runat="server" CssClass="myButton" Font-Bold="False"
@@ -1149,7 +1149,7 @@
                             DataKeyNames="ID" CssClass="gridview" OnRowCommand="grdDeliveryTrips_RowCommand" OnRowDataBound="grdDeliveryTrips_RowDataBound" OnPreRender="grdDeliveryTrips_PreRender">
                             <RowStyle CssClass="row" />
                             <AlternatingRowStyle CssClass="altRow" />
-                            <SelectedRowStyle BackColor="Yellow" />
+                            <SelectedRowStyle BackColor="#FFF3A3" />
                             <Columns>
                                 <asp:TemplateField>
                                     <ItemStyle HorizontalAlign="Center" />

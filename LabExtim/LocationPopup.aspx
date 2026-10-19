@@ -15,7 +15,7 @@
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
     <link href="~/Site.css" rel="stylesheet" type="text/css" />
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
+<body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
 
     <script type="text/javascript">
         window.onunload = refreshParent;
@@ -38,7 +38,7 @@
                 <table>
                     <tr>
                         <td>
-                            <asp:Label ID="lblSuccess" runat="server" ForeColor="Red" EnableViewState="false"></asp:Label>
+                            <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828" EnableViewState="false"></asp:Label>
                         </td>
                     </tr>
                     <tr>

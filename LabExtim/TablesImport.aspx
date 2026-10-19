@@ -26,7 +26,7 @@
         <tr>
             <td>
                 <br />
-                <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
             </td>
         </tr>
     </table>

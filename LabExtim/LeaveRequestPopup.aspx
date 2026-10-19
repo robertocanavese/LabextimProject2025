@@ -16,7 +16,7 @@
         window.onclose = opener.LeaveType.reload();
     </script>--%>
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
+<body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
 
     <script type="text/javascript">
         window.onunload = refreshParent;

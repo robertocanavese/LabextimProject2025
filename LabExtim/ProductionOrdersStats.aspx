@@ -470,11 +470,11 @@
                                 <tr>
                                     <td colspan="9" align="left">
                                         <asp:LinkButton ID="lbtEmpty" runat="server" Text="RESET" Font-Bold="true" CssClass="gridview"
-                                            ForeColor="Red" OnClick="lbtEmpty_Click"></asp:LinkButton>
-                                        <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" ForeColor="Green"
+                                            ForeColor="#C62828" OnClick="lbtEmpty_Click"></asp:LinkButton>
+                                        <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" ForeColor="#2E7D32"
                                             Font-Bold="true" Text="CERCA"
                                             OnClick="lbtUpdateGrid_Click" />
-                                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                                     </td>
                                 </tr>
                             </table>
@@ -484,7 +484,7 @@
                                 <HeaderTemplate>
                                     <span>Codici Non-Conformità</span>
                                 </HeaderTemplate>
-                                <HeaderStyle BorderWidth="1" BorderColor="Navy" HorizontalAlign="Center" BackColor="Navy" ForeColor="White" />
+                                <HeaderStyle BorderWidth="1" BorderColor="#1F3A68" HorizontalAlign="Center" BackColor="#1F3A68" ForeColor="White" />
                                 <ItemTemplate>
                                     <label><%# Container.DataItem %></label>
                                 </ItemTemplate>
@@ -496,11 +496,11 @@
                                 <HeaderTemplate>
                                     <span>Codici Azioni Correttive</span>
                                 </HeaderTemplate>
-                                <HeaderStyle BorderWidth="1" BorderColor="Red" HorizontalAlign="Center" BackColor="Red" ForeColor="White" />
+                                <HeaderStyle BorderWidth="1" BorderColor="#C62828" HorizontalAlign="Center" BackColor="#C62828" ForeColor="White" />
                                 <ItemTemplate>
                                     <label><%# Container.DataItem %></label>
                                 </ItemTemplate>
-                                <ItemStyle BorderWidth="1" BorderColor="Red" ForeColor="Black" />
+                                <ItemStyle BorderWidth="1" BorderColor="#C62828" ForeColor="Black" />
                             </asp:DataList>
                         </td>
                     </tr>
@@ -623,10 +623,10 @@
                                             <asp:Label ID="lblCustomer" runat="server" Text="Preventivo"></asp:Label>
                                         </HeaderTemplate>
                                         <ItemTemplate>
-                                            <%--<asp:HyperLink ID="hypSubject" runat="server" Width="300" Text='<%# DataBinder.Eval(Container.DataItem, "QUOSubject") %>' ForeColor="#718ABE"
+                                            <%--<asp:HyperLink ID="hypSubject" runat="server" Width="300" Text='<%# DataBinder.Eval(Container.DataItem, "QUOSubject") %>' ForeColor="#1F5FA8"
                                             ToolTip="Visualizza preventivo"></asp:HyperLink>--%>
                                             <asp:LinkButton ID="lbtSubject" runat="server" Text='<%# DataBinder.Eval(Container.DataItem, "QUOSubject") %>'
-                                                ForeColor="#718ABE" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
+                                                ForeColor="#1F5FA8" ToolTip="Vai a preventivo" CommandName="GoToQuotation" CommandArgument='<%# DataBinder.Eval(Container.DataItem, "ID_Quotation") %>'></asp:LinkButton>
                                             <%-- <asp:DynamicControl ID="dycSubject" runat="server" DataField="QUOSubject" UIHint="Text250" />--%>
                                         </ItemTemplate>
                                     </asp:TemplateField>

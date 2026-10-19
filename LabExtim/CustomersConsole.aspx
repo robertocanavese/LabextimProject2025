@@ -24,7 +24,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>
@@ -35,7 +35,7 @@
                     <tr>
                         <td>
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" />
+                                ForeColor="#2E7D32" Text="Aggiorna lista" />
                             &nbsp;
                             <asp:LinkButton ID="lbtPrintCustomers" runat="server" CssClass="gridview" Font-Bold="True"
                                 OnClick="lbtPrintCustomers_Click" Text="Stampa tabella" />

@@ -54,7 +54,7 @@
     </script>
 
 </head>
-<body style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
+<body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
     <%--background-color: #fdffb8"--%>
     <form id="form1" runat="server">
         <div class="Landscape">
@@ -77,7 +77,7 @@
                                 <table>
                                     <tr>
                                         <td>
-                                            <asp:Label ID="lblSuccess" runat="server" ForeColor="Red" EnableViewState="false"></asp:Label>
+                                            <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828" EnableViewState="false"></asp:Label>
                                         </td>
                                     </tr>
                                     <tr>

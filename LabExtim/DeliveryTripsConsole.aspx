@@ -87,7 +87,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>
@@ -97,10 +97,10 @@
                     <tr>
                         <td>
                             <asp:LinkButton ID="lbtNewItem" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Nuovo viaggio" />
+                                ForeColor="#2E7D32" Text="Nuovo viaggio" />
                             &nbsp;
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" />
+                                ForeColor="#2E7D32" Text="Aggiorna lista" />
                             &nbsp;
                             <asp:LinkButton ID="lbtPrintDeliveryTrips" runat="server" CssClass="gridview" Font-Bold="True"
                                 OnClick="lbtPrintDeliveryTrips_Click" Text="Stampa tabella" />

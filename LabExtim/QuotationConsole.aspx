@@ -329,21 +329,21 @@
                                         <asp:GridView ID="grdToolsTotals" runat="server" AutoGenerateColumns="false" DataSourceID="ldsToolsTotals"
                                             Font-Size="Medium" CellPadding="5" BorderColor="ActiveBorder" BorderStyle="Solid"
                                             Width="340">
-                                            <HeaderStyle Font-Bold="true" Font-Size="Small" HorizontalAlign="Center" BackColor="WhiteSmoke" />
+                                            <HeaderStyle Font-Bold="true" Font-Size="Small" HorizontalAlign="Center" BackColor="#F4F6FA" />
                                             <RowStyle HorizontalAlign="Right" />
                                             <Columns>
                                                 <asp:BoundField DataField="CstToolsTot" DataFormatString="{0:N2}" ItemStyle-Width="170"
                                                     HeaderText="Costo Impianti" />
                                                 <asp:BoundField DataField="PrcToolsTot" DataFormatString="{0:N2}" ItemStyle-Width="170"
-                                                    HeaderText="Prezzo Impianti" ItemStyle-Font-Bold="true" HeaderStyle-BackColor="Yellow"
-                                                    ItemStyle-BackColor="Yellow" />
+                                                    HeaderText="Prezzo Impianti" ItemStyle-Font-Bold="true" HeaderStyle-BackColor="#FFF3A3"
+                                                    ItemStyle-BackColor="#FFF3A3" />
                                             </Columns>
                                         </asp:GridView>
                                         <br />
                                         <asp:GridView ID="grdTotals" runat="server" AutoGenerateColumns="false" DataSourceID="ldsTotals"
                                             Font-Size="Small" CellPadding="5" BorderColor="ActiveBorder" BorderStyle="Solid"
                                             Width="510">
-                                            <HeaderStyle Font-Bold="true" Font-Size="Small" HorizontalAlign="Center" BackColor="WhiteSmoke" />
+                                            <HeaderStyle Font-Bold="true" Font-Size="Small" HorizontalAlign="Center" BackColor="#F4F6FA" />
                                             <RowStyle HorizontalAlign="Right" />
                                             <Columns>
                                                 <asp:BoundField DataField="Quantity" DataFormatString="{0:N0}" HeaderText="Quantità"
@@ -351,10 +351,10 @@
                                                 <asp:BoundField DataField="CstProdTot" DataFormatString="{0:N2}" ItemStyle-Width="90"
                                                     HeaderText="Cst Prod Tot" />
                                                 <asp:BoundField DataField="PrcProdUni" DataFormatString="{0:N3}" ItemStyle-Width="80"
-                                                    ItemStyle-Font-Bold="true" HeaderText="Prz Prod Uni" HeaderStyle-BackColor="Yellow"
-                                                    ItemStyle-BackColor="Yellow" />
+                                                    ItemStyle-Font-Bold="true" HeaderText="Prz Prod Uni" HeaderStyle-BackColor="#FFF3A3"
+                                                    ItemStyle-BackColor="#FFF3A3" />
                                                 <asp:BoundField DataField="PrcProdTot" DataFormatString="{0:N2}" ItemStyle-Width="90"
-                                                    HeaderText="Prz Prod Tot" HeaderStyle-BackColor="Yellow" ItemStyle-BackColor="Yellow" />
+                                                    HeaderText="Prz Prod Tot" HeaderStyle-BackColor="#FFF3A3" ItemStyle-BackColor="#FFF3A3" />
                                                 <%--<asp:BoundField DataField="CstTot" DataFormatString="{0:N2}" HeaderText="Costo Tot" />--%>
                                                 <asp:BoundField DataField="PrcUni" DataFormatString="{0:N3}" ItemStyle-Width="80"
                                                     HeaderText="Prz Compl Uni" ItemStyle-Font-Bold="true" />
@@ -423,11 +423,11 @@
                         </asp:Panel>
                         <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdQuotationDetails"
                             Display="None" />
-                        &nbsp;<asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+                        &nbsp;<asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
                         <h2>
                             Dettaglio&nbsp;
                             <asp:LinkButton ID="lbtAddUnmanagedItem" runat="server" CssClass="gridview" Font-Bold="False"
-                                Font-Size="Small" ForeColor="Olive" Text="Aggiungi voce libera" OnClick="lbtAddUnmanagedItem_Click" />
+                                Font-Size="Small" ForeColor="#6B7A1F" Text="Aggiungi voce libera" OnClick="lbtAddUnmanagedItem_Click" />
                             &nbsp;
                             <asp:LinkButton ID="lbtCreateProductionOrder" runat="server" CssClass="gridview"
                                 Font-Bold="False" Font-Size="Small" Text="Crea Ordine di Produzione" OnClientClick="javascript:SetParametersAndOpenPopUp();" />

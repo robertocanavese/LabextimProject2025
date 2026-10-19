@@ -816,7 +816,14 @@ table.gridview tr.row:hover > td, table.gridview tr.altRow:hover > td {
     background-color: #e4ecf7;
 }
 
-tr.selected td, table.gridview tr.selected:hover > td {
+/* "selected" e' usato anche come stile normale delle righe dei DetailsView:
+   l'evidenziazione arancione vale solo per la riga selezionata delle griglie */
+tr.selected td {
+    background-color: #f4f6fa;
+    border-bottom: 1px solid #e1e6ee;
+}
+
+table.gridview tr.selected > td, table.gridview tr.selected:hover > td {
     background-color: #fde9cf;
     border: 1px solid #f5c89a;
 }

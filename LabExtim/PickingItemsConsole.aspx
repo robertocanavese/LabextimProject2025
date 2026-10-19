@@ -23,7 +23,7 @@
                 </tr>
                 <tr>
                     <td>
-                        <asp:Label ID="Label1" runat="server" ForeColor="Red"></asp:Label>
+                        <asp:Label ID="Label1" runat="server" ForeColor="#C62828"></asp:Label>
                     </td>
                 </tr>
             </table>--%>
@@ -113,7 +113,7 @@
                 </tr>
                 <tr>
                     <td colspan="6">
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label></td>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label></td>
                 </tr>
             </table>
             <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdPickingItems"

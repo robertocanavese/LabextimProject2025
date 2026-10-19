@@ -288,7 +288,7 @@
             </asp:Panel>
             <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdQuotationDetails"
                 Display="None" />
-            &nbsp;<asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label><h2>Dettaglio&nbsp;
+            &nbsp;<asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label><h2>Dettaglio&nbsp;
                 <asp:LinkButton ID="lbtViewInputItems" runat="server" CssClass="gridview" Font-Bold="False"
                     OnClick="lbtViewInputItems_Click" Text="Visualizza voci di input" Visible="false" />
                 &nbsp;

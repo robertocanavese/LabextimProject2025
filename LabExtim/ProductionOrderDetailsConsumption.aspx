@@ -240,7 +240,7 @@
                 </tr>
                 <tr>
                     <td colspan="3">
-                        <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label></td>
+                        <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label></td>
                 </tr>
             </table>
             <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdProductionOrderConsumptions"
@@ -250,10 +250,10 @@
                     <tr>
                         <td>&nbsp;
                             <asp:LinkButton ID="lbtUpdateGrid" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Green" Text="Aggiorna lista" OnClick="PersistSelection" />
+                                ForeColor="#2E7D32" Text="Aggiorna lista" OnClick="PersistSelection" />
                             &nbsp; &nbsp; &nbsp; &nbsp;
                             <asp:LinkButton ID="lbtReset" runat="server" CssClass="gridview" Font-Bold="True"
-                                ForeColor="Red" Text="Reset" OnClick="lbtReset_Click" />
+                                ForeColor="#C62828" Text="Reset" OnClick="lbtReset_Click" />
                             &nbsp; &nbsp; &nbsp; &nbsp;
                             <%--<asp:LinkButton ID="lbtPrintProductionOrderConsumptions" runat="server" CssClass="gridview"
                                 Font-Bold="True" OnClick="lbtPrintProductionOrderConsumptions_Click" Text="Stampa tabella"
