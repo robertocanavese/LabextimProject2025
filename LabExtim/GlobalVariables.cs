@@ -44,4 +44,16 @@ namespace LabExtim
             return selectors;
         }
     }
+
+    // Colori del Tema V4 (vedi blocco "Tema V4" in Site.css)
+    public static class ThemeColors
+    {
+        public static readonly System.Drawing.Color Danger = System.Drawing.ColorTranslator.FromHtml("#C62828");
+        public static readonly System.Drawing.Color Success = System.Drawing.ColorTranslator.FromHtml("#2E7D32");
+        public static readonly System.Drawing.Color Info = System.Drawing.ColorTranslator.FromHtml("#1F5FA8");
+        public static readonly System.Drawing.Color WarningBack = System.Drawing.ColorTranslator.FromHtml("#FFF3A3");
+        public static readonly System.Drawing.Color HighlightBack = System.Drawing.ColorTranslator.FromHtml("#FFF8D6");
+        public static readonly System.Drawing.Color MutedBack = System.Drawing.ColorTranslator.FromHtml("#E9EEF5");
+        public static readonly System.Drawing.Color DisabledBack = System.Drawing.ColorTranslator.FromHtml("#6B7280");
+    }
 }

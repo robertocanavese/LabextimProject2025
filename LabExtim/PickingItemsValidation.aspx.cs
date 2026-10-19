@@ -191,7 +191,7 @@ namespace LabExtim
                 var _row = e.Row;
                 if (((VW_UngroupablePickingItem) e.Row.DataItem).Inserted == false)
                 {
-                    _row.ForeColor = Color.Red;
+                    _row.ForeColor = ThemeColors.Danger;
                 }
 
                 var _hypEdit = (HyperLink) e.Row.Cells[1].FindControl("hypEdit");

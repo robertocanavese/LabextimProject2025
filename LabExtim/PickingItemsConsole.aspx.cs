@@ -361,7 +361,7 @@ namespace LabExtim
                 var _row = e.Row;
                 if (((PickingItem)e.Row.DataItem).Inserted == false)
                 {
-                    _row.ForeColor = Color.Red;
+                    _row.ForeColor = ThemeColors.Danger;
                 }
 
                 var _hypEdit = (HyperLink)e.Row.Cells[0].FindControl("hypEdit");
@@ -371,7 +371,7 @@ namespace LabExtim
                 if (((PickingItem)e.Row.DataItem).IsObsolete(GlobalConfiguration))
                 {
                     var _dycDate = (DynamicControl)e.Row.Cells[15].FindControl("dycDate");
-                    ((DataControlFieldCell)(_dycDate.Parent)).ForeColor = Color.Red;
+                    ((DataControlFieldCell)(_dycDate.Parent)).ForeColor = ThemeColors.Danger;
                     ((DataControlFieldCell)(_dycDate.Parent)).ToolTip =
                         string.Format("Il costo di questa voce non è aggiornato da almeno {0} mesi",
                             GlobalConfiguration["PIMU"]);

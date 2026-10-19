@@ -64,7 +64,7 @@
                 <asp:HyperLink ID="InsertHyperLink" runat="server"><img runat="server" src="~/DynamicData/Content/Images/plus.gif" alt="Aggiungi nuova voce" />Aggiungi nuova voce</asp:HyperLink>
             </div>
             <br />
-            <asp:Label ID="lblSuccess" runat="server" ForeColor="Red"></asp:Label>
+            <asp:Label ID="lblSuccess" runat="server" ForeColor="#C62828"></asp:Label>
         </ContentTemplate>
     </asp:UpdatePanel>
 </asp:content>

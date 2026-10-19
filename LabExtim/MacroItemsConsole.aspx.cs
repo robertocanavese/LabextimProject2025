@@ -341,7 +341,7 @@ namespace LabExtim
                 var _row = e.Row;
                 if (((MacroItem)e.Row.DataItem).Inserted == false)
                 {
-                    _row.ForeColor = Color.Red;
+                    _row.ForeColor = ThemeColors.Danger;
                 }
 
                 if (!string.IsNullOrEmpty(((MacroItem)e.Row.DataItem).Link))
@@ -509,7 +509,7 @@ namespace LabExtim
                 var _row = e.Row;
                 if (((MacroItemDetail)e.Row.DataItem).PickingItem.Inserted == false)
                 {
-                    _row.ForeColor = Color.Red;
+                    _row.ForeColor = ThemeColors.Danger;
                 }
                 m_voicePosition += 1;
                 _txtQuantity.TabIndex = m_voicePosition;
@@ -522,7 +522,7 @@ namespace LabExtim
                 if (((MacroItemDetail)e.Row.DataItem).PickingItem.IsObsolete(GlobalConfiguration))
                 {
                     var _lblDate1 = (Label)e.Row.Cells[12].FindControl("lblDate1");
-                    _lblDate1.ForeColor = Color.Red;
+                    _lblDate1.ForeColor = ThemeColors.Danger;
                     _lblDate1.ToolTip = string.Format("Il costo di questa voce non è aggiornato da almeno {0} mesi",
                         GlobalConfiguration["PIMU"]);
                 }

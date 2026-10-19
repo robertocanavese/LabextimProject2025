@@ -74,7 +74,7 @@
                     <table>
                         <tr>
                             <td colspan="2" style="text-align: center">
-                                <asp:Label ID="lblMessage" runat="server" CssClass="droplist" ForeColor="Red"></asp:Label>
+                                <asp:Label ID="lblMessage" runat="server" CssClass="droplist" ForeColor="#C62828"></asp:Label>
                             </td>
                         </tr>
                         <tr>
@@ -223,7 +223,7 @@
                         </tr>
                         <tr>
                             <td colspan="2" style="text-align: center">
-                                <asp:Label ID="lblMessageLockedOut" runat="server" CssClass="droplist" ForeColor="Red"></asp:Label>
+                                <asp:Label ID="lblMessageLockedOut" runat="server" CssClass="droplist" ForeColor="#C62828"></asp:Label>
                             </td>
                         </tr>
                     </table>

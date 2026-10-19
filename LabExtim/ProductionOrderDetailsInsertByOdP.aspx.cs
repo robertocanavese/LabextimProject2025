@@ -352,8 +352,8 @@ namespace LabExtim
                 {
                     var _errorControl =
                         (Label)grdProductionOrderDetails.Rows[i].Cells[2].FindControl("txtID_ProductionOrder");
-                    _errorControl.ForeColor = Color.Red;
-                    _errorControl.BackColor = Color.Yellow;
+                    _errorControl.ForeColor = ThemeColors.Danger;
+                    _errorControl.BackColor = ThemeColors.WarningBack;
                 }
             }
         }
@@ -377,8 +377,8 @@ namespace LabExtim
                 {
                     var _errorControl =
                         (Label)grdProductionOrderDetails.Rows[i].Cells[2].FindControl("txtID_ProductionOrder");
-                    _errorControl.ForeColor = Color.Red;
-                    _errorControl.BackColor = Color.Yellow;
+                    _errorControl.ForeColor = ThemeColors.Danger;
+                    _errorControl.BackColor = ThemeColors.WarningBack;
                 }
             }
         }

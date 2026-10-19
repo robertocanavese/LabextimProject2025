@@ -528,7 +528,7 @@ namespace LabExtim
                                  ((QuotationTemplateDetail)e.Row.DataItem).PickingItem.Inserted == false) &&
                                 ((QuotationTemplateDetail)e.Row.DataItem).Save == false)
                             {
-                                _row.ForeColor = Color.Red;
+                                _row.ForeColor = ThemeColors.Danger;
                             }
                         }
 
@@ -538,7 +538,7 @@ namespace LabExtim
                                  ((QuotationTemplateDetail)e.Row.DataItem).MacroItem.Inserted == false) &&
                                 ((QuotationTemplateDetail)e.Row.DataItem).Save)
                             {
-                                _row.ForeColor = Color.Red;
+                                _row.ForeColor = ThemeColors.Danger;
                             }
                         }
 
@@ -549,7 +549,7 @@ namespace LabExtim
                     }
                     catch
                     {
-                        _row.ForeColor = Color.Blue;
+                        _row.ForeColor = ThemeColors.Info;
                     }
                 }
             }

@@ -631,13 +631,13 @@ namespace LabExtim
                     //    ((TempQuotationDetail)e.Row.DataItem).Save == false)
                     if ((((TempQuotationDetail)e.Row.DataItem).PickingItem.Inserted == false) && ((TempQuotationDetail)e.Row.DataItem).Save == false)
                     {
-                        _row.ForeColor = Color.Red;
+                        _row.ForeColor = ThemeColors.Danger;
                     }
 
                     if (((TempQuotationDetail)e.Row.DataItem).PickingItem.IsObsolete(GlobalConfiguration))
                     {
                         var _dycCost = (DataControlFieldCell)e.Row.Cells[10 + 3];
-                        _dycCost.ControlStyle.ForeColor = Color.Red;
+                        _dycCost.ControlStyle.ForeColor = ThemeColors.Danger;
                         _dycCost.ToolTip = string.Format("Il costo di questa voce non è aggiornato da almeno {0} mesi",
                             GlobalConfiguration["PIMU"]);
                     }
@@ -650,12 +650,12 @@ namespace LabExtim
                     //    ((TempQuotationDetail)e.Row.DataItem).Save)
                     if ((((TempQuotationDetail)e.Row.DataItem).MacroItem.HasInactivePickingItems()) && ((TempQuotationDetail)e.Row.DataItem).Save)
                     {
-                        _row.ForeColor = Color.Red;
+                        _row.ForeColor = ThemeColors.Danger;
                     }
                     if (((TempQuotationDetail)e.Row.DataItem).MacroItem.IsObsolete(GlobalConfiguration))
                     {
                         var _dycCost = (DataControlFieldCell)e.Row.Cells[10 + 3];
-                        _dycCost.ControlStyle.ForeColor = Color.Red;
+                        _dycCost.ControlStyle.ForeColor = ThemeColors.Danger;
                         _dycCost.ToolTip = string.Format("Il costo di una o più voci di dettaglio di questa macrovoce non è aggiornato da almeno {0} mesi",
                             GlobalConfiguration["PIMU"]);
                     }

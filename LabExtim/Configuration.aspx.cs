@@ -37,7 +37,7 @@ namespace LabExtim
                 }
                 else
                 {
-                    lblError.ForeColor = System.Drawing.Color.Red;
+                    lblError.ForeColor = ThemeColors.Danger;
                     lblError.Text = "Il periodo di validità voci tabella base (mesi) per disattivazione automatica deve essere maggiore o uguale a 36 mesi";
                 }
             }

@@ -240,7 +240,7 @@ namespace LabExtim
                     case "|0|":
                         _row.ToolTip =
                             "Il record è in uso allo stesso utente nella stessa sessione di lavoro, accedere dalla pagina già attiva";
-                        _row.ForeColor = Color.Blue;
+                        _row.ForeColor = ThemeColors.Info;
                         var _lbtSelect0 = (LinkButton) e.Row.Cells[0].FindControl("lbtSelect");
                         _lbtSelect0.Visible = false;
                         var _lbtDelete0 = (LinkButton) e.Row.Cells[0].FindControl("lbtDelete");
@@ -249,7 +249,7 @@ namespace LabExtim
                     case "|1|":
                         _row.ToolTip =
                             "Il record è in uso allo stesso utente in un altra sessione di lavoro, accedere da quest'ultima";
-                        _row.ForeColor = Color.DarkGreen;
+                        _row.ForeColor = ThemeColors.Success;
                         var _lbtSelect1 = (LinkButton) e.Row.Cells[0].FindControl("lbtSelect");
                         _lbtSelect1.Visible = false;
                         var _lbtDelete1 = (LinkButton) e.Row.Cells[0].FindControl("lbtDelete");
@@ -260,7 +260,7 @@ namespace LabExtim
                     default:
                         _row.ToolTip = "Il record è in uso all'utente " +
                                        new MemberShipService().GetUser(_result).UserName;
-                        _row.ForeColor = Color.Red;
+                        _row.ForeColor = ThemeColors.Danger;
                         var _lbtSelect2 = (LinkButton) e.Row.Cells[0].FindControl("lbtSelect");
                         _lbtSelect2.Visible = false;
                         var _lbtDelete2 = (LinkButton) e.Row.Cells[0].FindControl("lbtDelete");

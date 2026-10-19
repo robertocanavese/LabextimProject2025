@@ -1540,7 +1540,7 @@ namespace LabExtim
 
                 if (curItem.ID == SelectedRowId)
                 {
-                    e.Row.BackColor = System.Drawing.Color.LightGray;
+                    e.Row.BackColor = ThemeColors.MutedBack;
                 }
             }
 

@@ -233,7 +233,7 @@ namespace LabExtim
                 if (((VW_EmployeesWorkingDayHour)e.Row.DataItem).ProductionTime > (36000000000m * 8m) &&
                     ddlGroupBy.SelectedValue == "All")
                 {
-                    _row.ForeColor = Color.Red;
+                    _row.ForeColor = ThemeColors.Danger;
                 }
 
                 //HyperLink _hypEdit = (HyperLink)e.Row.Cells[0].FindControl("hypEdit");

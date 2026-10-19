@@ -286,7 +286,7 @@ namespace LabExtim.Restricted
                 VW_Employee rowData = e.Row.DataItem as VW_Employee;
                 if (rowData.LeavingDate <= DateTime.Now.Date)
                 {
-                    e.Row.ForeColor = System.Drawing.Color.Red;
+                    e.Row.ForeColor = ThemeColors.Danger;
                     e.Row.ToolTip = "Utente disattivato";
                 }
                 else

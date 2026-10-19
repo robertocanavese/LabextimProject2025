@@ -791,13 +791,13 @@ namespace LabExtim
                          ((QuotationDetail) e.Row.DataItem).PickingItem.Inserted == false) &&
                         ((QuotationDetail) e.Row.DataItem).Save == false)
                     {
-                        _row.ForeColor = Color.Red;
+                        _row.ForeColor = ThemeColors.Danger;
                     }
 
                     if (((QuotationDetail) e.Row.DataItem).PickingItem.IsObsolete(GlobalConfiguration))
                     {
                         var _dycCost = (DataControlFieldCell) e.Row.Cells[8];
-                        _dycCost.ForeColor = Color.Red;
+                        _dycCost.ForeColor = ThemeColors.Danger;
                         _dycCost.ToolTip = string.Format("Il costo di questa voce non è aggiornato da almeno {0} mesi",
                             GlobalConfiguration["PIMU"]);
                     }
@@ -808,7 +808,7 @@ namespace LabExtim
                          ((QuotationDetail) e.Row.DataItem).MacroItem.Inserted == false) &&
                         ((QuotationDetail) e.Row.DataItem).Save)
                     {
-                        _row.ForeColor = Color.Red;
+                        _row.ForeColor = ThemeColors.Danger;
                     }
                 }
                 m_voicePosition += 1;

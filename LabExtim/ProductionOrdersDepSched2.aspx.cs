@@ -506,13 +506,13 @@ namespace LabExtim
 
                 if (item.Status == 15)
                 {
-                    e.Row.ForeColor = System.Drawing.Color.Red;
+                    e.Row.ForeColor = ThemeColors.Danger;
                 }
 
                 if (item.ID_ExternalCompany.HasValue)
                 {
                     e.Row.ForeColor = System.Drawing.Color.White;
-                    e.Row.BackColor = System.Drawing.Color.Gray;
+                    e.Row.BackColor = ThemeColors.DisabledBack;
                 }
 
             }

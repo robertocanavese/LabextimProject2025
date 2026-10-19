@@ -212,7 +212,7 @@ namespace LabExtim
 
                 if (item.Status == 19)
                 {
-                    e.Row.BackColor = System.Drawing.Color.LightYellow;
+                    e.Row.BackColor = ThemeColors.HighlightBack;
                 }
 
                 var _hypApprove = (LinkButton)e.Row.Cells[0].FindControl("ibtApprove");

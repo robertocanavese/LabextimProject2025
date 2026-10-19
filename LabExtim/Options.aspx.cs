@@ -161,7 +161,7 @@ namespace LabExtim
             }
             catch (Exception ex)
             {
-                lblCostChange_Error.ForeColor = System.Drawing.Color.Red;
+                lblCostChange_Error.ForeColor = ThemeColors.Danger;
                 lblCostChange_Error.Text = string.Format("Errore: {0}", ex.Message);
             }
 
@@ -179,7 +179,7 @@ namespace LabExtim
                 }
                 catch (Exception ex)
                 {
-                    lblCostChange_Error.ForeColor = System.Drawing.Color.Red;
+                    lblCostChange_Error.ForeColor = ThemeColors.Danger;
                     lblCostChange_Error.Text = string.Format("Errore: {0}", ex.Message);
                 }
 
