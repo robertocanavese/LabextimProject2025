@@ -906,6 +906,19 @@ input[type=submit].myButton, input[type=button].myButton {
         cursor: not-allowed;
     }
 
+    /* Pulsanti con colore del testo impostato (ForeColor): sfondo chiaro per leggere il testo */
+    input[type=submit].myButton[style^="color:"]:not([disabled]), input[type=submit].myButton[style*=";color:"]:not([disabled]),
+    input[type=button].myButton[style^="color:"]:not([disabled]), input[type=button].myButton[style*=";color:"]:not([disabled]) {
+        background-color: #eef2f8;
+        border-color: #b7c2d3;
+    }
+
+        input[type=submit].myButton[style^="color:"]:not([disabled]):hover, input[type=submit].myButton[style*=";color:"]:not([disabled]):hover,
+        input[type=button].myButton[style^="color:"]:not([disabled]):hover, input[type=button].myButton[style*=";color:"]:not([disabled]):hover {
+            background-color: #dde5f0;
+            border-color: #1f3a68;
+        }
+
 /* Pannelli di ricerca e filtri */
 
 body.template table.searchEngineMaster, body.template table.searchEngine,
