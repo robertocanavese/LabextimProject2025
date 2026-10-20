@@ -13,7 +13,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <%--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />--%>
-    <link href="~/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site.css?v=4.0" rel="stylesheet" type="text/css" />
 </head>
 <body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB">
     <form id="form1" runat="server">
@@ -245,5 +245,12 @@
             </asp:UpdatePanel>
         </div>
     </form>
+    <table class="masterTable center">
+        <tr>
+            <td>
+                <uilab:CopyrightControl ID="CopyrightControl1" runat="server" />
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
