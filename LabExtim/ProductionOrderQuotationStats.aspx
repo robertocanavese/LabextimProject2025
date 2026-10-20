@@ -11,7 +11,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <%--<meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />--%>
-    <link href="~/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site.css?v=4.0" rel="stylesheet" type="text/css" />
 
     <script src="Site.js" type="text/javascript"></script>
 
@@ -679,7 +679,7 @@
                         </td>
                     </tr>
                     <tr>
-                        <td align="center" colspan="2" style="padding: 10px">
+                        <td align="center" style="padding: 10px">
                             <asp:Button ID="lbtOptimizeLayout" runat="server" CssClass="myButton" Font-Bold="False" OnClick="lbtOptimizeLayout_Click" Text="Ottimizza per visualizzazione o stampa" />
                             &nbsp;&nbsp;
                                             <asp:Button ID="lbtPrintPOFinalCost" runat="server" CssClass="myButton" Font-Bold="False" OnClick="lbtPrintPOFinalCost_Click" OnClientClick="javascript:return confirm('Vuoi stampare il consuntivo costi dell\'ordine di produzione corrente?');" Text="Stampa consuntivo" />
@@ -692,5 +692,12 @@
             </asp:Panel>
         </div>
     </form>
+     <table class="masterTable center">
+        <tr>
+            <td>
+                <uilab:CopyrightControl ID="CopyrightControl1" runat="server" />
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

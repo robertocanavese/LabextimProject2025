@@ -11,7 +11,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <link href="~/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site.css?v=4.0" rel="stylesheet" type="text/css" />
     <%--<script type="text/javascript">
         window.onclose = opener.LeaveType.reload();
     </script>--%>
@@ -299,5 +299,12 @@
             </tr>
         </table>
     </form>
+     <table class="masterTable center">
+        <tr>
+            <td>
+                <uilab:CopyrightControl ID="CopyrightControl1" runat="server" />
+            </td>
+        </tr>
+    </table>
 </body>
 </html>

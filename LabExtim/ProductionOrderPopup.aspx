@@ -9,7 +9,7 @@
 <head id="Head1" runat="server">
     <title></title>
     <meta http-equiv="X-UA-Compatible" content="IE=EmulateIE7" />
-    <link href="~/Site.css" rel="stylesheet" type="text/css" />
+    <link href="~/Site.css?v=4.0" rel="stylesheet" type="text/css" />
     <script src="Site.js" type="text/javascript"></script>
 </head>
 <body class="template" style="font-family: Verdana, Geneva, Tahoma, sans-serif; font-size: 10px; background-color: #FBFBFB; color: navy">
@@ -1185,5 +1185,12 @@
             </tr>--%>
         </table>
     </form>
+     <table class="masterTable center">
+        <tr>
+            <td>
+                <uilab:CopyrightControl ID="CopyrightControl1" runat="server" />
+            </td>
+        </tr>
+    </table>
 </body>
 </html>
