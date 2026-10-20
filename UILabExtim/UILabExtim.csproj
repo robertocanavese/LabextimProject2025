@@ -85,6 +85,7 @@
     <Compile Include="ConfigurationController.cs">
       <SubType>ASPXCodeBehind</SubType>
     </Compile>
+    <Compile Include="CopyrightControl.cs" />
     <Compile Include="LabextimUser.cs" />
     <Compile Include="TempQuotationController.cs">
       <SubType>ASPXCodeBehind</SubType>

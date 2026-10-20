@@ -706,10 +706,12 @@ table.verticalLines th {
     color: white;
     background-color: navy;
 }
+
 table.verticalLines td {
     /*padding: 5px 5px 5px 5px;*/
     background-color: whitesmoke;
 }
+
 .link-disabilitato {
     color: #999;
     cursor: not-allowed;
@@ -1019,3 +1021,12 @@ table.verticalLines {
     }
 
 /* End: Tema V4 */
+.masterTable {
+    margin: auto;
+    border-collapse: collapse;
+    width: 100%;
+}
+
+    .masterTable td {
+        padding-top: 10px;
+    }

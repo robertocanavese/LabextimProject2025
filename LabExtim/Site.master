@@ -185,5 +185,12 @@
             </div>
         </div>
     </form>
+    <table class="masterTable center">
+    <tr>
+        <td>
+            <uilab:CopyrightControl ID="CopyrightControl1" runat="server" />
+        </td>
+    </tr>
+</table>
 </body>
 </html>
