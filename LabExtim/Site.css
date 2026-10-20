@@ -249,12 +249,12 @@ tr.selected td {
 
 /* The following modifies the page number control which exists under the main table */
 
-div.pager {
+/*div.pager {
     padding: 0px;
     padding-left: 6px;
     padding-right: 6px;
     background-color: #f2f2f2;
-}
+}*/
 
 span.results1 {
     float: left;
@@ -856,12 +856,12 @@ table.detailstable td {
         color: #14284b;
     }
 
-div.pager {
+/*div.pager {
     padding: 4px 6px;
     border: 1px solid #c9d2e0;
     border-top: none;
     background-color: #eef2f8;
-}
+}*/
 
 /* Campi e pulsanti */
 
