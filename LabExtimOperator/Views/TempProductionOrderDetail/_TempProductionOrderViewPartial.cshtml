@@ -124,13 +124,13 @@
 
         });
 
-        settings.Columns.Add(column =>
-        {
-            column.FieldName = "ProductionOrderNumber";
-            column.Caption = "Numero Odp";
-            column.EditFormSettings.Visible = DefaultBoolean.True;
+        //settings.Columns.Add(column =>
+        //{
+        //    column.FieldName = "ProductionOrderNumber";
+        //    column.Caption = "Numero Odp";
+        //    column.EditFormSettings.Visible = DefaultBoolean.True;
 
-        });
+        //});
 
         settings.Columns.Add(column =>
         {
@@ -204,8 +204,8 @@
                     CommonKey = x.ID,
                     Text = x.ItemDescription,
                     Order = x.Order
-                //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
-                // merge aziendale
+                    //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                    // merge aziendale
                 }).Union(context.MacroItems.
                     OrderBy(x => x.Order).
                     Select(x => new ComboListItem
@@ -246,8 +246,8 @@
             column.ColumnType = MVCxGridViewColumnType.ComboBox;
             var comboBoxProperties = column.PropertiesEdit as ComboBoxProperties;
             var source = context.PickingItems.
-                 //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
-                 // merge aziendale
+                //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                // merge aziendale
                  Where(x => x.TypeCode != 31).
                  OrderBy(x => x.Order).
                  Select(x => new ComboListItem
@@ -256,8 +256,8 @@
                      CommonKey = x.ID,
                      Text = x.ItemDescription,
                      Order = x.Order
-                 //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
-                 // merge aziendale
+                     //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                     // merge aziendale
                  }).Union(context.MacroItems.
                      OrderBy(x => x.Order).
                      Select(x => new ComboListItem
@@ -342,7 +342,8 @@
                                where (odp.Status != 3 && odp.Status != 19)
                                && (vars._IDmodel == 0 || odp.ID == vars._IDmodel)
                                orderby odp.ID descending
-                               select new { ID = odp.ID, Name = "(" + odp.ID + ") " + odp.Number + " - " + odp.Description + " (" + cust.Name + ")" };
+                               //select new { ID = odp.ID, Name = "(" + odp.ID + ") " + odp.Number + " - " + odp.Description + " (" + cust.Name + ")" };
+                               select new { ID = odp.ID, Name = odp.ID + " - " + odp.Description + " (" + cust.Name + ")" };
                     comboBoxSetings.Properties.DataSource = odps.ToList();
                     comboBoxSetings.Properties.TextField = "Name";
                     comboBoxSetings.Properties.ValueField = "ID";
@@ -509,13 +510,13 @@
                     itemSettings.ColSpan = 1;
                     itemSettings.FieldName = "PickingItemDescId";
                     itemSettings.Caption = "Prodotto di base corrente";
-                    itemSettings.Visible = (@ViewBag.IsNew != null ? !@ViewBag.IsNew: false);
+                    itemSettings.Visible = (@ViewBag.IsNew != null ? !@ViewBag.IsNew : false);
                     itemSettings.CaptionSettings.Location = LayoutItemCaptionLocation.Left;
                     itemSettings.NestedExtensionType = FormLayoutNestedExtensionItemType.ComboBox;
                     var comboBoxSetings = (ComboBoxSettings)itemSettings.NestedExtensionSettings;
                     var source = context.PickingItems.
-                    //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
-                    // merge aziendale
+                        //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                        // merge aziendale
                     Where(x => x.TypeCode != 31).
                     OrderBy(x => x.Order).
                     Select(x => new ComboListItem
@@ -525,8 +526,8 @@
                         Text = x.ItemDescription,
                         Order = x.Order,
                         IdUnit = context.Units.FirstOrDefault(u => u.ID == x.UM).Description,
-                    //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
-                    // merge aziendale
+                        //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                        // merge aziendale
                     }).Union(context.MacroItems.
                     OrderBy(x => x.Order).
                     Select(x => new ComboListItem
@@ -619,8 +620,8 @@
                 });
 
                 List<ComboListItem> list = context.PickingItems.
-                        //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
-                        // merge aziendale
+                    //Where(x => x.TypeCode != 31 && x.ID_Company == vars._currentCompanyId).
+                    // merge aziendale
                         Where(x => x.TypeCode != 31).
                         OrderBy(x => x.Order).
                         Select(x => new ComboListItem
@@ -630,8 +631,8 @@
                             Text = x.ItemDescription,
                             Order = x.Order,
                             IdUnit = context.Units.FirstOrDefault(u => u.ID == x.UM).Description,
-                        //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
-                        // merge aziendale
+                            //}).Union(context.MacroItems.Where(x => x.ID_Company == vars._currentCompanyId).
+                            // merge aziendale
                         }).Union(context.MacroItems.
                             OrderBy(x => x.Order).
                             Select(x => new ComboListItem
