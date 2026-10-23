@@ -1269,6 +1269,12 @@
     <Compile Include="ProductionOrdersStats.aspx.designer.cs">
       <DependentUpon>ProductionOrdersStats.aspx</DependentUpon>
     </Compile>
+    <Compile Include="Reports\ProductionOrder.cs">
+      <DependentUpon>ProductionOrder.rpt</DependentUpon>
+      <SubType>Component</SubType>
+      <DesignTime>True</DesignTime>
+      <AutoGen>True</AutoGen>
+    </Compile>
     <Compile Include="Reports\Quotation2013.cs">
       <DependentUpon>Quotation2013.rpt</DependentUpon>
       <AutoGen>True</AutoGen>
@@ -1585,13 +1591,6 @@
     </Compile>
     <Compile Include="PickingItemsPopup.aspx.designer.cs">
       <DependentUpon>PickingItemsPopup.aspx</DependentUpon>
-    </Compile>
-    <Compile Include="Reports\ProductionOrder.cs">
-      <DependentUpon>ProductionOrder.rpt</DependentUpon>
-      <AutoGen>True</AutoGen>
-      <SubType>Component</SubType>
-      <DesignTime>True</DesignTime>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </Compile>
     <Compile Include="Reports\PickingItems.cs">
       <AutoGen>True</AutoGen>
@@ -1946,6 +1945,10 @@
     <Content Include="Restricted\Web.config" />
   </ItemGroup>
   <ItemGroup>
+    <EmbeddedResource Include="Reports\ProductionOrder.rpt">
+      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
+      <LastGenOutput>ProductionOrder.cs</LastGenOutput>
+    </EmbeddedResource>
     <EmbeddedResource Include="Reports\ProductionOrderStat.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>ProductionOrderStat.cs</LastGenOutput>
@@ -1969,11 +1972,6 @@
     <EmbeddedResource Include="Reports\QuotationTechnical.rpt">
       <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
       <LastGenOutput>QuotationTechnical.cs</LastGenOutput>
-      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Reports\ProductionOrder.rpt">
-      <Generator>CrystalDecisions.VSDesigner.CodeGen.ReportCodeGenerator</Generator>
-      <LastGenOutput>ProductionOrder.cs</LastGenOutput>
       <CopyToOutputDirectory>Always</CopyToOutputDirectory>
     </EmbeddedResource>
     <EmbeddedResource Include="Reports\PickingItems.rpt">
