@@ -143,7 +143,7 @@
 
                     <td>
                         <div class="extimator">
-                            <asp:Label ID="lblApplication" runat="server" Text="Extimator 3.0" ForeColor="LightGray"></asp:Label>&nbsp;
+                            <asp:Label ID="lblApplication" runat="server" Text="Extimator 4.0" ForeColor="LightGray"></asp:Label>&nbsp;
                                 <asp:Label ID="lblUserName" runat="server" Font-Size="Smaller" ForeColor="Orange"></asp:Label>
                         </div>
 
