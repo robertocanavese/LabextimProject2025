@@ -74,12 +74,14 @@
   </PropertyGroup>
   <ItemGroup>
     <Reference Include="System" />
+    <Reference Include="System.configuration" />
     <Reference Include="System.Core">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
     <Reference Include="System.Drawing" />
     <Reference Include="System.Net" />
     <Reference Include="System.Web" />
+    <Reference Include="System.Web.Extensions" />
     <Reference Include="System.Xml.Linq">
       <RequiredTargetFramework>3.5</RequiredTargetFramework>
     </Reference>
@@ -115,6 +117,7 @@
     <Compile Include="S7Classes\snap7.net.cs">
       <SubType>Code</SubType>
     </Compile>
+    <Compile Include="GraphUtilities.cs" />
     <Compile Include="Utilities.cs" />
     <Compile Include="WODClasses\DHL.cs" />
     <Compile Include="WODClasses\OperationCount.cs" />
