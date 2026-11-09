@@ -52,7 +52,11 @@ namespace CMLabExtim
         // --- POST HTTP sincrona, restituisce il corpo della risposta ---
         private static string HttpPost(string url, string contentType, string body, string bearerToken)
         {
-            ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;   // Microsoft accetta solo TLS 1.2+
+            // prima (richiede target 4.5+)
+            //ServicePointManager.SecurityProtocol |= SecurityProtocolType.Tls12;
+
+            // dopo (compila con target 4.0)
+            ServicePointManager.SecurityProtocol |= (SecurityProtocolType)3072;   // 3072 = TLS 1.2
 
             var request = (HttpWebRequest)WebRequest.Create(url);
             request.Method = "POST";
