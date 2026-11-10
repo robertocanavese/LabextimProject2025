@@ -721,6 +721,7 @@
     <Content Include="crystalreportviewers13\urlreporting\appletviewer.js" />
     <Content Include="LeaveRequestPopup.aspx" />
     <Content Include="LeaveRequestsConsole.aspx" />
+    <Content Include="CloseOfDaysConsole.aspx" />
     <Content Include="DynamicData\FieldTemplates\YesNo_Edit.ascx" />
     <Content Include="DynamicData\FieldTemplates\SmallInteger_Edit.ascx" />
     <Content Include="DynamicData\FieldTemplates\YearCounterText_Edit.ascx" />
@@ -891,6 +892,7 @@
     </Compile>
     <Compile Include="ClearCache.aspx.cs">
       <DependentUpon>ClearCache.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
     </Compile>
     <Compile Include="ClearCache.aspx.designer.cs">
       <DependentUpon>ClearCache.aspx</DependentUpon>
@@ -916,6 +918,13 @@
     </Compile>
     <Compile Include="LeaveRequestsConsole.aspx.designer.cs">
       <DependentUpon>LeaveRequestsConsole.aspx</DependentUpon>
+    </Compile>
+    <Compile Include="CloseOfDaysConsole.aspx.cs">
+      <DependentUpon>CloseOfDaysConsole.aspx</DependentUpon>
+      <SubType>ASPXCodeBehind</SubType>
+    </Compile>
+    <Compile Include="CloseOfDaysConsole.aspx.designer.cs">
+      <DependentUpon>CloseOfDaysConsole.aspx</DependentUpon>
     </Compile>
     <Compile Include="DynamicData\FieldTemplates\YesNo_Edit.ascx.cs">
       <DependentUpon>YesNo_Edit.ascx</DependentUpon>
@@ -2008,6 +2017,7 @@
     <Content Include="web.sitemap">
       <SubType>Designer</SubType>
     </Content>
+    <Content Include="web.config.secrets" />
   </ItemGroup>
   <PropertyGroup>
     <VisualStudioVersion Condition="'$(VisualStudioVersion)' == ''">10.0</VisualStudioVersion>

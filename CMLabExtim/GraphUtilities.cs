@@ -7,7 +7,6 @@ using System.Net;
 using System.Text;
 using System.Web;
 using System.Web.Script.Serialization;
-using System.Configuration;
 
 namespace CMLabExtim
 {

@@ -373,6 +373,7 @@
     <Content Include="Views\LeaveRequest\_LeaveRequestViewPartial.cshtml" />
     <Content Include="Views\LeaveRequest\_PopupLeaveRequestViewPartial.cshtml" />
     <Content Include="Views\LeaveRequest\Index.cshtml" />
+    <Content Include="web.config.secrets" />
     <None Include="Web.Debug.config">
       <DependentUpon>Web.config</DependentUpon>
     </None>

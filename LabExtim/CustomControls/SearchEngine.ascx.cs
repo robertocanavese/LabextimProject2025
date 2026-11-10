@@ -206,6 +206,15 @@ namespace LabExtim.CustomControls
             set;
         }
 
+        /// <summary>
+        /// Mostra/nasconde il campo di ricerca "ID" (default: visibile).
+        /// </summary>
+        public bool ShowIdField
+        {
+            get { return ViewState["ShowIdField"] == null || (bool)ViewState["ShowIdField"]; }
+            set { ViewState["ShowIdField"] = value; }
+        }
+
 
         public string GetCurrentSelection()
         {
@@ -263,6 +272,9 @@ namespace LabExtim.CustomControls
         {
             ItbNo.SearchClick += SearchClick;
             YctNumber.SearchClick += SearchClick;
+
+            lblNo.Visible = ShowIdField;
+            itbNo.Visible = ShowIdField;
 
             YctNumber.Visible = LblYearCounterText != string.Empty;
 
