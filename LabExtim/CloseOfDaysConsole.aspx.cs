@@ -58,7 +58,7 @@ namespace LabExtim
         {
             senMain.ShowIdField = false;
             senMain.LblTextField1Text = "Operatore";
-            senMain.LblTextField2Text = "Note";
+            senMain.LblTextField2Text = "Cerca testo nelle note...";
             senMain.LblDateFromText = "Data da";
             senMain.LblDateToText = "Data a";
 
