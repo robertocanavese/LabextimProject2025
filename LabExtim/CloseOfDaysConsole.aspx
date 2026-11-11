@@ -63,7 +63,7 @@
     <asp:DynamicDataManager ID="DynamicDataManager1" runat="server" AutoLoadForeignKeys="true" />
     <asp:UpdatePanel ID="UpdatePanel1" runat="server">
         <ContentTemplate>
-            <h2>Chiusure giornata
+            <h2>Segnalazioni di fine giornata
             </h2>
             <asp:DynamicValidator runat="server" ID="GridViewValidator" ControlToValidate="grdCloseOfDays"
                 Display="None" />

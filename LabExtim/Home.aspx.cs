@@ -67,7 +67,7 @@ namespace LabExtim
             if (WebUser.IsAdministrator)
             {
                 tvwMenu1.Nodes.Add(new TreeNode("Gestione permessi/ferie", string.Empty, string.Empty, "~/LeaveRequestsConsole.aspx", string.Empty));
-                tvwMenu1.Nodes.Add(new TreeNode("Chiusure giornata", string.Empty, string.Empty, "~/CloseOfDaysConsole.aspx", string.Empty));
+                tvwMenu1.Nodes.Add(new TreeNode("Segnalazioni di fine giornata", string.Empty, string.Empty, "~/CloseOfDaysConsole.aspx", string.Empty));
             }
 
             tvwMenu2.Nodes.Add(new TreeNode("Ordini di produzione"));
