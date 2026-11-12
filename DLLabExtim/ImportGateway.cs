@@ -684,7 +684,7 @@ namespace DLLabExtim
                 var _backupCommand =
                     new SqlCommand(
                         "BACKUP LOG " + databaseName + " TO DISK='" + destinationPath + @"\" + databaseName +
-                        ".trn'", _connection);
+                        ".trn' WITH INIT;", _connection);
                 _backupCommand.CommandTimeout = 1200;
                 var _done = _backupCommand.ExecuteNonQuery();
                 _connection.Close();
